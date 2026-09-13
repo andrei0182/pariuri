@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from . import selectors as sel
 from .consent import dismiss_overlays
 from .match_state import classify_status
-from .models import Match, Odds1X2, OddsOverUnder
+from .models import Match, Odds1X2
 
 logger = logging.getLogger(__name__)
 
@@ -23,8 +23,6 @@ DEFAULT_WAIT = 15
 
 def build_date_url(date: dt.date) -> str:
     return sel.DATE_URL_TEMPLATE.format(year=date.year, month=date.month, day=date.day)
-
-
 
 
 def load_date(driver: WebDriver, date: dt.date, wait_seconds: int = DEFAULT_WAIT, retries: int = 3) -> None:
@@ -171,94 +169,16 @@ def extract_matches_1x2(driver: WebDriver) -> list[Match]:
     return matches
 
 
-def switch_to_over_under(driver: WebDriver, wait_seconds: int = DEFAULT_WAIT) -> bool:
-    """Click the odds-view control to switch from 1X2 to Over/Under 2.5.
-
-    Returns False (and leaves the page untouched) if the control isn't found —
-    callers should treat that as "O/U odds unavailable for this view" rather
-    than crash the whole run.
-    """
-    dropdowns = driver.find_elements(By.CSS_SELECTOR, sel.ODDS_VIEW_DROPDOWN)
-    if not dropdowns:
-        logger.warning("Odds-view dropdown not found; selector needs verifying (see selectors.py).")
-        return False
-
-    rows_before = driver.find_elements(By.CSS_SELECTOR, sel.MATCH_ROW)
-    anchor = rows_before[0] if rows_before else None
-
-    options = driver.find_elements(By.CSS_SELECTOR, sel.ODDS_VIEW_OPTION_OU25)
-    if not options:
-        logger.warning("Over/Under 2.5 option not found; selector needs verifying (see selectors.py).")
-        return False
-    options[0].click()
-
-    try:
-        if anchor is not None:
-            WebDriverWait(driver, wait_seconds).until(EC.staleness_of(anchor))
-        WebDriverWait(driver, wait_seconds).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, sel.MATCH_ROW))
-        )
-    except TimeoutException:
-        logger.warning("Timed out waiting for Over/Under view to refresh.")
-        return False
-    return True
-
-
-def extract_matches_ou(driver: WebDriver) -> dict[str, OddsOverUnder]:
-    """Parse the currently loaded page's match table assuming the Over/Under 2.5 view is active.
-
-    NOT YET CONFIRMED: unlike the 1X2 table structure above, no page with an
-    Over/Under 2.5 view (or a 1X2<->O/U toggle) has been found live yet — the
-    odds-filter page that confirmed everything else only shows 1X2. Check a
-    single competition's page (e.g. /football/romania/superliga/) or a
-    specific match page for where O/U odds actually live before trusting
-    this function; it currently just mirrors the 1X2 parsing logic as a
-    starting point.
-
-    Returns a dict keyed the same way as Match.match_key() so results can be
-    merged back onto the 1X2 list. Keyed by match_url when the row has a
-    link (the common case and the stable case), falling back to the
-    team/time combo otherwise — matching Match.match_key()'s own fallback.
-    """
-    ou_by_key: dict[str, OddsOverUnder] = {}
-    rows = driver.find_elements(By.CSS_SELECTOR, sel.MATCH_ROW)
-
-    for row in rows:
-        if _is_league_header_row(row):
-            continue
-
-        parsed = _extract_match_row(row)
-        if parsed is None:
-            continue
-        time_text, home, away, match_url = parsed
-        key = match_url or f"{home.lower()}|{away.lower()}|{time_text}"
-
-        odds_cells = row.find_elements(By.CSS_SELECTOR, sel.ODDS_CELLS)
-        ou_by_key[key] = OddsOverUnder(
-            line=2.5,
-            over=_parse_float(odds_cells[0].text) if len(odds_cells) > 0 else None,
-            under=_parse_float(odds_cells[1].text) if len(odds_cells) > 1 else None,
-        )
-
-    return ou_by_key
-
-
-def merge_ou_into_matches(matches: list[Match], ou_by_key: dict[str, OddsOverUnder]) -> None:
-    for match in matches:
-        ou = ou_by_key.get(match.match_key())
-        if ou is not None:
-            match.odds_ou = ou
-
-
 def scrape_day(driver: WebDriver, date: dt.date) -> list[Match]:
-    """Full Steps 3-6 pipeline for a single day: load page, get 1X2, switch view, get O/U, merge."""
+    """Load the day's match list and extract 1X2 odds.
+
+    Over/Under odds are deliberately NOT fetched here. An earlier assumption
+    that O/U 2.5 lived on this list page behind a view-switch dropdown was
+    wrong — that dropdown doesn't exist in this page's real markup. O/U 2.5
+    odds are instead fetched per-match via a confirmed AJAX endpoint; see
+    betscraper.match_odds.fetch_over_under_odds, wired in through
+    betscraper.match_stats.scrape_match_stats (used when --with-stats is
+    passed to main.py).
+    """
     load_date(driver, date)
-    matches = extract_matches_1x2(driver)
-
-    if switch_to_over_under(driver):
-        ou_by_key = extract_matches_ou(driver)
-        merge_ou_into_matches(matches, ou_by_key)
-    else:
-        logger.warning("Skipping Over/Under merge for %s — view switch failed.", date)
-
-    return matches
+    return extract_matches_1x2(driver)

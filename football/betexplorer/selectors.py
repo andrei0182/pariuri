@@ -88,8 +88,6 @@ LIVE_ROW_ATTR = "data-live"
 COMPLETED_SCORE_PATTERN = r"^\d+:\d+"
 
 # ---- Odds view switch: 1X2 -> Over/Under 2.5 (Step 5) -------------------------
-ODDS_VIEW_DROPDOWN = "select.js-select-odds, div.odds-type-selector"
-ODDS_VIEW_OPTION_OU25 = "option[value*='over-under'], a[data-odds='ou-2.5']"
 
 # ---- Over/Under odds via AJAX endpoint (confirmed, replaces the whole
 # switch_to_over_under/OU_TAB_ROOT/OU_SUBTAB_* premise above) ------------------

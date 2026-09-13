@@ -1,9 +1,16 @@
 from __future__ import annotations
 
+import logging
 import re
 
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.support.ui import WebDriverWait
+
+from .consent import dismiss_overlays
+
+logger = logging.getLogger(__name__)
 
 # ---- Confirmed (2026-09-12), via DevTools on a real match page --------------
 # Per-team Over/Under hit-rate stats (Steps 7-8's original goal) live on a
@@ -43,12 +50,27 @@ def build_league_base_url(match_url: str) -> str:
     return base + "/"
 
 
-def discover_ts_token(driver: WebDriver) -> str | None:
+def discover_ts_token(driver: WebDriver, wait_seconds: float = 20.0) -> str | None:
     """Find the `ts` session token by regex-searching the currently loaded
     page's source. CONFIRMED to appear in ts=XXXXXXXX form somewhere in the
     match page's own AJAX links (it's the same token the page's own JS uses
     to call this same standings endpoint when a person clicks the O/U tab).
+
+    CONFIRMED: the widget this token lives in (div#standingsComponent) loads
+    lazily/asynchronously — on the live site this has taken anywhere from
+    ~18s to 90+s to appear after navigation, well after document.readyState
+    reports "complete", and sometimes doesn't appear within a single page
+    load at all. Poll page_source for the token rather than checking it
+    once immediately; callers needing more resilience than a single
+    `wait_seconds` budget should retry via a full page reload (see
+    extract_over_under_stats).
     """
+    try:
+        WebDriverWait(driver, wait_seconds).until(
+            lambda d: _TS_PATTERN.search(d.page_source) is not None
+        )
+    except TimeoutException:
+        return None
     match = _TS_PATTERN.search(driver.page_source)
     return match.group(1) if match else None
 
@@ -145,20 +167,40 @@ def extract_over_under_stats(
     home_team: str,
     away_team: str,
     lines: tuple[float, ...] = (1.5, 2.5, 3.5),
-    wait_seconds: float = 15.0,
+    wait_seconds: float = 20.0,
+    retries: int = 3,
 ) -> tuple["TeamOverUnderStats", "TeamOverUnderStats"] | None:
     """Full pipeline: discover the ts token, resolve both teams' ids, fetch
     the standings response once, and read off each requested O/U line for
     both teams.
 
+    The standings widget (where `ts` lives) loads asynchronously with
+    inconsistent timing on the live site — observed anywhere from ~18s to
+    90+s, or sometimes not at all within a single page load. If the token
+    doesn't appear within `wait_seconds` on a given attempt, reloads the
+    match page and tries again, up to `retries` times — a fresh reload has
+    a better chance of catching a fast render than waiting indefinitely.
+
     Returns None (rather than raising) if the ts token, either team's id, or
-    the standings fetch itself can't be resolved — callers should treat that
-    as "stats unavailable for this match" and move on, the same as
-    stats_eligible=False elsewhere in this pipeline.
+    the standings fetch itself can't be resolved after all retries —
+    callers should treat that as "stats unavailable for this match" and
+    move on, the same as stats_eligible=False elsewhere in this pipeline.
     """
     from .models import TeamOverUnderStats  # local import to avoid a cycle at module load
 
-    ts = discover_ts_token(driver)
+    ts = None
+    for attempt in range(1, retries + 1):
+        ts = discover_ts_token(driver, wait_seconds=wait_seconds)
+        if ts:
+            break
+        logger.warning(
+            "extract_over_under_stats: ts token not found on attempt %d/%d for %s",
+            attempt, retries, match_url,
+        )
+        if attempt < retries:
+            driver.get(match_url)
+            dismiss_overlays(driver)
+
     if not ts:
         return None
 
@@ -168,7 +210,7 @@ def extract_over_under_stats(
         return None
 
     url = build_standings_url(match_url, ts, match_id)
-    html = fetch_standings_html(driver, url, wait_seconds)
+    html = fetch_standings_html(driver, url)
     if not html:
         return None
 

@@ -34,9 +34,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--workers",
         type=int,
-        default=5,
-        help="Concurrent threads for --with-stats' per-match HTTP requests (default: 5 — "
-        "higher values risk 429 Too Many Requests from the site).",
+        default=3,
+        help="Concurrent threads for --with-stats' per-match HTTP requests (default: 3 — "
+        "higher values risk 429 Too Many Requests from the site under sustained load).",
     )
     parser.add_argument("--no-headless", action="store_true", help="Show the browser window.")
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging.")

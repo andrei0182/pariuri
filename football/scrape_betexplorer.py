@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import logging
-import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from betscraper.driver import build_driver
 from betscraper.export import save_to_excel
@@ -22,14 +22,21 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--with-stats",
         action="store_true",
-        help="Also visit each match page for Over/Under 2.5 odds and per-team 1.5/2.5/3.5 "
-        "hit-rate stats (both via confirmed AJAX endpoints; slow — one extra page load per match).",
+        help="Also fetch Over/Under 2.5 odds and per-team 1.5/2.5/3.5 hit-rate stats for each "
+        "match, via plain HTTP requests (fast — no extra browser page load per match).",
     )
     parser.add_argument(
         "--max-matches",
         type=int,
         default=None,
         help="Limit how many matches get per-match stats scraped (for testing).",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=5,
+        help="Concurrent threads for --with-stats' per-match HTTP requests (default: 5 — "
+        "higher values risk 429 Too Many Requests from the site).",
     )
     parser.add_argument("--no-headless", action="store_true", help="Show the browser window.")
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging.")
@@ -58,26 +65,31 @@ def main() -> None:
 
         if args.with_stats:
             targets = [m for m in matches if m.match_url][: args.max_matches]
-            for i, match in enumerate(targets, start=1):
-                logging.info(
-                    "[%d/%d] Stats for %s vs %s", i, len(targets), match.home_team, match.away_team
-                )
-                try:
-                    eligible, home_stats, away_stats, odds_ou = scrape_match_stats(
-                        driver, match.match_url, match.home_team, match.away_team
-                    )
+
+            def _fetch_one(match):
+                return match, scrape_match_stats(match.match_url, match.home_team, match.away_team)
+
+            done = 0
+            with ThreadPoolExecutor(max_workers=args.workers) as pool:
+                futures = [pool.submit(_fetch_one, match) for match in targets]
+                for future in as_completed(futures):
+                    done += 1
+                    try:
+                        match, (eligible, home_stats, away_stats, odds_ou) = future.result()
+                    except Exception:
+                        logging.exception(
+                            "[%d/%d] Failed to get stats for a match — leaving stats blank "
+                            "for it and continuing with the rest.",
+                            done, len(targets),
+                        )
+                        continue
                     match.stats_eligible = eligible
                     match.home_stats = home_stats
                     match.away_stats = away_stats
                     match.odds_ou = odds_ou
-                except Exception:
-                    logging.exception(
-                        "Failed to get stats for %s vs %s — leaving stats blank for this "
-                        "match and continuing with the rest.",
-                        match.home_team,
-                        match.away_team,
+                    logging.info(
+                        "[%d/%d] Stats for %s vs %s", done, len(targets), match.home_team, match.away_team
                     )
-                time.sleep(1)  # be polite between match-page navigations
     finally:
         driver.quit()
         if matches:

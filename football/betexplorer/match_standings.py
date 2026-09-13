@@ -2,8 +2,12 @@ from __future__ import annotations
 
 import logging
 import re
+import threading
+import time
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 logger = logging.getLogger(__name__)
 
@@ -52,9 +56,13 @@ _USER_AGENT = (
 
 _session = requests.Session()
 _session.headers.update({"User-Agent": _USER_AGENT, "X-Requested-With": "XMLHttpRequest"})
+_retry = Retry(total=4, backoff_factor=1.0, status_forcelist=[429, 500, 502, 503, 504], respect_retry_after_header=True)
+_session.mount("https://", HTTPAdapter(max_retries=_retry))
+_session.mount("http://", HTTPAdapter(max_retries=_retry))
 
 # league_base_url -> {team_name_lower: {line: (matches_played, over, under)}}, or None on failure
 _league_cache: dict[str, dict[str, dict[float, tuple[int, int, int]]] | None] = {}
+_league_cache_lock = threading.Lock()  # guards _league_cache across concurrent threads (see main.py)
 
 
 def build_league_base_url(match_url: str) -> str:
@@ -71,28 +79,29 @@ def build_league_base_url(match_url: str) -> str:
 def discover_ts_token(league_base_url: str, timeout: float = 10.0) -> str | None:
     """Plain GET of the league's own page — the `ts` token is right there in
     the server-rendered HTML, no browser/JS execution needed.
+
+    Raises requests.RequestException on a network/HTTP failure (after the
+    session's own retry-with-backoff is exhausted) — callers should NOT
+    treat that the same as a successfully-fetched page with no token; see
+    get_league_stats for why that distinction matters (cache poisoning).
     """
-    try:
-        resp = _session.get(league_base_url, timeout=timeout)
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        logger.warning("discover_ts_token: request failed for %s: %s", league_base_url, exc)
-        return None
+    resp = _session.get(league_base_url, timeout=timeout)
+    resp.raise_for_status()
     match = _TS_PATTERN.search(resp.text)
     return match.group(1) if match else None
 
 
 def fetch_league_over_under_html(league_base_url: str, timeout: float = 15.0) -> str | None:
+    """Raises requests.RequestException on a network/HTTP failure — see
+    discover_ts_token's docstring for why callers must not conflate that
+    with a real negative (returns None only for a successfully-fetched page
+    with no ts token in it)."""
     ts = discover_ts_token(league_base_url, timeout=timeout)
     if not ts:
         return None
     url = f"{league_base_url}standings/?table=over_under&table_sub=overall&ts={ts}&dcheck=0&as-ajax=1&l=en"
-    try:
-        resp = _session.get(url, timeout=timeout)
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        logger.warning("fetch_league_over_under_html: request failed for %s: %s", url, exc)
-        return None
+    resp = _session.get(url, timeout=timeout)
+    resp.raise_for_status()
     return resp.text
 
 
@@ -126,12 +135,35 @@ def get_league_stats(
     broken league is only retried once per run, not once per match.
     """
     league_base_url = build_league_base_url(match_url)
-    if league_base_url in _league_cache:
-        return _league_cache[league_base_url]
+    while True:
+        with _league_cache_lock:
+            cached = _league_cache.get(league_base_url, "__missing__")
+            if cached == "__missing__":
+                # Reserve this league's slot before releasing the lock, so a
+                # second thread racing in right behind us waits instead of
+                # also fetching — avoids N threads hitting the same
+                # brand-new league at once.
+                _league_cache[league_base_url] = "__pending__"
+                break
+            if cached != "__pending__":
+                return cached
+        time.sleep(0.05)  # another thread is fetching this league — wait
 
-    html = fetch_league_over_under_html(league_base_url)
+    try:
+        html = fetch_league_over_under_html(league_base_url)
+    except requests.RequestException as exc:
+        logger.warning(
+            "get_league_stats: transient failure for %s: %s — not caching as a "
+            "permanent negative, a later match from this league will retry",
+            league_base_url, exc,
+        )
+        with _league_cache_lock:
+            _league_cache.pop(league_base_url, None)
+        return None
+
     if not html:
-        _league_cache[league_base_url] = None
+        with _league_cache_lock:
+            _league_cache[league_base_url] = None
         return None
 
     teams: dict[str, dict[float, tuple[int, int, int]]] = {}
@@ -139,7 +171,8 @@ def get_league_stats(
         for team_name_lower, stats in parse_all_teams_for_line(html, line).items():
             teams.setdefault(team_name_lower, {})[line] = stats
 
-    _league_cache[league_base_url] = teams
+    with _league_cache_lock:
+        _league_cache[league_base_url] = teams
     return teams
 
 

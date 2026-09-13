@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import datetime as dt
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -37,6 +38,7 @@ class Match:
     away_team: str
     time_text: str
     status: str  # "scheduled" | "live" | "completed"
+    date: Optional[dt.date] = None  # the --date this match was scraped for (client spec: "Match Date" column)
     score: Optional[str] = None
     partial_score: Optional[str] = None  # confirmed live: e.g. "(0:0, 0:1)" — half/period breakdown, from td.table-main__partial
     match_url: Optional[str] = None
@@ -64,6 +66,7 @@ class Match:
         stats = self.home_stats or TeamOverUnderStats()
         astats = self.away_stats or TeamOverUnderStats()
         return {
+            "date": self.date.isoformat() if self.date else None,
             "league": self.league,
             "time": self.time_text,
             "status": self.status,

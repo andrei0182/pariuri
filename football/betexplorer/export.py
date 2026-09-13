@@ -15,6 +15,7 @@ from .models import Match
 # note this means a pd.read_excel() on the saved .xlsx now sees these
 # Romanian labels as its column names, not the English keys below.
 _COLUMN_LABELS = {
+    "date": "Match Date",
     "league": "League",
     "time": "Kick-off Time",
     "status": "Status",
@@ -133,6 +134,19 @@ def build_league_summary(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def build_high_confidence_over25(df: pd.DataFrame) -> pd.DataFrame:
+    """Matches where Probability Over 2.5 is exactly 100% — both teams have
+    gone Over 2.5 in every game of theirs this season (see
+    add_probability_columns). Only the columns needed to place a bet on
+    one: league, kick-off time, both teams, and the Over 2.5 odds.
+    """
+    cols = ["league", "time", "home_team", "away_team", "odds_over", "prob_over_2.5"]
+    if df.empty or "prob_over_2.5" not in df.columns:
+        return pd.DataFrame(columns=cols)
+    filtered = df[df["prob_over_2.5"] == 1.0][cols].copy()
+    return filtered.sort_values(["league", "time"]).reset_index(drop=True)
+
+
 def _style_sheet(ws, df: pd.DataFrame, percent_cols: set[str], odds_cols: set[str]) -> None:
     """Bold/colored header with the descriptive label text, frozen header
     row, auto-sized columns, percentage/odds number formats, and a proper
@@ -185,12 +199,15 @@ def save_to_excel(matches: list[Match], path: str) -> None:
     df = matches_to_dataframe(matches)
     df = add_probability_columns(df)
     summary_df = build_league_summary(df)
+    high_confidence_df = build_high_confidence_over25(df)
 
     with pd.ExcelWriter(path, engine="openpyxl") as writer:
         # Write data only (no pandas header) — we write our own styled,
         # descriptive header row directly below via _style_sheet.
         df.to_excel(writer, sheet_name="Matches", index=False, header=False, startrow=1)
         summary_df.to_excel(writer, sheet_name="League Summary", index=False, header=False, startrow=1)
+        high_confidence_df.to_excel(writer, sheet_name="100% Over 2.5", index=False, header=False, startrow=1)
 
         _style_sheet(writer.sheets["Matches"], df, _MAIN_PERCENT_COLUMNS, _MAIN_ODDS_COLUMNS)
         _style_sheet(writer.sheets["League Summary"], summary_df, _SUMMARY_PERCENT_COLUMNS, _SUMMARY_ODDS_COLUMNS)
+        _style_sheet(writer.sheets["100% Over 2.5"], high_confidence_df, {"prob_over_2.5"}, {"odds_over"})

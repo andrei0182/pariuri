@@ -25,6 +25,33 @@ def build_date_url(date: dt.date) -> str:
     return sel.DATE_URL_TEMPLATE.format(year=date.year, month=date.month, day=date.day)
 
 
+def _wait_for_odds_text(driver: WebDriver, settle_seconds: float = 8.0) -> None:
+    """Match rows (and their odds <td> cells) appear in the DOM as soon as
+    presence_of_element_located(MATCH_ROW) succeeds, but the odds cells'
+    TEXT populates asynchronously slightly after that (see ODDS_CELLS'
+    comment in selectors.py) — on a fast page load, reading them
+    immediately silently returns empty/None for every match's 1X2 odds.
+    Waits for at least one odds cell to have non-empty text as a signal
+    that rendering has caught up. Bounded and non-fatal: if the page
+    genuinely has no odds populated yet for any match (e.g. a date far
+    enough in the future that no bookmaker has posted odds), this times
+    out quietly and extraction proceeds anyway rather than retrying the
+    whole page load forever.
+    """
+    try:
+        WebDriverWait(driver, settle_seconds).until(
+            lambda d: any(
+                el.text.strip() for el in d.find_elements(By.CSS_SELECTOR, sel.ODDS_CELLS)
+            )
+        )
+    except TimeoutException:
+        logger.info(
+            "_wait_for_odds_text: no odds cell text appeared within %.0fs — "
+            "proceeding anyway (may be a date with no odds posted yet)",
+            settle_seconds,
+        )
+
+
 def load_date(driver: WebDriver, date: dt.date, wait_seconds: int = DEFAULT_WAIT, retries: int = 3) -> None:
     """Navigate to the match list for a given date and wait for rows to render.
 
@@ -42,6 +69,7 @@ def load_date(driver: WebDriver, date: dt.date, wait_seconds: int = DEFAULT_WAIT
             WebDriverWait(driver, wait_seconds).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, sel.MATCH_ROW))
             )
+            _wait_for_odds_text(driver)
             return  # success
         except TimeoutException as exc:
             # Covers both a page-load-level timeout from driver.get() itself
@@ -114,7 +142,7 @@ def _extract_match_row(row) -> tuple[str, str, str, str | None] | None:
     return time_text, home, away, match_url
 
 
-def extract_matches_1x2(driver: WebDriver) -> list[Match]:
+def extract_matches_1x2(driver: WebDriver, date: dt.date) -> list[Match]:
     """Parse the currently loaded page's match table.
 
     Confirmed: /football/results/?year=&month=&day= mixes two row kinds for
@@ -122,6 +150,10 @@ def extract_matches_1x2(driver: WebDriver) -> list[Match]:
     (SCORE_CELL/PARTIAL_SCORE_CELL, no odds), and later-that-day matches that
     haven't kicked off yet (ODDS_CELLS, no result). Branch on which is
     present per row rather than assuming one for the whole page.
+
+    `date` is the day this page was loaded for (the --date argument) — it's
+    stamped onto every Match since the client's template requires a "Match
+    Date" column and nothing on the row itself carries the calendar date.
     """
     matches: list[Match] = []
     current_league = ""
@@ -163,6 +195,7 @@ def extract_matches_1x2(driver: WebDriver) -> list[Match]:
                 away_team=away,
                 time_text=time_text,
                 status=status,
+                date=date,
                 score=score,
                 partial_score=partial_score,
                 match_url=match_url,
@@ -185,4 +218,4 @@ def scrape_day(driver: WebDriver, date: dt.date) -> list[Match]:
     passed to main.py).
     """
     load_date(driver, date)
-    return extract_matches_1x2(driver)
+    return extract_matches_1x2(driver, date)

@@ -36,14 +36,18 @@ def load_date(driver: WebDriver, date: dt.date, wait_seconds: int = DEFAULT_WAIT
     last_exc: TimeoutException | None = None
 
     for attempt in range(1, retries + 1):
-        driver.get(url)
-        dismiss_overlays(driver)
         try:
+            driver.get(url)
+            dismiss_overlays(driver)
             WebDriverWait(driver, wait_seconds).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, sel.MATCH_ROW))
             )
             return  # success
         except TimeoutException as exc:
+            # Covers both a page-load-level timeout from driver.get() itself
+            # (Chrome's own renderer taking too long) and our own
+            # WebDriverWait timing out waiting for match rows to appear —
+            # either way, the fix is the same: reload and try again.
             last_exc = exc
             logger.warning(
                 "load_date attempt %d/%d timed out for %s — retrying",

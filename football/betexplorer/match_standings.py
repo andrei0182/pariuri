@@ -50,7 +50,7 @@ def build_league_base_url(match_url: str) -> str:
     return base + "/"
 
 
-def discover_ts_token(driver: WebDriver, wait_seconds: float = 20.0) -> str | None:
+def discover_ts_token(driver: WebDriver, wait_seconds: float = 8.0) -> str | None:
     """Find the `ts` session token by regex-searching the currently loaded
     page's source. CONFIRMED to appear in ts=XXXXXXXX form somewhere in the
     match page's own AJAX links (it's the same token the page's own JS uses
@@ -167,8 +167,8 @@ def extract_over_under_stats(
     home_team: str,
     away_team: str,
     lines: tuple[float, ...] = (1.5, 2.5, 3.5),
-    wait_seconds: float = 20.0,
-    retries: int = 3,
+    wait_seconds: float = 8.0,
+    retries: int = 2,
 ) -> tuple["TeamOverUnderStats", "TeamOverUnderStats"] | None:
     """Full pipeline: discover the ts token, resolve both teams' ids, fetch
     the standings response once, and read off each requested O/U line for

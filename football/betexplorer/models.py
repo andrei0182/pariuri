@@ -38,6 +38,7 @@ class Match:
     time_text: str
     status: str  # "scheduled" | "live" | "completed"
     score: Optional[str] = None
+    partial_score: Optional[str] = None  # confirmed live: e.g. "(0:0, 0:1)" — half/period breakdown, from td.table-main__partial
     match_url: Optional[str] = None
     odds_1x2: Odds1X2 = field(default_factory=Odds1X2)
     odds_ou: OddsOverUnder = field(default_factory=OddsOverUnder)
@@ -45,9 +46,19 @@ class Match:
     home_stats: Optional[TeamOverUnderStats] = None
     away_stats: Optional[TeamOverUnderStats] = None
 
-    def match_key(self) -> tuple[str, str, str]:
-        """Key used to merge the 1X2 table row with the Over/Under table row for the same fixture."""
-        return (self.home_team.strip().lower(), self.away_team.strip().lower(), self.time_text.strip())
+    def match_key(self) -> str:
+        """Key used to merge the 1X2 table row with the Over/Under table row for the same fixture.
+
+        Prefers match_url: it's a stable per-fixture identifier that doesn't
+        change between the two page states. Falls back to
+        (home, away, time_text) only when a row has no link, but that combo is
+        fragile — if a match goes live between the 1X2 load and the O/U-view
+        switch, its time cell can change from a fixed kickoff time to a
+        running clock, silently breaking the merge for that row.
+        """
+        if self.match_url:
+            return self.match_url
+        return f"{self.home_team.strip().lower()}|{self.away_team.strip().lower()}|{self.time_text.strip()}"
 
     def to_flat_dict(self) -> dict:
         stats = self.home_stats or TeamOverUnderStats()
@@ -59,6 +70,7 @@ class Match:
             "home_team": self.home_team,
             "away_team": self.away_team,
             "score": self.score,
+            "partial_score": self.partial_score,
             "odds_1": self.odds_1x2.home,
             "odds_x": self.odds_1x2.draw,
             "odds_2": self.odds_1x2.away,

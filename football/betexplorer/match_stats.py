@@ -9,7 +9,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 from . import selectors as sel
-from .models import TeamOverUnderStats
+from .consent import dismiss_overlays
+from .match_odds import extract_match_id, fetch_over_under_odds
+from .match_standings import extract_over_under_stats as _extract_hit_rate_stats
+from .models import OddsOverUnder, TeamOverUnderStats
 
 logger = logging.getLogger(__name__)
 
@@ -19,82 +22,51 @@ DEFAULT_WAIT = 15
 def is_stats_eligible(driver: WebDriver) -> bool:
     """Step 7: a match only has Over/Under stats if its page has a standings table.
 
-    Deliberately DOM-based rather than a competition-name heuristic ('Cup' in
-    the name), since competitions like the Champions League have no
-    standings table either despite not being literally a 'cup'.
+    NOT YET CONFIRMED — STANDINGS_TABLE is still a guessed selector (see
+    selectors.py). Deliberately DOM-based rather than a competition-name
+    heuristic ('Cup' in the name) once confirmed, since competitions like the
+    Champions League have no standings table either despite not being
+    literally a 'cup'.
     """
     return len(driver.find_elements(By.CSS_SELECTOR, sel.STANDINGS_TABLE)) > 0
 
 
-def _read_cell(driver: WebDriver, css: str) -> str | None:
-    elements = driver.find_elements(By.CSS_SELECTOR, css)
-    return elements[0].text.strip() if elements and elements[0].text.strip() else None
-
-
-def _click_and_wait_for_change(
-    driver: WebDriver, tab_css: str, old_home_value: str | None, wait_seconds: int
-) -> bool:
-    """Click an Over/Under sub-tab and wait for the stats table content to actually change.
-
-    Comparing against the previously read value (rather than a fixed sleep)
-    is what step 8 asks for: each click re-renders the same DOM nodes, so a
-    plain 'wait for element present' would pass instantly against stale text.
-    """
-    tabs = driver.find_elements(By.CSS_SELECTOR, tab_css)
-    if not tabs:
-        logger.warning("O/U sub-tab %s not found; selector needs verifying.", tab_css)
-        return False
-    tabs[0].click()
-
-    try:
-        WebDriverWait(driver, wait_seconds).until(
-            lambda d: _read_cell(d, sel.OU_HOME_STATS_CELL) != old_home_value
-            or old_home_value is None
-        )
-    except TimeoutException:
-        logger.warning("Timed out waiting for O/U stats to refresh after clicking %s.", tab_css)
-        return False
-    return True
-
-
 def extract_over_under_stats(
-    driver: WebDriver, wait_seconds: int = DEFAULT_WAIT
+    driver: WebDriver,
+    match_url: str,
+    match_id: str,
+    home_team: str,
+    away_team: str,
+    wait_seconds: int = DEFAULT_WAIT,
 ) -> tuple[TeamOverUnderStats, TeamOverUnderStats]:
-    """Step 8: click through Overall / 1.5, 2.5, 3.5 and read both teams' values each time."""
-    home_stats = TeamOverUnderStats()
-    away_stats = TeamOverUnderStats()
-
-    baseline_home = _read_cell(driver, sel.OU_HOME_STATS_CELL)
-
-    if _click_and_wait_for_change(driver, sel.OU_SUBTAB_1_5, None, wait_seconds):
-        home_stats.over_1_5 = _read_cell(driver, sel.OU_HOME_STATS_CELL)
-        away_stats.over_1_5 = _read_cell(driver, sel.OU_AWAY_STATS_CELL)
-        last_home = home_stats.over_1_5
-    else:
-        last_home = baseline_home
-
-    if _click_and_wait_for_change(driver, sel.OU_SUBTAB_2_5, last_home, wait_seconds):
-        home_stats.over_2_5 = _read_cell(driver, sel.OU_HOME_STATS_CELL)
-        away_stats.over_2_5 = _read_cell(driver, sel.OU_AWAY_STATS_CELL)
-        last_home = home_stats.over_2_5
-    else:
-        home_stats.over_2_5 = _read_cell(driver, sel.OU_HOME_STATS_CELL)
-        away_stats.over_2_5 = _read_cell(driver, sel.OU_AWAY_STATS_CELL)
-
-    if _click_and_wait_for_change(driver, sel.OU_SUBTAB_3_5, last_home, wait_seconds):
-        home_stats.over_3_5 = _read_cell(driver, sel.OU_HOME_STATS_CELL)
-        away_stats.over_3_5 = _read_cell(driver, sel.OU_AWAY_STATS_CELL)
-    else:
-        home_stats.over_3_5 = _read_cell(driver, sel.OU_HOME_STATS_CELL)
-        away_stats.over_3_5 = _read_cell(driver, sel.OU_AWAY_STATS_CELL)
-
-    return home_stats, away_stats
+    """Step 8: per-team Over/Under hit-rate stats (e.g. "24 of 38 games went
+    Over 2.5"), via the confirmed league-standings AJAX endpoint
+    (match_standings.py) — reads the 1.5/2.5/3.5 lines for both teams in one
+    fetch. Returns empty TeamOverUnderStats() for both sides if any part of
+    the lookup (ts token, either team's id, or the fetch itself) fails,
+    rather than raising — the caller (scrape_match_stats) already treats a
+    failed lookup the same as any other per-match scrape error.
+    """
+    result = _extract_hit_rate_stats(driver, match_url, match_id, home_team, away_team, wait_seconds=wait_seconds)
+    if result is None:
+        return TeamOverUnderStats(), TeamOverUnderStats()
+    return result
 
 
 def scrape_match_stats(
-    driver: WebDriver, match_url: str, wait_seconds: int = DEFAULT_WAIT
-) -> tuple[bool, TeamOverUnderStats | None, TeamOverUnderStats | None]:
-    """Full Steps 7-8 pipeline for one match page. Returns (eligible, home_stats, away_stats)."""
+    driver: WebDriver, match_url: str, home_team: str, away_team: str, wait_seconds: int = DEFAULT_WAIT
+) -> tuple[bool, TeamOverUnderStats | None, TeamOverUnderStats | None, OddsOverUnder]:
+    """Full per-match pipeline for one match page. Returns (stats_eligible,
+    home_stats, away_stats, odds_ou).
+
+    odds_ou and the hit-rate stats are both fetched via confirmed AJAX
+    endpoints and don't depend on stats_eligible — stats_eligible itself is
+    still based on the unconfirmed STANDINGS_TABLE selector (see
+    is_stats_eligible) and is kept only so callers can distinguish "no
+    standings table at all for this competition" from "lookup failed"; both
+    currently just leave home_stats/away_stats at their default values, so
+    this flag doesn't gate anything yet.
+    """
     driver.get(match_url)
     try:
         WebDriverWait(driver, wait_seconds).until(
@@ -102,9 +74,16 @@ def scrape_match_stats(
         )
     except TimeoutException:
         pass
+    dismiss_overlays(driver)
 
-    if not is_stats_eligible(driver):
-        return False, None, None
+    match_id = extract_match_id(match_url)
+    odds_ou = fetch_over_under_odds(driver, match_id, line=2.5) if match_id else OddsOverUnder(line=2.5)
 
-    home_stats, away_stats = extract_over_under_stats(driver, wait_seconds)
-    return True, home_stats, away_stats
+    eligible = is_stats_eligible(driver)
+    if not match_id:
+        return eligible, None, None, odds_ou
+
+    home_stats, away_stats = extract_over_under_stats(
+        driver, match_url, match_id, home_team, away_team, wait_seconds
+    )
+    return eligible, home_stats, away_stats, odds_ou

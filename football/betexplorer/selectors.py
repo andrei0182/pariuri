@@ -118,7 +118,7 @@ OU_AJAX_URL_TEMPLATE = BASE_URL + "/match-odds/{match_id}/0/ou/bestOdds/?lang=en
 # (found alongside the OU_AJAX call in the same Network capture). Confirm its
 # response format before using it — it may need the `ts` token the OU_AJAX
 # endpoint didn't.
-STANDINGS_TABLE = "div#standings, table.table-standings"  # presence check == stats-eligible — NOT YET CONFIRMED
+STANDINGS_OU_TAB_XPATH = "//a[contains(@class, 'standings__submenu-a') and normalize-space(.)='Over/Under']"  # CONFIRMED 2026-09-13 — clicking this tab injects the O/U hit-rate tables (table-type-6-*) into the DOM; its absence means this match has no standings widget (cup/friendly/single-leg tie)
 
 # ---- Overlay dismissal: age gate + cookie consent -----------------------------
 # BetExplorer shows an 18+ age-verification interstitial on first load, and

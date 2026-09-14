@@ -34,11 +34,32 @@ import sys
 import unicodedata
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
 _SUFFIX_BET = " (BetExplorer)"
 _SUFFIX_SB = " (Superbet)"
+_LOCAL_TZ = ZoneInfo("Europe/Bucharest")
+
+
+def to_local_kickoff(raw) -> str:
+    """Both BetExplorer and Superbet store the kickoff time in UTC (CONFIRMED
+    2026-09-14 via diagnose_times.py: BetExplorer's "17:00" matches
+    Superbet's raw "2026-09-14 17:00:00" exactly, while the Superbet app
+    itself displays that same match at 20:00 local). Superbet is the only
+    one of the two that exports a full date+time (BetExplorer only exports
+    a bare "HH:MM"), so it is the only one this can convert unambiguously.
+    Uses zoneinfo (not a fixed +3h offset) so this stays correct across the
+    October/March DST changes, not just for today.
+    """
+    if raw is None or (isinstance(raw, float) and pd.isna(raw)):
+        return ""
+    try:
+        parsed = pd.to_datetime(raw, utc=True)
+    except (ValueError, TypeError):
+        return str(raw)
+    return parsed.tz_convert(_LOCAL_TZ).strftime("%H:%M")
 
 
 def normalize_name(name: str) -> str:
@@ -66,6 +87,7 @@ def load_superbet_matches(superbet_xlsx: str) -> pd.DataFrame:
     df = pd.read_excel(superbet_xlsx, sheet_name="Matches")
     df["_home_norm"] = df["Home Team"].map(normalize_name)
     df["_away_norm"] = df["Away Team"].map(normalize_name)
+    df["_kickoff_local"] = df["Kick-off Time"].map(to_local_kickoff)
     return df
 
 
@@ -143,7 +165,7 @@ def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str)
             league = row.get("League" + _SUFFIX_BET, "")
             home = row.get("Home Team" + _SUFFIX_BET, "")
             away = row.get("Away Team" + _SUFFIX_BET, "")
-            time_text = row.get("Kick-off Time" + _SUFFIX_BET, "")
+            time_text = row.get("_kickoff_local" + _SUFFIX_SB, "") + " (ora Romaniei)"
             odds_over = row.get("Odds Over" + _SUFFIX_SB, "")
             home_over = row.get("Home Over 2.5 (matches)" + _SUFFIX_BET)
             home_under = row.get("Home Under 2.5 (matches)" + _SUFFIX_BET)

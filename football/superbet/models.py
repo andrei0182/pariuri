@@ -20,18 +20,25 @@ class OddsOverUnder:
 
 @dataclass
 class Match:
-    """PLACEHOLDER shape — refine once Superbet.ro's real data structure is
-    confirmed (see tools/inspect_page.py). Fields below mirror the
-    BetExplorer project's Match model as a reasonable starting guess, not a
-    confirmed spec.
-    """
     league: str
     home_team: str
     away_team: str
     time_text: str
-    status: str  # "scheduled" | "live" | "completed" — confirm actual values used by Superbet.ro
+    status: str  # "NOT_STARTED" | other values seen in inplay_stats_metadata.status — confirm full set
+    event_id: Optional[int] = None
     odds_1x2: Odds1X2 = field(default_factory=Odds1X2)
     odds_ou: OddsOverUnder = field(default_factory=OddsOverUnder)
+    stats_available: bool = False
+    home_rank: Optional[int] = None
+    home_points: Optional[str] = None
+    home_form: Optional[str] = None
+    away_rank: Optional[int] = None
+    away_points: Optional[str] = None
+    away_form: Optional[str] = None
+    h2h_home_wins: Optional[int] = None
+    h2h_draws: Optional[int] = None
+    h2h_away_wins: Optional[int] = None
+    h2h_since: Optional[int] = None
     match_url: Optional[str] = None
 
     def to_flat_dict(self) -> dict:
@@ -47,5 +54,16 @@ class Match:
             "ou_line": self.odds_ou.line,
             "odds_over": self.odds_ou.over,
             "odds_under": self.odds_ou.under,
+            "stats_available": self.stats_available,
+            "home_rank": self.home_rank,
+            "home_points": self.home_points,
+            "home_form": self.home_form,
+            "away_rank": self.away_rank,
+            "away_points": self.away_points,
+            "away_form": self.away_form,
+            "h2h_home_wins": self.h2h_home_wins,
+            "h2h_draws": self.h2h_draws,
+            "h2h_away_wins": self.h2h_away_wins,
+            "h2h_since": self.h2h_since,
             "match_url": self.match_url,
         }

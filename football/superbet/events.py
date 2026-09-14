@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import datetime as dt
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 from .models import Match, Odds1X2, OddsOverUnder
 
@@ -18,6 +21,9 @@ _USER_AGENT = (
 
 _session = requests.Session()
 _session.headers.update({"User-Agent": _USER_AGENT})
+_retry = Retry(total=5, backoff_factor=1.5, status_forcelist=[400, 429, 500, 502, 503, 504], respect_retry_after_header=True)
+_session.mount("https://", HTTPAdapter(max_retries=_retry))
+_session.mount("http://", HTTPAdapter(max_retries=_retry))
 
 
 def _iso_utc(d: dt.date) -> str:
@@ -151,3 +157,62 @@ def parse_over_under(event_detail: dict, line: float = 2.5) -> OddsOverUnder:
             result.under = odd.get("price")
 
     return result
+
+def fetch_events_batched(
+    tournament_ids: list[int],
+    date: dt.date,
+    index: str = "active-prematch",
+    batch_size: int = 150,
+    timeout: float = 20.0,
+) -> list[dict]:
+    """Same as fetch_events, but splits tournament_ids into batches — the
+    events endpoint takes tournament ids as a comma-separated query param,
+    and passing all ~2837 football tournament ids in one request risks
+    hitting a URL-length limit (untested at that scale until now; 150 ids
+    per batch is a conservative starting point, ~150*6 chars ~= 900 chars
+    per request — well under typical limits).
+    """
+    all_events: list[dict] = []
+    for i in range(0, len(tournament_ids), batch_size):
+        batch = tournament_ids[i : i + batch_size]
+        events = fetch_events(batch, date, index=index, timeout=timeout)
+        all_events.extend(events)
+    return all_events
+
+def fetch_events_for_all_tournaments(
+    tournament_ids: list[int],
+    date: dt.date,
+    index: str = "active-prematch",
+    workers: int = 8,
+    timeout: float = 15.0,
+) -> list[dict]:
+    """Fetch events across MANY tournaments by calling fetch_events once
+    PER tournament id, concurrently via a thread pool — NOT by stuffing
+    many ids into a single request's `tournaments=` param.
+
+    CONFIRMED (2026-09-14): the events endpoint is unreliable with many
+    tournament ids batched into one request (~30+ ids per request started
+    failing with 400 Bad Request on retest, inconsistent with the URL
+    length involved — behaves like rate-limiting rather than a hard
+    per-request limit). A single tournament id per request has been
+    reliable throughout testing, so this fetches one at a time, in
+    parallel, with the module-level Retry adapter handling transient
+    429/400/5xx automatically.
+    """
+    all_events: list[dict] = []
+
+    def _fetch_one(tid: int) -> list[dict]:
+        return fetch_events([tid], date, index=index, timeout=timeout)
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(_fetch_one, tid): tid for tid in tournament_ids}
+        for future in as_completed(futures):
+            tid = futures[future]
+            try:
+                events = future.result()
+                all_events.extend(events)
+            except Exception:
+                logger.exception("fetch_events_for_all_tournaments: failed for tournament_id=%s", tid)
+
+    return all_events
+

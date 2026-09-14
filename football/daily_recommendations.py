@@ -34,9 +34,16 @@ import sys
 import unicodedata
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pandas as pd
+
+LOG_PATH = "recommendations_log.csv"
+LOG_COLUMNS = [
+    "date", "league", "home_team", "away_team", "odds_over",
+    "kickoff_local", "result", "total_goals", "checked_at",
+]
 
 _SUFFIX_BET = " (BetExplorer)"
 _SUFFIX_SB = " (Superbet)"
@@ -149,6 +156,53 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
     return pd.DataFrame(matched_rows)
 
 
+def log_todays_picks(matched: pd.DataFrame, date_str: str) -> None:
+    """Appends today's matched picks to the persistent results log."""
+    path = Path(LOG_PATH)
+    if path.exists():
+        log = pd.read_csv(path, dtype=str)
+    else:
+        log = pd.DataFrame(columns=LOG_COLUMNS)
+
+    new_rows = []
+    for _, row in matched.iterrows():
+        home = row.get("Home Team" + _SUFFIX_BET, "")
+        away = row.get("Away Team" + _SUFFIX_BET, "")
+        already_logged = ((log["date"] == date_str) & (log["home_team"] == home) & (log["away_team"] == away)).any()
+        if already_logged:
+            continue
+        new_rows.append({
+            "date": date_str,
+            "league": row.get("League" + _SUFFIX_BET, ""),
+            "home_team": home,
+            "away_team": away,
+            "odds_over": row.get("Odds Over" + _SUFFIX_SB, ""),
+            "kickoff_local": row.get("_kickoff_local" + _SUFFIX_SB, ""),
+            "result": "pending",
+            "total_goals": "",
+            "checked_at": "",
+        })
+    if new_rows:
+        log = pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True)
+        log.to_csv(path, index=False)
+
+
+def accuracy_summary_html() -> str:
+    path = Path(LOG_PATH)
+    if not path.exists():
+        return ""
+    log = pd.read_csv(path, dtype=str)
+    resolved = log[log["result"].isin(["over", "under"])]
+    if resolved.empty:
+        return ""
+    hit_rate = (resolved["result"] == "over").mean()
+    return (
+        f"<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
+        f"<b>Statistica reala pana acum:</b> din {len(resolved)} recomandari confirmate, "
+        f"{(resolved['result'] == 'over').sum()} au fost Peste 2.5 ({hit_rate:.0%}).</p>"
+    )
+
+
 def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str) -> str:
     lines = []
     lines.append(f"<h2>Recomandari zilnice -- {date_str}</h2>")
@@ -192,6 +246,8 @@ def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str)
             "conform BetExplorer, dar nu au fost gasite (inca) pe Superbet.ro azi.</p>"
         )
 
+    lines.append(accuracy_summary_html())
+
     return "\n".join(lines)
 
 
@@ -231,6 +287,8 @@ def main() -> None:
         print(subject)
         print(body)
         return
+
+    log_todays_picks(matched, args.date)
 
     if matched.empty and unmatched_count == 0:
         print("No high-confidence matches at all today -- skipping email.")

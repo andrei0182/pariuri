@@ -140,7 +140,11 @@ def build_high_confidence_over25(df: pd.DataFrame) -> pd.DataFrame:
     add_probability_columns). Only the columns needed to place a bet on
     one: league, kick-off time, both teams, and the Over 2.5 odds.
     """
-    cols = ["league", "time", "home_team", "away_team", "odds_over", "prob_over_2.5"]
+    cols = [
+        "league", "time", "home_team", "away_team", "odds_over", "prob_over_2.5",
+        "home_over_2.5", "home_under_2.5", "away_over_2.5", "away_under_2.5",
+        "match_url",
+    ]
     if df.empty or "prob_over_2.5" not in df.columns:
         return pd.DataFrame(columns=cols)
     filtered = df[df["prob_over_2.5"] == 1.0][cols].copy()

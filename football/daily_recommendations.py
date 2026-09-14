@@ -69,25 +69,62 @@ def load_superbet_matches(superbet_xlsx: str) -> pd.DataFrame:
     return df
 
 
-def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) -> pd.DataFrame:
-    """Inner-join on normalized (home, away) team names. A match present in
-    BetExplorer's 100%-confidence list but NOT found here simply isn't
-    (yet, or ever) offered on Superbet for this date/run -- that's a normal
-    outcome, not an error, and is reported separately in the email rather
-    than silently dropped.
-
-    Both sheets share several column names (League, Home Team, Away Team,
-    Odds Over, Match Link) -- pandas suffixes those on merge so we can
-    pick the right source per field afterwards (live odds/link from
-    Superbet, historical hit-rate counts from BetExplorer).
+def _names_match(name_a: str, name_b: str) -> bool:
+    """Two normalized team names are considered the same team if every word
+    of the SHORTER one appears in the LONGER one -- handles BetExplorer and
+    Superbet formatting the same club differently, e.g. "torino" vs
+    "torino fc", "blackburn u21" vs "blackburn rovers u21". Exact match is
+    just the common case of this (identical word sets both ways).
     """
-    merged = high_confidence.merge(
-        superbet,
-        on=["_home_norm", "_away_norm"],
-        how="inner",
-        suffixes=(_SUFFIX_BET, _SUFFIX_SB),
-    )
-    return merged
+    if not name_a or not name_b:
+        return False
+    if name_a == name_b:
+        return True
+    tokens_a, tokens_b = set(name_a.split()), set(name_b.split())
+    if not tokens_a or not tokens_b:
+        return False
+    return tokens_a <= tokens_b or tokens_b <= tokens_a
+
+
+def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) -> pd.DataFrame:
+    """Fuzzy match on normalized (home, away) team names -- see
+    _names_match. A BetExplorer match with no fuzzy match on Superbet
+    simply isn't (yet, or ever) offered there for this date/run -- that's
+    a normal outcome, not an error, and is reported separately in the
+    email rather than silently dropped.
+
+    Both sheets can share column names (League, Home Team, Odds Over,
+    Match Link, ...) so every field is explicitly suffixed here (not left
+    to pandas' merge-suffix mechanism) to keep the source unambiguous --
+    live odds/link come from Superbet, historical hit-rate counts from
+    BetExplorer.
+    """
+    matched_rows = []
+    for _, bet_row in high_confidence.iterrows():
+        candidates = superbet[
+            superbet.apply(
+                lambda sb_row: _names_match(bet_row["_home_norm"], sb_row["_home_norm"])
+                and _names_match(bet_row["_away_norm"], sb_row["_away_norm"]),
+                axis=1,
+            )
+        ]
+        if candidates.empty:
+            continue
+        sb_row = candidates.iloc[0]
+        combined = {}
+        for col, val in bet_row.items():
+            if col in ("_home_norm", "_away_norm"):
+                continue
+            combined[col + _SUFFIX_BET] = val
+        for col, val in sb_row.items():
+            if col in ("_home_norm", "_away_norm"):
+                continue
+            combined[col + _SUFFIX_SB] = val
+        matched_rows.append(combined)
+
+    if not matched_rows:
+        return pd.DataFrame()
+    return pd.DataFrame(matched_rows)
 
 
 def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str) -> str:
@@ -103,16 +140,16 @@ def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str)
         lines.append("<p><i>Niciun meci nu s-a potrivit intre cele doua surse azi.</i></p>")
     else:
         for _, row in matched.iterrows():
-            league = row.get("League" + _SUFFIX_BET, row.get("League", ""))
-            home = row.get("Home Team" + _SUFFIX_BET, row.get("Home Team", ""))
-            away = row.get("Away Team" + _SUFFIX_BET, row.get("Away Team", ""))
-            time_text = row.get("Kick-off Time" + _SUFFIX_BET, row.get("Kick-off Time", ""))
-            odds_over = row.get("Odds Over" + _SUFFIX_SB, row.get("Odds Over", ""))
-            home_over = row.get("Home Over 2.5 (matches)")
-            home_under = row.get("Home Under 2.5 (matches)")
-            away_over = row.get("Away Over 2.5 (matches)")
-            away_under = row.get("Away Under 2.5 (matches)")
-            match_url = row.get("Match Link" + _SUFFIX_SB) or row.get("Match Link" + _SUFFIX_BET) or row.get("Match Link")
+            league = row.get("League" + _SUFFIX_BET, "")
+            home = row.get("Home Team" + _SUFFIX_BET, "")
+            away = row.get("Away Team" + _SUFFIX_BET, "")
+            time_text = row.get("Kick-off Time" + _SUFFIX_BET, "")
+            odds_over = row.get("Odds Over" + _SUFFIX_SB, "")
+            home_over = row.get("Home Over 2.5 (matches)" + _SUFFIX_BET)
+            home_under = row.get("Home Under 2.5 (matches)" + _SUFFIX_BET)
+            away_over = row.get("Away Over 2.5 (matches)" + _SUFFIX_BET)
+            away_under = row.get("Away Under 2.5 (matches)" + _SUFFIX_BET)
+            match_url = row.get("Match Link" + _SUFFIX_SB) or row.get("Match Link" + _SUFFIX_BET)
 
             lines.append("<div style='margin-bottom:18px; padding:10px; border:1px solid #ddd; border-radius:6px;'>")
             lines.append(f"<h3 style='margin:0 0 6px 0;'>{home} vs {away}</h3>")

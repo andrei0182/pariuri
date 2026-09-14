@@ -75,7 +75,7 @@ def main() -> None:
                 for future in as_completed(futures):
                     done += 1
                     try:
-                        match, (eligible, home_stats, away_stats, odds_ou) = future.result()
+                        match, (eligible, home_stats, away_stats, odds_ou, odds_1x2) = future.result()
                     except Exception:
                         logging.exception(
                             "[%d/%d] Failed to get stats for a match — leaving stats blank "
@@ -87,6 +87,7 @@ def main() -> None:
                     match.home_stats = home_stats
                     match.away_stats = away_stats
                     match.odds_ou = odds_ou
+                    match.odds_1x2 = odds_1x2  # AJAX-fetched, more reliable than the list-page DOM scrape
                     logging.info(
                         "[%d/%d] Stats for %s vs %s", done, len(targets), match.home_team, match.away_team
                     )

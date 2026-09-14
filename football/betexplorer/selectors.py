@@ -108,6 +108,7 @@ COMPLETED_SCORE_PATTERN = r"^\d+:\d+"
 # for that handicap line — already computed by the site, no need to parse
 # individual bookmaker rows. See betscraper/match_odds.py.
 OU_AJAX_URL_TEMPLATE = BASE_URL + "/match-odds/{match_id}/0/ou/bestOdds/?lang=en"
+X12_AJAX_URL_TEMPLATE = BASE_URL + "/match-odds/{match_id}/0/1x2/bestOdds/?lang=en"  # CONFIRMED 2026-09-14 via curl — same shape as OU_AJAX_URL_TEMPLATE, "1x2" market code instead of "ou"
 
 # ---- Per-team Over/Under hit-rate stats (Steps 7-8) — still NOT CONFIRMED ----
 # The OU_AJAX endpoint above gives betting ODDS for this match (what a

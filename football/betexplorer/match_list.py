@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import os
 import logging
 import time
 from urllib.parse import urljoin
@@ -84,14 +85,27 @@ def load_date(driver: WebDriver, date: dt.date, wait_seconds: int = DEFAULT_WAIT
             if attempt < retries:
                 time.sleep(3)
 
+    debug_dir = os.environ.get("BETSCRAPER_DEBUG_DIR", ".")
+    os.makedirs(debug_dir, exist_ok=True)
+    html_path = os.path.join(debug_dir, "load_date_failure.html")
+    png_path = os.path.join(debug_dir, "load_date_failure.png")
+    try:
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(driver.page_source)
+        driver.save_screenshot(png_path)
+        logger.warning("Saved failure debug artifacts to %s and %s", html_path, png_path)
+    except Exception:
+        logger.exception("Could not save failure debug artifacts (page may have already navigated away).")
+
     raise TimeoutException(
         f"No match rows found at {url} after {retries} attempts ({wait_seconds}s each). "
         f"This means either (a) sel.MATCH_ROW ({sel.MATCH_ROW!r}) doesn't match this "
         f"page's real markup, (b) sel.DATE_URL_TEMPLATE doesn't produce a valid "
         f"date-filtered URL for this site, or (c) an overlay (age gate / cookie consent) "
-        f"is still blocking the page and its selector needs updating in selectors.py. "
-        f"Run `python tools/inspect_page.py {url!r} --keep-open` to see what's actually "
-        f"on the page."
+        f"is still blocking the page and its selector needs updating in selectors.py, or "
+        f"(d) the site is blocking/challenging this environment's IP specifically. "
+        f"See {html_path} and {png_path} for exactly what was served. "
+        f"Run `python tools/inspect_page.py {url!r}` locally to compare against a working environment."
     ) from last_exc
 
 

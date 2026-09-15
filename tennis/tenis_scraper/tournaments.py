@@ -14,13 +14,18 @@ _USER_AGENT = (
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 )
 
-# CONFIRMAT (2026-09-15) prin browsing manual pe superbet.ro/pariuri-sportive/tenis:
-# URL-urile turneelor arată ca /pariuri-sportive/tenis/{tur}/{slug-turneu}/toate,
-# cu {tur} fiind unul din TENNIS_TOURS de mai jos. NEconfirmat: dacă cheile din
-# JSON-ul de mapping urmează exact tiparul "tenis---{tur}---{slug}" (presupus
-# prin analogie cu "fotbal---{țară}---{ligă}") — de verificat cu fetch_tournament_map()
-# și căutare manuală înainte de a te baza pe asta.
-TENNIS_TOURS = ("atp", "wta", "wta-125", "challenger", "itf")
+# CONFIRMAT (2026-09-15) via curl direct pe sportTournamentMap_ro-RO.json —
+# 3759 intrări "tenis---..." (atenție: "tenis-de-masa---..." e alt sport,
+# trebuie filtrat separat cu startswith("tenis---"), nu startswith("tenis")).
+# Tur-urile reale găsite sunt mult mai granulare decât presupusesem inițial:
+TENNIS_TOURS = (
+    "atp", "wta", "wta-125", "challenger",
+    "itf-m", "itf-f",  # ITF separat pe gen, nu un singur "itf"
+    "utr-m", "utr-f",
+    "cupa-davis", "billie-jean-king-cup", "united-cup",
+    "juniori", "meciuri-demonstrative",
+    "simulated-reality", "simulated-reality-f",
+)
 
 _session = requests.Session()
 _session.headers.update({"User-Agent": _USER_AGENT})
@@ -43,9 +48,8 @@ def fetch_tournament_map(timeout: float = 15.0) -> dict[str, int]:
 
 def tennis_tournaments() -> dict[str, int]:
     """Doar intrările de tenis ("tenis---...") din mapping-ul complet.
-    NEconfirmat exact ce prefix folosește JSON-ul — verifică cu
-    search_tournaments("") sau printând câteva chei brute înainte să te
-    bazezi pe "tenis---"."""
+    CONFIRMAT (2026-09-15): folosește "tenis---" (cu triplă liniuță), NU
+    doar "tenis" — altfel prinde și "tenis-de-masa---..." (alt sport)."""
     return {k: v for k, v in fetch_tournament_map().items() if k.startswith("tenis---")}
 
 

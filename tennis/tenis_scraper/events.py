@@ -17,11 +17,9 @@ logger = logging.getLogger(__name__)
 # TENNIS_SPORT_ID de mai jos.
 EVENTS_URL = "https://production-superbet-offer-ro.freetls.fastly.net/v3/ro-RO/events"
 
-# NEconfirmat — la fotbal a fost 5 (confirmat prin curl). Pentru tenis,
-# trebuie găsit la fel: fie prin curl/inspect_page.py pe endpoint-ul de
-# events cu diverse valori, fie citind din răspunsul unei pagini Superbet
-# de tenis ce sport id trimite în request-urile ei XHR (DevTools Network).
-TENNIS_SPORT_ID: int | None = None
+# CONFIRMAT (2026-09-15) via curl, din fixture.sport_id pe un event real
+# (WTA Guadalajara, tournament_id=81067).
+TENNIS_SPORT_ID = 2
 
 _USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -47,16 +45,11 @@ def fetch_events(
     index: str = "active-prematch",
     timeout: float = 15.0,
 ) -> list[dict]:
-    """Fetch evenimente brute pentru turneele date, pe o zi. Structura
-    request-ului e copiată din SuperBet (confirmată acolo) — dar
-    TENNIS_SPORT_ID trebuie completat mai jos înainte ca asta să funcționeze
-    pentru tenis. Vezi parse_event() pentru conversia unui event în
-    TennisMatch."""
-    if TENNIS_SPORT_ID is None:
-        raise RuntimeError(
-            "TENNIS_SPORT_ID nu e confirmat încă — investighează cu "
-            "tools/inspect_page.py sau curl înainte de a apela fetch_events()."
-        )
+    """Fetch evenimente brute pentru turneele date, pe o zi. CONFIRMAT
+    (2026-09-15) via curl, folosind tournament_id=81067 (WTA Guadalajara) —
+    răspunsul include fixture.sport_id=2 și un market "Final" cu odds
+    "1"/"2" (fără egalitate). Vezi parse_event() pentru conversia unui
+    event în TennisMatch."""
     params = {
         "startDate": _iso_utc(date),
         "endDate": _iso_utc(date + dt.timedelta(days=1)),
@@ -78,11 +71,15 @@ def fetch_events(
 def parse_event(event: dict, tour: str = "", tournament: str = "") -> TennisMatch:
     """Convertește un event brut într-un TennisMatch.
 
-    NEconfirmat: numele separatorului dintre jucători în event_name (la
-    fotbal era "·"), numele market-ului de rezultat final (la fotbal era
-    "Final" cu odds 1/X/2 — la tenis probabil un market similar dar cu doar
-    1/2, fără "X", deoarece nu există egalitate). Rescrie logica de mai jos
-    odată ce ai inspectat un răspuns real."""
+    CONFIRMAT (2026-09-15) via curl, pe un event real de la WTA Guadalajara:
+    - event_name separă jucătorii cu "·", identic cu fotbalul (ex.
+      "Diane Parry·Peyton Stearns")
+    - market-ul de rezultat final se numește "Final" (id 521), identic cu
+      fotbalul, dar conține DOAR odds cu name "1"/"2" — nu există "X"
+      (fără egalitate la tenis)
+    - fixture.sport_id == 2 confirmă că evenimentul e de tenis (vezi
+      TENNIS_SPORT_ID mai sus)
+    """
     fixture = event.get("fixture", {})
     event_name = fixture.get("event_name", "")
     if "·" in event_name:
@@ -92,8 +89,7 @@ def parse_event(event: dict, tour: str = "", tournament: str = "") -> TennisMatc
 
     odds_winner = OddsWinner()
     for market in event.get("markets", []):
-        # NEconfirmat: numele exact al market-ului — placeholder de mai jos.
-        if market.get("name") not in ("Final", "Câștigător meci", "Learn me tenis"):
+        if market.get("name") != "Final":
             continue
         for odd in market.get("odds", []):
             name = odd.get("metadata", {}).get("name")

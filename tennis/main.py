@@ -142,7 +142,12 @@ def _fetch_schedule_cached(te_type: str, date: dt.date, cache: dict) -> list[ten
     return cache[te_type]
 
 
-def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_delay: float = 1.0) -> pd.DataFrame:
+def build_report(
+    date: dt.date,
+    tours: tuple[str, ...] = SUPPORTED_TOURS,
+    te_delay: float = 1.0,
+    extended_odds: bool = False,
+) -> pd.DataFrame:
     rows: list[dict] = []
     schedule_cache: dict[str, list[tennisexplorer.ScheduledMatch]] = {}
 
@@ -198,12 +203,32 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
                 "p1_recent_form": "",
                 "p2_recent_form": "",
                 "h2h": "Neverificat",
+                "odds_min1set_p1": None,
+                "odds_min1set_p2": None,
+                "odds_total_sets_line": None,
+                "odds_total_sets_under": None,
+                "odds_total_sets_over": None,
+                "odds_set1_games": "",
             }
 
             implied_p1 = _implied_probability(sb_match.odds_winner.player1, sb_match.odds_winner.player2)
             if implied_p1 is not None:
                 row["implied_prob_1"] = round(implied_p1 * 100, 1)
                 row["implied_prob_2"] = round((1 - implied_p1) * 100, 1)
+
+            if extended_odds and sb_match.event_id is not None:
+                time.sleep(te_delay)
+                ext = events.fetch_and_parse_extended_markets(sb_match.event_id, sb_match.player1, sb_match.player2)
+                if ext is not None:
+                    row["odds_min1set_p1"] = ext.min_1_set.player1_yes
+                    row["odds_min1set_p2"] = ext.min_1_set.player2_yes
+                    row["odds_total_sets_line"] = ext.total_sets.line
+                    row["odds_total_sets_under"] = ext.total_sets.under
+                    row["odds_total_sets_over"] = ext.total_sets.over
+                    set1_lines = [sg for sg in ext.set_games if sg.set_number == 1]
+                    row["odds_set1_games"] = " | ".join(
+                        f"{sg.line}: Sub={sg.under} Peste={sg.over}" for sg in sorted(set1_lines, key=lambda x: x.line)
+                    )
 
             scheduled = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
             if scheduled is not None and scheduled.match_id is not None:
@@ -260,6 +285,12 @@ _COLUMN_LABELS = {
     "p1_recent_form": "Formă recentă J1 (meciuri disponibile)",
     "p2_recent_form": "Formă recentă J2 (meciuri disponibile)",
     "h2h": "H2H",
+    "odds_min1set_p1": "Cotă Minim 1 Set J1 (Da)",
+    "odds_min1set_p2": "Cotă Minim 1 Set J2 (Da)",
+    "odds_total_sets_line": "Linie Total Seturi",
+    "odds_total_sets_under": "Cotă Sub Total Seturi",
+    "odds_total_sets_over": "Cotă Peste Total Seturi",
+    "odds_set1_games": "Cote Total Game-uri Set 1 (toate liniile)",
 }
 
 
@@ -290,14 +321,15 @@ def main() -> None:
     parser.add_argument("--date", type=str, default=None, help="Data (YYYY-MM-DD), implicit azi")
     parser.add_argument("--output", type=str, default="output/tenis.xlsx")
     parser.add_argument("--tours", type=str, default=",".join(SUPPORTED_TOURS), help="Tur-uri, separate prin virgula (ex. atp,wta)")
-    parser.add_argument("--te-delay", type=float, default=1.0, help="Pauza (secunde) intre request-uri catre TennisExplorer")
+    parser.add_argument("--te-delay", type=float, default=1.0, help="Pauza (secunde) intre request-uri catre TennisExplorer/Superbet")
+    parser.add_argument("--extended-odds", action="store_true", help="Adauga cote minim-1-set, total seturi, total game-uri set 1 - un fetch suplimentar PER MECI, ruleaza mult mai incet")
     args = parser.parse_args()
 
     date = dt.date.fromisoformat(args.date) if args.date else dt.date.today()
     tours = tuple(t.strip() for t in args.tours.split(",") if t.strip())
 
-    logger.info("Rulare pentru data %s, tur-uri %s -> %s", date, tours, args.output)
-    df = build_report(date, tours=tours, te_delay=args.te_delay)
+    logger.info("Rulare pentru data %s, tur-uri %s -> %s (extended_odds=%s)", date, tours, args.output, args.extended_odds)
+    df = build_report(date, tours=tours, te_delay=args.te_delay, extended_odds=args.extended_odds)
     logger.info("Total meciuri in raport: %d", len(df))
 
     save_report(df, args.output)

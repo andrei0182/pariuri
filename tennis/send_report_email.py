@@ -77,6 +77,15 @@ def filter_recommended_picks(df: pd.DataFrame, min_edge_pp: float = MIN_EDGE_PP,
     return result.sort_values("_edge_pp", ascending=False)
 
 
+def _clean(value) -> str:
+    """Converteste NaN (celule goale la citirea din Excel) in string gol -
+    spre deosebire de un simplu `x or ""`, NaN e truthy in Python (doar
+    0.0 e falsy dintre float-uri), deci `nan or ""` intoarce tot nan."""
+    if pd.isna(value):
+        return ""
+    return str(value)
+
+
 def build_email_body(df: pd.DataFrame, date_str: str) -> str:
     picks = filter_recommended_picks(df)
 
@@ -93,13 +102,13 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
     else:
         lines.append(f"<p><b>{len(picks)}</b> recomandari:</p>")
         for _, row in picks.iterrows():
-            p1, p2 = row.get(_COL_P1, ""), row.get(_COL_P2, "")
-            odds1, odds2 = row.get(_COL_ODDS1, ""), row.get(_COL_ODDS2, "")
-            comp1, comp2 = row.get(_COL_COMP1, ""), row.get(_COL_COMP2, "")
-            implied1, implied2 = row.get(_COL_IMPL1, ""), row.get(_COL_IMPL2, "")
-            tournament = row.get(_COL_TOURNAMENT, "") or ""
-            time_text = row.get(_COL_TIME, "") or ""
-            url = row.get(_COL_URL, "")
+            p1, p2 = _clean(row.get(_COL_P1)), _clean(row.get(_COL_P2))
+            odds1, odds2 = _clean(row.get(_COL_ODDS1)), _clean(row.get(_COL_ODDS2))
+            comp1, comp2 = _clean(row.get(_COL_COMP1)), _clean(row.get(_COL_COMP2))
+            implied1, implied2 = _clean(row.get(_COL_IMPL1)), _clean(row.get(_COL_IMPL2))
+            tournament = _clean(row.get(_COL_TOURNAMENT))
+            time_text = _clean(row.get(_COL_TIME))
+            url = _clean(row.get(_COL_URL))
 
             rec_player = row["_recommended_player"]
             rec_name = p1 if rec_player == 1 else p2

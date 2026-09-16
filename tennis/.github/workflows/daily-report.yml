@@ -1,0 +1,73 @@
+name: Daily tennis report
+
+permissions:
+  contents: read
+
+on:
+  schedule:
+    # 7:00 AM Romania time, an-intreg. Cron e mereu UTC, fara concept de
+    # ora de vara/iarna, deci doua intrari acopera ambele offset-uri UTC
+    # ale Romaniei — pasul de mai jos sare peste orice intrare care nu
+    # pica exact la 7 dimineata ora locala (acelasi tipar ca la SuperBet).
+    - cron: "0 4 * * *"  # 7:00 Romania time cand e EEST (UTC+3, vara)
+    - cron: "0 5 * * *"  # 7:00 Romania time cand e EET (UTC+2, iarna)
+  workflow_dispatch: {}  # trigger manual din tab-ul Actions, pentru testare
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip unless this is actually 7 AM Romania time
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Trigger manual (workflow_dispatch) -- rulam indiferent de ora curenta."
+          else
+            hour=$(TZ="Europe/Bucharest" date +%H)
+            echo "Ora locala Romania: $hour"
+            if [ "$hour" != "07" ]; then
+              echo "Nu e 7 AM ora Romaniei acum (asta e cealalta intrare cron, pentru celalalt offset DST) -- sarim peste restul job-ului."
+              echo "SKIP_RUN=true" >> "$GITHUB_ENV"
+            fi
+          fi
+
+      - name: Checkout
+        if: env.SKIP_RUN != 'true'
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        if: env.SKIP_RUN != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: env.SKIP_RUN != 'true'
+        run: pip install -r requirements.txt
+
+      - name: Compute today's date
+        if: env.SKIP_RUN != 'true'
+        id: date
+        run: echo "value=$(date +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Run tennis report (toate turneele confirmate)
+        if: env.SKIP_RUN != 'true'
+        run: python main.py --date ${{ steps.date.outputs.value }} --output output/tenis.xlsx
+
+      - name: Upload report as workflow artifact
+        if: env.SKIP_RUN != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tenis-report-${{ steps.date.outputs.value }}
+          path: output/tenis.xlsx
+          retention-days: 14
+
+      - name: Send report email
+        if: env.SKIP_RUN != 'true'
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python send_report_email.py \
+            --xlsx output/tenis.xlsx \
+            --date ${{ steps.date.outputs.value }}

@@ -172,7 +172,7 @@ def _parse_mutual_table(table) -> list[RecentMatch]:
       "US Open,2R, 02.09.2026") - de separat prin virgula
     - randul 2: celula goala + "NumeA-NumeB" + "Scor" (ex.
       ["", "Cirstea-Parry", "2:0"])
-    Ordinea NU e intotdeauna acelasi jucator primul - "Cirstea-Parry" vs
+    Ordinea NUeste intotdeauna acelasi jucator primul - "Cirstea-Parry" vs
     "Parry-Golubic" arata ca jucatorul urmarit apare cand in stanga, cand in
     dreapta. NU presupunem cine a castigat doar din pozitie - opponent ramane
     text brut "NumeA-NumeB", de interpretat ulterior cu numele jucatorului
@@ -245,3 +245,161 @@ def fetch_and_parse_match(match_id: int) -> MatchDetailData | None:
     if html is None:
         return None
     return parse_match_detail(html)
+
+
+# ============================================================
+# Programul zilnic (pentru a lega meciurile Superbet de match_id-uri
+# TennisExplorer prin potrivire de nume)
+# ============================================================
+
+import datetime as _dt  # noqa: E402
+
+DAILY_SCHEDULE_URL = BASE_URL + "/matches/"
+
+# CONFIRMAT (2026-09-15) prin inspectie: /matches/?type=wta-single&year=..&month=..&day=..
+# NEconfirmat: valorile exacte pentru alte tur-uri (challenger, itf-m/f etc.)
+# - presupunere prin analogie cu "wta-single"/"atp-single", de verificat
+# inainte de a te baza pe ele pentru altceva decat atp/wta.
+TOUR_TYPE_MAP = {
+    "atp": "atp-single",
+    "wta": "wta-single",
+    "challenger": "challenger-single",   # NEconfirmat
+    "wta-125": "wta-single",             # NEconfirmat - posibil inclus in wta-single, posibil separat
+    "itf-m": "itf-men-single",           # NEconfirmat
+    "itf-f": "itf-women-single",         # NEconfirmat
+}
+
+
+@dataclass
+class ScheduledMatch:
+    tournament: str = ""
+    time_text: str = ""
+    player1: str = ""  # format TennisExplorer: "Nume P." (nume complet, initiala prenumelui)
+    player2: str = ""
+    match_id: Optional[int] = None
+    odds_home: Optional[str] = None
+    odds_away: Optional[str] = None
+
+
+def fetch_daily_schedule(tour_type: str, date: "_dt.date", timeout: float = 15.0) -> list[ScheduledMatch]:
+    """Fetch programul zilei pentru un tur TennisExplorer (ex. "wta-single").
+    CONFIRMAT (2026-09-15) structura pentru wta-single: fiecare meci ocupa 2
+    <tr> consecutive intr-un table.result (nu table.result.interesting):
+    - rand 1: [ora, jucator1+link, ..., cota_H, cota_A, "info"+link match-detail]
+    - rand 2: [jucator2+link, ...] (fara ora, fara link match-detail)
+    Randurile de header de turneu (clasa distincta, cu link spre pagina
+    turneului si coloanele "S 1 2 3 4 5 H2H H A") marcheaza inceputul unui
+    grup nou - turneul se aplica tuturor meciurilor de dedesubt pana la
+    urmatorul header."""
+    url = DAILY_SCHEDULE_URL
+    params = {"type": tour_type, "year": date.year, "month": f"{date.month:02d}", "day": f"{date.day:02d}"}
+    try:
+        resp = _session.get(url, params=params, timeout=timeout)
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        logger.warning("fetch_daily_schedule: request failed for tour_type=%s date=%s: %s", tour_type, date, exc)
+        return []
+
+    soup = BeautifulSoup(resp.text, "lxml")
+    tables = [t for t in soup.find_all("table", class_="result") if t.get("class") == ["result"]]
+
+    matches: list[ScheduledMatch] = []
+    for table in tables:
+        current_tournament = ""
+        rows = table.find_all("tr")
+        i = 0
+        while i < len(rows):
+            row = rows[i]
+            cells = row.find_all(["td", "th"])
+            cell_texts = [c.get_text(strip=True) for c in cells]
+
+            # Rand de header de turneu: contine un link spre pagina turneului
+            # (nu spre /player/ sau /match-detail/) - de obicei prima celula.
+            tournament_link = None
+            if cells:
+                first_link = cells[0].find("a", href=True)
+                if first_link and "/player/" not in first_link["href"] and "/match-detail/" not in first_link["href"]:
+                    tournament_link = first_link
+            if tournament_link is not None and cell_texts and cell_texts[0] not in ("", "info"):
+                current_tournament = cell_texts[0]
+                i += 1
+                continue
+
+            # Rand de meci (primul din pereche): are ora in prima celula
+            # (format HH:MM) si un link match-detail pe ultima celula.
+            match_link = None
+            for c in cells:
+                a = c.find("a", href=True)
+                if a and "/match-detail/" in a["href"]:
+                    match_link = a
+                    break
+
+            if match_link is not None and i + 1 < len(rows):
+                time_text = cell_texts[0] if cell_texts and re.match(r"^\d{1,2}:\d{2}$", cell_texts[0]) else ""
+                p1_link = row.find("a", href=re.compile(r"^/player/"))
+                player1 = p1_link.get_text(strip=True) if p1_link else ""
+
+                next_row = rows[i + 1]
+                p2_link = next_row.find("a", href=re.compile(r"^/player/"))
+                player2 = p2_link.get_text(strip=True) if p2_link else ""
+
+                # Cotele sunt de obicei ultimele 2 valori numerice inainte de "info"
+                odds_candidates = [t for t in cell_texts if re.match(r"^\d+\.\d+$", t)]
+                odds_home = odds_candidates[0] if len(odds_candidates) > 0 else None
+                odds_away = odds_candidates[1] if len(odds_candidates) > 1 else None
+
+                match_id = find_match_id_from_gamedetail_link(match_link["href"])
+
+                matches.append(ScheduledMatch(
+                    tournament=current_tournament,
+                    time_text=time_text,
+                    player1=player1,
+                    player2=player2,
+                    match_id=match_id,
+                    odds_home=odds_home,
+                    odds_away=odds_away,
+                ))
+                i += 2
+                continue
+
+            i += 1
+
+    return matches
+
+
+def _normalize_name_for_matching(name: str) -> str:
+    """Extrage numele de familie, lowercase, fara diacritice complexe -
+    suficient pentru potrivire aproximativa intre formatul Superbet
+    ("Diane Parry") si formatul TennisExplorer ("Parry D.")."""
+    name = name.strip().lower()
+    name = re.sub(r"[.\-']", " ", name)
+    return " ".join(name.split())
+
+
+def find_scheduled_match(
+    superbet_player1: str,
+    superbet_player2: str,
+    schedule: list[ScheduledMatch],
+) -> ScheduledMatch | None:
+    """Potriveste un meci Superbet (nume complete: "Diane Parry") cu un
+    ScheduledMatch de pe TennisExplorer (format "Parry D."), pe baza
+    numelui de familie - heuristica, NU 100% garantata (nume de familie
+    duble sau coincidente pot da rezultate gresite; de verificat manual
+    rezultatele la inceput)."""
+    def surname_tokens(full_name: str) -> set[str]:
+        norm = _normalize_name_for_matching(full_name)
+        return set(norm.split())
+
+    sb_p1_tokens = surname_tokens(superbet_player1)
+    sb_p2_tokens = surname_tokens(superbet_player2)
+
+    for m in schedule:
+        te_p1_tokens = surname_tokens(m.player1)
+        te_p2_tokens = surname_tokens(m.player2)
+
+        direct = (sb_p1_tokens & te_p1_tokens) and (sb_p2_tokens & te_p2_tokens)
+        swapped = (sb_p1_tokens & te_p2_tokens) and (sb_p2_tokens & te_p1_tokens)
+        if direct or swapped:
+            return m
+
+    return None

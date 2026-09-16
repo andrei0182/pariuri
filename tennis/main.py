@@ -34,6 +34,7 @@ import argparse
 import datetime as dt
 import logging
 import os
+import re
 import time
 
 import pandas as pd
@@ -111,15 +112,76 @@ def _implied_probability(odds1: float, odds2: float) -> float | None:
     return inv1 / total if total > 0 else None
 
 
-def _composite_estimate(rank_p: float | None, form_p: float | None) -> float | None:
-    """Media semnalelor disponibile (rank + formă). Daca lipseste unul,
-    folosim doar celalalt. NU e un model predictiv validat, doar o
-    combinare simpla a semnalelor pe care le avem - de tratat ca punct de
-    plecare pentru propria ta analiza, nu ca raspuns final."""
-    parts = [p for p in (rank_p, form_p) if p is not None]
-    if not parts:
+def _parse_record(text: str | None) -> tuple[int, int] | None:
+    """Parseaza 'W/L' (ex. '9/6') intr-un tuplu de int-uri; None daca gol/invalid."""
+    if not text or text == "-":
         return None
-    return sum(parts) / len(parts)
+    match = re.match(r"(\d+)/(\d+)", text.strip())
+    if not match:
+        return None
+    return int(match.group(1)), int(match.group(2))
+
+
+def _career_rating_probability(
+    balance: dict[str, tuple[str, str]]
+) -> tuple[float | None, float]:
+    """Combina recordul pe toate suprafetele (deja extras in surface_balance,
+    fara niciun fetch suplimentar) intr-o probabilitate relativa P1 vs P2,
+    plus un scor de incredere (0-1) bazat pe volumul total de meciuri
+    disponibile pentru cei doi jucatori. Incredere mica (putine meciuri
+    combinate) inseamna ca semnalul asta conteaza mai putin in estimarea
+    finala - vezi ponderea aplicata in _composite_estimate."""
+    total_w1 = total_l1 = total_w2 = total_l2 = 0
+    for v1_str, v2_str in balance.values():
+        rec1 = _parse_record(v1_str)
+        rec2 = _parse_record(v2_str)
+        if rec1:
+            total_w1 += rec1[0]
+            total_l1 += rec1[1]
+        if rec2:
+            total_w2 += rec2[0]
+            total_l2 += rec2[1]
+
+    t1, t2 = total_w1 + total_l1, total_w2 + total_l2
+    if t1 == 0 or t2 == 0:
+        return None, 0.0
+
+    rate1, rate2 = total_w1 / t1, total_w2 / t2
+    total = rate1 + rate2
+    prob1 = rate1 / total if total > 0 else None
+
+    # satureaza la ~40 de meciuri combinate intre cei doi jucatori
+    confidence = min((t1 + t2) / 40, 1.0)
+    return prob1, confidence
+
+
+def _composite_estimate(
+    rank_p: float | None,
+    form_p: float | None,
+    rating_p: float | None = None,
+    rating_confidence: float = 0.0,
+) -> float | None:
+    """Medie ponderata a semnalelor disponibile (rank + formă + rating de
+    carieră pe suprafață). Rank si formă au pondere fixa 1.0 fiecare;
+    rating-ul de cariera e ponderat de propria lui incredere, ca sa nu
+    distorsioneze estimarea cand avem putine date pentru el. NU e un model
+    predictiv validat, doar o combinare simpla a semnalelor pe care le avem -
+    de tratat ca punct de plecare pentru propria ta analiza, nu ca raspuns
+    final."""
+    weighted_sum = 0.0
+    weight_total = 0.0
+    if rank_p is not None:
+        weighted_sum += rank_p * 1.0
+        weight_total += 1.0
+    if form_p is not None:
+        weighted_sum += form_p * 1.0
+        weight_total += 1.0
+    if rating_p is not None and rating_confidence > 0:
+        weighted_sum += rating_p * rating_confidence
+        weight_total += rating_confidence
+    if weight_total == 0:
+        return None
+    return weighted_sum / weight_total
 
 
 def _signal_label(composite_p1: float | None, implied_p1: float | None, threshold: float = 0.07) -> str:
@@ -248,6 +310,7 @@ def build_report(
                 "implied_prob_2": None,
                 "composite_prob_1": None,
                 "composite_prob_2": None,
+                "rating_confidence": None,
                 "signal": "Date insuficiente",
                 "our_min1set_p1": None,
                 "our_min1set_p2": None,
@@ -307,7 +370,9 @@ def build_report(
 
                     rank_p1 = _rank_probability(rank1, rank2)
                     form_p1 = _form_probability(w1, l1, w2, l2)
-                    composite_p1 = _composite_estimate(rank_p1, form_p1)
+                    rating_p1, rating_confidence = _career_rating_probability(detail.surface_balance)
+                    composite_p1 = _composite_estimate(rank_p1, form_p1, rating_p1, rating_confidence)
+                    row["rating_confidence"] = round(rating_confidence, 2)
 
                     if composite_p1 is not None:
                         row["composite_prob_1"] = round(composite_p1 * 100, 1)
@@ -338,8 +403,9 @@ _COLUMN_LABELS = {
     "p2_form_summary": "Formă J2 (V-I, meciuri disponibile pe TennisExplorer)",
     "implied_prob_1": "% Implicit Cotă J1",
     "implied_prob_2": "% Implicit Cotă J2",
-    "composite_prob_1": "% Estimare Compusă J1 (rank+formă)",
-    "composite_prob_2": "% Estimare Compusă J2 (rank+formă)",
+    "composite_prob_1": "% Estimare Compusă J1 (rank+formă+rating)",
+    "composite_prob_2": "% Estimare Compusă J2 (rank+formă+rating)",
+    "rating_confidence": "Încredere rating carieră (0-1)",
     "signal": "Semnal (estimare vs piață)",
     "our_min1set_p1": "% Estimare Minim 1 Set J1 (derivat)",
     "our_min1set_p2": "% Estimare Minim 1 Set J2 (derivat)",

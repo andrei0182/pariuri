@@ -38,43 +38,63 @@ MIN_ODDS = 1.3
 
 _COL_P1, _COL_P2 = "Jucător 1", "Jucător 2"
 _COL_ODDS1, _COL_ODDS2 = "Cotă 1", "Cotă 2"
-_COL_COMP1, _COL_COMP2 = "% Estimare Compusă J1 (rank+formă)", "% Estimare Compusă J2 (rank+formă)"
+_COL_COMP1, _COL_COMP2 = "% Estimare Compusă J1 (rank+formă+rating)", "% Estimare Compusă J2 (rank+formă+rating)"
 _COL_IMPL1, _COL_IMPL2 = "% Implicit Cotă J1", "% Implicit Cotă J2"
+_COL_RATING_CONF = "Încredere rating carieră (0-1)"
 _COL_TOURNAMENT, _COL_TIME, _COL_URL = "Turneu", "Ora", "Link Superbet"
 
 
 def filter_recommended_picks(df: pd.DataFrame, min_edge_pp: float = MIN_EDGE_PP, min_odds: float = MIN_ODDS) -> pd.DataFrame:
     """Pentru fiecare meci, calculeaza edge-ul (estimare - implicit) pe
     fiecare parte si pastreaza doar meciurile unde partea cu edge pozitiv
-    mare (>= min_edge_pp) are si o cota Superbet >= min_odds. Adauga
-    coloane noi: "_recommended_player" (1 sau 2), "_edge_pp", "_rec_odds"."""
+    mare (>= min_edge_pp, dupa ponderarea cu incredere) are si o cota
+    Superbet >= min_odds. Edge-ul e ponderat de "Încredere rating carieră"
+    (0-1): meciurile cu incredere mica (jucatori cu putine meciuri
+    disponibile pentru rating-ul de cariera) au nevoie de un edge brut mai
+    mare ca sa treaca de filtru, ceea ce reduce volumul de recomandari
+    fara sa scada pragul de baza. CONFIRMAT (2026-09-16, cu Andrei): asta
+    e raspunsul la problema initiala - prea multe meciuri treceau de
+    filtrul simplu pe edge brut.
+    Adauga coloane noi: "_recommended_player" (1 sau 2), "_edge_pp" (brut),
+    "_edge_pp_weighted" (dupa ponderare, folosit pentru sortare), "_rec_odds"."""
     rows = []
     for _, row in df.iterrows():
         comp1, comp2 = row.get(_COL_COMP1), row.get(_COL_COMP2)
         impl1, impl2 = row.get(_COL_IMPL1), row.get(_COL_IMPL2)
         odds1, odds2 = row.get(_COL_ODDS1), row.get(_COL_ODDS2)
+        confidence = row.get(_COL_RATING_CONF)
         if pd.isna(comp1) or pd.isna(impl1):
             continue
 
-        edge1 = comp1 - impl1  # pozitiv = value pe J1, negativ = value pe J2
+        # confidence lipsa (None/NaN) = tratam ca 0 -> ponderare maxima (0.5x)
+        confidence = 0.0 if pd.isna(confidence) else float(confidence)
+        # factor intre 0.5 (incredere 0) si 1.0 (incredere maxima) - un edge
+        # "orb" (fara date de rating) trebuie sa fie de doua ori mai mare
+        # ca sa treaca de acelasi prag decat unul cu incredere maxima
+        weight = 0.5 + 0.5 * confidence
 
-        if edge1 >= min_edge_pp and not pd.isna(odds1) and odds1 >= min_odds:
+        edge1 = comp1 - impl1  # pozitiv = value pe J1, negativ = value pe J2
+        edge1_weighted = edge1 * weight
+
+        if edge1_weighted >= min_edge_pp and not pd.isna(odds1) and odds1 >= min_odds:
             new_row = row.copy()
             new_row["_recommended_player"] = 1
             new_row["_edge_pp"] = edge1
+            new_row["_edge_pp_weighted"] = edge1_weighted
             new_row["_rec_odds"] = odds1
             rows.append(new_row)
-        elif -edge1 >= min_edge_pp and not pd.isna(odds2) and odds2 >= min_odds:
+        elif -edge1_weighted >= min_edge_pp and not pd.isna(odds2) and odds2 >= min_odds:
             new_row = row.copy()
             new_row["_recommended_player"] = 2
             new_row["_edge_pp"] = -edge1
+            new_row["_edge_pp_weighted"] = -edge1_weighted
             new_row["_rec_odds"] = odds2
             rows.append(new_row)
 
     if not rows:
         return pd.DataFrame()
     result = pd.DataFrame(rows)
-    return result.sort_values("_edge_pp", ascending=False)
+    return result.sort_values("_edge_pp_weighted", ascending=False)
 
 
 def _clean(value) -> str:

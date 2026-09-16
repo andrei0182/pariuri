@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 SUPPORTED_TOURS = ("atp", "wta")
 
 
-def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 5) -> str:
+def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 10) -> str:
     parts = []
     for m in matches[:limit]:
         mark = {"True": "V", "False": "I", "None": "?"}[str(m.won)]
@@ -136,10 +136,10 @@ _COLUMN_LABELS = {
     "te_match_id": "TennisExplorer match_id",
     "p1_ranking": "Rank J1", "p2_ranking": "Rank J2",
     "surface_comparison": "Comparație Suprafață",
-    "p1_form_summary": "Formă J1 (V-I ultimele 5)",
-    "p2_form_summary": "Formă J2 (V-I ultimele 5)",
-    "p1_recent_form": "Formă recentă J1 (ultimele 5)",
-    "p2_recent_form": "Formă recentă J2 (ultimele 5)",
+    "p1_form_summary": "Formă J1 (V-I, meciuri disponibile pe TennisExplorer)",
+    "p2_form_summary": "Formă J2 (V-I, meciuri disponibile pe TennisExplorer)",
+    "p1_recent_form": "Formă recentă J1 (meciuri disponibile)",
+    "p2_recent_form": "Formă recentă J2 (meciuri disponibile)",
     "h2h": "H2H",
 }
 

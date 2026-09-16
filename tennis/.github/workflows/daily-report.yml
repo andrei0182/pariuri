@@ -1,38 +1,48 @@
 name: Daily tennis report
 
 permissions:
-  contents: read
+  contents: write  # necesar pentru a comite fisierul marker .last_run_date
 
 on:
   schedule:
     # 7:00 AM Romania time, an-intreg. Cron e mereu UTC, fara concept de
     # ora de vara/iarna, deci doua intrari acopera ambele offset-uri UTC
-    # ale Romaniei — pasul de mai jos sare peste orice intrare care nu
-    # pica exact la 7 dimineata ora locala (acelasi tipar ca la SuperBet).
-    - cron: "0 4 * * *"  # 7:00 Romania time cand e EEST (UTC+3, vara)
-    - cron: "0 5 * * *"  # 7:00 Romania time cand e EET (UTC+2, iarna)
+    # ale Romaniei. IMPORTANT: GitHub Actions NU garanteaza ca workflow-urile
+    # "schedule" pornesc exact la ora ceruta -- pot fi intarziate cu ore
+    # intregi (CONFIRMAT 2026-09-16: un run programat pentru 01:00 UTC a
+    # pornit de fapt la 07:23 UTC pe SuperBet). De aceea garda de mai jos
+    # foloseste o FEREASTRA larga (04-10 ora Romaniei), nu o potrivire
+    # exacta de ora, plus un marker de "deja trimis azi" ca sa nu trimitem
+    # de doua ori daca ambele intrari cron ajung sa porneasca in fereastra.
+    - cron: "0 4 * * *"  # ~7:00 Romania time cand e EEST (UTC+3, vara)
+    - cron: "0 5 * * *"  # ~7:00 Romania time cand e EET (UTC+2, iarna)
   workflow_dispatch: {}  # trigger manual din tab-ul Actions, pentru testare
 
 jobs:
   send-report:
     runs-on: ubuntu-latest
     steps:
-      - name: Skip unless this is actually 7 AM Romania time
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Skip if already sent today (evita duplicate cand ambele intrari cron ajung sa porneasca)
+        if: github.event_name != 'workflow_dispatch'
         run: |
-          if [ "${{ github.event_name }}" != "schedule" ]; then
-            echo "Trigger manual (workflow_dispatch) -- rulam indiferent de ora curenta."
-          else
-            hour=$(TZ="Europe/Bucharest" date +%H)
-            echo "Ora locala Romania: $hour"
-            if [ "$hour" != "07" ]; then
-              echo "Nu e 7 AM ora Romaniei acum (asta e cealalta intrare cron, pentru celalalt offset DST) -- sarim peste restul job-ului."
-              echo "SKIP_RUN=true" >> "$GITHUB_ENV"
-            fi
+          today=$(TZ="Europe/Bucharest" date +%F)
+          if [ -f .last_run_date ] && [ "$(cat .last_run_date)" == "$today" ]; then
+            echo "Raportul de azi ($today) a fost deja trimis -- sarim peste (probabil a doua intrare cron, sau o reincercare intarziata de GitHub)."
+            echo "SKIP_RUN=true" >> "$GITHUB_ENV"
           fi
 
-      - name: Checkout
-        if: env.SKIP_RUN != 'true'
-        uses: actions/checkout@v4
+      - name: Skip if outside the acceptable morning window (04-10 ora Romaniei)
+        if: env.SKIP_RUN != 'true' && github.event_name != 'workflow_dispatch'
+        run: |
+          hour=$(TZ="Europe/Bucharest" date +%-H)
+          echo "Ora locala Romania: $hour"
+          if [ "$hour" -lt 4 ] || [ "$hour" -gt 10 ]; then
+            echo "In afara ferestrei acceptate (04-10) -- sarim peste (asteptam urmatoarea intrare cron sau ziua urmatoare)."
+            echo "SKIP_RUN=true" >> "$GITHUB_ENV"
+          fi
 
       - name: Set up Python
         if: env.SKIP_RUN != 'true'
@@ -47,7 +57,7 @@ jobs:
       - name: Compute today's date
         if: env.SKIP_RUN != 'true'
         id: date
-        run: echo "value=$(date +%F)" >> "$GITHUB_OUTPUT"
+        run: echo "value=$(TZ='Europe/Bucharest' date +%F)" >> "$GITHUB_OUTPUT"
 
       - name: Run tennis report (toate turneele confirmate)
         if: env.SKIP_RUN != 'true'
@@ -71,3 +81,14 @@ jobs:
           python send_report_email.py \
             --xlsx output/tenis.xlsx \
             --date ${{ steps.date.outputs.value }}
+
+      - name: Record today's run (previne trimiterea duplicata)
+        if: env.SKIP_RUN != 'true'
+        run: |
+          today=$(TZ="Europe/Bucharest" date +%F)
+          echo "$today" > .last_run_date
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .last_run_date
+          git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record run date $today"
+          git push

@@ -34,7 +34,7 @@ from tenis_scraper import events, tennisexplorer, tournaments
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-SUPPORTED_TOURS = ("atp", "wta")
+SUPPORTED_TOURS = ("atp", "wta", "challenger", "wta-125", "itf-m", "itf-f", "utr-m", "utr-f")
 
 
 def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 10) -> str:
@@ -50,8 +50,21 @@ def _surface_summary(balance: dict[str, tuple[str, str]]) -> str:
     return " | ".join(parts) if parts else ""
 
 
+def _fetch_schedule_cached(te_type: str, date: dt.date, cache: dict) -> list[tennisexplorer.ScheduledMatch]:
+    """Mai multe tur-uri Superbet (ex. challenger, itf-m, utr-m) mapeaza pe
+    acelasi te_type ("atp-single") - evitam fetch-uri repetate ale aceleiasi
+    pagini in cadrul aceleiasi rulari."""
+    if te_type not in cache:
+        schedule = tennisexplorer.fetch_daily_schedule(te_type, date)
+        schedule += tennisexplorer.fetch_daily_schedule(te_type, date + dt.timedelta(days=1))
+        schedule = [m for m in schedule if "/" not in m.player1 and "/" not in m.player2]
+        cache[te_type] = schedule
+    return cache[te_type]
+
+
 def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_delay: float = 1.0) -> pd.DataFrame:
     rows: list[dict] = []
+    schedule_cache: dict[str, list[tennisexplorer.ScheduledMatch]] = {}
 
     for tour in tours:
         tour_ids = tournaments.all_tennis_tournament_ids(tours=(tour,))
@@ -78,10 +91,8 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
             # ca sa nu pierdem acele meciuri. Nu am vazut nevoie de ziua-1
             # (orele foarte devreme UTC raman pe aceeasi zi locala TE, fiind
             # inaintea UTC, nu in urma).
-            schedule = tennisexplorer.fetch_daily_schedule(te_type, date)
-            schedule += tennisexplorer.fetch_daily_schedule(te_type, date + dt.timedelta(days=1))
-            schedule = [m for m in schedule if "/" not in m.player1 and "/" not in m.player2]
-            logger.info("Tur %s: %d meciuri simplu gasite in programul TennisExplorer (ziua + ziua urmatoare)", tour, len(schedule))
+            schedule = _fetch_schedule_cached(te_type, date, schedule_cache)
+            logger.info("Tur %s: %d meciuri simplu gasite in programul TennisExplorer (te_type=%s, ziua + ziua urmatoare)", tour, len(schedule), te_type)
 
         for sb_match in sb_matches:
             row = {

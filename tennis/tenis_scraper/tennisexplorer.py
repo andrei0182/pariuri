@@ -329,11 +329,23 @@ DAILY_SCHEDULE_URL = BASE_URL + "/matches/"
 TOUR_TYPE_MAP = {
     "atp": "atp-single",
     "wta": "wta-single",
-    "challenger": "challenger-single",   # NEconfirmat
-    "wta-125": "wta-single",             # NEconfirmat - posibil inclus in wta-single, posibil separat
-    "itf-m": "itf-men-single",           # NEconfirmat
-    "itf-f": "itf-women-single",         # NEconfirmat
+    "challenger": "atp-single",   # CONFIRMAT: challenger apare deja in feed-ul atp-single (nu exista tip separat)
+    "wta-125": "wta-single",      # CONFIRMAT: la fel, deja inclus in wta-single
+    "itf-m": "atp-single",        # CONFIRMAT: la fel, deja inclus in atp-single
+    "itf-f": "wta-single",        # CONFIRMAT: la fel, deja inclus in wta-single
+    "utr-m": "atp-single",        # CONFIRMAT: am vazut meciuri "UTR Pro..." direct in feed-ul atp-single/wta-single
+    "utr-f": "wta-single",
 }
+
+# NEsuportate inca - nu apar (macar nu confirmat) in listele zilnice
+# atp-single/wta-single, ci pe pagini dedicate cu structura diferita:
+# - cupa-davis, billie-jean-king-cup, united-cup: competitii pe ECHIPE, cu
+#   pagina proprie (ex. tennisexplorer.com/davis-cup/2025/atp-men/)
+#   structurata pe "tie"-uri intre natiuni (mai multe meciuri simplu+dublu
+#   per tie), CONFIRMAT diferita de orice am parsat pana acum - ar necesita
+#   un parser separat, netratat aici
+# - juniori, meciuri-demonstrative, simulated-reality, simulated-reality-f:
+#   NEconfirmat daca/cum apar in feed-urile zilnice existente
 
 
 @dataclass

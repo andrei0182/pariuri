@@ -2,14 +2,22 @@
 calculeaza o estimare compusa (rank + forma) si exporta un raport Excel.
 
 Estimarea compusa NU e un model predictiv validat statistic - e o medie
-simpla intre probabilitatea implicita din rank (1/rank normalizat intre
-cei doi jucatori) si probabilitatea implicita din rata de victorii pe
-formă recentă. E gandita ca punct de plecare pentru propria analiza, nu
-ca raspuns final. Coloana "Semnal" arata doar unde estimarea noastra
+simpla intre probabilitatea implicita din rank (1/sqrt(rank) normalizat
+intre cei doi jucatori) si probabilitatea implicita din rata de victorii
+pe formă recentă. E gandita ca punct de plecare pentru propria analiza,
+nu ca raspuns final. Coloana "Semnal" arata doar unde estimarea noastra
 difera semnificativ (>7 puncte procentuale) de ce implica cota Superbet -
 asta poate insemna fie ca am gasit ceva ce piata a ratat, fie (mai
 probabil, mai ales la inceput) ca semnalele noastre simple (doar rank +
 formă, fara accidentari/oboseala/conditii) sunt incomplete.
+
+Din estimarea compusa (% castig meci), coloanele "% Estimare Minim 1 Set"
+si "% Estimare Sub/Peste 2.5 Seturi" sunt DERIVATE matematic (nu masurate
+direct), presupunand seturile independente cu aceeasi sansa per set
+(simplificare standard, nu exacta - oboseala/momentum nu sunt modelate).
+NU exista inca o estimare pentru "total game-uri per set" - ar necesita
+scoruri detaliate pe game-uri din istoricul de meciuri, pe care nu le
+avem (TennisExplorer ne da doar scorul final pe seturi, ex. "2:0").
 
 Ce NU e inclus inca:
 - accidentari (tabelul playerInjuries de pe pagina de jucator exista, dar
@@ -125,6 +133,47 @@ def _signal_label(composite_p1: float | None, implied_p1: float | None, threshol
     return "Aliniat cu piata"
 
 
+def _solve_set_win_prob(match_win_prob: float) -> float:
+    """Deriva probabilitatea de castig a UNUI SET (s) din probabilitatea
+    de castig a MECIULUI (p), presupunand seturile independente si cu
+    aceeasi sansa s per set (simplificare standard in analiza sportiva,
+    NU o masuratoare directa - meciul e best-of-3, deci:
+    p = P(castiga 2-0) + P(castiga 2-1) = s^2 + 2*s^2*(1-s) = 3s^2 - 2s^3
+    Functia e monotona crescatoare pe [0,1], deci inversam prin bisectie."""
+    if match_win_prob <= 0:
+        return 0.0
+    if match_win_prob >= 1:
+        return 1.0
+    lo, hi = 0.0, 1.0
+    for _ in range(50):
+        mid = (lo + hi) / 2
+        p_mid = 3 * mid ** 2 - 2 * mid ** 3
+        if p_mid < match_win_prob:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def _derived_set_probabilities(match_win_prob_p1: float) -> dict:
+    """Din probabilitatea de castig a meciului (J1), calculeaza probabilitati
+    DERIVATE (nu masurate direct) pentru minim-1-set si total-seturi,
+    folosind modelul seturi-independente de mai sus. Aceeasi simplificare
+    ca la orice model sportiv de baza - presupune ca fiecare set e un
+    experiment Bernoulli independent cu aceeasi sansa s, ceea ce in
+    realitate nu e mereu adevarat (oboseala, momentum), dar e un punct de
+    plecare rezonabil fara date suplimentare (scoruri pe game-uri per set
+    din istoric, pe care nu le avem inca)."""
+    s = _solve_set_win_prob(match_win_prob_p1)
+    return {
+        "set_win_prob_p1": s,
+        "min1set_p1": 1 - (1 - s) ** 2,
+        "min1set_p2": 1 - s ** 2,
+        "total_sets_under": s ** 2 + (1 - s) ** 2,   # meciul se termina 2-0 (2 seturi)
+        "total_sets_over": 2 * s * (1 - s),           # meciul merge la 3 seturi
+    }
+
+
 def _surface_summary(balance: dict[str, tuple[str, str]]) -> str:
     parts = [f"{surface}: {v1} vs {v2}" for surface, (v1, v2) in balance.items()]
     return " | ".join(parts) if parts else ""
@@ -200,6 +249,10 @@ def build_report(
                 "composite_prob_1": None,
                 "composite_prob_2": None,
                 "signal": "Date insuficiente",
+                "our_min1set_p1": None,
+                "our_min1set_p2": None,
+                "our_total_sets_under": None,
+                "our_total_sets_over": None,
                 "p1_recent_form": "",
                 "p2_recent_form": "",
                 "h2h": "Neverificat",
@@ -260,6 +313,12 @@ def build_report(
                         row["composite_prob_1"] = round(composite_p1 * 100, 1)
                         row["composite_prob_2"] = round((1 - composite_p1) * 100, 1)
                         row["signal"] = _signal_label(composite_p1, implied_p1)
+
+                        derived = _derived_set_probabilities(composite_p1)
+                        row["our_min1set_p1"] = round(derived["min1set_p1"] * 100, 1)
+                        row["our_min1set_p2"] = round(derived["min1set_p2"] * 100, 1)
+                        row["our_total_sets_under"] = round(derived["total_sets_under"] * 100, 1)
+                        row["our_total_sets_over"] = round(derived["total_sets_over"] * 100, 1)
             else:
                 logger.info("Nu am gasit potrivire TennisExplorer pentru: %s vs %s", sb_match.player1, sb_match.player2)
 
@@ -282,6 +341,10 @@ _COLUMN_LABELS = {
     "composite_prob_1": "% Estimare Compusă J1 (rank+formă)",
     "composite_prob_2": "% Estimare Compusă J2 (rank+formă)",
     "signal": "Semnal (estimare vs piață)",
+    "our_min1set_p1": "% Estimare Minim 1 Set J1 (derivat)",
+    "our_min1set_p2": "% Estimare Minim 1 Set J2 (derivat)",
+    "our_total_sets_under": "% Estimare Sub 2.5 Seturi (derivat)",
+    "our_total_sets_over": "% Estimare Peste 2.5 Seturi (derivat)",
     "p1_recent_form": "Formă recentă J1 (meciuri disponibile)",
     "p2_recent_form": "Formă recentă J2 (meciuri disponibile)",
     "h2h": "H2H",

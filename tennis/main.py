@@ -40,7 +40,8 @@ SUPPORTED_TOURS = ("atp", "wta")
 def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 5) -> str:
     parts = []
     for m in matches[:limit]:
-        parts.append(f"{m.tournament} {m.round} ({m.date}): {m.opponent} {m.score}")
+        mark = {"True": "V", "False": "I", "None": "?"}[str(m.won)]
+        parts.append(f"[{mark}] {m.tournament} {m.round} ({m.date}): {m.opponent} {m.score}")
     return " | ".join(parts) if parts else ""
 
 
@@ -96,6 +97,8 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
                 "p1_ranking": None,
                 "p2_ranking": None,
                 "surface_comparison": "",
+                "p1_form_summary": "",
+                "p2_form_summary": "",
                 "p1_recent_form": "",
                 "p2_recent_form": "",
                 "h2h": "Neverificat",
@@ -110,6 +113,8 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
                     row["p1_ranking"] = detail.player1.ranking
                     row["p2_ranking"] = detail.player2.ranking
                     row["surface_comparison"] = _surface_summary(detail.surface_balance)
+                    row["p1_form_summary"] = tennisexplorer.summarize_form(detail.player1_recent)
+                    row["p2_form_summary"] = tennisexplorer.summarize_form(detail.player2_recent)
                     row["p1_recent_form"] = _recent_summary(detail.player1_recent)
                     row["p2_recent_form"] = _recent_summary(detail.player2_recent)
                     row["h2h"] = (
@@ -131,6 +136,8 @@ _COLUMN_LABELS = {
     "te_match_id": "TennisExplorer match_id",
     "p1_ranking": "Rank J1", "p2_ranking": "Rank J2",
     "surface_comparison": "Comparație Suprafață",
+    "p1_form_summary": "Formă J1 (V-I ultimele 5)",
+    "p2_form_summary": "Formă J2 (V-I ultimele 5)",
     "p1_recent_form": "Formă recentă J1 (ultimele 5)",
     "p2_recent_form": "Formă recentă J2 (ultimele 5)",
     "h2h": "H2H",

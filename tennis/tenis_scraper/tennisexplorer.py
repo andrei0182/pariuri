@@ -230,6 +230,70 @@ def parse_h2h(soup: BeautifulSoup) -> tuple[bool, list[RecentMatch]]:
     return True, []
 
 
+def _surname_tokens_from_profile_name(name: str) -> set[str]:
+    """Din numele complet de pe gDetail (format "Nume Prenume", ex.
+    "Parry Diane" sau "Bouzas Maneiro Jessica") extrage tokenii de nume de
+    familie - toate cuvintele mai putin ultimul (presupus prenumele).
+    Cazuri limita nerezolvate: nume compuse neconventionale."""
+    tokens = name.lower().split()
+    if len(tokens) <= 1:
+        return set(tokens)
+    return set(tokens[:-1])
+
+
+def _determine_won(opponent_field: str, score_field: str, own_surname_tokens: set[str]) -> Optional[bool]:
+    """Determina daca jucatorul urmarit a castigat un meci din formatul
+    "NumeA-NumeB" + scor "X:Y" (unde X = seturi NumeA, Y = seturi NumeB -
+    CONFIRMAT prin observatie ca ordinea scorului urmeaza ordinea numelor).
+    Returneaza None cand nu putem determina sigur (nume ambiguu, scor
+    neparsabil, sau numele contine el insusi o cratima)."""
+    parts = opponent_field.split("-")
+    if len(parts) != 2:
+        return None
+    left, right = parts[0].strip(), parts[1].strip()
+
+    def _tokens(s: str) -> set[str]:
+        return set(re.sub(r"[.']", " ", s.lower()).split())
+
+    left_is_self = bool(_tokens(left) & own_surname_tokens)
+    right_is_self = bool(_tokens(right) & own_surname_tokens)
+    if left_is_self == right_is_self:  # ambele sau niciunul - ambiguu
+        return None
+
+    score_parts = score_field.split(":")
+    if len(score_parts) != 2:
+        return None
+    try:
+        left_score, right_score = int(score_parts[0]), int(score_parts[1])
+    except ValueError:
+        return None
+
+    return (left_score > right_score) if left_is_self else (right_score > left_score)
+
+
+def _annotate_won(matches: list[RecentMatch], player_name: str) -> None:
+    surname_tokens = _surname_tokens_from_profile_name(player_name)
+    if not surname_tokens:
+        return
+    for m in matches:
+        m.won = _determine_won(m.opponent, m.score, surname_tokens)
+
+
+def summarize_form(matches: list[RecentMatch]) -> str:
+    """Rezumat gen "4V-1I" din campul `won` (populat de _annotate_won).
+    Meciurile cu won=None (ambigue) sunt numarate separat, nu ignorate
+    silentios."""
+    if not matches:
+        return ""
+    wins = sum(1 for m in matches if m.won is True)
+    losses = sum(1 for m in matches if m.won is False)
+    unclear = sum(1 for m in matches if m.won is None)
+    summary = f"{wins}V-{losses}I"
+    if unclear:
+        summary += f" ({unclear} neclar)"
+    return summary
+
+
 def parse_match_detail(html: str) -> MatchDetailData:
     soup = BeautifulSoup(html, "lxml")
     data = MatchDetailData()
@@ -237,6 +301,8 @@ def parse_match_detail(html: str) -> MatchDetailData:
     data.surface_balance = parse_surface_balance(soup)
     data.player1_recent, data.player2_recent = parse_recent_results(soup)
     data.h2h_exists, data.h2h_matches = parse_h2h(soup)
+    _annotate_won(data.player1_recent, data.player1.name)
+    _annotate_won(data.player2_recent, data.player2.name)
     return data
 
 

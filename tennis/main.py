@@ -71,9 +71,16 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
             logger.warning("Tur %s: nu are mapping catre TennisExplorer, sarim peste stats", tour)
             schedule = []
         else:
+            # CONFIRMAT (2026-09-16): meciurile Superbet din ultimele ore UTC
+            # ale zilei (ex. 23:00) pot cadea deja pe "ziua urmatoare" in
+            # calendarul local (CET/CEST) al TennisExplorer - luam si ziua+1
+            # ca sa nu pierdem acele meciuri. Nu am vazut nevoie de ziua-1
+            # (orele foarte devreme UTC raman pe aceeasi zi locala TE, fiind
+            # inaintea UTC, nu in urma).
             schedule = tennisexplorer.fetch_daily_schedule(te_type, date)
+            schedule += tennisexplorer.fetch_daily_schedule(te_type, date + dt.timedelta(days=1))
             schedule = [m for m in schedule if "/" not in m.player1 and "/" not in m.player2]
-            logger.info("Tur %s: %d meciuri simplu gasite in programul TennisExplorer", tour, len(schedule))
+            logger.info("Tur %s: %d meciuri simplu gasite in programul TennisExplorer (ziua + ziua urmatoare)", tour, len(schedule))
 
         for sb_match in sb_matches:
             row = {

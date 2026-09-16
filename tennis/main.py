@@ -1,21 +1,24 @@
-"""Punct de intrare — leaga Superbet (cote) cu TennisExplorer (stats) si
-exporta un raport Excel.
+"""Punct de intrare - leaga Superbet (cote) cu TennisExplorer (stats),
+calculeaza o estimare compusa (rank + forma) si exporta un raport Excel.
 
-STATUS: prima versiune functionala (2026-09-15). Acopera doar ATP si WTA
-(singure tur-uri confirmate pentru mapping-ul catre tipul de pagina
-TennisExplorer — vezi TOUR_TYPE_MAP din tenis_scraper/tennisexplorer.py).
-Potrivirea meci Superbet <-> meci TennisExplorer se face dupa nume de
-familie (euristica, nu 100% garantata) — verifica manual primele rulari.
+Estimarea compusa NU e un model predictiv validat statistic - e o medie
+simpla intre probabilitatea implicita din rank (1/rank normalizat intre
+cei doi jucatori) si probabilitatea implicita din rata de victorii pe
+formă recentă. E gandita ca punct de plecare pentru propria analiza, nu
+ca raspuns final. Coloana "Semnal" arata doar unde estimarea noastra
+difera semnificativ (>7 puncte procentuale) de ce implica cota Superbet -
+asta poate insemna fie ca am gasit ceva ce piata a ratat, fie (mai
+probabil, mai ales la inceput) ca semnalele noastre simple (doar rank +
+formă, fara accidentari/oboseala/conditii) sunt incomplete.
 
-Ce NU e inclus inca in aceasta versiune:
-- calcularea automata a raportului victorii/infrangeri din formă recentă
-  (campul `won` din RecentMatch nu e populat — ordinea numelor in perechea
-  "NumeA-NumeB" de pe TennisExplorer nu indica sigur cine a castigat)
-- H2H real cand chiar exista istoric comun (structura tabelului pentru
-  acel caz nu a fost inca vazuta/confirmata)
+Ce NU e inclus inca:
 - accidentari (tabelul playerInjuries de pe pagina de jucator exista, dar
-  nu e inca legat in acest flux — ar necesita un fetch suplimentar per
-  jucator)
+  nu e inca legat in acest flux)
+- H2H real cand chiar exista istoric comun (doar "exista/nu exista",
+  fara detalii - structura tabelului pentru cazul "exista" nu a fost
+  inca vazuta/confirmata)
+- Cupa Davis / Billie Jean King Cup / United Cup (competitii pe echipe,
+  structura de pagina diferita pe TennisExplorer)
 """
 from __future__ import annotations
 
@@ -43,6 +46,83 @@ def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 10) 
         mark = {"True": "V", "False": "I", "None": "?"}[str(m.won)]
         parts.append(f"[{mark}] {m.tournament} {m.round} ({m.date}): {m.opponent} {m.score}")
     return " | ".join(parts) if parts else ""
+
+
+def _parse_rank(rank_str: str | None) -> int | None:
+    """Rank-ul vine ca text de pe TennisExplorer, ex. "169.", "-." (fara
+    clasament). Curatam punctul final si convertim la int, None daca nu
+    exista clasament."""
+    if not rank_str:
+        return None
+    s = rank_str.strip().rstrip(".")
+    try:
+        val = int(s)
+        return val if val > 0 else None
+    except ValueError:
+        return None
+
+
+UNRANKED_FALLBACK = 2000  # presupunere pentru jucatori fara clasament, doar pentru scor relativ
+
+
+def _rank_probability(rank1: int | None, rank2: int | None) -> float | None:
+    """Probabilitate relativa bazata DOAR pe clasament, normalizata intre
+    cei doi jucatori. Foloseste 1/sqrt(rank) in loc de 1/rank brut - 1/rank
+    da valori nerealist de extreme la diferente mari (ex. rank 5 vs 200 ar
+    da ~97.6% cu 1/rank, quando in tenis chiar si un favorit clar pastreaza
+    o sansa realista pentru underdog). Tot o aproximare bruta, dar mai
+    temperata."""
+    r1 = rank1 if rank1 is not None else UNRANKED_FALLBACK
+    r2 = rank2 if rank2 is not None else UNRANKED_FALLBACK
+    score1, score2 = 1.0 / (r1 ** 0.5), 1.0 / (r2 ** 0.5)
+    total = score1 + score2
+    return score1 / total if total > 0 else None
+
+
+def _form_probability(w1: int, l1: int, w2: int, l2: int) -> float | None:
+    """Probabilitate relativa bazata pe rata de victorii din formă recentă
+    (nu neaparat impotriva acelorasi adversari) - semnal slab de volatilitate
+    pe termen scurt, nu o statistica riguroasa."""
+    t1, t2 = w1 + l1, w2 + l2
+    if t1 == 0 or t2 == 0:
+        return None
+    rate1, rate2 = w1 / t1, w2 / t2
+    total = rate1 + rate2
+    if total == 0:
+        return None
+    return rate1 / total
+
+
+def _implied_probability(odds1: float, odds2: float) -> float | None:
+    """Probabilitate implicita din cotele Superbet, normalizata ca sa
+    elimine marja casei (suma 1/cota1 + 1/cota2 e de obicei >1)."""
+    if not odds1 or not odds2:
+        return None
+    inv1, inv2 = 1.0 / odds1, 1.0 / odds2
+    total = inv1 + inv2
+    return inv1 / total if total > 0 else None
+
+
+def _composite_estimate(rank_p: float | None, form_p: float | None) -> float | None:
+    """Media semnalelor disponibile (rank + formă). Daca lipseste unul,
+    folosim doar celalalt. NU e un model predictiv validat, doar o
+    combinare simpla a semnalelor pe care le avem - de tratat ca punct de
+    plecare pentru propria ta analiza, nu ca raspuns final."""
+    parts = [p for p in (rank_p, form_p) if p is not None]
+    if not parts:
+        return None
+    return sum(parts) / len(parts)
+
+
+def _signal_label(composite_p1: float | None, implied_p1: float | None, threshold: float = 0.07) -> str:
+    if composite_p1 is None or implied_p1 is None:
+        return "Date insuficiente"
+    diff = composite_p1 - implied_p1
+    if diff > threshold:
+        return f"Posibil value pe J1 (+{diff*100:.0f}pp vs piata)"
+    if diff < -threshold:
+        return f"Posibil value pe J2 (+{-diff*100:.0f}pp vs piata)"
+    return "Aliniat cu piata"
 
 
 def _surface_summary(balance: dict[str, tuple[str, str]]) -> str:
@@ -110,10 +190,20 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
                 "surface_comparison": "",
                 "p1_form_summary": "",
                 "p2_form_summary": "",
+                "implied_prob_1": None,
+                "implied_prob_2": None,
+                "composite_prob_1": None,
+                "composite_prob_2": None,
+                "signal": "Date insuficiente",
                 "p1_recent_form": "",
                 "p2_recent_form": "",
                 "h2h": "Neverificat",
             }
+
+            implied_p1 = _implied_probability(sb_match.odds_winner.player1, sb_match.odds_winner.player2)
+            if implied_p1 is not None:
+                row["implied_prob_1"] = round(implied_p1 * 100, 1)
+                row["implied_prob_2"] = round((1 - implied_p1) * 100, 1)
 
             scheduled = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
             if scheduled is not None and scheduled.match_id is not None:
@@ -132,6 +222,19 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
                         "Exista istoric H2H (detalii de verificat manual pe match_url)"
                         if detail.h2h_exists else "Fara istoric H2H"
                     )
+
+                    rank1, rank2 = _parse_rank(detail.player1.ranking), _parse_rank(detail.player2.ranking)
+                    w1, l1 = tennisexplorer.form_win_loss(detail.player1_recent)
+                    w2, l2 = tennisexplorer.form_win_loss(detail.player2_recent)
+
+                    rank_p1 = _rank_probability(rank1, rank2)
+                    form_p1 = _form_probability(w1, l1, w2, l2)
+                    composite_p1 = _composite_estimate(rank_p1, form_p1)
+
+                    if composite_p1 is not None:
+                        row["composite_prob_1"] = round(composite_p1 * 100, 1)
+                        row["composite_prob_2"] = round((1 - composite_p1) * 100, 1)
+                        row["signal"] = _signal_label(composite_p1, implied_p1)
             else:
                 logger.info("Nu am gasit potrivire TennisExplorer pentru: %s vs %s", sb_match.player1, sb_match.player2)
 
@@ -149,6 +252,11 @@ _COLUMN_LABELS = {
     "surface_comparison": "Comparație Suprafață",
     "p1_form_summary": "Formă J1 (V-I, meciuri disponibile pe TennisExplorer)",
     "p2_form_summary": "Formă J2 (V-I, meciuri disponibile pe TennisExplorer)",
+    "implied_prob_1": "% Implicit Cotă J1",
+    "implied_prob_2": "% Implicit Cotă J2",
+    "composite_prob_1": "% Estimare Compusă J1 (rank+formă)",
+    "composite_prob_2": "% Estimare Compusă J2 (rank+formă)",
+    "signal": "Semnal (estimare vs piață)",
     "p1_recent_form": "Formă recentă J1 (meciuri disponibile)",
     "p2_recent_form": "Formă recentă J2 (meciuri disponibile)",
     "h2h": "H2H",

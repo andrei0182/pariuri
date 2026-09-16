@@ -279,14 +279,22 @@ def _annotate_won(matches: list[RecentMatch], player_name: str) -> None:
         m.won = _determine_won(m.opponent, m.score, surname_tokens)
 
 
+def form_win_loss(matches: list[RecentMatch]) -> tuple[int, int]:
+    """Numarul brut de victorii/infrangeri din campul `won` - folosit atat
+    de summarize_form() (pentru text) cat si direct de main.py (pentru
+    calculul unei estimari compuse)."""
+    wins = sum(1 for m in matches if m.won is True)
+    losses = sum(1 for m in matches if m.won is False)
+    return wins, losses
+
+
 def summarize_form(matches: list[RecentMatch]) -> str:
     """Rezumat gen "4V-1I" din campul `won` (populat de _annotate_won).
     Meciurile cu won=None (ambigue) sunt numarate separat, nu ignorate
     silentios."""
     if not matches:
         return ""
-    wins = sum(1 for m in matches if m.won is True)
-    losses = sum(1 for m in matches if m.won is False)
+    wins, losses = form_win_loss(matches)
     unclear = sum(1 for m in matches if m.won is None)
     summary = f"{wins}V-{losses}I"
     if unclear:

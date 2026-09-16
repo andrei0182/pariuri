@@ -62,7 +62,9 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
         sb_matches = [events.parse_event(e, tour=tour) for e in raw_events]
         # exclude dublu / meciuri fara cote (cel mai probabil deja jucate/anulate)
         sb_matches = [m for m in sb_matches if m.odds_winner.player1 and m.odds_winner.player2]
-        logger.info("Tur %s: %d meciuri Superbet cu cote gasite pentru %s", tour, len(sb_matches), date)
+        # excludem dublu - "/" in nume produce potriviri false la matching-ul dupa nume de familie
+        sb_matches = [m for m in sb_matches if "/" not in m.player1 and "/" not in m.player2]
+        logger.info("Tur %s: %d meciuri simplu Superbet cu cote gasite pentru %s", tour, len(sb_matches), date)
 
         te_type = tennisexplorer.TOUR_TYPE_MAP.get(tour)
         if te_type is None:
@@ -70,7 +72,8 @@ def build_report(date: dt.date, tours: tuple[str, ...] = SUPPORTED_TOURS, te_del
             schedule = []
         else:
             schedule = tennisexplorer.fetch_daily_schedule(te_type, date)
-            logger.info("Tur %s: %d meciuri gasite in programul TennisExplorer", tour, len(schedule))
+            schedule = [m for m in schedule if "/" not in m.player1 and "/" not in m.player2]
+            logger.info("Tur %s: %d meciuri simplu gasite in programul TennisExplorer", tour, len(schedule))
 
         for sb_match in sb_matches:
             row = {

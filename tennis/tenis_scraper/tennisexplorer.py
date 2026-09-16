@@ -287,10 +287,12 @@ def fetch_daily_schedule(tour_type: str, date: "_dt.date", timeout: float = 15.0
     <tr> consecutive intr-un table.result (nu table.result.interesting):
     - rand 1: [ora, jucator1+link, ..., cota_H, cota_A, "info"+link match-detail]
     - rand 2: [jucator2+link, ...] (fara ora, fara link match-detail)
-    Randurile de header de turneu (clasa distincta, cu link spre pagina
-    turneului si coloanele "S 1 2 3 4 5 H2H H A") marcheaza inceputul unui
-    grup nou - turneul se aplica tuturor meciurilor de dedesubt pana la
-    urmatorul header."""
+    Randurile de header de turneu se identifica prin prezenta literala a
+    "H2H" in celule - CONFIRMAT robust (2026-09-15): unele randuri de MECI
+    au un link de afiliat streaming in prima celula (ex. "02:50Live
+    streams1xBet...") care pacalea o euristica bazata pe href, facand-o sa
+    creada gresit ca acela e un rand de header de turneu si sarind peste
+    meciul real (asa a disparut Stephens vs Tjen din rezultate)."""
     url = DAILY_SCHEDULE_URL
     params = {"type": tour_type, "year": date.year, "month": f"{date.month:02d}", "day": f"{date.day:02d}"}
     try:
@@ -313,20 +315,11 @@ def fetch_daily_schedule(tour_type: str, date: "_dt.date", timeout: float = 15.0
             cells = row.find_all(["td", "th"])
             cell_texts = [c.get_text(strip=True) for c in cells]
 
-            # Rand de header de turneu: contine un link spre pagina turneului
-            # (nu spre /player/ sau /match-detail/) - de obicei prima celula.
-            tournament_link = None
-            if cells:
-                first_link = cells[0].find("a", href=True)
-                if first_link and "/player/" not in first_link["href"] and "/match-detail/" not in first_link["href"]:
-                    tournament_link = first_link
-            if tournament_link is not None and cell_texts and cell_texts[0] not in ("", "info"):
-                current_tournament = cell_texts[0]
+            if "H2H" in cell_texts:
+                current_tournament = cell_texts[0] if cell_texts else ""
                 i += 1
                 continue
 
-            # Rand de meci (primul din pereche): are ora in prima celula
-            # (format HH:MM) si un link match-detail pe ultima celula.
             match_link = None
             for c in cells:
                 a = c.find("a", href=True)
@@ -335,7 +328,8 @@ def fetch_daily_schedule(tour_type: str, date: "_dt.date", timeout: float = 15.0
                     break
 
             if match_link is not None and i + 1 < len(rows):
-                time_text = cell_texts[0] if cell_texts and re.match(r"^\d{1,2}:\d{2}$", cell_texts[0]) else ""
+                time_match = re.match(r"^(\d{1,2}:\d{2})", cell_texts[0]) if cell_texts else None
+                time_text = time_match.group(1) if time_match else ""
                 p1_link = row.find("a", href=re.compile(r"^/player/"))
                 player1 = p1_link.get_text(strip=True) if p1_link else ""
 
@@ -350,15 +344,16 @@ def fetch_daily_schedule(tour_type: str, date: "_dt.date", timeout: float = 15.0
 
                 match_id = find_match_id_from_gamedetail_link(match_link["href"])
 
-                matches.append(ScheduledMatch(
-                    tournament=current_tournament,
-                    time_text=time_text,
-                    player1=player1,
-                    player2=player2,
-                    match_id=match_id,
-                    odds_home=odds_home,
-                    odds_away=odds_away,
-                ))
+                if player1 or player2:
+                    matches.append(ScheduledMatch(
+                        tournament=current_tournament,
+                        time_text=time_text,
+                        player1=player1,
+                        player2=player2,
+                        match_id=match_id,
+                        odds_home=odds_home,
+                        odds_away=odds_away,
+                    ))
                 i += 2
                 continue
 

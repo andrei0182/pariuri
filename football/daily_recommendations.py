@@ -129,6 +129,7 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
     BetExplorer.
     """
     matched_rows = []
+    unmatched_names = []
     for _, bet_row in high_confidence.iterrows():
         candidates = superbet[
             superbet.apply(
@@ -138,6 +139,7 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
             )
         ]
         if candidates.empty:
+            unmatched_names.append(f"{bet_row['Home Team']} vs {bet_row['Away Team']} ({bet_row['League']})")
             continue
         sb_row = candidates.iloc[0]
         combined = {}
@@ -150,6 +152,8 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
                 continue
             combined[col + _SUFFIX_SB] = val
         matched_rows.append(combined)
+      matched_df = pd.DataFrame(matched_rows) if matched_rows else pd.DataFrame()
+    return matched_df, unmatched_names
 
     if not matched_rows:
         return pd.DataFrame()
@@ -277,9 +281,14 @@ def main() -> None:
 
     high_confidence = load_high_confidence(args.bet_xlsx)
     superbet = load_superbet_matches(args.superbet_xlsx)
-    matched = match_across_sources(high_confidence, superbet)
+    matched, unmatched_names = match_across_sources(high_confidence, superbet)
 
-    unmatched_count = len(high_confidence) - len(matched)
+    unmatched_count = len(unmatched_names)
+    if unmatched_names:
+        print("Meciuri BetExplorer nepotrivite pe Superbet:")
+        for name in unmatched_names:
+            print(f"  - {name}")
+
     body = build_email_body(matched, unmatched_count, args.date)
     subject = f"Recomandari zilnice ({len(matched)} meciuri) -- {args.date}"
 

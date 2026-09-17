@@ -24,6 +24,7 @@ Env vars necesare:
 from __future__ import annotations
 
 import argparse
+import csv
 import os
 import smtplib
 from email.mime.application import MIMEApplication
@@ -162,6 +163,45 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
     return "\n".join(lines)
 
 
+STATS_CSV_PATH = Path("stats") / "recommendation_stats.csv"
+
+
+def log_daily_stats(df: pd.DataFrame, picks: pd.DataFrame, date_str: str) -> None:
+    """Adauga un rand in stats/recommendation_stats.csv cu metrici zilnice
+    (total meciuri, nr. recomandari, % recomandate, edge mediu, incredere
+    medie), ca sa poti urmari in timp daca ponderarea prin incredere reduce
+    volumul de recomandari constant sau variaza mult de la o zi la alta.
+    Creeaza fisierul cu header daca nu exista inca. CONFIRMAT (2026-09-16,
+    cu Andrei): rulat automat la fiecare trimitere de raport, ca sa nu
+    trebuiasca notat manual."""
+    STATS_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    total_matches = len(df)
+    total_recommendations = len(picks)
+    avg_edge = picks["_edge_pp"].mean() if not picks.empty else None
+    avg_confidence = (
+        picks[_COL_RATING_CONF].mean()
+        if not picks.empty and _COL_RATING_CONF in picks.columns
+        else None
+    )
+
+    row = {
+        "date": date_str,
+        "total_matches": total_matches,
+        "total_recommendations": total_recommendations,
+        "pct_recommended": round(100 * total_recommendations / total_matches, 1) if total_matches else None,
+        "avg_edge_pp": round(avg_edge, 1) if avg_edge is not None else None,
+        "avg_rating_confidence": round(avg_confidence, 2) if avg_confidence is not None else None,
+    }
+
+    file_exists = STATS_CSV_PATH.exists()
+    with open(STATS_CSV_PATH, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(row.keys()))
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(row)
+
+
 def send_email(subject: str, html_body: str, attachment_path: str) -> None:
     gmail_address = os.environ["GMAIL_ADDRESS"]
     gmail_app_password = os.environ["GMAIL_APP_PASSWORD"]
@@ -196,6 +236,8 @@ def main() -> None:
     args = parser.parse_args()
 
     df = pd.read_excel(args.xlsx, sheet_name="Tenis")
+    picks = filter_recommended_picks(df)
+    log_daily_stats(df, picks, args.date)
     body = build_email_body(df, args.date)
     subject = f"Raport tenis ({len(df)} meciuri) — {args.date}"
 

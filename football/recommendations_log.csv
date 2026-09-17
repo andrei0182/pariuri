@@ -5,6 +5,6 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-09-15,England: Professional Development League,Coventry U21,Barnsley U21,1.3,15:00,over,8,2026-09-16
 2026-09-15,England: Professional Development League,Wigan U21,Colchester U21,,16:00,over,10,2026-09-16
 2026-09-15,Europe: Premier League International Cup,Aston Villa U21,Real Sociedad B,1.54,21:00,over,6,2026-09-16
-2026-09-16,EUROPE: PREMIER LEAGUE INTERNATIONAL CUP,Brighton U21,PSG U21,1.42,21:30,pending,,
-2026-09-16,ITALY: SERIE D - GROUP E,Seravezza Pozzi,Montevarchi,2.07,16:00,pending,,
-2026-09-16,ITALY: SERIE D - GROUP E,Lucchese,SCD Progresso,2.0,17:00,pending,,
+2026-09-16,EUROPE: PREMIER LEAGUE INTERNATIONAL CUP,Brighton U21,PSG U21,1.42,21:30,over,3,2026-09-17
+2026-09-16,ITALY: SERIE D - GROUP E,Seravezza Pozzi,Montevarchi,2.07,16:00,under,2,2026-09-17
+2026-09-16,ITALY: SERIE D - GROUP E,Lucchese,SCD Progresso,2.0,17:00,over,5,2026-09-17

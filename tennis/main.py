@@ -88,18 +88,23 @@ def _rank_probability(rank1: int | None, rank2: int | None) -> float | None:
     return score1 / total if total > 0 else None
 
 
-def _form_probability(w1: int, l1: int, w2: int, l2: int) -> float | None:
+def _form_probability(w1: int, l1: int, w2: int, l2: int) -> tuple[float | None, float]:
     """Probabilitate relativa bazata pe rata de victorii din formă recentă
     (nu neaparat impotriva acelorasi adversari) - semnal slab de volatilitate
-    pe termen scurt, nu o statistica riguroasa."""
+    pe termen scurt, nu o statistica riguroasa. Adauga un scor de incredere
+    (0-1) bazat pe numarul total de meciuri recente disponibile - satureaza
+    la ~10 meciuri combinate (fereastra de forma recenta e mica prin natura
+    ei), ca o forma de 1/1 (100%) sa conteze mult mai putin in estimarea
+    finala decat una de 8/10."""
     t1, t2 = w1 + l1, w2 + l2
     if t1 == 0 or t2 == 0:
-        return None
+        return None, 0.0
     rate1, rate2 = w1 / t1, w2 / t2
     total = rate1 + rate2
     if total == 0:
-        return None
-    return rate1 / total
+        return None, 0.0
+    confidence = min((t1 + t2) / 10, 1.0)
+    return rate1 / total, confidence
 
 
 def _implied_probability(odds1: float, odds2: float) -> float | None:
@@ -160,11 +165,12 @@ def _composite_estimate(
     form_p: float | None,
     rating_p: float | None = None,
     rating_confidence: float = 0.0,
+    form_confidence: float = 1.0,
 ) -> float | None:
     """Medie ponderata a semnalelor disponibile (rank + formă + rating de
-    carieră pe suprafață). Rank si formă au pondere fixa 1.0 fiecare;
-    rating-ul de cariera e ponderat de propria lui incredere, ca sa nu
-    distorsioneze estimarea cand avem putine date pentru el. NU e un model
+    carieră pe suprafață). Rank are pondere fixa 1.0; formă si ratingul de
+    cariera sunt ponderate fiecare de propria lui incredere, ca sa nu
+    distorsioneze estimarea cand avem putine date pentru ele. NU e un model
     predictiv validat, doar o combinare simpla a semnalelor pe care le avem -
     de tratat ca punct de plecare pentru propria ta analiza, nu ca raspuns
     final."""
@@ -173,9 +179,9 @@ def _composite_estimate(
     if rank_p is not None:
         weighted_sum += rank_p * 1.0
         weight_total += 1.0
-    if form_p is not None:
-        weighted_sum += form_p * 1.0
-        weight_total += 1.0
+    if form_p is not None and form_confidence > 0:
+        weighted_sum += form_p * form_confidence
+        weight_total += form_confidence
     if rating_p is not None and rating_confidence > 0:
         weighted_sum += rating_p * rating_confidence
         weight_total += rating_confidence
@@ -369,9 +375,9 @@ def build_report(
                     w2, l2 = tennisexplorer.form_win_loss(detail.player2_recent)
 
                     rank_p1 = _rank_probability(rank1, rank2)
-                    form_p1 = _form_probability(w1, l1, w2, l2)
+                    form_p1, form_confidence = _form_probability(w1, l1, w2, l2)
                     rating_p1, rating_confidence = _career_rating_probability(detail.surface_balance)
-                    composite_p1 = _composite_estimate(rank_p1, form_p1, rating_p1, rating_confidence)
+                    composite_p1 = _composite_estimate(rank_p1, form_p1, rating_p1, rating_confidence, form_confidence)
                     row["rating_confidence"] = round(rating_confidence, 2)
 
                     if composite_p1 is not None:

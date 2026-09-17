@@ -202,26 +202,16 @@ def log_daily_stats(df: pd.DataFrame, picks: pd.DataFrame, date_str: str) -> Non
         writer.writerow(row)
 
 
-def send_email(subject: str, html_body: str, attachment_path: str) -> None:
+def send_email(subject: str, html_body: str) -> None:
     gmail_address = os.environ["GMAIL_ADDRESS"]
     gmail_app_password = os.environ["GMAIL_APP_PASSWORD"]
     email_to = os.environ.get("EMAIL_TO", gmail_address)
 
-    msg = MIMEMultipart("mixed")
+    msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"] = gmail_address
     msg["To"] = email_to
-
-    alt = MIMEMultipart("alternative")
-    alt.attach(MIMEText(html_body, "html", "utf-8"))
-    msg.attach(alt)
-
-    path = Path(attachment_path)
-    if path.exists():
-        with open(path, "rb") as f:
-            part = MIMEApplication(f.read(), Name=path.name)
-        part["Content-Disposition"] = f'attachment; filename="{path.name}"'
-        msg.attach(part)
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(gmail_address, gmail_app_password)

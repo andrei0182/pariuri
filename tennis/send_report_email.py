@@ -66,12 +66,17 @@ def filter_recommended_picks(df: pd.DataFrame, min_edge_pp: float = MIN_EDGE_PP,
         if pd.isna(comp1) or pd.isna(impl1):
             continue
 
-        # confidence lipsa (None/NaN) = tratam ca 0 -> ponderare maxima (0.5x)
+        # confidence lipsa (None/NaN) = tratam ca 0 -> ponderare minima (0.3x)
         confidence = 0.0 if pd.isna(confidence) else float(confidence)
-        # factor intre 0.5 (incredere 0) si 1.0 (incredere maxima) - un edge
-        # "orb" (fara date de rating) trebuie sa fie de doua ori mai mare
-        # ca sa treaca de acelasi prag decat unul cu incredere maxima
-        weight = 0.5 + 0.5 * confidence
+        # factor intre 0.3 (incredere 0) si 1.0 (incredere maxima) - un edge
+        # "orb" (fara date de rating) trebuie sa fie de ~3.3x mai mare ca sa
+        # treaca de acelasi prag decat unul cu incredere maxima. CONFIRMAT
+        # (2026-09-16, cu Andrei): testat pe 31 de meciuri reale, reduce
+        # recomandarile de la 13 la 9 (~30%) fata de filtrul pe edge brut,
+        # fara sa excluda complet meciurile cu incredere 0 (spre deosebire
+        # de o formula 0.0+1.0*incredere, care ar exclude orice meci cu
+        # incredere 0 indiferent cat de puternic ar fi restul semnalelor).
+        weight = 0.3 + 0.7 * confidence
 
         edge1 = comp1 - impl1  # pozitiv = value pe J1, negativ = value pe J2
         edge1_weighted = edge1 * weight

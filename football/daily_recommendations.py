@@ -152,7 +152,7 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
                 continue
             combined[col + _SUFFIX_SB] = val
         matched_rows.append(combined)
-        matched_df = pd.DataFrame(matched_rows) if matched_rows else pd.DataFrame()
+    matched_df = pd.DataFrame(matched_rows) if matched_rows else pd.DataFrame()
     return matched_df, unmatched_names
 
     

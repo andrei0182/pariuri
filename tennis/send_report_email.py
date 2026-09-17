@@ -118,7 +118,7 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
     lines = []
     lines.append(f"<h2>Raport tenis — {date_str}</h2>")
     lines.append(
-        f"<p>Total meciuri analizate: <b>{len(df)}</b>. Fisierul complet cu toate meciurile e atasat. "
+        f"<p>Total meciuri analizate: <b>{len(df)}</b>."
         f"Mai jos: doar recomandarile care trec de filtre (edge &ge; {MIN_EDGE_PP:.0f}pp fata de piata, "
         f"cota &ge; {MIN_ODDS:.1f}).</p>"
     )
@@ -153,11 +153,9 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
                 lines.append(f"<p style='margin:6px 0;'><a href='{url}'>Vezi pe Superbet.ro</a></p>")
             lines.append("</div>")
 
-    lines.append(
+       lines.append(
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#888; font-size:0.9em;'>"
-        "Estimarea noastra e o combinatie simpla rank+formă recentă, nu un model validat statistic — "
-        "vezi fisierul atasat pentru toate detaliile (H2H, comparatie suprafata, formă pe meci-cu-meci, "
-        "toate meciurile inclusiv cele care nu au trecut de filtre).</p>"
+        "Estimarea noastra e o combinatie simpla rank+formă recentă, nu un model validat statistic.</p>"
     )
 
     return "\n".join(lines)
@@ -240,7 +238,7 @@ def main() -> None:
         print("Niciun meci in raport azi — sar peste trimiterea email-ului.")
         return
 
-    send_email(subject, body, args.xlsx)
+    send_email(subject, body)
     print(f"Email trimis: {subject}")
 
 

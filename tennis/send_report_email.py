@@ -153,7 +153,7 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
                 lines.append(f"<p style='margin:6px 0;'><a href='{url}'>Vezi pe Superbet.ro</a></p>")
             lines.append("</div>")
 
-       lines.append(
+   lines.append(
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#888; font-size:0.9em;'>"
         "Estimarea noastra e o combinatie simpla rank+formă recentă, nu un model validat statistic.</p>"
     )

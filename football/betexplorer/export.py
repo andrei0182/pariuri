@@ -147,7 +147,7 @@ def build_high_confidence_over25(df: pd.DataFrame) -> pd.DataFrame:
     ]
     if df.empty or "prob_over_2.5" not in df.columns:
         return pd.DataFrame(columns=cols)
-    filtered = df[df["prob_over_2.5"] => 0.9][cols].copy()
+    filtered = df[df["prob_over_2.5"] >= 0.9][cols].copy()
     return filtered.sort_values(["league", "time"]).reset_index(drop=True)
 
 

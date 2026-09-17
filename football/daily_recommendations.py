@@ -115,7 +115,7 @@ def _names_match(name_a: str, name_b: str) -> bool:
     return tokens_a <= tokens_b or tokens_b <= tokens_a
 
 
-def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) -> pd.DataFrame:
+def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
     """Fuzzy match on normalized (home, away) team names -- see
     _names_match. A BetExplorer match with no fuzzy match on Superbet
     simply isn't (yet, or ever) offered there for this date/run -- that's

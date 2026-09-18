@@ -1,5 +1,6 @@
-"""Punct de intrare - leaga Superbet (cote) cu TennisExplorer (stats),
-calculeaza o estimare compusa (rank + forma) si exporta un raport Excel.
+"""Analiza meciuri de tenis: combina cotele Superbet cu statisticile de pe
+TennisExplorer (rank, forma recenta, comparatie suprafata) intr-o estimare
+compusa a sanselor de castig, comparata cu ce implica cota Superbet.
 
 Estimarea compusa NU e un model predictiv validat statistic - e o medie
 simpla intre probabilitatea implicita din rank (1/sqrt(rank) normalizat
@@ -48,6 +49,12 @@ logger = logging.getLogger(__name__)
 
 SUPPORTED_TOURS = ("atp", "wta", "challenger", "wta-125", "itf-m", "itf-f", "utr-m", "utr-f")
 
+# Linia de game-uri folosita la filtrul din send_report_email.py (adaugata
+# 2026-09-18, cu Andrei, dupa ce am observat pe bilete reale ca la meciurile
+# UTR linia de 3.5 poate lipsi de la Superbet si bookmaker-ul porneste
+# direct de la 4.5). Un singur loc de schimbat daca se schimba iar pragul.
+GAMES_LINE = 4.5
+
 
 def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 10) -> str:
     parts = []
@@ -80,7 +87,18 @@ def _rank_probability(rank1: int | None, rank2: int | None) -> float | None:
     da valori nerealist de extreme la diferente mari (ex. rank 5 vs 200 ar
     da ~97.6% cu 1/rank, quando in tenis chiar si un favorit clar pastreaza
     o sansa realista pentru underdog). Tot o aproximare bruta, dar mai
-    temperata."""
+    temperata.
+    CONFIRMAT (2026-09-17, cu Andrei): daca AMBII jucatori sunt fara rang
+    (comun la juniori/futures/ITF), returnam None in loc de a cadea pe
+    UNRANKED_FALLBACK pentru amandoi, care ar da mereu exact 50% - o
+    valoare falsa care intra in estimarea compusa cu pondere completa, ca
+    si cum ar fi un semnal real, trage estimarea spre egalitate exact la
+    meciurile unde piata e cel mai sigura de un favorit (cote foarte
+    asimetrice) si a produs zeci de "edge"-uri false in raportul din
+    2026-09-17 (110 recomandari din 203 meciuri, multe cu favoriti
+    zdrobitori la cota 1.0-1.01)."""
+    if rank1 is None and rank2 is None:
+        return None
     r1 = rank1 if rank1 is not None else UNRANKED_FALLBACK
     r2 = rank2 if rank2 is not None else UNRANKED_FALLBACK
     score1, score2 = 1.0 / (r1 ** 0.5), 1.0 / (r2 ** 0.5)
@@ -88,23 +106,18 @@ def _rank_probability(rank1: int | None, rank2: int | None) -> float | None:
     return score1 / total if total > 0 else None
 
 
-def _form_probability(w1: int, l1: int, w2: int, l2: int) -> tuple[float | None, float]:
+def _form_probability(w1: int, l1: int, w2: int, l2: int) -> float | None:
     """Probabilitate relativa bazata pe rata de victorii din formă recentă
     (nu neaparat impotriva acelorasi adversari) - semnal slab de volatilitate
-    pe termen scurt, nu o statistica riguroasa. Adauga un scor de incredere
-    (0-1) bazat pe numarul total de meciuri recente disponibile - satureaza
-    la ~10 meciuri combinate (fereastra de forma recenta e mica prin natura
-    ei), ca o forma de 1/1 (100%) sa conteze mult mai putin in estimarea
-    finala decat una de 8/10."""
+    pe termen scurt, nu o statistica riguroasa."""
     t1, t2 = w1 + l1, w2 + l2
     if t1 == 0 or t2 == 0:
-        return None, 0.0
+        return None
     rate1, rate2 = w1 / t1, w2 / t2
     total = rate1 + rate2
     if total == 0:
-        return None, 0.0
-    confidence = min((t1 + t2) / 10, 1.0)
-    return rate1 / total, confidence
+        return None
+    return rate1 / total
 
 
 def _implied_probability(odds1: float, odds2: float) -> float | None:
@@ -165,23 +178,30 @@ def _composite_estimate(
     form_p: float | None,
     rating_p: float | None = None,
     rating_confidence: float = 0.0,
-    form_confidence: float = 1.0,
 ) -> float | None:
     """Medie ponderata a semnalelor disponibile (rank + formă + rating de
-    carieră pe suprafață). Rank are pondere fixa 1.0; formă si ratingul de
-    cariera sunt ponderate fiecare de propria lui incredere, ca sa nu
+    carieră pe suprafață). Rank si formă au pondere fixa 1.0 fiecare;
+    rating-ul de cariera e ponderat de propria lui incredere, ca sa nu
     distorsioneze estimarea cand avem putine date pentru ele. NU e un model
     predictiv validat, doar o combinare simpla a semnalelor pe care le avem -
     de tratat ca punct de plecare pentru propria ta analiza, nu ca raspuns
-    final."""
+    final. CONFIRMAT (2026-09-17, cu Andrei): daca AMBELE semnale rank si
+    formă lipsesc, returnam None chiar daca ratingul de cariera exista -
+    un rating bazat doar pe win-rate general (fara ajustare dupa calitatea
+    adversarilor) nu e suficient de fiabil ca semnal unic, mai ales la
+    meciuri cu decalaj mare de nivel intre jucatori (unde da estimari
+    apropiate de 50% chiar daca unul e un favorit clar)."""
+    if rank_p is None and form_p is None:
+        return None
+
     weighted_sum = 0.0
     weight_total = 0.0
     if rank_p is not None:
         weighted_sum += rank_p * 1.0
         weight_total += 1.0
-    if form_p is not None and form_confidence > 0:
-        weighted_sum += form_p * form_confidence
-        weight_total += form_confidence
+    if form_p is not None:
+        weighted_sum += form_p * 1.0
+        weight_total += 1.0
     if rating_p is not None and rating_confidence > 0:
         weighted_sum += rating_p * rating_confidence
         weight_total += rating_confidence
@@ -331,6 +351,8 @@ def build_report(
                 "odds_total_sets_under": None,
                 "odds_total_sets_over": None,
                 "odds_set1_games": "",
+                "odds_p1_games45_over": None,
+                "odds_p2_games45_over": None,
             }
 
             implied_p1 = _implied_probability(sb_match.odds_winner.player1, sb_match.odds_winner.player2)
@@ -351,6 +373,13 @@ def build_report(
                     row["odds_set1_games"] = " | ".join(
                         f"{sg.line}: Sub={sg.under} Peste={sg.over}" for sg in sorted(set1_lines, key=lambda x: x.line)
                     )
+
+                    p1_games_lines = ext.player_total_games.get(sb_match.player1, [])
+                    p2_games_lines = ext.player_total_games.get(sb_match.player2, [])
+                    p1_line = next((pg for pg in p1_games_lines if pg.line == GAMES_LINE), None)
+                    p2_line = next((pg for pg in p2_games_lines if pg.line == GAMES_LINE), None)
+                    row["odds_p1_games45_over"] = p1_line.over if p1_line else None
+                    row["odds_p2_games45_over"] = p2_line.over if p2_line else None
 
             scheduled = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
             if scheduled is not None and scheduled.match_id is not None:
@@ -375,9 +404,9 @@ def build_report(
                     w2, l2 = tennisexplorer.form_win_loss(detail.player2_recent)
 
                     rank_p1 = _rank_probability(rank1, rank2)
-                    form_p1, form_confidence = _form_probability(w1, l1, w2, l2)
+                    form_p1 = _form_probability(w1, l1, w2, l2)
                     rating_p1, rating_confidence = _career_rating_probability(detail.surface_balance)
-                    composite_p1 = _composite_estimate(rank_p1, form_p1, rating_p1, rating_confidence, form_confidence)
+                    composite_p1 = _composite_estimate(rank_p1, form_p1, rating_p1, rating_confidence)
                     row["rating_confidence"] = round(rating_confidence, 2)
 
                     if composite_p1 is not None:
@@ -426,6 +455,8 @@ _COLUMN_LABELS = {
     "odds_total_sets_under": "Cotă Sub Total Seturi",
     "odds_total_sets_over": "Cotă Peste Total Seturi",
     "odds_set1_games": "Cote Total Game-uri Set 1 (toate liniile)",
+    "odds_p1_games45_over": "Cotă Peste 4.5 Game-uri J1 (meci întreg)",
+    "odds_p2_games45_over": "Cotă Peste 4.5 Game-uri J2 (meci întreg)",
 }
 
 

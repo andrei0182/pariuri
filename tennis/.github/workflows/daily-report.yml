@@ -65,8 +65,8 @@ jobs:
     
       - name: Diagnostic filtru
         if: env.SKIP_RUN != 'true'
-        run: python diagnose_filter.py output/tenis.xlsx
-        
+        run: python diagnose_filter.py output/tenis.xlsx --min-composite-pct 52
+
       - name: Upload report as workflow artifact
         if: env.SKIP_RUN != 'true'
         uses: actions/upload-artifact@v4

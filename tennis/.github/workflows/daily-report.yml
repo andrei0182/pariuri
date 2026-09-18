@@ -62,7 +62,11 @@ jobs:
       - name: Run tennis report (toate turneele confirmate)
         if: env.SKIP_RUN != 'true'
         run: python main.py --date ${{ steps.date.outputs.value }} --output output/tenis.xlsx --extended-odds
-
+    
+      - name: Diagnostic filtru
+        if: env.SKIP_RUN != 'true'
+        run: python diagnose_filter.py output/tenis.xlsx
+        
       - name: Upload report as workflow artifact
         if: env.SKIP_RUN != 'true'
         uses: actions/upload-artifact@v4

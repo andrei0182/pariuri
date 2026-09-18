@@ -48,6 +48,14 @@ _COL_GAMES_LINE_P1 = "Linie Minimă Disponibilă Total Game-uri J1 (meci întreg
 _COL_GAMES_ODDS_P1 = "Cotă Peste la Linia Minimă J1"
 _COL_GAMES_LINE_P2 = "Linie Minimă Disponibilă Total Game-uri J2 (meci întreg)"
 _COL_GAMES_ODDS_P2 = "Cotă Peste la Linia Minimă J2"
+_COL_TE_MATCH_ID = "TennisExplorer match_id"
+
+PICKS_LOG_PATH = Path("stats") / "picks_log.csv"
+PICKS_LOG_COLUMNS = [
+    "date", "tournament", "player1", "player2", "recommended_player", "opponent",
+    "edge_pp", "rec_odds", "comp_pct", "games_line", "games_odds",
+    "te_match_id", "result", "score", "checked_at",
+]
 
 
 def filter_recommended_picks(
@@ -207,6 +215,7 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#888; font-size:0.9em;'>"
         "Estimarea noastra e o combinatie simpla rank+formă recentă, nu un model validat statistic.</p>"
     )
+    lines.append(accuracy_summary_html())
 
     return "\n".join(lines)
 
@@ -248,6 +257,68 @@ def log_daily_stats(df: pd.DataFrame, picks: pd.DataFrame, date_str: str) -> Non
         if not file_exists:
             writer.writeheader()
         writer.writerow(row)
+
+
+def log_todays_picks(picks: pd.DataFrame, date_str: str) -> None:
+    """Adauga recomandarile de azi in stats/picks_log.csv, cu result="pending" -
+    va fi completat de check_results.py, dupa ce meciurile se joaca.
+    Acelasi tipar ca la proiectul SuperBet de fotbal (recommendations_log.csv
+    de acolo). Nu duplica randuri daca se ruleaza de mai multe ori pentru
+    aceeasi zi (verifica date+player1+player2)."""
+    PICKS_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    if PICKS_LOG_PATH.exists():
+        log = pd.read_csv(PICKS_LOG_PATH, dtype=str)
+    else:
+        log = pd.DataFrame(columns=PICKS_LOG_COLUMNS)
+
+    new_rows = []
+    for _, row in picks.iterrows():
+        p1, p2 = row.get(_COL_P1, ""), row.get(_COL_P2, "")
+        already_logged = ((log["date"] == date_str) & (log["player1"] == p1) & (log["player2"] == p2)).any()
+        if already_logged:
+            continue
+        rec_player = row["_recommended_player"]
+        recommended = p1 if rec_player == 1 else p2
+        opponent = p2 if rec_player == 1 else p1
+        new_rows.append({
+            "date": date_str,
+            "tournament": row.get(_COL_TOURNAMENT, ""),
+            "player1": p1,
+            "player2": p2,
+            "recommended_player": recommended,
+            "opponent": opponent,
+            "edge_pp": row["_edge_pp"],
+            "rec_odds": row["_rec_odds"],
+            "comp_pct": row["_comp_pct"],
+            "games_line": row["_games_line"],
+            "games_odds": row["_games_odds"],
+            "te_match_id": row.get(_COL_TE_MATCH_ID, ""),
+            "result": "pending",
+            "score": "",
+            "checked_at": "",
+        })
+    if new_rows:
+        log = pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True)
+        log.to_csv(PICKS_LOG_PATH, index=False)
+
+
+def accuracy_summary_html() -> str:
+    """Rezumatul ratei reale de castig, din picks_log.csv, pentru toate
+    recomandarile confirmate pana acum (result in won/lost). Gol daca
+    inca n-avem nicio recomandare confirmata (prea devreme, sau
+    check_results.py n-a rulat inca)."""
+    if not PICKS_LOG_PATH.exists():
+        return ""
+    log = pd.read_csv(PICKS_LOG_PATH, dtype=str)
+    resolved = log[log["result"].isin(["won", "lost"])]
+    if resolved.empty:
+        return ""
+    win_rate = (resolved["result"] == "won").mean()
+    return (
+        "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
+        f"<b>Statistica reala pana acum:</b> din {len(resolved)} recomandari confirmate, "
+        f"{(resolved['result'] == 'won').sum()} au fost castigate ({win_rate:.0%}).</p>"
+    )
 
 
 def list_high_edge_matches(df: pd.DataFrame, min_edge_pp: float = 25.0) -> pd.DataFrame:
@@ -407,6 +478,7 @@ def main() -> None:
         print("Niciun meci in raport azi — sar peste trimiterea email-ului.")
         return
 
+    log_todays_picks(picks, args.date)
     send_email(subject, body)
     print(f"Email trimis: {subject}")
 

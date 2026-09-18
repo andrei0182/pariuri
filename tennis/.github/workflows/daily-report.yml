@@ -59,6 +59,10 @@ jobs:
         id: date
         run: echo "value=$(TZ='Europe/Bucharest' date +%F)" >> "$GITHUB_OUTPUT"
 
+      - name: Check pending results from previous days
+        if: env.SKIP_RUN != 'true'
+        run: python check_results.py
+
       - name: Run tennis report (toate turneele confirmate)
         if: env.SKIP_RUN != 'true'
         run: python main.py --date ${{ steps.date.outputs.value }} --output output/tenis.xlsx --extended-odds
@@ -93,6 +97,6 @@ jobs:
           echo "$today" > .last_run_date
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .last_run_date
-          git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record run date $today"
+          git add .last_run_date stats/
+          git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record run date $today, update picks/stats log"
           git push

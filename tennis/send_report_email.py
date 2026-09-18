@@ -35,8 +35,8 @@ from pathlib import Path
 import pandas as pd
 
 MIN_EDGE_PP = 15.0
-MIN_ODDS = 1.3
-MIN_COMPOSITE_PCT = 60.0
+MIN_ODDS = 1.0005
+MIN_COMPOSITE_PCT = 55.0
 
 _COL_P1, _COL_P2 = "Jucător 1", "Jucător 2"
 _COL_ODDS1, _COL_ODDS2 = "Cotă 1", "Cotă 2"

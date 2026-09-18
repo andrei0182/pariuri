@@ -1,10 +1,15 @@
 """Diagnostic pentru filtrul din send_report_email.py: arata cate meciuri
 trec de FIECARE conditie separat, ca sa vezi exact unde pica majoritatea -
-edge, cota, estimare proprie (>=60%), sau linia de 4.5 game-uri.
+edge, cota, estimare proprie, sau linia de 4.5 game-uri.
 
 Ruleaza din radacina repo-ului, dupa ce ai generat raportul:
-    python diagnose_filter.py stats/test_report.xlsx
+    python diagnose_filter.py output/tenis.xlsx
+
+Pragul de estimare proprie poate fi suprascris fara sa editezi
+send_report_email.py, ca sa testezi rapid diverse valori:
+    python diagnose_filter.py output/tenis.xlsx --min-composite-pct 52
 """
+import argparse
 import sys
 import pandas as pd
 from send_report_email import (
@@ -17,12 +22,21 @@ from send_report_email import (
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("Foloseste: python diagnose_filter.py <cale_raport.xlsx>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Diagnostic filtru recomandari tenis")
+    parser.add_argument("xlsx", help="Calea catre fisierul Excel generat de main.py")
+    parser.add_argument(
+        "--min-composite-pct", type=float, default=None,
+        help=f"Suprascrie MIN_COMPOSITE_PCT (implicit din send_report_email.py: {MIN_COMPOSITE_PCT})",
+    )
+    args = parser.parse_args()
 
-    df = pd.read_excel(sys.argv[1], sheet_name="Tenis")
-    print(f"Total meciuri in raport: {len(df)}\n")
+    min_composite_pct = args.min_composite_pct if args.min_composite_pct is not None else MIN_COMPOSITE_PCT
+
+    df = pd.read_excel(args.xlsx, sheet_name="Tenis")
+    print(f"Total meciuri in raport: {len(df)}")
+    print(f"Prag estimare proprie folosit: {min_composite_pct}%"
+          + (" (suprascris din linia de comanda)" if args.min_composite_pct is not None else " (implicit din cod)"))
+    print()
 
     has_games45 = df[_COL_GAMES45_P1].notna().sum() + df[_COL_GAMES45_P2].notna().sum()
     print(f"Randuri cu vreo cota Peste 4.5 game-uri gasita (J1 sau J2): {has_games45}")
@@ -34,12 +48,11 @@ def main():
     else:
         print("  -> Market-ul de game-uri A FOST gasit pe cel putin un meci.\n")
 
-    # Numaram, pas cu pas, cate meciuri trec de fiecare conditie IN PARTE
-    # (nu inlantuite), pentru fiecare parte (J1 si J2 separat)
     pass_edge = pass_odds = pass_comp = pass_games45 = 0
     pass_edge_and_odds = 0
     pass_edge_odds_comp = 0
     examples_missing_games45 = []
+    examples_below_comp = []
 
     for _, row in df.iterrows():
         comp1, comp2 = row.get(_COL_COMP1), row.get(_COL_COMP2)
@@ -65,7 +78,9 @@ def main():
                 continue
             pass_odds += 1
             pass_edge_and_odds += 1
-            if pd.isna(comp) or comp < MIN_COMPOSITE_PCT:
+            if pd.isna(comp) or comp < min_composite_pct:
+                if len(examples_below_comp) < 5:
+                    examples_below_comp.append(f"{label} - edge {edge_w:.0f}pp, cota {odds}, estimare {comp}%")
                 continue
             pass_comp += 1
             pass_edge_odds_comp += 1
@@ -77,22 +92,31 @@ def main():
 
     print(f"Treceau de edge >= {MIN_EDGE_PP:.0f}pp: {pass_edge}")
     print(f"Din care si cota >= {MIN_ODDS:.1f}: {pass_edge_and_odds}")
-    print(f"Din care si estimare proprie >= {MIN_COMPOSITE_PCT:.0f}%: {pass_edge_odds_comp}")
+    print(f"Din care si estimare proprie >= {min_composite_pct:.0f}%: {pass_edge_odds_comp}")
     print(f"Din care si linia Peste 4.5 game-uri exista: {pass_games45}")
+
+    if examples_below_comp:
+        print(f"\nExemple care treceau de edge+cota dar PICA la estimare < {min_composite_pct:.0f}%:")
+        for ex in examples_below_comp:
+            print(f"  - {ex}")
 
     if examples_missing_games45:
         print(f"\nExemple care treceau de primele 3 conditii dar PICA la linia de 4.5:")
         for ex in examples_missing_games45:
             print(f"  - {ex}")
 
-    print("\n--- Rezultat final (toate 4 conditii, via filter_recommended_picks) ---")
-    picks = filter_recommended_picks(df)
-    print(f"Recomandari finale: {len(picks)}")
-    for _, row in picks.iterrows():
-        p1, p2 = row[_COL_P1], row[_COL_P2]
-        rec = p1 if row["_recommended_player"] == 1 else p2
-        print(f"  {p1} vs {p2} -> {rec} (edge {row['_edge_pp']:.0f}pp, cota {row['_rec_odds']}, "
-              f"estimare {row['_comp_pct']:.1f}%, Peste 4.5 @ {row['_games45_odds']})")
+    print(f"\n--- Rezultat final cu pragul de {min_composite_pct}% (recalculat manual, echivalent cu filter_recommended_picks) ---")
+    print(f"Recomandari finale: {pass_games45}")
+
+    if args.min_composite_pct is None:
+        print("\n--- Pentru comparatie, rezultatul EXACT din filter_recommended_picks (folosind pragul din cod) ---")
+        picks = filter_recommended_picks(df)
+        print(f"Recomandari finale: {len(picks)}")
+        for _, row in picks.iterrows():
+            p1, p2 = row[_COL_P1], row[_COL_P2]
+            rec = p1 if row["_recommended_player"] == 1 else p2
+            print(f"  {p1} vs {p2} -> {rec} (edge {row['_edge_pp']:.0f}pp, cota {row['_rec_odds']}, "
+                  f"estimare {row['_comp_pct']:.1f}%, Peste 4.5 @ {row['_games45_odds']})")
 
 
 if __name__ == "__main__":

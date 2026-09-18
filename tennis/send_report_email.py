@@ -44,8 +44,10 @@ _COL_COMP1, _COL_COMP2 = "% Estimare Compusă J1 (rank+formă+rating)", "% Estim
 _COL_IMPL1, _COL_IMPL2 = "% Implicit Cotă J1", "% Implicit Cotă J2"
 _COL_RATING_CONF = "Încredere rating carieră (0-1)"
 _COL_TOURNAMENT, _COL_TIME, _COL_URL = "Turneu", "Ora", "Link Superbet"
-_COL_GAMES45_P1 = "Cotă Peste 4.5 Game-uri J1 (meci întreg)"
-_COL_GAMES45_P2 = "Cotă Peste 4.5 Game-uri J2 (meci întreg)"
+_COL_GAMES_LINE_P1 = "Linie Minimă Disponibilă Total Game-uri J1 (meci întreg)"
+_COL_GAMES_ODDS_P1 = "Cotă Peste la Linia Minimă J1"
+_COL_GAMES_LINE_P2 = "Linie Minimă Disponibilă Total Game-uri J2 (meci întreg)"
+_COL_GAMES_ODDS_P2 = "Cotă Peste la Linia Minimă J2"
 
 
 def filter_recommended_picks(
@@ -70,18 +72,22 @@ def filter_recommended_picks(
     Adauga coloane noi: "_recommended_player" (1 sau 2), "_edge_pp" (brut),
     "_edge_pp_weighted" (dupa ponderare), "_comp_pct" (estimarea noastra
     pentru partea recomandata, folosita acum pentru sortare), "_rec_odds",
-    "_games45_odds" (cota Peste 4.5 game-uri a jucatorului recomandat -
-    ADAUGAT 2026-09-18: a patra conditie obligatorie, alaturi de edge,
-    cota si min_composite_pct - trebuie sa existe pe Superbet o cota
-    "Peste 4.5 game-uri" (meci intreg) EXACT pe jucatorul recomandat.
-    Necesita --extended-odds la generarea raportului; daca extended-odds
-    nu a rulat, coloana e goala si niciun meci nu trece de filtru)."""
+    "_games_line" si "_games_odds" (linia minima disponibila de "total
+    game-uri" pentru jucatorul recomandat si cota Peste la acea linie -
+    SCHIMBAT 2026-09-18: nu mai cerem o linie FIXA (3.5, apoi 4.5), care
+    lipsea des (ex. Kylie Collins avea minim 6.5) - acum luam cea mai mica
+    linie disponibila, oricare ar fi ea, ca sa confirmam doar ca market-ul
+    exista pentru meciul respectiv. A patra conditie obligatorie, alaturi
+    de edge, cota si min_composite_pct. Necesita --extended-odds la
+    generarea raportului; daca extended-odds nu a rulat, coloanele sunt
+    goale si niciun meci nu trece de filtru)."""
     rows = []
     for _, row in df.iterrows():
         comp1, comp2 = row.get(_COL_COMP1), row.get(_COL_COMP2)
         impl1, impl2 = row.get(_COL_IMPL1), row.get(_COL_IMPL2)
         odds1, odds2 = row.get(_COL_ODDS1), row.get(_COL_ODDS2)
-        games45_p1, games45_p2 = row.get(_COL_GAMES45_P1), row.get(_COL_GAMES45_P2)
+        games_line1, games_odds1 = row.get(_COL_GAMES_LINE_P1), row.get(_COL_GAMES_ODDS_P1)
+        games_line2, games_odds2 = row.get(_COL_GAMES_LINE_P2), row.get(_COL_GAMES_ODDS_P2)
         confidence = row.get(_COL_RATING_CONF)
         if pd.isna(comp1) or pd.isna(impl1):
             continue
@@ -106,7 +112,7 @@ def filter_recommended_picks(
             and not pd.isna(odds1)
             and odds1 >= min_odds
             and comp1 >= min_composite_pct
-            and not pd.isna(games45_p1)
+            and not pd.isna(games_odds1)
         ):
             new_row = row.copy()
             new_row["_recommended_player"] = 1
@@ -114,7 +120,8 @@ def filter_recommended_picks(
             new_row["_edge_pp_weighted"] = edge1_weighted
             new_row["_comp_pct"] = comp1
             new_row["_rec_odds"] = odds1
-            new_row["_games45_odds"] = games45_p1
+            new_row["_games_line"] = games_line1
+            new_row["_games_odds"] = games_odds1
             rows.append(new_row)
         elif (
             -edge1_weighted >= min_edge_pp
@@ -122,7 +129,7 @@ def filter_recommended_picks(
             and odds2 >= min_odds
             and not pd.isna(comp2)
             and comp2 >= min_composite_pct
-            and not pd.isna(games45_p2)
+            and not pd.isna(games_odds2)
         ):
             new_row = row.copy()
             new_row["_recommended_player"] = 2
@@ -130,7 +137,8 @@ def filter_recommended_picks(
             new_row["_edge_pp_weighted"] = -edge1_weighted
             new_row["_comp_pct"] = comp2
             new_row["_rec_odds"] = odds2
-            new_row["_games45_odds"] = games45_p2
+            new_row["_games_line"] = games_line2
+            new_row["_games_odds"] = games_odds2
             rows.append(new_row)
 
     if not rows:
@@ -157,7 +165,7 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
         f"<p>Total meciuri analizate: <b>{len(df)}</b>."
         f"Mai jos: doar recomandarile care trec de filtre (edge &ge; {MIN_EDGE_PP:.0f}pp fata de piata, "
         f"cota &ge; {MIN_ODDS:.1f}, estimare proprie &ge; {MIN_COMPOSITE_PCT:.0f}%, "
-        f"cota Peste 4.5 game-uri disponibila pe jucatorul recomandat), "
+        f"cota Peste la o linie de total game-uri disponibila pe jucatorul recomandat), "
         f"sortate descrescator dupa estimarea noastra.</p>"
     )
 
@@ -179,14 +187,15 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
             edge = row["_edge_pp"]
             rec_odds = row["_rec_odds"]
             comp_pct = row["_comp_pct"]
-            games45_odds = row["_games45_odds"]
+            games_line = row["_games_line"]
+            games_odds = row["_games_odds"]
 
             lines.append("<div style='margin-bottom:16px; padding:10px; border:1px solid #ddd; border-radius:6px;'>")
             lines.append(f"<h3 style='margin:0 0 6px 0;'>{p1} vs {p2}</h3>")
             lines.append(f"<p style='margin:2px 0; color:#555;'>{tournament} — {time_text}</p>")
             lines.append(
                 f"<p style='margin:6px 0;'><b>Recomandare: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata, "
-                f"estimare proprie {comp_pct:.1f}%, Peste 4.5 game-uri @ {games45_odds})</p>"
+                f"estimare proprie {comp_pct:.1f}%, Peste {games_line} game-uri @ {games_odds})</p>"
             )
             lines.append(f"<p style='margin:6px 0;'><b>Cote Superbet:</b> {odds1} / {odds2} (implicit {implied1}% / {implied2}%)</p>")
             lines.append(f"<p style='margin:6px 0;'><b>Estimare noastra:</b> {comp1}% / {comp2}%</p>")

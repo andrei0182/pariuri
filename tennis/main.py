@@ -49,12 +49,6 @@ logger = logging.getLogger(__name__)
 
 SUPPORTED_TOURS = ("atp", "wta", "challenger", "wta-125", "itf-m", "itf-f", "utr-m", "utr-f")
 
-# Linia de game-uri folosita la filtrul din send_report_email.py (adaugata
-# 2026-09-18, cu Andrei, dupa ce am observat pe bilete reale ca la meciurile
-# UTR linia de 3.5 poate lipsi de la Superbet si bookmaker-ul porneste
-# direct de la 4.5). Un singur loc de schimbat daca se schimba iar pragul.
-GAMES_LINE = 4.5
-
 
 def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 10) -> str:
     parts = []
@@ -351,8 +345,10 @@ def build_report(
                 "odds_total_sets_under": None,
                 "odds_total_sets_over": None,
                 "odds_set1_games": "",
-                "odds_p1_games45_over": None,
-                "odds_p2_games45_over": None,
+                "odds_p1_games_min_line": None,
+                "odds_p1_games_min_line_over": None,
+                "odds_p2_games_min_line": None,
+                "odds_p2_games_min_line_over": None,
             }
 
             implied_p1 = _implied_probability(sb_match.odds_winner.player1, sb_match.odds_winner.player2)
@@ -374,12 +370,22 @@ def build_report(
                         f"{sg.line}: Sub={sg.under} Peste={sg.over}" for sg in sorted(set1_lines, key=lambda x: x.line)
                     )
 
+                    # CONFIRMAT (2026-09-18, cu Andrei): linia fixa (initial 3.5,
+                    # apoi 4.5) de "total game-uri per jucator" nu e disponibila
+                    # la toate meciurile - variaza de la meci la meci (ex. Kylie
+                    # Collins avea minim 6.5, nu 4.5). Luam CEA MAI MICA linie
+                    # disponibila pentru fiecare jucator, indiferent de valoare -
+                    # asta confirma ca market-ul exista pentru meciul respectiv,
+                    # fara sa ratam meciuri doar pentru ca bookmaker-ul a pornit
+                    # de la o linie mai mare.
                     p1_games_lines = ext.player_total_games.get(sb_match.player1, [])
                     p2_games_lines = ext.player_total_games.get(sb_match.player2, [])
-                    p1_line = next((pg for pg in p1_games_lines if pg.line == GAMES_LINE), None)
-                    p2_line = next((pg for pg in p2_games_lines if pg.line == GAMES_LINE), None)
-                    row["odds_p1_games45_over"] = p1_line.over if p1_line else None
-                    row["odds_p2_games45_over"] = p2_line.over if p2_line else None
+                    p1_min_line = min(p1_games_lines, key=lambda pg: pg.line, default=None)
+                    p2_min_line = min(p2_games_lines, key=lambda pg: pg.line, default=None)
+                    row["odds_p1_games_min_line"] = p1_min_line.line if p1_min_line else None
+                    row["odds_p1_games_min_line_over"] = p1_min_line.over if p1_min_line else None
+                    row["odds_p2_games_min_line"] = p2_min_line.line if p2_min_line else None
+                    row["odds_p2_games_min_line_over"] = p2_min_line.over if p2_min_line else None
 
             scheduled = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
             if scheduled is not None and scheduled.match_id is not None:
@@ -455,8 +461,10 @@ _COLUMN_LABELS = {
     "odds_total_sets_under": "Cotă Sub Total Seturi",
     "odds_total_sets_over": "Cotă Peste Total Seturi",
     "odds_set1_games": "Cote Total Game-uri Set 1 (toate liniile)",
-    "odds_p1_games45_over": "Cotă Peste 4.5 Game-uri J1 (meci întreg)",
-    "odds_p2_games45_over": "Cotă Peste 4.5 Game-uri J2 (meci întreg)",
+    "odds_p1_games_min_line": "Linie Minimă Disponibilă Total Game-uri J1 (meci întreg)",
+    "odds_p1_games_min_line_over": "Cotă Peste la Linia Minimă J1",
+    "odds_p2_games_min_line": "Linie Minimă Disponibilă Total Game-uri J2 (meci întreg)",
+    "odds_p2_games_min_line_over": "Cotă Peste la Linia Minimă J2",
 }
 
 

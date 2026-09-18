@@ -186,10 +186,25 @@ class SetGamesLine:
 
 
 @_dataclass
+class PlayerTotalGamesLine:
+    """Total game-uri castigate de UN jucator pe tot meciul (nu pe un set,
+    nu comun ambilor jucatori - spre deosebire de SetGamesLine de mai sus).
+    Market NECONFIRMAT prin id (2026-09-17) - detectat prin nume in
+    parse_extended_markets(), la fel ca min_1_set. Daca gasesti id-ul exact
+    ruland fetch_extended_markets_raw() pe un eveniment real, adauga-l ca
+    MARKET_ID_PLAYER_TOTAL_GAMES mai sus si inlocuieste heuristica de nume
+    cu o verificare de id, mult mai robusta."""
+    line: float
+    under: Optional[float] = None
+    over: Optional[float] = None
+
+
+@_dataclass
 class ExtendedMarkets:
     min_1_set: OddsMinOneSet = _field(default_factory=OddsMinOneSet)
     total_sets: OddsTotalSets = _field(default_factory=OddsTotalSets)
     set_games: list = _field(default_factory=list)  # list[SetGamesLine]
+    player_total_games: dict = _field(default_factory=dict)  # {player_name: list[PlayerTotalGamesLine]}
 
 
 def fetch_extended_markets_raw(event_id: int, timeout: float = 10.0, max_bytes: int = 600_000) -> list[dict] | None:
@@ -280,6 +295,41 @@ def parse_extended_markets(markets: list[dict], player1_name: str, player2_name:
                 if existing is None:
                     existing = SetGamesLine(set_number=set_num, line=line_val)
                     result.set_games.append(existing)
+                if meta.get("name", "").startswith("Sub"):
+                    existing.under = o.get("price")
+                elif meta.get("name", "").startswith("Peste"):
+                    existing.over = o.get("price")
+
+        elif (
+            market_id not in (
+                MARKET_ID_MIN_1_SET, MARKET_ID_MIN_1_SET_P2,
+                MARKET_ID_TOTAL_SETS, MARKET_ID_SET_TOTAL_GAMES,
+            )
+            and "total" in name.lower() and "game" in name.lower() and "set" not in name.lower()
+        ):
+            # Total game-uri PER JUCATOR pe tot meciul - market NECONFIRMAT
+            # prin id (vezi nota pe PlayerTotalGamesLine mai sus), detectat
+            # prin nume. Exclude explicit id-urile deja cunoscute + numele
+            # care contin "set" ca sa nu se suprapuna cu MARKET_ID_SET_TOTAL_GAMES
+            # (care e per-set si comun ambilor jucatori, nu per-jucator).
+            matched_player = None
+            if player1_name and player1_name in name:
+                matched_player = player1_name
+            elif player2_name and player2_name in name:
+                matched_player = player2_name
+            if matched_player is None:
+                continue
+            for o in m.get("odds", []):
+                meta = o.get("metadata", {})
+                line = meta.get("specifiers", {}).get("total")
+                if line is None:
+                    continue
+                line_val = float(line)
+                lines_list = result.player_total_games.setdefault(matched_player, [])
+                existing = next((pg for pg in lines_list if pg.line == line_val), None)
+                if existing is None:
+                    existing = PlayerTotalGamesLine(line=line_val)
+                    lines_list.append(existing)
                 if meta.get("name", "").startswith("Sub"):
                     existing.under = o.get("price")
                 elif meta.get("name", "").startswith("Peste"):

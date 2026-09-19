@@ -8,8 +8,30 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-09-16,EUROPE: PREMIER LEAGUE INTERNATIONAL CUP,Brighton U21,PSG U21,1.42,21:30,over,3,2026-09-17
 2026-09-16,ITALY: SERIE D - GROUP E,Seravezza Pozzi,Montevarchi,2.07,16:00,under,2,2026-09-17
 2026-09-16,ITALY: SERIE D - GROUP E,Lucchese,SCD Progresso,2.0,17:00,over,5,2026-09-17
-2026-09-18,BELGIUM: PRO LEAGUE U21,Beveren U21,Francs Borains U21,1.22,21:00,pending,,
-2026-09-18,CZECH REPUBLIC: 4. LIGA - GROUP B,Karlovy Vary,Sokolov,1.41,20:00,pending,,
-2026-09-18,MALTA: CHALLENGE LEAGUE,Swieqi,Pieta,1.53,21:45,pending,,
-2026-09-18,SINGAPORE: PREMIER LEAGUE,FC Jurong,Hougang,1.49,14:30,pending,,
-2026-09-18,SPAIN: TERCERA RFEF - GROUP 11,Binissalem,Platges de Calvia,2.45,20:30,pending,,
+2026-09-18,BELGIUM: PRO LEAGUE U21,Beveren U21,Francs Borains U21,1.22,21:00,over,7,2026-09-19
+2026-09-18,CZECH REPUBLIC: 4. LIGA - GROUP B,Karlovy Vary,Sokolov,1.41,20:00,under,2,2026-09-19
+2026-09-18,MALTA: CHALLENGE LEAGUE,Swieqi,Pieta,1.53,21:45,over,5,2026-09-19
+2026-09-18,SINGAPORE: PREMIER LEAGUE,FC Jurong,Hougang,1.49,14:30,over,3,2026-09-19
+2026-09-18,SPAIN: TERCERA RFEF - GROUP 11,Binissalem,Platges de Calvia,2.45,20:30,over,3,2026-09-19
+2026-09-19,BRAZIL: COPA SANTA CATARINA,Marcilio Dias,Hercilio Luz,2.0,23:00,pending,,
+2026-09-19,CYPRUS: DIVISION 2,Doxa,Anagennisi Derynia,1.71,19:00,pending,,
+2026-09-19,CZECH REPUBLIC: U19 LEAGUE,Teplice U19,Opava U19,1.2,11:30,pending,,
+2026-09-19,CZECH REPUBLIC: U19 LEAGUE,Zlin U19,Brno U19,1.25,11:30,pending,,
+2026-09-19,ENGLAND: PREMIER LEAGUE 2,Leeds U21,Newcastle Utd U21,1.37,14:30,pending,,
+2026-09-19,ENGLAND: PREMIER LEAGUE 2,Tottenham U21,Manchester City U21,1.26,15:00,pending,,
+2026-09-19,ENGLAND: PREMIER LEAGUE 2,Chelsea U21,Fulham U21,1.26,17:00,pending,,
+2026-09-19,GERMANY: 2. BUNDESLIGA,Karlsruher SC,Nurnberg,1.38,14:00,pending,,
+2026-09-19,GHANA: PREMIER LEAGUE,Vision,Medeama,2.5,18:00,pending,,
+2026-09-19,INDONESIA: CHAMPIONSHIP,PSGC Ciamis,Sumsel United,2.15,11:30,pending,,
+2026-09-19,ITALY: PRIMAVERA 2,Palermo U19,Bari U19,1.77,12:00,pending,,
+2026-09-19,ITALY: PRIMAVERA 2,Venezia U19,Brescia U19,1.56,16:00,pending,,
+2026-09-19,ITALY: PRIMAVERA 2,Monopoli U19,Pescara U19,1.61,17:00,pending,,
+2026-09-19,MALTA: CHALLENGE LEAGUE,Melita,Mgarr,1.54,19:00,pending,,
+2026-09-19,NETHERLANDS: DERDE DIVISIE,Hoogeveen,Excelsior 31,1.32,19:00,pending,,
+2026-09-19,NETHERLANDS: EREDIVISIE,Ajax,Excelsior,1.26,21:00,pending,,
+2026-09-19,NETHERLANDS: TWEEDE DIVISIE,Hardenberg,Kozakken Boys,1.48,15:30,pending,,
+2026-09-19,NORWAY: DIVISION 3 - GROUP 1,Ullern,Valerenga 2,,14:00,pending,,
+2026-09-19,SPAIN: SEGUNDA RFEF - GROUP 1,Basconia,Arosa SC,1.75,13:00,pending,,
+2026-09-19,SWITZERLAND: PROMOTION LEAGUE,Basel II,Bulle,1.29,16:30,pending,,
+2026-09-19,SWITZERLAND: SUPER LEAGUE,Sion,Zurich,1.37,19:00,pending,,
+2026-09-19,TURKEY: U19 LEAGUE,Trabzonspor U19,Galatasaray U19,1.45,20:00,pending,,

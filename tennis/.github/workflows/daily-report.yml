@@ -1,0 +1,102 @@
+name: Daily tennis report
+
+permissions:
+  contents: write  # necesar pentru a comite fisierul marker .last_run_date
+
+on:
+  schedule:
+    # 3:00 AM Romania time, an-intreg. Cron e mereu UTC, fara concept de
+    # ora de vara/iarna, deci doua intrari acopera ambele offset-uri UTC
+    # ale Romaniei. IMPORTANT: GitHub Actions NU garanteaza ca workflow-urile
+    # "schedule" pornesc exact la ora ceruta -- pot fi intarziate cu ore
+    # intregi (CONFIRMAT 2026-09-16: un run programat pentru 01:00 UTC a
+    # pornit de fapt la 07:23 UTC pe SuperBet). De aceea garda de mai jos
+    # foloseste o FEREASTRA larga (03-09 ora Romaniei), nu o potrivire
+    # exacta de ora, plus un marker de "deja trimis azi" ca sa nu trimitem
+    # de doua ori daca ambele intrari cron ajung sa porneasca in fereastra.
+    - cron: "0 0 * * *"  # ~3:00 Romania time cand e EEST (UTC+3, vara)
+    - cron: "0 1 * * *"  # ~3:00 Romania time cand e EET (UTC+2, iarna)
+  workflow_dispatch: {}  # trigger manual din tab-ul Actions, pentru testare
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Skip if already sent today (evita duplicate cand ambele intrari cron ajung sa porneasca)
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          today=$(TZ="Europe/Bucharest" date +%F)
+          if [ -f .last_run_date ] && [ "$(cat .last_run_date)" == "$today" ]; then
+            echo "Raportul de azi ($today) a fost deja trimis -- sarim peste (probabil a doua intrare cron, sau o reincercare intarziata de GitHub)."
+            echo "SKIP_RUN=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Skip if outside the acceptable morning window (03-09 ora Romaniei)
+        if: env.SKIP_RUN != 'true' && github.event_name != 'workflow_dispatch'
+        run: |
+          hour=$(TZ="Europe/Bucharest" date +%-H)
+          echo "Ora locala Romania: $hour"
+          if [ "$hour" -lt 3 ] || [ "$hour" -gt 9 ]; then
+            echo "In afara ferestrei acceptate (03-09) -- sarim peste (asteptam urmatoarea intrare cron sau ziua urmatoare)."
+            echo "SKIP_RUN=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Set up Python
+        if: env.SKIP_RUN != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: env.SKIP_RUN != 'true'
+        run: pip install -r requirements.txt
+
+      - name: Compute today's date
+        if: env.SKIP_RUN != 'true'
+        id: date
+        run: echo "value=$(TZ='Europe/Bucharest' date +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Check pending results from previous days
+        if: env.SKIP_RUN != 'true'
+        run: python check_results.py
+
+      - name: Run tennis report (toate turneele confirmate)
+        if: env.SKIP_RUN != 'true'
+        run: python main.py --date ${{ steps.date.outputs.value }} --output output/tenis.xlsx --extended-odds
+    
+      - name: Diagnostic filtru
+        if: env.SKIP_RUN != 'true'
+        run: python diagnose_filter.py output/tenis.xlsx --min-composite-pct 52
+
+      - name: Upload report as workflow artifact
+        if: env.SKIP_RUN != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tenis-report-${{ steps.date.outputs.value }}
+          path: output/tenis.xlsx
+          retention-days: 14
+
+      - name: Send report email
+        if: env.SKIP_RUN != 'true'
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python send_report_email.py \
+            --xlsx output/tenis.xlsx \
+            --date ${{ steps.date.outputs.value }}
+
+      - name: Record today's run (previne trimiterea duplicata)
+        if: env.SKIP_RUN != 'true'
+        run: |
+          today=$(TZ="Europe/Bucharest" date +%F)
+          echo "$today" > .last_run_date
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .last_run_date stats/
+          git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record run date $today, update picks/stats log"
+          git push

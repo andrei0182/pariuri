@@ -134,11 +134,25 @@ def build_league_summary(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+MIN_MATCHES_FOR_CONFIDENCE = 5
+"""A "100%" hit rate from 1-2 matches is mostly noise (e.g. a team 2/2 over
+2.5 has a ~25% chance of that happening by pure luck even at a true 50%
+rate). Requiring at least this many matches per team before calling a
+team "100% Over 2.5" makes the claim statistically meaningful (at 5/5,
+that chance drops to ~3%). See recommendations_log.csv's tracked accuracy
+for why this was added -- the site scrapes matches_played per team but it
+was previously discarded entirely, so early-season/cup teams with a
+handful of games were treated as confidently as teams with a full season
+of history."""
+
+
 def build_high_confidence_over25(df: pd.DataFrame) -> pd.DataFrame:
     """Matches where Probability Over 2.5 is exactly 100% — both teams have
     gone Over 2.5 in every game of theirs this season (see
-    add_probability_columns). Only the columns needed to place a bet on
-    one: league, kick-off time, both teams, and the Over 2.5 odds.
+    add_probability_columns) -- AND both teams have at least
+    MIN_MATCHES_FOR_CONFIDENCE games of history behind that 100%. Only the
+    columns needed to place a bet on one: league, kick-off time, both
+    teams, and the Over 2.5 odds.
     """
     cols = [
         "league", "time", "home_team", "away_team", "odds_over", "prob_over_2.5",
@@ -147,7 +161,14 @@ def build_high_confidence_over25(df: pd.DataFrame) -> pd.DataFrame:
     ]
     if df.empty or "prob_over_2.5" not in df.columns:
         return pd.DataFrame(columns=cols)
-    filtered = df[df["prob_over_2.5"] >= 1.0][cols].copy()
+    home_matches = pd.to_numeric(df["home_over_2.5"], errors="coerce").fillna(0) + pd.to_numeric(
+        df["home_under_2.5"], errors="coerce"
+    ).fillna(0)
+    away_matches = pd.to_numeric(df["away_over_2.5"], errors="coerce").fillna(0) + pd.to_numeric(
+        df["away_under_2.5"], errors="coerce"
+    ).fillna(0)
+    enough_history = (home_matches >= MIN_MATCHES_FOR_CONFIDENCE) & (away_matches >= MIN_MATCHES_FOR_CONFIDENCE)
+    filtered = df[(df["prob_over_2.5"] >= 1.0) & enough_history][cols].copy()
     return filtered.sort_values(["league", "time"]).reset_index(drop=True)
 
 

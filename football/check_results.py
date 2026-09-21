@@ -25,6 +25,7 @@ import pandas as pd
 LOG_PATH = "recommendations_log.csv"
 LOG_COLUMNS = [
     "date", "league", "home_team", "away_team", "odds_over",
+    "home_matches", "away_matches",
     "kickoff_local", "result", "total_goals", "checked_at",
 ]
 

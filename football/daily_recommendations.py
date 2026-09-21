@@ -42,6 +42,7 @@ import pandas as pd
 LOG_PATH = "recommendations_log.csv"
 LOG_COLUMNS = [
     "date", "league", "home_team", "away_team", "odds_over",
+    "home_matches", "away_matches",
     "kickoff_local", "result", "total_goals", "checked_at",
 ]
 
@@ -158,6 +159,19 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
     
 
 
+def _matches_played(row: pd.Series, over_col: str, under_col: str) -> str:
+    """home_matches/away_matches at pick time -- how many games the team's
+    100% Over 2.5 record was actually built on (see
+    betexplorer.export.MIN_MATCHES_FOR_CONFIDENCE for why this matters: a
+    100% record from 2 games is far less reliable than one from 15). Kept
+    in the log so the running accuracy stats can later be broken down by
+    sample size, not just overall hit rate."""
+    try:
+        return str(int(row.get(over_col, 0) or 0) + int(row.get(under_col, 0) or 0))
+    except (TypeError, ValueError):
+        return ""
+
+
 def log_todays_picks(matched: pd.DataFrame, date_str: str) -> None:
     """Appends today's matched picks to the persistent results log."""
     path = Path(LOG_PATH)
@@ -179,6 +193,12 @@ def log_todays_picks(matched: pd.DataFrame, date_str: str) -> None:
             "home_team": home,
             "away_team": away,
             "odds_over": row.get("Odds Over" + _SUFFIX_SB, ""),
+            "home_matches": _matches_played(
+                row, "Home Over 2.5 (matches)" + _SUFFIX_BET, "Home Under 2.5 (matches)" + _SUFFIX_BET
+            ),
+            "away_matches": _matches_played(
+                row, "Away Over 2.5 (matches)" + _SUFFIX_BET, "Away Under 2.5 (matches)" + _SUFFIX_BET
+            ),
             "kickoff_local": row.get("_kickoff_local" + _SUFFIX_SB, ""),
             "result": "pending",
             "total_goals": "",

@@ -1,7 +1,7 @@
 name: Daily tennis report
 
 permissions:
-  contents: write  # necesar pentru a comite fisierul marker .last_run_date
+  contents: write  # necesar pentru a comite tennis/.last_run_date si tennis/stats/
 
 on:
   schedule:
@@ -29,7 +29,7 @@ jobs:
         if: github.event_name != 'workflow_dispatch'
         run: |
           today=$(TZ="Europe/Bucharest" date +%F)
-          if [ -f .last_run_date ] && [ "$(cat .last_run_date)" == "$today" ]; then
+          if [ -f tennis/.last_run_date ] && [ "$(cat tennis/.last_run_date)" == "$today" ]; then
             echo "Raportul de azi ($today) a fost deja trimis -- sarim peste (probabil a doua intrare cron, sau o reincercare intarziata de GitHub)."
             echo "SKIP_RUN=true" >> "$GITHUB_ENV"
           fi
@@ -61,14 +61,17 @@ jobs:
 
       - name: Check pending results from previous days
         if: env.SKIP_RUN != 'true'
+        working-directory: tennis
         run: python check_results.py
 
       - name: Run tennis report (toate turneele confirmate)
         if: env.SKIP_RUN != 'true'
+        working-directory: tennis
         run: python main.py --date ${{ steps.date.outputs.value }} --output output/tenis.xlsx --extended-odds
-    
+
       - name: Diagnostic filtru
         if: env.SKIP_RUN != 'true'
+        working-directory: tennis
         run: python diagnose_filter.py output/tenis.xlsx --min-composite-pct 52
 
       - name: Upload report as workflow artifact
@@ -76,11 +79,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tenis-report-${{ steps.date.outputs.value }}
-          path: output/tenis.xlsx
+          path: tennis/output/tenis.xlsx
           retention-days: 14
 
       - name: Send report email
         if: env.SKIP_RUN != 'true'
+        working-directory: tennis
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
@@ -92,11 +96,12 @@ jobs:
 
       - name: Record today's run (previne trimiterea duplicata)
         if: env.SKIP_RUN != 'true'
+        working-directory: tennis
         run: |
           today=$(TZ="Europe/Bucharest" date +%F)
           echo "$today" > .last_run_date
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .last_run_date stats/
-          git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record run date $today, update picks/stats log"
+          git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record tennis run date $today, update picks/stats log"
           git push

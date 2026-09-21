@@ -106,7 +106,7 @@ COMPLETED_SCORE_PATTERN = r"^\d+:\d+"
 #        data-hp-1="2.11" data-hp-2="1.74">
 # data-hp-1 is the aggregate best/average Over odd, data-hp-2 the Under odd,
 # for that handicap line — already computed by the site, no need to parse
-# individual bookmaker rows. See betscraper/match_odds.py.
+# individual bookmaker rows. See betexplorer/match_odds.py.
 OU_AJAX_URL_TEMPLATE = BASE_URL + "/match-odds/{match_id}/0/ou/bestOdds/?lang=en"
 X12_AJAX_URL_TEMPLATE = BASE_URL + "/match-odds/{match_id}/0/1x2/bestOdds/?lang=en"  # CONFIRMED 2026-09-14 via curl — same shape as OU_AJAX_URL_TEMPLATE, "1x2" market code instead of "ou"
 
@@ -129,7 +129,7 @@ STANDINGS_OU_TAB_XPATH = "//a[contains(@class, 'standings__submenu-a') and norma
 # network restriction as everything else here), so they are generic,
 # broadly-compatible patterns for common consent-management frameworks
 # (OneTrust, Cookiebot, Quantcast) plus a text-based fallback for a custom
-# "confirm you are 18+" button. betscraper.consent.dismiss_overlays() tries
+# "confirm you are 18+" button. betexplorer.consent.dismiss_overlays() tries
 # each in turn and silently continues if none match — update/add selectors
 # here once you've seen the real markup (tools/inspect_page.py --keep-open
 # will show it, or just open DevTools on first load).

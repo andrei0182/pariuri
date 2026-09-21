@@ -4,15 +4,15 @@ season so far) against SuperBet's own daily match list (live odds,
 confirms the match is actually available to bet on) -- matched by team
 name -- and emails the result.
 
-Expects two already-generated Excel files (produced by running each
-project's own main.py --with-stats / --all beforehand -- see the GitHub
-Actions workflow for the exact commands):
-  --bet-xlsx     path to BetExplorer's output/matches.xlsx
-  --superbet-xlsx path to SuperBet's output/matches.xlsx
+Expects two already-generated Excel files (produced by running
+scrape_betexplorer.py --with-stats and scrape_superbet.py --all
+beforehand -- see the GitHub Actions workflow for the exact commands):
+  --bet-xlsx     path to scrape_betexplorer.py's output/matches.xlsx
+  --superbet-xlsx path to scrape_superbet.py's output/matches.xlsx
 
 IMPORTANT: both export.py modules write the DESCRIPTIVE labels as the
-actual Excel header row (see _COLUMN_LABELS in each betscraper/export.py
-and superbet_scraper/export.py) -- e.g. "Home Team", not "home_team". So
+actual Excel header row (see _COLUMN_LABELS in each betexplorer/export.py
+and superbet/export.py) -- e.g. "Home Team", not "home_team". So
 pd.read_excel() sees those labels as column names, not the internal keys.
 Several labels are shared between both sheets (League, Home Team, Away
 Team, Odds Over, Match Link), so after merging they get suffixed

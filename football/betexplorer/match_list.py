@@ -227,8 +227,8 @@ def scrape_day(driver: WebDriver, date: dt.date) -> list[Match]:
     that O/U 2.5 lived on this list page behind a view-switch dropdown was
     wrong — that dropdown doesn't exist in this page's real markup. O/U 2.5
     odds are instead fetched per-match via a confirmed AJAX endpoint; see
-    betscraper.match_odds.fetch_over_under_odds, wired in through
-    betscraper.match_stats.scrape_match_stats (used when --with-stats is
+    betexplorer.match_odds.fetch_over_under_odds, wired in through
+    betexplorer.match_stats.scrape_match_stats (used when --with-stats is
     passed to main.py).
     """
     load_date(driver, date)

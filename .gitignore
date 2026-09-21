@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+football/output/
+football/betexplorer_output/
+football/superbet_output/
+football/*.html
+football/chromedriver.log
+football/run_log*.txt
+football/run_final*.txt
+football/run_*.txt
+football/odds_curl.json
+
+tennis/output/
+
+# Session scratch/debug files -- never commit these
+test_*.py
+debug_*.py

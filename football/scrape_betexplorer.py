@@ -5,10 +5,10 @@ import datetime as dt
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from betscraper.driver import build_driver
-from betscraper.export import save_to_excel
-from betscraper.match_list import scrape_day
-from betscraper.match_stats import scrape_match_stats
+from betexplorer.driver import build_driver
+from betexplorer.export import save_to_excel
+from betexplorer.match_list import scrape_day
+from betexplorer.match_stats import scrape_match_stats
 
 
 def parse_args() -> argparse.Namespace:

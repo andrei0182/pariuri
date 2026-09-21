@@ -7,8 +7,9 @@ workflow) so the email's running accuracy summary is up to date. Safe to
 run multiple times -- already-resolved rows are skipped, and a match not
 found/not yet played is simply left "pending" for next time.
 
-Requires the `bet` repo checked out as a sibling directory (../bet), since
-it reuses that project's own scraper rather than re-implementing it.
+Reuses the betexplorer scraper that lives alongside this script in
+football/ (scrape_betexplorer.py), since both are part of the same
+monorepo checkout now -- no cross-repo checkout needed.
 """
 from __future__ import annotations
 
@@ -61,7 +62,7 @@ def save_log(df: pd.DataFrame) -> None:
 
 def scrape_bet_date(date_str: str, bet_repo: str) -> pd.DataFrame | None:
     out_path = f"/tmp/results_check_{date_str}.xlsx"
-    cmd = [sys.executable, "main.py", "--date", date_str, "--output", out_path]
+    cmd = [sys.executable, "scrape_betexplorer.py", "--date", date_str, "--output", out_path]
     result = subprocess.run(cmd, cwd=bet_repo, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"  WARNING: bet scraper failed for {date_str}: {result.stderr.strip()[-500:]}")
@@ -93,7 +94,7 @@ def resolve_pick(row: pd.Series, day_matches: pd.DataFrame) -> tuple[str, str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--bet-repo", default="../bet", help="Path to the bet repo (checked out as a sibling by default).")
+    parser.add_argument("--bet-repo", default=".", help="Directory containing scrape_betexplorer.py (defaults to the current directory, football/).")
     args = parser.parse_args()
 
     log = load_log()

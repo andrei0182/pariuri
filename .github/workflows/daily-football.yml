@@ -1,0 +1,110 @@
+name: Daily 100% Over 2.5 recommendations
+
+permissions:
+  contents: write  # needed to commit football/recommendations_log.csv and football/.last_run_date back to the repo
+
+on:
+  schedule:
+    # 3:00 AM Romania time, year-round. Cron is always UTC with no DST
+    # concept, so two entries cover both of Romania's UTC offsets.
+    # IMPORTANT: GitHub Actions does NOT guarantee scheduled workflows fire
+    # exactly on time -- they can be delayed by hours (CONFIRMED 2026-09-16:
+    # a run scheduled for 01:00 UTC actually started at 07:23 UTC). The
+    # guard below therefore uses a wide WINDOW (03-09 Romania time), not an
+    # exact-hour match, plus an "already sent today" marker so we don't
+    # send twice if both cron entries end up firing inside the window.
+    - cron: "0 0 * * *"  # ~3:00 Romania time when EEST (UTC+3, summer)
+    - cron: "0 1 * * *"  # ~3:00 Romania time when EET (UTC+2, winter)
+  workflow_dispatch: {}  # lets you trigger it manually from the Actions tab to test
+
+jobs:
+  send-recommendations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Skip if already sent today (avoids duplicates when both cron entries land in-window)
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          today=$(TZ="Europe/Bucharest" date +%F)
+          if [ -f football/.last_run_date ] && [ "$(cat football/.last_run_date)" == "$today" ]; then
+            echo "Already sent today's report ($today) -- skipping (likely the second cron entry, or a delayed retry from GitHub)."
+            echo "SKIP_RUN=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Skip if outside the acceptable morning window (03-09 Romania time)
+        if: env.SKIP_RUN != 'true' && github.event_name != 'workflow_dispatch'
+        run: |
+          hour=$(TZ="Europe/Bucharest" date +%-H)
+          echo "Current Romania local hour: $hour"
+          if [ "$hour" -lt 3 ] || [ "$hour" -gt 9 ]; then
+            echo "Outside the accepted window (03-09) -- skipping (waiting for the next cron entry or tomorrow)."
+            echo "SKIP_RUN=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Set up Python
+        if: env.SKIP_RUN != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: env.SKIP_RUN != 'true'
+        run: pip install -r requirements.txt
+
+      - name: Compute today's date
+        if: env.SKIP_RUN != 'true'
+        id: date
+        run: echo "value=$(TZ='Europe/Bucharest' date +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Check pending results from previous days
+        if: env.SKIP_RUN != 'true'
+        working-directory: football
+        run: python check_results.py
+
+      - name: Run BetExplorer scraper (with stats)
+        if: env.SKIP_RUN != 'true'
+        working-directory: football
+        run: python scrape_betexplorer.py --date ${{ steps.date.outputs.value }} --with-stats --output betexplorer_output/matches.xlsx
+
+      - name: Upload BetExplorer failure debug files
+        if: failure() && env.SKIP_RUN != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: betexplorer-failure-debug
+          path: |
+            football/load_date_failure.html
+            football/load_date_failure.png
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Run SuperBet scraper (all leagues)
+        if: env.SKIP_RUN != 'true'
+        working-directory: football
+        run: python scrape_superbet.py --date ${{ steps.date.outputs.value }} --all --with-stats --output superbet_output/matches.xlsx
+
+      - name: Send recommendation email
+        if: env.SKIP_RUN != 'true'
+        working-directory: football
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python daily_recommendations.py \
+            --bet-xlsx betexplorer_output/matches.xlsx \
+            --superbet-xlsx superbet_output/matches.xlsx \
+            --date ${{ steps.date.outputs.value }}
+
+      - name: Commit updated results log and run marker
+        if: env.SKIP_RUN != 'true'
+        working-directory: football
+        run: |
+          today=$(TZ="Europe/Bucharest" date +%F)
+          echo "$today" > .last_run_date
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add recommendations_log.csv .last_run_date
+          git diff --cached --quiet && echo "No log changes to commit." || git commit -m "Update football recommendations log ($today)"
+          git push

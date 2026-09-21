@@ -5,16 +5,16 @@ import datetime as dt
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from superbet_scraper.events import fetch_event_detail, fetch_events, fetch_events_for_all_tournaments, parse_event, parse_over_under
-from superbet_scraper.export import save_to_excel
-from superbet_scraper.stats import (
+from superbet.events import fetch_event_detail, fetch_events, fetch_events_for_all_tournaments, parse_event, parse_over_under
+from superbet.export import save_to_excel
+from superbet.stats import (
     extract_table_id,
     extract_team_ids,
     fetch_fixture_overview,
     fetch_h2h,
     fetch_standings,
 )
-from superbet_scraper.tournaments import all_football_tournament_ids, find_tournament, reverse_lookup, search_tournaments
+from superbet.tournaments import all_football_tournament_ids, find_tournament, reverse_lookup, search_tournaments
 
 
 def enrich_match(match, standings_cache: dict) -> None:

@@ -25,7 +25,7 @@ def fetch_fixture_overview(event_id: int, timeout: float = 15.0) -> dict | None:
     (for standings) and team1.id/team2.id (for h2h) come from.
 
     CONFIRMED (2026-09-14) via curl: fixture-id is "ax:match:{event_id}"
-    using the same event_id as the Superbet offer API (superbet_scraper.events)
+    using the same event_id as the Superbet offer API (superbet.events)
     — no separate id mapping needed. Also includes prematch_stats: each
     team's season averages (goals scored/conceded, shots, xG, cards,
     corners per game) — useful on its own, independent of standings/h2h.

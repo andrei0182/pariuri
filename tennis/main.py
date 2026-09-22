@@ -387,12 +387,26 @@ def build_report(
                     row["odds_p2_games_min_line"] = p2_min_line.line if p2_min_line else None
                     row["odds_p2_games_min_line_over"] = p2_min_line.over if p2_min_line else None
 
-            scheduled = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
+            match_found = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
+            scheduled, swapped = match_found if match_found is not None else (None, False)
             if scheduled is not None and scheduled.match_id is not None:
                 row["te_match_id"] = scheduled.match_id
                 time.sleep(te_delay)  # nu bombarda serverul TennisExplorer
                 detail = tennisexplorer.fetch_and_parse_match(scheduled.match_id)
                 if detail is not None:
+                    if swapped:
+                        # TennisExplorer avea player1/player2 in ordine inversa
+                        # fata de Superbet (vezi nota din find_scheduled_match) -
+                        # interschimbam TOATE datele din detail inainte sa le
+                        # folosim, altfel rank/forma/rating ajung atribuite
+                        # jucatorului gresit si recomandarea poate iesi inversata.
+                        detail.player1, detail.player2 = detail.player2, detail.player1
+                        detail.player1_recent, detail.player2_recent = (
+                            detail.player2_recent, detail.player1_recent,
+                        )
+                        detail.surface_balance = {
+                            surface: (v2, v1) for surface, (v1, v2) in detail.surface_balance.items()
+                        }
                     row["p1_ranking"] = detail.player1.ranking
                     row["p2_ranking"] = detail.player2.ranking
                     row["surface_comparison"] = _surface_summary(detail.surface_balance)

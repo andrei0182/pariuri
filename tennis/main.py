@@ -58,6 +58,60 @@ def _recent_summary(matches: list[tennisexplorer.RecentMatch], limit: int = 10) 
     return " | ".join(parts) if parts else ""
 
 
+def _parse_recent_match_date(m: tennisexplorer.RecentMatch) -> dt.date | None:
+    """Extrage data unui meci din istoricul recent (format TennisExplorer
+    "DD.MM.YYYY"). CONFIRMAT (2026-09-22): la meciurile din campionate pe
+    echipe (ex. Bundesliga, Swiss Nationalliga), celula bruta are doar 2
+    parti separate prin virgula ("Turneu,Data"), nu 3 ("Turneu,Runda,Data")
+    ca la turneele individuale - data ajunge in campul `round`, nu `date`
+    (vezi _parse_mutual_table). Incercam `date` intai, apoi `round` ca
+    fallback, altfel ratam exact meciurile dese (indicator de oboseala) la
+    jucatorii care joaca si in campionate pe echipe intre turnee."""
+    for raw in (m.date, m.round):
+        if not raw:
+            continue
+        match = re.match(r"(\d{1,2})\.(\d{1,2})\.(\d{4})", raw.strip())
+        if not match:
+            continue
+        day, month, year = (int(g) for g in match.groups())
+        try:
+            return dt.date(year, month, day)
+        except ValueError:
+            continue
+    return None
+
+
+def _matches_played_within(
+    recent: list[tennisexplorer.RecentMatch], reference_date: dt.date, window_days: int = 3
+) -> int:
+    """Numara cate meciuri din istoricul recent au data in fereastra de
+    `window_days` zile incheiata la `reference_date` (inclusiv ziua
+    meciului curent) - folosit ca proxy pentru oboseala (meciuri
+    consecutive), nu masoara durata/intensitatea lor."""
+    start = reference_date - dt.timedelta(days=window_days - 1)
+    return sum(
+        1
+        for m in recent
+        if (d := _parse_recent_match_date(m)) is not None and start <= d <= reference_date
+    )
+
+
+# Puncte procentuale scazute din estimarea compusa a jucatorului in functie
+# de cate meciuri a jucat in ultimele 3 zile - CONFIRMAT (2026-09-22, cu
+# Andrei): motivat de recomandarea gresita pe Rodriguez Taverna vs Boscardin
+# Dias (2026-09-22), unde Taverna avea forma recenta puternica (6V-4I) doar
+# pentru ca tocmai castigase 2 calificari in 2 zile, dar a pierdut categoric
+# in turul 1 - obosit dupa al 3-lea meci in 3 zile impotriva unui adversar
+# odihnit si mai bine clasat. Praguri alese empiric (nu calibrate
+# statistic), ca punct de plecare - de rafinat daca se dovedesc gresite.
+_FATIGUE_PENALTY_TABLE_PP = {0: 0.0, 1: 3.0, 2: 6.0}
+_FATIGUE_PENALTY_PP_MAX = 10.0  # 3+ meciuri in ultimele 3 zile
+
+
+def _fatigue_penalty_pp(matches_last_3d: int) -> float:
+    return _FATIGUE_PENALTY_TABLE_PP.get(matches_last_3d, _FATIGUE_PENALTY_PP_MAX)
+
+
 def _parse_rank(rank_str: str | None) -> int | None:
     """Rank-ul vine ca text de pe TennisExplorer, ex. "169.", "-." (fara
     clasament). Curatam punctul final si convertim la int, None daca nu
@@ -331,6 +385,9 @@ def build_report(
                 "composite_prob_1": None,
                 "composite_prob_2": None,
                 "rating_confidence": None,
+                "p1_matches_last_3d": None,
+                "p2_matches_last_3d": None,
+                "fatigue_adj_pp": None,
                 "signal": "Date insuficiente",
                 "our_min1set_p1": None,
                 "our_min1set_p2": None,
@@ -430,6 +487,19 @@ def build_report(
                     row["rating_confidence"] = round(rating_confidence, 2)
 
                     if composite_p1 is not None:
+                        # Ajustare oboseala - scade din estimarea jucatorului
+                        # mai obosit (mai multe meciuri in ultimele 3 zile),
+                        # NU intra in media ponderata cu rank/forma/rating
+                        # fiindca nu e o probabilitate proprie, ci un discount
+                        # aplicat DUPA. Vezi nota de la _FATIGUE_PENALTY_TABLE_PP.
+                        n1_last3d = _matches_played_within(detail.player1_recent, date)
+                        n2_last3d = _matches_played_within(detail.player2_recent, date)
+                        fatigue_adj_pp = _fatigue_penalty_pp(n2_last3d) - _fatigue_penalty_pp(n1_last3d)
+                        composite_p1 = min(max(composite_p1 + fatigue_adj_pp / 100, 0.0), 1.0)
+                        row["p1_matches_last_3d"] = n1_last3d
+                        row["p2_matches_last_3d"] = n2_last3d
+                        row["fatigue_adj_pp"] = round(fatigue_adj_pp, 1)
+
                         row["composite_prob_1"] = round(composite_p1 * 100, 1)
                         row["composite_prob_2"] = round((1 - composite_p1) * 100, 1)
                         row["signal"] = _signal_label(composite_p1, implied_p1)
@@ -461,6 +531,9 @@ _COLUMN_LABELS = {
     "composite_prob_1": "% Estimare Compusă J1 (rank+formă+rating)",
     "composite_prob_2": "% Estimare Compusă J2 (rank+formă+rating)",
     "rating_confidence": "Încredere rating carieră (0-1)",
+    "p1_matches_last_3d": "Meciuri J1 în ultimele 3 zile (oboseală)",
+    "p2_matches_last_3d": "Meciuri J2 în ultimele 3 zile (oboseală)",
+    "fatigue_adj_pp": "Ajustare oboseală aplicată J1 (pp, + = favorizează J1)",
     "signal": "Semnal (estimare vs piață)",
     "our_min1set_p1": "% Estimare Minim 1 Set J1 (derivat)",
     "our_min1set_p2": "% Estimare Minim 1 Set J2 (derivat)",

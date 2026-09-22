@@ -461,12 +461,22 @@ def find_scheduled_match(
     superbet_player1: str,
     superbet_player2: str,
     schedule: list[ScheduledMatch],
-) -> ScheduledMatch | None:
+) -> tuple[ScheduledMatch, bool] | None:
     """Potriveste un meci Superbet (nume complete: "Diane Parry") cu un
     ScheduledMatch de pe TennisExplorer (format "Parry D."), pe baza
     numelui de familie - heuristica, NU 100% garantata (nume de familie
     duble sau coincidente pot da rezultate gresite; de verificat manual
-    rezultatele la inceput)."""
+    rezultatele la inceput).
+
+    Returneaza (ScheduledMatch, swapped) - swapped=True daca player1/player2
+    pe TennisExplorer sunt in ordine INVERSA fata de player1/player2 Superbet.
+    BUG CORECTAT (2026-09-22): inainte functia intorcea doar ScheduledMatch,
+    iar main.py asuma mereu ca detail.player1 (parsat de pe pagina TE, in
+    ordinea TE) corespunde lui sb_match.player1 - fals cand ordinea era
+    inversata, caz in care rank/formă/rating erau atribuite jucatorului
+    gresit, iar recomandarea (jucatorul cu edge pozitiv) putea fi de fapt
+    outsiderul, nu favoritul real. Caller-ul trebuie sa interschimbe datele
+    din MatchDetailData cand swapped=True."""
     def surname_tokens(full_name: str) -> set[str]:
         norm = _normalize_name_for_matching(full_name)
         return set(norm.split())
@@ -479,8 +489,11 @@ def find_scheduled_match(
         te_p2_tokens = surname_tokens(m.player2)
 
         direct = (sb_p1_tokens & te_p1_tokens) and (sb_p2_tokens & te_p2_tokens)
+        if direct:
+            return m, False
+
         swapped = (sb_p1_tokens & te_p2_tokens) and (sb_p2_tokens & te_p1_tokens)
-        if direct or swapped:
-            return m
+        if swapped:
+            return m, True
 
     return None

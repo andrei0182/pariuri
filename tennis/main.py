@@ -306,7 +306,7 @@ def _h2h_probability(
     p1_tokens = tennisexplorer._surname_tokens_from_profile_name(player1_name)
     wins1 = total = 0.0
     for m in h2h:
-        if exclude_match_id is not None and m.match_id == exclude_match_id:
+        if m.is_current or (exclude_match_id is not None and m.match_id == exclude_match_id):
             continue
         weight = H2H_SAME_SURFACE_WEIGHT if surface and m.surface.lower() == surface.lower() else 1.0
         if m.year is not None:
@@ -415,7 +415,7 @@ def _derived_set_probabilities(match_win_prob_p1: float) -> dict:
 
 def _h2h_summary(h2h: list[tennisexplorer.H2HMatch], exclude_match_id: int | None) -> str:
     """Ex. "Baez 2-0 (2026 Rome Clay 6-3 7-6; 2026 Auckland Hard 7-5 6-0)"."""
-    past = [m for m in h2h if m.match_id is None or m.match_id != exclude_match_id]
+    past = [m for m in h2h if not m.is_current and (m.match_id is None or m.match_id != exclude_match_id)]
     wins: dict[str, int] = {}
     for m in past:
         wins[m.winner] = wins.get(m.winner, 0) + 1

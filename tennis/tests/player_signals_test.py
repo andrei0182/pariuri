@@ -60,6 +60,12 @@ class H2HSignalTests(unittest.TestCase):
         self.assertAlmostEqual(p_brooksby, 1 / 4.5)
         self.assertAlmostEqual(weight, main.H2H_MAX_WEIGHT * 2.5 / 4)
 
+    def test_current_match_without_link_is_excluded(self):
+        # Ivanov vs Lemaitre: singurul rand H2H e meciul insusi, fara link match-detail
+        d = _detail("match_ivanov_lemaitre")
+        self.assertEqual([(m.winner, m.match_id, m.is_current) for m in d.h2h_matches], [("Lemaitre", None, True)])
+        self.assertEqual(main._h2h_probability(d.h2h_matches, d.player1.name, "Hard", 2026), (None, 0.0))
+
     def test_no_meetings_gives_no_signal(self):
         self.assertEqual(main._h2h_probability([], "Baez Sebastian", "Hard", 2026), (None, 0.0))
 

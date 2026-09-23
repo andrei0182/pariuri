@@ -81,6 +81,10 @@ class H2HMatch:
     loser: str = ""
     sets: list[tuple[int, int]] = field(default_factory=list)  # din perspectiva castigatorului
     match_id: Optional[int] = None
+    # randul are clasa "selected" = e chiar meciul paginii (apare in tabel
+    # dupa ce s-a jucat). CONFIRMAT 2026-09-23: la Ivanov vs Lemaitre randul
+    # asta nu avea link match-detail, deci excluderea doar dupa match_id nu ajunge.
+    is_current: bool = False
 
 
 @dataclass
@@ -295,6 +299,7 @@ def parse_h2h(soup: BeautifulSoup) -> tuple[bool, list[H2HMatch]]:
             loser=loser.get_text(strip=True),
             sets=sets if first_won else [(b, a) for a, b in sets],
             match_id=find_match_id_from_gamedetail_link(link["href"]) if link else None,
+            is_current="selected" in (first.get("class") or []),
         ))
         i += 2
     return True, matches

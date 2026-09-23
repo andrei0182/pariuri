@@ -1,0 +1,43 @@
+name: Backtest tenis
+
+# Ruleaza tennis/backtest.py pe meciurile jucate in ultimele ~2 saptamani si
+# comite raportul (tennis/stats/backtest_report.md + backtest_rows.csv) pe
+# branch-ul de pe care a rulat. Manual din tab-ul Actions, sau automat la
+# push pe branch-ul de dezvoltare cand se schimba backtest-ul sau modelul.
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Cate zile in urma"
+        default: "14"
+      max_matches:
+        description: "Plafon de meciuri testate"
+        default: "600"
+  push:
+    branches: [claude/analiza-predictie-a622f9]
+    paths: [tennis/backtest.py, tennis/main.py, .github/workflows/backtest-tennis.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Run backtest
+        working-directory: tennis
+        run: python backtest.py --days ${{ inputs.days || '14' }} --max-matches ${{ inputs.max_matches || '600' }}
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tennis/stats/backtest_report.md tennis/stats/backtest_rows.csv
+          git diff --cached --quiet && echo "Nimic de comis." || git commit -m "Backtest tenis: raport $(date +%F)"
+          git pull --rebase -q
+          git push

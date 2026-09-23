@@ -58,6 +58,9 @@ class PlayerProfile:
     weight: Optional[str] = None
     plays: Optional[str] = None
     turned_pro: Optional[str] = None
+    # link-ul paginii jucatorului, ex. "/player/baez-a8fb1/" - identificator
+    # unic, acelasi ca in data/results.csv.gz (vezi history.py)
+    slug: str = ""
 
 
 @dataclass
@@ -128,6 +131,11 @@ def _row_cells_text(row) -> list[str]:
     return [c.get_text(strip=True) for c in row.find_all(["td", "th"])]
 
 
+def normalize_player_slug(href: str) -> str:
+    """"/player/brooksby" si "/player/brooksby/" -> "/player/brooksby/"."""
+    return href.rstrip("/") + "/" if href else ""
+
+
 def parse_player_profiles(soup: BeautifulSoup) -> tuple[PlayerProfile, PlayerProfile]:
     """Parseaza table.gDetail. CONFIRMAT (2026-09-15, dump celula-cu-celula):
     randurile au celule GOALE intercalate (ex. randul de ranking are 5 celule
@@ -146,6 +154,11 @@ def parse_player_profiles(soup: BeautifulSoup) -> tuple[PlayerProfile, PlayerPro
     header_cells = [c for c in _row_cells_text(rows[0]) if c]
     if len(header_cells) >= 2:
         p1.name, p2.name = header_cells[0], header_cells[-1]
+    # CONFIRMAT 2026-09-23: header-ul gDetail are link-uri "/player/brooksby"
+    # (fara "/" final) catre ambii jucatori, in ordinea paginii
+    player_links = [a["href"] for a in rows[0].find_all("a", href=re.compile(r"^/player/"))]
+    if len(player_links) >= 2:
+        p1.slug, p2.slug = (normalize_player_slug(h) for h in (player_links[0], player_links[-1]))
 
     _field_map = {
         "singles ranking": "ranking",

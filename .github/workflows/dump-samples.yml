@@ -1,0 +1,33 @@
+name: Dump TennisExplorer samples (one-off)
+
+# Temporar: descarca pagini TennisExplorer reale si le comite pe acest branch,
+# ca sa scriem parserele de H2H / suprafata / backtest pe structura confirmata.
+# Se sterge impreuna cu tennis/tools/dump_samples.py dupa folosire.
+on:
+  push:
+    branches: [claude/analiza-predictie-a622f9]
+    paths: [.github/workflows/dump-samples.yml, tennis/tools/dump_samples.py]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Dump pages
+        working-directory: tennis
+        run: python tools/dump_samples.py
+      - name: Commit samples to this branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tennis/tools/samples/
+          git diff --cached --quiet && echo "Nimic de comis." || git commit -m "Add TennisExplorer HTML samples (one-off)"
+          git push

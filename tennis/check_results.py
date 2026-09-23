@@ -25,6 +25,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import underdog
 from tenis_scraper import tennisexplorer
 
 LOG_PATH = Path("stats") / "picks_log.csv"
@@ -65,15 +66,15 @@ def names_overlap(name_a: str, name_b: str) -> bool:
     return bool(tokens_a & tokens_b)
 
 
-def load_log() -> pd.DataFrame:
-    if not LOG_PATH.exists():
-        return pd.DataFrame(columns=LOG_COLUMNS)
-    return pd.read_csv(LOG_PATH, dtype=str)
+def load_log(path: Path = LOG_PATH, columns: list[str] = LOG_COLUMNS) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame(columns=columns)
+    return pd.read_csv(path, dtype=str)
 
 
-def save_log(df: pd.DataFrame) -> None:
-    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(LOG_PATH, index=False)
+def save_log(df: pd.DataFrame, path: Path = LOG_PATH) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(path, index=False)
 
 
 def _te_match_id(row: pd.Series) -> int | None:
@@ -153,7 +154,7 @@ def _profit_units(rows: pd.DataFrame, result_col: str, odds_col: str) -> float:
 
 def print_summary(log: pd.DataFrame) -> None:
     resolved = log[log["result"].isin(["won", "lost"])]
-    if not resolved.empty:
+    if not resolved.empty and "rec_odds" in log.columns:
         win_rate = (resolved["result"] == "won").mean()
         profit = _profit_units(resolved, "result", "rec_odds")
         print(
@@ -161,6 +162,8 @@ def print_summary(log: pd.DataFrame) -> None:
             f"profit {profit:+.2f} unitati (miza 1)."
         )
     games = log[log["games_result"].isin(["won", "lost"])]
+    if "filter_pass" in log.columns:  # log-ul de outsideri: doar ce trece de filtru
+        games = games[games["filter_pass"].astype(str) == "True"]
     if not games.empty:
         win_rate = (games["games_result"] == "won").mean()
         profit = _profit_units(games, "games_result", "games_odds")
@@ -171,14 +174,20 @@ def print_summary(log: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    log = load_log()
+    for path, columns in ((LOG_PATH, LOG_COLUMNS), (underdog.LOG_PATH, underdog.LOG_COLUMNS)):
+        print(f"\n== {path} ==")
+        check_log(path, columns)
+
+
+def check_log(path: Path, columns: list[str]) -> None:
+    log = load_log(path, columns)
     if log.empty:
-        print("Niciun pick in log inca (stats/picks_log.csv nu exista sau e gol) -- nimic de verificat.")
+        print(f"Niciun rand in {path} inca -- nimic de verificat.")
         return
-    for col in LOG_COLUMNS:
+    for col in columns:
         if col not in log.columns:
             log[col] = ""
-    log = log[LOG_COLUMNS]
+    log = log[columns + [c for c in log.columns if c not in columns]]
 
     today = Date.today()
     today_str = today.isoformat()
@@ -189,7 +198,7 @@ def main() -> None:
     needs_games = log["result"].isin(["won", "lost"]) & games_missing & (log["date"] >= backfill_from)
     to_check = log[is_pending | needs_games]
     if to_check.empty:
-        print("Niciun pick 'pending' din zile anterioare si nimic de completat la game-uri.")
+        print("Nimic 'pending' din zile anterioare si nimic de completat la game-uri.")
         print_summary(log)
         return
 
@@ -228,7 +237,7 @@ def main() -> None:
                 f"{games_result} ({rec_games} game-uri, {set_scores})"
             )
 
-    save_log(log)
+    save_log(log, path)
     print_summary(log)
 
 

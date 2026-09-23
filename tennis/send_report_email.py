@@ -39,6 +39,8 @@ from pathlib import Path
 
 import pandas as pd
 
+import underdog
+
 MIN_EDGE_PP = 15.0
 MIN_ODDS = 1.0005
 MIN_COMPOSITE_PCT = 55.0
@@ -211,7 +213,7 @@ EXPERIMENTAL_WARNING_HTML = (
 )
 
 
-def build_email_body(df: pd.DataFrame, date_str: str) -> str:
+def build_email_body(df: pd.DataFrame, date_str: str, underdog_html: str = "") -> str:
     picks = filter_recommended_picks(df)
 
     lines = []
@@ -275,11 +277,15 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
             )
         lines.append("</ul>")
 
+    if underdog_html:
+        lines.append(underdog_html)
+
     lines.append(
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#888; font-size:0.9em;'>"
         "Estimarea noastra e o combinatie simpla rank+formă recentă, nu un model validat statistic.</p>"
     )
     lines.append(accuracy_summary_html())
+    lines.append(underdog_summary_html())
 
     return "\n".join(lines)
 
@@ -399,6 +405,26 @@ def accuracy_summary_html() -> str:
     return html + "</p>"
 
 
+def underdog_summary_html() -> str:
+    """Rezultatele de pana acum ale urmaririi pe hartie a outsiderilor
+    (stats/underdog_games_log.csv), doar randurile care trec de filtru."""
+    import underdog
+
+    if not underdog.LOG_PATH.exists():
+        return ""
+    log = pd.read_csv(underdog.LOG_PATH, dtype=str)
+    done = log[(log["filter_pass"] == "True") & log["games_result"].isin(["won", "lost"])]
+    if done.empty:
+        return ""
+    rate = (done["games_result"] == "won").mean()
+    return (
+        "<p style='color:#555;'><b>Outsideri — game-uri, test pe hârtie:</b> "
+        f"{len(done)} linii confirmate (toate liniile loggate ale jucătorilor care trec de filtru), "
+        f"{(done['games_result'] == 'won').sum()} trecute ({rate:.0%}), "
+        f"profit {_profit_units(done, 'games_result', 'games_odds'):+.2f} unitati la miza 1.</p>"
+    )
+
+
 def _profit_units(rows: pd.DataFrame, result_col: str, odds_col: str) -> float:
     """Profit la miza fixa de 1 unitate: +(cota-1) la castig, -1 la pierdere."""
     odds = pd.to_numeric(rows[odds_col], errors="coerce")
@@ -505,6 +531,17 @@ def build_high_edge_email_body(df: pd.DataFrame, date_str: str, min_edge_pp: flo
     return "\n".join(lines)
 
 
+def _underdog_candidates(df: pd.DataFrame) -> pd.DataFrame | None:
+    """Outsiderii zilei (vezi underdog.py). None daca istoricul
+    (data/results.csv.gz, construit de history.py) lipseste."""
+    import main
+
+    if not underdog.history.RESULTS_CSV.exists():
+        print("Fara data/results.csv.gz - sar peste sectiunea de outsideri.")
+        return None
+    return underdog.select_underdogs(df, underdog.build_history(), main._COLUMN_LABELS)
+
+
 def send_email(subject: str, html_body: str) -> None:
     gmail_address = os.environ["GMAIL_ADDRESS"]
     gmail_app_password = os.environ["GMAIL_APP_PASSWORD"]
@@ -552,7 +589,9 @@ def main() -> None:
 
     picks = filter_recommended_picks(df)
     log_daily_stats(df, picks, args.date)
-    body = build_email_body(df, args.date)
+    underdogs = _underdog_candidates(df)
+    underdog_html = underdog.email_section_html(underdogs) if underdogs is not None else ""
+    body = build_email_body(df, args.date, underdog_html)
     subject = f"Raport tenis EXPERIMENTAL ({len(df)} meciuri) — {args.date}"
 
     if args.dry_run:
@@ -565,6 +604,8 @@ def main() -> None:
         return
 
     log_todays_picks(picks, args.date)
+    if underdogs is not None:
+        underdog.log_underdogs(underdogs, args.date)
     send_email(subject, body)
     print(f"Email trimis: {subject}")
 

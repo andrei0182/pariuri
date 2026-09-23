@@ -120,6 +120,9 @@ class SuspectEdgeFilterTests(unittest.TestCase):
     def test_email_body_shows_suspect_section(self):
         body = sre.build_email_body(self.df, "2026-09-23")
         self.assertIn("Suspecte", body)
+        self.assertIn("EXPERIMENTAL", body)
+        self.assertIn("NU pariați", body)
+        self.assertNotIn("Recomandare:", body)
         self.assertIn("Guisella Insfran", body)
 
 

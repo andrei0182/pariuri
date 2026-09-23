@@ -195,14 +195,31 @@ def _clean(value) -> str:
     return str(value)
 
 
+# Rezultatul backtest-ului din 2026-09-23 (stats/backtest_report.md): 568 de
+# meciuri jucate intre 8 si 21 sept. Pe exact filtrul din email (edge >= 15pp)
+# au iesit 225 de pariuri, castigate 16% (piata estima 22%), ROI ~-37% la o
+# marja de ~6%. De aceea pick-urile sunt marcate EXPERIMENTAL - continuam sa
+# le logam in picks_log.csv ca test pe hartie, nu ca sfat de pariere.
+EXPERIMENTAL_WARNING_HTML = (
+    "<div style='margin:10px 0 16px 0; padding:12px; border:2px solid #b00; border-radius:6px; "
+    "background:#fff3f3; color:#600;'>"
+    "<b>EXPERIMENTAL — NU pariați pe baza acestor pick-uri.</b><br>"
+    "Backtest pe 568 de meciuri reale (8–21 sept. 2026): pe filtrul folosit mai jos (edge &ge; 15pp), "
+    "225 de pariuri, doar <b>16%</b> câștigate (piața estima 22%), randament estimat <b>&minus;37%</b>. "
+    "Când modelul nu e de acord cu cotele, de obicei greșește modelul. "
+    "Pick-urile sunt urmărite doar ca test pe hârtie (vezi statistica de la final).</div>"
+)
+
+
 def build_email_body(df: pd.DataFrame, date_str: str) -> str:
     picks = filter_recommended_picks(df)
 
     lines = []
-    lines.append(f"<h2>Raport tenis — {date_str}</h2>")
+    lines.append(f"<h2>Raport tenis (EXPERIMENTAL) — {date_str}</h2>")
+    lines.append(EXPERIMENTAL_WARNING_HTML)
     lines.append(
-        f"<p>Total meciuri analizate: <b>{len(df)}</b>."
-        f"Mai jos: doar recomandarile care trec de filtre (edge &ge; {MIN_EDGE_PP:.0f}pp fata de piata, "
+        f"<p>Total meciuri analizate: <b>{len(df)}</b>. "
+        f"Mai jos: doar pick-urile experimentale care trec de filtre (edge &ge; {MIN_EDGE_PP:.0f}pp fata de piata, "
         f"cota &ge; {MIN_ODDS:.1f}, estimare proprie &ge; {MIN_COMPOSITE_PCT:.0f}%, "
         f"cota Peste la o linie de total game-uri disponibila pe jucatorul recomandat), "
         f"sortate descrescator dupa estimarea noastra.</p>"
@@ -211,7 +228,7 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
     if picks.empty:
         lines.append("<p><i>Niciun meci nu a trecut de filtre azi.</i></p>")
     else:
-        lines.append(f"<p><b>{len(picks)}</b> recomandari:</p>")
+        lines.append(f"<p><b>{len(picks)}</b> pick-uri experimentale:</p>")
         for _, row in picks.iterrows():
             p1, p2 = _clean(row.get(_COL_P1)), _clean(row.get(_COL_P2))
             odds1, odds2 = _clean(row.get(_COL_ODDS1)), _clean(row.get(_COL_ODDS2))
@@ -233,7 +250,7 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
             lines.append(f"<h3 style='margin:0 0 6px 0;'>{p1} vs {p2}</h3>")
             lines.append(f"<p style='margin:2px 0; color:#555;'>{tournament} — {time_text}</p>")
             lines.append(
-                f"<p style='margin:6px 0;'><b>Recomandare: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata, "
+                f"<p style='margin:6px 0;'><b>Pick experimental: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata, "
                 f"estimare proprie {comp_pct:.1f}%, Peste {games_line} game-uri @ {games_odds})</p>"
             )
             lines.append(f"<p style='margin:6px 0;'><b>Cote Superbet:</b> {odds1} / {odds2} (implicit {implied1}% / {implied2}%)</p>")
@@ -366,7 +383,7 @@ def accuracy_summary_html() -> str:
     win_rate = (resolved["result"] == "won").mean()
     html = (
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
-        f"<b>Statistica reala pana acum:</b> din {len(resolved)} recomandari confirmate, "
+        f"<b>Test pe hartie, pana acum:</b> din {len(resolved)} pick-uri confirmate, "
         f"{(resolved['result'] == 'won').sum()} au fost castigate ({win_rate:.0%}), "
         f"profit {_profit_units(resolved, 'result', 'rec_odds'):+.2f} unitati la miza 1."
     )
@@ -440,7 +457,8 @@ def build_high_edge_email_body(df: pd.DataFrame, date_str: str, min_edge_pp: flo
     matches = list_high_edge_matches(df, min_edge_pp)
 
     lines = []
-    lines.append(f"<h2>Meciuri cu edge &ge; {min_edge_pp:.0f}pp — {date_str}</h2>")
+    lines.append(f"<h2>Meciuri cu edge &ge; {min_edge_pp:.0f}pp (EXPERIMENTAL) — {date_str}</h2>")
+    lines.append(EXPERIMENTAL_WARNING_HTML)
     lines.append(
         f"<p>Total meciuri analizate: <b>{len(df)}</b>. Lista de mai jos NU trece prin filtrul de cota "
         f"(&ge; {MIN_ODDS:.1f}) sau de estimare proprie (&ge; {MIN_COMPOSITE_PCT:.0f}%) — doar edge brut, "
@@ -469,7 +487,7 @@ def build_high_edge_email_body(df: pd.DataFrame, date_str: str, min_edge_pp: flo
             lines.append(f"<h3 style='margin:0 0 6px 0;'>{p1} vs {p2}</h3>")
             lines.append(f"<p style='margin:2px 0; color:#555;'>{tournament} — {time_text}</p>")
             lines.append(
-                f"<p style='margin:6px 0;'><b>Recomandare: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata)</p>"
+                f"<p style='margin:6px 0;'><b>Pick experimental: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata)</p>"
             )
             lines.append(f"<p style='margin:6px 0;'><b>Cote Superbet:</b> {odds1} / {odds2} (implicit {implied1}% / {implied2}%)</p>")
             lines.append(f"<p style='margin:6px 0;'><b>Estimare noastra:</b> {comp1}% / {comp2}%</p>")
@@ -535,7 +553,7 @@ def main() -> None:
     picks = filter_recommended_picks(df)
     log_daily_stats(df, picks, args.date)
     body = build_email_body(df, args.date)
-    subject = f"Raport tenis ({len(df)} meciuri) — {args.date}"
+    subject = f"Raport tenis EXPERIMENTAL ({len(df)} meciuri) — {args.date}"
 
     if args.dry_run:
         print(subject)

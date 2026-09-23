@@ -23,9 +23,8 @@ avem (TennisExplorer ne da doar scorul final pe seturi, ex. "2:0").
 Ce NU e inclus inca:
 - accidentari (tabelul playerInjuries de pe pagina de jucator exista, dar
   nu e inca legat in acest flux)
-- H2H real cand chiar exista istoric comun (doar "exista/nu exista",
-  fara detalii - structura tabelului pentru cazul "exista" nu a fost
-  inca vazuta/confirmata)
+- calitatea adversarilor din forma recenta (TennisExplorer nu da rank-ul
+  adversarului in lista de meciuri recente)
 - Cupa Davis / Billie Jean King Cup / United Cup (competitii pe echipe,
   structura de pagina diferita pe TennisExplorer)
 """
@@ -168,6 +167,26 @@ def _form_probability(w1: int, l1: int, w2: int, l2: int) -> float | None:
     return rate1 / total
 
 
+FORM_DECAY = 0.85  # ponderea scade cu 15% la fiecare meci mai vechi (lista e cea mai recenta prima)
+
+
+def _weighted_form(matches: list[tennisexplorer.RecentMatch], decay: float = FORM_DECAY) -> tuple[float, float]:
+    """Victorii/infrangeri ponderate dupa recenta: meciul cel mai recent
+    conteaza 1.0, urmatorul 0.85, apoi 0.72... Meciurile ambigue (won=None)
+    sunt sarite fara sa consume o pozitie. Intrare pentru _form_probability."""
+    wins = losses = 0.0
+    weight = 1.0
+    for m in matches:
+        if m.won is None:
+            continue
+        if m.won:
+            wins += weight
+        else:
+            losses += weight
+        weight *= decay
+    return wins, losses
+
+
 def _implied_probability(odds1: float, odds2: float) -> float | None:
     """Probabilitate implicita din cotele Superbet, normalizata ca sa
     elimine marja casei (suma 1/cota1 + 1/cota2 e de obicei >1)."""
@@ -221,11 +240,92 @@ def _career_rating_probability(
     return prob1, confidence
 
 
+SURFACE_PRIOR_MATCHES = 5  # cat de mult tragem recordul pe suprafata spre recordul general
+
+
+def _log5(rate1: float, rate2: float) -> float | None:
+    """Probabilitatea ca jucatorul 1 sa-l bata pe 2 din ratele lor de victorie
+    (formula log5 a lui Bill James) - mai corecta decat rate1/(rate1+rate2)
+    la rate extreme."""
+    num = rate1 * (1 - rate2)
+    den = num + rate2 * (1 - rate1)
+    return num / den if den > 0 else None
+
+
+def _surface_rating_probability(
+    balance: dict[str, tuple[str, str]], surface: str
+) -> tuple[float | None, float]:
+    """Semnal de rating pe SUPRAFATA MECIULUI (nu suma pe toate suprafetele,
+    cum facea _career_rating_probability): recordul fiecarui jucator pe
+    suprafata respectiva, tras spre recordul lui general cu
+    SURFACE_PRIOR_MATCHES meciuri "virtuale" (un 3/0 pe iarba nu inseamna
+    100%). Recordurile din tabel sunt pe sezonul curent. Daca suprafata e
+    necunoscuta, cade pe _career_rating_probability. Incredere: volumul de
+    meciuri pe suprafata al celor doi, saturat la 20."""
+    record = next((v for k, v in balance.items() if k.lower() == surface.lower()), None) if surface else None
+    if record is None:
+        return _career_rating_probability(balance)
+
+    rates = []
+    surface_matches = 0
+    for idx in (0, 1):
+        overall_w = overall_l = 0
+        for values in balance.values():
+            rec = _parse_record(values[idx])
+            if rec:
+                overall_w += rec[0]
+                overall_l += rec[1]
+        if overall_w + overall_l == 0:
+            return None, 0.0
+        overall_rate = overall_w / (overall_w + overall_l)
+        surf = _parse_record(record[idx]) or (0, 0)
+        surface_matches += surf[0] + surf[1]
+        rates.append((surf[0] + SURFACE_PRIOR_MATCHES * overall_rate) / (surf[0] + surf[1] + SURFACE_PRIOR_MATCHES))
+
+    return _log5(rates[0], rates[1]), min(surface_matches / 20, 1.0)
+
+
+H2H_SAME_SURFACE_WEIGHT = 1.5
+H2H_YEARLY_DECAY = 0.8
+H2H_MAX_WEIGHT = 0.5  # H2H conteaza cel mult cat jumatate din rank sau formă
+
+
+def _h2h_probability(
+    h2h: list[tennisexplorer.H2HMatch],
+    player1_name: str,
+    surface: str,
+    current_year: int,
+    exclude_match_id: int | None = None,
+) -> tuple[float | None, float]:
+    """Semnal din meciurile directe: fiecare victorie cantareste 1, x1.5 pe
+    aceeasi suprafata cu meciul de azi, x0.8 pentru fiecare an vechime.
+    Probabilitate cu Laplace (+1/+2), ca 1-0 sa nu insemne 100%. Ponderea
+    in estimarea compusa creste cu numarul de meciuri, pana la H2H_MAX_WEIGHT
+    de la 4 meciuri (ponderate) in sus. Meciul curent (exclude_match_id) e
+    sarit - dupa ce s-a jucat apare si el in tabel."""
+    p1_tokens = tennisexplorer._surname_tokens_from_profile_name(player1_name)
+    wins1 = total = 0.0
+    for m in h2h:
+        if exclude_match_id is not None and m.match_id == exclude_match_id:
+            continue
+        weight = H2H_SAME_SURFACE_WEIGHT if surface and m.surface.lower() == surface.lower() else 1.0
+        if m.year is not None:
+            weight *= H2H_YEARLY_DECAY ** max(current_year - m.year, 0)
+        total += weight
+        if set(m.winner.lower().split()) & p1_tokens:
+            wins1 += weight
+    if total == 0:
+        return None, 0.0
+    return (wins1 + 1) / (total + 2), H2H_MAX_WEIGHT * min(total / 4, 1.0)
+
+
 def _composite_estimate(
     rank_p: float | None,
     form_p: float | None,
     rating_p: float | None = None,
     rating_confidence: float = 0.0,
+    h2h_p: float | None = None,
+    h2h_weight: float = 0.0,
 ) -> float | None:
     """Medie ponderata a semnalelor disponibile (rank + formă + rating de
     carieră pe suprafață). Rank si formă au pondere fixa 1.0 fiecare;
@@ -253,6 +353,9 @@ def _composite_estimate(
     if rating_p is not None and rating_confidence > 0:
         weighted_sum += rating_p * rating_confidence
         weight_total += rating_confidence
+    if h2h_p is not None and h2h_weight > 0:
+        weighted_sum += h2h_p * h2h_weight
+        weight_total += h2h_weight
     if weight_total == 0:
         return None
     return weighted_sum / weight_total
@@ -308,6 +411,20 @@ def _derived_set_probabilities(match_win_prob_p1: float) -> dict:
         "total_sets_under": s ** 2 + (1 - s) ** 2,   # meciul se termina 2-0 (2 seturi)
         "total_sets_over": 2 * s * (1 - s),           # meciul merge la 3 seturi
     }
+
+
+def _h2h_summary(h2h: list[tennisexplorer.H2HMatch], exclude_match_id: int | None) -> str:
+    """Ex. "Baez 2-0 (2026 Rome Clay 6-3 7-6; 2026 Auckland Hard 7-5 6-0)"."""
+    past = [m for m in h2h if m.match_id is None or m.match_id != exclude_match_id]
+    wins: dict[str, int] = {}
+    for m in past:
+        wins[m.winner] = wins.get(m.winner, 0) + 1
+    tally = ", ".join(f"{name} {n}" for name, n in sorted(wins.items(), key=lambda kv: -kv[1]))
+    details = "; ".join(
+        f"{m.year} {m.tournament} {m.surface} {m.winner} " + " ".join(f"{a}-{b}" for a, b in m.sets)
+        for m in past
+    )
+    return f"{tally} ({details})"
 
 
 def _surface_summary(balance: dict[str, tuple[str, str]]) -> str:
@@ -377,6 +494,7 @@ def build_report(
                 "te_match_id": None,
                 "p1_ranking": None,
                 "p2_ranking": None,
+                "surface": "",
                 "surface_comparison": "",
                 "p1_form_summary": "",
                 "p2_form_summary": "",
@@ -477,14 +595,23 @@ def build_report(
                     )
 
                     rank1, rank2 = _parse_rank(detail.player1.ranking), _parse_rank(detail.player2.ranking)
-                    w1, l1 = tennisexplorer.form_win_loss(detail.player1_recent)
-                    w2, l2 = tennisexplorer.form_win_loss(detail.player2_recent)
+                    w1, l1 = _weighted_form(detail.player1_recent)
+                    w2, l2 = _weighted_form(detail.player2_recent)
 
                     rank_p1 = _rank_probability(rank1, rank2)
                     form_p1 = _form_probability(w1, l1, w2, l2)
-                    rating_p1, rating_confidence = _career_rating_probability(detail.surface_balance)
-                    composite_p1 = _composite_estimate(rank_p1, form_p1, rating_p1, rating_confidence)
+                    rating_p1, rating_confidence = _surface_rating_probability(detail.surface_balance, detail.surface)
+                    h2h_p1, h2h_weight = _h2h_probability(
+                        detail.h2h_matches, detail.player1.name, detail.surface, date.year,
+                        exclude_match_id=scheduled.match_id,
+                    )
+                    composite_p1 = _composite_estimate(
+                        rank_p1, form_p1, rating_p1, rating_confidence, h2h_p1, h2h_weight,
+                    )
                     row["rating_confidence"] = round(rating_confidence, 2)
+                    row["surface"] = detail.surface
+                    if h2h_p1 is not None:
+                        row["h2h"] = _h2h_summary(detail.h2h_matches, scheduled.match_id)
 
                     if composite_p1 is not None:
                         # Ajustare oboseala - scade din estimarea jucatorului
@@ -523,6 +650,7 @@ _COLUMN_LABELS = {
     "odds_1": "Cotă 1", "odds_2": "Cotă 2", "match_url": "Link Superbet",
     "te_match_id": "TennisExplorer match_id",
     "p1_ranking": "Rank J1", "p2_ranking": "Rank J2",
+    "surface": "Suprafață Meci",
     "surface_comparison": "Comparație Suprafață",
     "p1_form_summary": "Formă J1 (V-I, meciuri disponibile pe TennisExplorer)",
     "p2_form_summary": "Formă J2 (V-I, meciuri disponibile pe TennisExplorer)",

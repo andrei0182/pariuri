@@ -41,10 +41,12 @@ _session.mount("http://", HTTPAdapter(max_retries=_retry))
 # - doua table.mutual: istoric recent de meciuri, unul per jucator (NU
 #   H2H reciproc - sunt meciurile fiecaruia impotriva oricui, cele mai
 #   recente primele)
-# - H2H reciproc real: div.head cu textul "Head-to-head", urmat fie de
-#   div.no-data ("No head-to-head record.") daca nu s-au intalnit
-#   niciodata, fie (NEconfirmat structura exacta - perechea testata nu
-#   avea H2H) de un tabel cu istoricul intalnirilor directe
+# - H2H reciproc real: h2 "Head-to-head: X - Y", urmat fie de div.no-data
+#   ("No head-to-head record."), fie de un table.result cu coloanele
+#   Year/Tournament/Match/S/Surface/1..5/Round - CONFIRMAT 2026-09-23 pe
+#   Brooksby vs Baez (tools/samples/), vezi parse_h2h
+# - suprafata meciului: al doilea div.box.boxBasic.lGray, ex.
+#   "Today , 07:10, Chengdu , 1. round, hard" - CONFIRMAT 2026-09-23
 
 
 @dataclass
@@ -69,6 +71,19 @@ class RecentMatch:
 
 
 @dataclass
+class H2HMatch:
+    """O intalnire directa din tabelul H2H de pe match-detail. Numele sunt
+    doar numele de familie, asa cum apar in tabel (ex. "Baez")."""
+    year: Optional[int] = None
+    tournament: str = ""
+    surface: str = ""  # "Hard" / "Clay" / "Grass" / "Indoors" (title-ul span-ului colorat)
+    winner: str = ""
+    loser: str = ""
+    sets: list[tuple[int, int]] = field(default_factory=list)  # din perspectiva castigatorului
+    match_id: Optional[int] = None
+
+
+@dataclass
 class MatchDetailData:
     player1: PlayerProfile = field(default_factory=PlayerProfile)
     player2: PlayerProfile = field(default_factory=PlayerProfile)
@@ -76,7 +91,8 @@ class MatchDetailData:
     player1_recent: list[RecentMatch] = field(default_factory=list)
     player2_recent: list[RecentMatch] = field(default_factory=list)
     h2h_exists: bool = False
-    h2h_matches: list[RecentMatch] = field(default_factory=list)  # gol daca h2h_exists=False
+    h2h_matches: list[H2HMatch] = field(default_factory=list)  # gol daca h2h_exists=False
+    surface: str = ""  # suprafata meciului: "Hard" / "Clay" / "Grass" / "Indoors" / "" daca necunoscuta
     # Scorul pe seturi al meciului INSUSI (doar dupa ce s-a jucat), in ordinea
     # player1-player2 de pe pagina: [(7, 5), (5, 7), ...]. Gol daca meciul nu
     # s-a jucat inca sau daca structura n-a putut fi citita - vezi parse_set_scores.
@@ -218,21 +234,91 @@ def parse_recent_results(soup: BeautifulSoup) -> tuple[list[RecentMatch], list[R
     return p1_matches, p2_matches
 
 
-def parse_h2h(soup: BeautifulSoup) -> tuple[bool, list[RecentMatch]]:
-    """Verifica daca exista H2H real intre cei doi jucatori ai meciului.
-    CONFIRMAT: cand nu exista, apare div.no-data cu "No head-to-head record."
-    NEconfirmat: structura exacta a tabelului cand H2H CHIAR exista - nu am
-    testat inca o pereche cu istoric comun. Rescrie partea "else" de mai jos
-    dupa ce gasesti un meci intre doi jucatori cu H2H real."""
+def _score_cell_value(cell) -> Optional[int]:
+    """Game-urile dintr-o celula de scor pe set - ignora tiebreak-ul din
+    <sup> (ex. "6<sup>8</sup>" -> 6). None daca celula e goala (set nejucat)."""
+    text = "".join(t for t in cell.find_all(string=True, recursive=False)).strip()
+    return int(text) if text.isdigit() else None
+
+
+def parse_h2h(soup: BeautifulSoup) -> tuple[bool, list[H2HMatch]]:
+    """Istoricul meciurilor directe. CONFIRMAT 2026-09-23 (Brooksby vs Baez):
+    h2 "Head-to-head: 1 - 2" urmat de un table.result; fiecare meci ocupa 2
+    <tr> - primul cu td.annual (an), td.tl (turneu), t-name, result (seturi),
+    span[title] cu suprafata, 5 td.score; al doilea cu t-name, result, 5
+    td.score. Un link match-detail poate aparea in oricare rand al perechii.
+    Tabelul include si meciul curent dupa ce s-a jucat - apelantul il
+    exclude dupa match_id."""
     no_data = soup.find("div", class_="no-data")
     if no_data and "head-to-head" in no_data.get_text(strip=True).lower():
         return False, []
 
-    head_div = soup.find("div", class_="head")
-    if head_div is None:
+    heading = next((h for h in soup.find_all("h2") if "head-to-head" in h.get_text().lower()), None)
+    if heading is None:
         return False, []
+    table = heading.find_next("table", class_="result")
+    if table is None or "Surface" not in [th.get_text(strip=True) for th in table.find_all("th")]:
+        return True, []
 
-    return True, []
+    matches: list[H2HMatch] = []
+    rows = table.find("tbody").find_all("tr") if table.find("tbody") else []
+    i = 0
+    while i < len(rows) - 1:
+        first, second = rows[i], rows[i + 1]
+        year_cell = first.find("td", class_="annual")
+        if year_cell is None:
+            i += 1
+            continue
+        name1, name2 = first.find("td", class_="t-name"), second.find("td", class_="t-name")
+        res1, res2 = first.find("td", class_="result"), second.find("td", class_="result")
+        if not (name1 and name2 and res1 and res2):
+            i += 2
+            continue
+        games1 = [_score_cell_value(c) for c in first.find_all("td", class_="score")]
+        games2 = [_score_cell_value(c) for c in second.find_all("td", class_="score")]
+        sets = [(a, b) for a, b in zip(games1, games2) if a is not None and b is not None]
+        surface_span = first.find("span", title=True)
+        link = first.find("a", href=re.compile(r"/match-detail/")) or second.find("a", href=re.compile(r"/match-detail/"))
+        tournament_cell = first.find("td", class_="tl")
+        try:
+            sets_won1, sets_won2 = int(res1.get_text(strip=True)), int(res2.get_text(strip=True))
+        except ValueError:
+            i += 2
+            continue
+        first_won = sets_won1 > sets_won2
+        winner, loser = (name1, name2) if first_won else (name2, name1)
+        matches.append(H2HMatch(
+            year=int(year_cell.get_text(strip=True)) if year_cell.get_text(strip=True).isdigit() else None,
+            tournament=tournament_cell.get_text(strip=True) if tournament_cell else "",
+            surface=surface_span["title"].strip().capitalize() if surface_span else "",
+            winner=winner.get_text(strip=True),
+            loser=loser.get_text(strip=True),
+            sets=sets if first_won else [(b, a) for a, b in sets],
+            match_id=find_match_id_from_gamedetail_link(link["href"]) if link else None,
+        ))
+        i += 2
+    return True, matches
+
+
+_SURFACES = ("hard", "clay", "grass", "indoors", "carpet")
+
+
+def parse_match_surface(soup: BeautifulSoup) -> str:
+    """Suprafata meciului curent. CONFIRMAT 2026-09-23: al doilea
+    div.box.boxBasic.lGray se termina cu ", hard" / ", clay" etc. Fallback:
+    randul tr.selected din tabelul Surface (TennisExplorer marcheaza acolo
+    suprafata meciului). "" daca nu gasim nimic."""
+    for box in soup.select("div.box.boxBasic.lGray"):
+        m = re.search(r",\s*(" + "|".join(_SURFACES) + r")\s*$", box.get_text(" ", strip=True), re.IGNORECASE)
+        if m:
+            return m.group(1).capitalize()
+    for table in soup.find_all("table", class_="balance"):
+        selected = table.find("tr", class_="selected")
+        if selected:
+            first = selected.find("td")
+            if first and first.get_text(strip=True).lower() in _SURFACES:
+                return first.get_text(strip=True).capitalize()
+    return ""
 
 
 _SET_SCORE_RE = re.compile(r"(\d{1,2})\s*-\s*(\d{1,2})")
@@ -362,6 +448,7 @@ def parse_match_detail(html: str) -> MatchDetailData:
     data.player1_recent, data.player2_recent = parse_recent_results(soup)
     data.h2h_exists, data.h2h_matches = parse_h2h(soup)
     data.set_scores, data.retired = parse_set_scores(soup)
+    data.surface = parse_match_surface(soup)
     _annotate_won(data.player1_recent, data.player1.name)
     _annotate_won(data.player2_recent, data.player2.name)
     return data

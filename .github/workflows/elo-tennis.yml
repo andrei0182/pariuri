@@ -1,0 +1,48 @@
+name: Elo tenis
+
+# Actualizeaza istoricul de rezultate (tennis/data/), recalculeaza Elo pe
+# suprafata si ruleaza backtest-ul lui; comite datele si raportul
+# (tennis/stats/elo_report.md, elo_ratings.csv) pe branch-ul de pe care a
+# rulat. Prima rulare descarca ~180 de zile (dureaza ~1h); urmatoarele doar
+# zilele noi.
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Cate zile de istoric (se completeaza doar ce lipseste)"
+        default: "180"
+      eval_days:
+        description: "Cate zile de la final se evalueaza"
+        default: "30"
+  push:
+    branches: [claude/analiza-predictie-a622f9]
+    paths: [tennis/history.py, tennis/elo.py, .github/workflows/elo-tennis.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  elo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Update results history
+        working-directory: tennis
+        run: python history.py --days ${{ inputs.days || '180' }}
+      - name: Elo + backtest
+        working-directory: tennis
+        run: python elo.py --eval-days ${{ inputs.eval_days || '30' }}
+      - name: Commit data and report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tennis/data/ tennis/stats/elo_report.md tennis/stats/elo_ratings.csv 2>/dev/null || true
+          git diff --cached --quiet && echo "Nimic de comis." || git commit -m "Elo tenis: istoric + raport $(date +%F)"
+          git pull --rebase -q
+          git push

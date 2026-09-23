@@ -20,6 +20,7 @@ import re
 import sys
 import unicodedata
 from datetime import date as Date
+from datetime import timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -31,7 +32,14 @@ LOG_COLUMNS = [
     "date", "tournament", "player1", "player2", "recommended_player", "opponent",
     "edge_pp", "rec_odds", "comp_pct", "games_line", "games_odds",
     "te_match_id", "result", "score", "checked_at",
+    "set_scores", "rec_games", "games_result",
 ]
+
+# Cate zile inapoi mai incercam sa completam games_result pentru pick-uri deja
+# rezolvate (won/lost) dar fara scor pe seturi - ex. cele logate inainte sa
+# existe coloana, sau cand parse_set_scores n-a gasit nimic. Dupa atat, le
+# lasam goale ca sa nu re-fetch-uim la nesfarsit pagini pe care nu le putem citi.
+GAMES_BACKFILL_DAYS = 14
 
 
 def normalize_name(name: str) -> str:
@@ -68,37 +76,39 @@ def save_log(df: pd.DataFrame) -> None:
     df.to_csv(LOG_PATH, index=False)
 
 
-def resolve_pick(row: pd.Series) -> tuple[str, str]:
-    """Incearca sa gaseasca rezultatul unei recomandari, re-fetch-uind
-    pagina match-detail (acelasi te_match_id salvat la momentul
-    recomandarii) si cautand in lista de meciuri recente ale jucatorului
-    recomandat o intrare al carei adversar se potriveste cu cel salvat.
-    Returneaza ("pending", "") daca nu gasim inca nimic (meci nejucat,
-    sau lista inca neactualizata pe TennisExplorer)."""
+def _te_match_id(row: pd.Series) -> int | None:
     te_match_id = row.get("te_match_id")
     if pd.isna(te_match_id) or not str(te_match_id).strip():
-        return "no_data", ""
+        return None
     try:
-        match_id_int = int(float(te_match_id))
+        return int(float(te_match_id))
     except ValueError:
-        return "no_data", ""
+        return None
 
-    detail = tennisexplorer.fetch_and_parse_match(match_id_int)
-    if detail is None:
-        return "pending", ""
 
+def _recommended_side(row: pd.Series, detail: tennisexplorer.MatchDetailData) -> int | None:
+    """1 sau 2 - pe ce parte a paginii match-detail e jucatorul recomandat.
+    None daca nu putem spune (nume formatat foarte diferit) - nu ghicim."""
     recommended = row.get("recommended_player", "")
-    opponent = row.get("opponent", "")
-
     if names_overlap(recommended, detail.player1.name):
-        candidate_matches = detail.player1_recent
-    elif names_overlap(recommended, detail.player2.name):
-        candidate_matches = detail.player2_recent
-    else:
-        # Nu am putut spune care e jucatorul recomandat pe pagina refetch-uita
-        # (posibil nume formatat foarte diferit) - lasam pending, nu ghicim.
-        return "pending", ""
+        return 1
+    if names_overlap(recommended, detail.player2.name):
+        return 2
+    return None
 
+
+def resolve_pick(row: pd.Series, detail: tennisexplorer.MatchDetailData) -> tuple[str, str]:
+    """Cauta rezultatul unei recomandari in lista de meciuri recente ale
+    jucatorului recomandat de pe pagina match-detail (acelasi te_match_id
+    salvat la momentul recomandarii), dupa o intrare al carei adversar se
+    potriveste cu cel salvat. Returneaza ("pending", "") daca nu gasim inca
+    nimic (meci nejucat, sau lista inca neactualizata pe TennisExplorer)."""
+    side = _recommended_side(row, detail)
+    if side is None:
+        return "pending", ""
+    candidate_matches = detail.player1_recent if side == 1 else detail.player2_recent
+
+    opponent = row.get("opponent", "")
     for m in candidate_matches:
         if names_overlap(opponent, m.opponent) and m.won is not None:
             return ("won" if m.won else "lost"), m.score
@@ -106,36 +116,120 @@ def resolve_pick(row: pd.Series) -> tuple[str, str]:
     return "pending", ""
 
 
+def resolve_games(row: pd.Series, detail: tennisexplorer.MatchDetailData) -> tuple[str, str, str]:
+    """Rezultatul pariului "Peste {games_line} game-uri" pe jucatorul
+    recomandat (linia e per jucator, NU total meci - vezi
+    _COL_GAMES_LINE_P1 din send_report_email.py). Numara game-urile
+    castigate de el din scorul pe seturi al meciului.
+    Returneaza (games_result, rec_games, set_scores) - toate "" daca nu
+    avem scorul pe seturi sau linia. games_result e "void" la abandon/
+    walkover (casele anuleaza de obicei piata de game-uri in cazul asta)."""
+    if not detail.set_scores:
+        return "", "", ""
+    side = _recommended_side(row, detail)
+    if side is None:
+        return "", "", ""
+
+    set_scores = " ".join(f"{a}-{b}" if side == 1 else f"{b}-{a}" for a, b in detail.set_scores)
+    rec_games = sum(a if side == 1 else b for a, b in detail.set_scores)
+
+    if detail.retired:
+        return "void", str(rec_games), set_scores
+    try:
+        line = float(row.get("games_line"))
+    except (TypeError, ValueError):
+        return "", str(rec_games), set_scores
+    if pd.isna(line):
+        return "", str(rec_games), set_scores
+    return ("won" if rec_games > line else "lost"), str(rec_games), set_scores
+
+
+def _profit_units(rows: pd.DataFrame, result_col: str, odds_col: str) -> float:
+    """Profit la miza fixa de 1 unitate: +(cota-1) la castig, -1 la pierdere."""
+    odds = pd.to_numeric(rows[odds_col], errors="coerce")
+    won = rows[result_col] == "won"
+    return float((odds - 1).where(won, -1).sum())
+
+
+def print_summary(log: pd.DataFrame) -> None:
+    resolved = log[log["result"].isin(["won", "lost"])]
+    if not resolved.empty:
+        win_rate = (resolved["result"] == "won").mean()
+        profit = _profit_units(resolved, "result", "rec_odds")
+        print(
+            f"\nCastigator meci: {len(resolved)} recomandari confirmate, {win_rate:.0%} castigate, "
+            f"profit {profit:+.2f} unitati (miza 1)."
+        )
+    games = log[log["games_result"].isin(["won", "lost"])]
+    if not games.empty:
+        win_rate = (games["games_result"] == "won").mean()
+        profit = _profit_units(games, "games_result", "games_odds")
+        print(
+            f"Peste game-uri jucator: {len(games)} confirmate, {win_rate:.0%} castigate, "
+            f"profit {profit:+.2f} unitati (miza 1)."
+        )
+
+
 def main() -> None:
     log = load_log()
     if log.empty:
         print("Niciun pick in log inca (stats/picks_log.csv nu exista sau e gol) -- nimic de verificat.")
         return
+    for col in LOG_COLUMNS:
+        if col not in log.columns:
+            log[col] = ""
+    log = log[LOG_COLUMNS]
 
-    today_str = Date.today().isoformat()
-    pending = log[(log["result"] == "pending") & (log["date"] < today_str)]
-    if pending.empty:
-        print("Niciun pick 'pending' din zile anterioare.")
+    today = Date.today()
+    today_str = today.isoformat()
+    backfill_from = (today - timedelta(days=GAMES_BACKFILL_DAYS)).isoformat()
+    games_missing = log["games_result"].isna() | (log["games_result"] == "")
+
+    is_pending = (log["result"] == "pending") & (log["date"] < today_str)
+    needs_games = log["result"].isin(["won", "lost"]) & games_missing & (log["date"] >= backfill_from)
+    to_check = log[is_pending | needs_games]
+    if to_check.empty:
+        print("Niciun pick 'pending' din zile anterioare si nimic de completat la game-uri.")
+        print_summary(log)
         return
 
-    print(f"Verific {len(pending)} pick-uri 'pending'...")
-    for idx in pending.index:
-        result, score = resolve_pick(log.loc[idx])
-        if result == "pending":
+    print(f"Verific {len(to_check)} pick-uri (pending sau fara rezultat la game-uri)...")
+    for idx in to_check.index:
+        row = log.loc[idx]
+        p1, p2 = row["player1"], row["player2"]
+        rec = row["recommended_player"]
+
+        match_id = _te_match_id(row)
+        if match_id is None:
+            if row["result"] == "pending":
+                log.loc[idx, "result"] = "no_data"
+                log.loc[idx, "checked_at"] = today_str
             continue
-        log.loc[idx, "result"] = result
-        log.loc[idx, "score"] = score
-        log.loc[idx, "checked_at"] = today_str
-        p1, p2 = log.loc[idx, "player1"], log.loc[idx, "player2"]
-        rec = log.loc[idx, "recommended_player"]
-        print(f"  {p1} vs {p2} -> {rec}: {result} ({score})")
+        detail = tennisexplorer.fetch_and_parse_match(match_id)
+        if detail is None:
+            continue
+
+        if row["result"] == "pending":
+            result, score = resolve_pick(row, detail)
+            if result == "pending":
+                continue
+            log.loc[idx, "result"] = result
+            log.loc[idx, "score"] = score
+            log.loc[idx, "checked_at"] = today_str
+            print(f"  {p1} vs {p2} -> {rec}: {result} ({score})")
+
+        games_result, rec_games, set_scores = resolve_games(log.loc[idx], detail)
+        if games_result:
+            log.loc[idx, "games_result"] = games_result
+            log.loc[idx, "rec_games"] = rec_games
+            log.loc[idx, "set_scores"] = set_scores
+            print(
+                f"  {p1} vs {p2} -> {rec} peste {row['games_line']} game-uri: "
+                f"{games_result} ({rec_games} game-uri, {set_scores})"
+            )
 
     save_log(log)
-
-    resolved = log[log["result"].isin(["won", "lost"])]
-    if not resolved.empty:
-        win_rate = (resolved["result"] == "won").mean()
-        print(f"\nStatistica reala pana acum: {len(resolved)} recomandari confirmate, {win_rate:.0%} castigate.")
+    print_summary(log)
 
 
 if __name__ == "__main__":

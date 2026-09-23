@@ -39,6 +39,17 @@ class ParseSetScoresTests(unittest.TestCase):
     def test_retirement_flagged(self):
         self.assertEqual(parse_set_scores(_soup("1 : 0 ret.<br><span>(6-4, 2-1)</span>")), ([(6, 4), (2, 1)], True))
 
+    def test_retirement_inferred_from_unfinished_set(self):
+        # Bains vs Jimenez Kasintseva, 2026-09-22: "1:0 (5-2)", fara "ret." in text.
+        self.assertEqual(parse_set_scores(_soup("1 : 0<br><span>(5-2)</span>")), ([(5, 2)], True))
+
+    def test_retirement_inferred_from_single_finished_set(self):
+        # Tenti vs Kestelboim, 2026-09-21: "1:0 (7-6)".
+        self.assertEqual(parse_set_scores(_soup("1 : 0<br><span>(7-6<sup>5</sup>)</span>")), ([(7, 6)], True))
+
+    def test_completed_three_setter_not_retired(self):
+        self.assertFalse(parse_set_scores(_soup("2 : 1<br><span>(7-5, 1-6, 5-7)</span>"))[1])
+
     def test_missing_cell_returns_empty(self):
         self.assertEqual(parse_set_scores(BeautifulSoup("<div></div>", "lxml")), ([], False))
 

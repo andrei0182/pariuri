@@ -2,7 +2,7 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-09-18,,Darwin Blanch,Bryce Nakashima,Bryce Nakashima,Darwin Blanch,22.6,2.47,60.2,9.5,1.48,3326373.0,lost,2:0,2026-09-19,3-6 3-6,6,lost
 2026-09-19,,Alec Braund,Wihan van der Merwe,Alec Braund,Wihan van der Merwe,15.399999999999999,2.1,59.1,10.5,1.53,3326483.0,won,2:1,2026-09-20,5-7 6-3 6-1,17,won
 2026-09-19,,Eric Tripathi,Jake Dembo,Eric Tripathi,Jake Dembo,24.900000000000006,2.7,58.7,9.5,1.69,3326481.0,lost,2:1,2026-09-20,7-6 4-6 0-6,11,won
-2026-09-21,,Fermin Tenti,Mariano Kestelboim,Fermin Tenti,Mariano Kestelboim,38.400000000000006,3.8,62.2,7.5,1.56,3328305.0,won,1:0,2026-09-22,7-6,7,lost
+2026-09-21,,Fermin Tenti,Mariano Kestelboim,Fermin Tenti,Mariano Kestelboim,38.400000000000006,3.8,62.2,7.5,1.56,3328305.0,won,1:0,2026-09-22,7-6,7,void
 2026-09-21,,Filip Misolic,Sebastian Gima,Sebastian Gima,Filip Misolic,43.0,5.25,60.2,6.5,1.69,3328408.0,won,2:1,2026-09-22,6-3 4-6 6-3,16,won
 2026-09-21,,Talia Gibson,Fiona Ferro,Fiona Ferro,Talia Gibson,17.1,2.27,58.6,9.5,1.51,3327152.0,lost,2:0,2026-09-22,3-6 3-6,6,lost
 2026-09-21,,Darya Astakhova,Magda Linette,Darya Astakhova,Magda Linette,20.800000000000004,2.7,55.6,9.5,1.65,3328383.0,won,2:1,2026-09-22,3-6 6-1 7-6,16,won
@@ -11,7 +11,7 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-09-22,,Gabriele Pennaforti,Nicholas David Ionel,Nicholas David Ionel,Gabriele Pennaforti,17.200000000000003,2.1,60.7,10.5,1.55,3328741.0,lost,2:0,2026-09-23,1-6 2-6,3,lost
 2026-09-22,,Theo Herrmann,Adan Freire da Silva,Theo Herrmann,Adan Freire da Silva,20.9,2.4,59.0,10.5,1.66,3330132.0,won,2:0,2026-09-23,6-2 7-6,13,won
 2026-09-22,,Lisa Zaar,Rebeka Masarova,Lisa Zaar,Rebeka Masarova,28.2,3.1,57.4,8.5,1.71,3329846.0,lost,2:1,2026-09-23,7-5 1-6 5-7,13,won
-2026-09-22,,Victoria Jimenez Kasintseva,Naiktha Bains,Naiktha Bains,Victoria Jimenez Kasintseva,21.599999999999994,2.62,56.3,9.5,1.68,3329898.0,won,1:0,2026-09-23,5-2,5,lost
+2026-09-22,,Victoria Jimenez Kasintseva,Naiktha Bains,Naiktha Bains,Victoria Jimenez Kasintseva,21.599999999999994,2.62,56.3,9.5,1.68,3329898.0,won,1:0,2026-09-23,5-2,5,void
 2026-09-22,,Valentina Steiner,Caroline Werner,Valentina Steiner,Caroline Werner,21.0,2.65,56.0,9.5,1.68,3329894.0,won,2:0,2026-09-23,6-2 7-5,13,won
 2026-09-22,,Sebastian Gima,Jonas Forejtek,Sebastian Gima,Jonas Forejtek,29.9,3.65,55.3,6.5,1.42,3329882.0,lost,2:1,2026-09-23,4-6 6-4 3-6,13,won
 2026-09-22,,Santiago Rodriguez Taverna,Pedro Boscardin Dias,Santiago Rodriguez Taverna,Pedro Boscardin Dias,18.1,2.32,58.2,9.5,1.48,3330804.0,lost,2:0,2026-09-23,3-6 1-6,4,lost

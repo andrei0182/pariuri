@@ -263,7 +263,23 @@ def parse_set_scores(soup: BeautifulSoup) -> tuple[list[tuple[int, int]], bool]:
         m = _SET_SCORE_RE.search(part)
         if m:
             sets.append((int(m.group(1)), int(m.group(2))))
+    # CONFIRMAT (2026-09-23, prima rulare reala): pagina NU marcheaza abandonul
+    # in textul scorului - Tenti "1:0 (7-6)" si Bains "1:0 (5-2)" ieseau ca
+    # meciuri normale. Deducem abandonul din scor: un set neterminat sau un
+    # castigator cu mai putin de 2 seturi (best-of-3). Un abandon la 2-1 in
+    # best-of-5 ramane nedetectat - rar, acceptat.
+    if sets and (not all(_set_finished(a, b) for a, b in sets) or _max_sets_won(sets) < 2):
+        retired = True
     return sets, retired
+
+
+def _set_finished(a: int, b: int) -> bool:
+    high, low = max(a, b), min(a, b)
+    return (high >= 6 and high - low >= 2) or (high == 7 and low >= 5)
+
+
+def _max_sets_won(sets: list[tuple[int, int]]) -> int:
+    return max(sum(1 for a, b in sets if a > b), sum(1 for a, b in sets if b > a))
 
 
 def _surname_tokens_from_profile_name(name: str) -> set[str]:

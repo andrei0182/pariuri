@@ -77,6 +77,11 @@ class MatchDetailData:
     player2_recent: list[RecentMatch] = field(default_factory=list)
     h2h_exists: bool = False
     h2h_matches: list[RecentMatch] = field(default_factory=list)  # gol daca h2h_exists=False
+    # Scorul pe seturi al meciului INSUSI (doar dupa ce s-a jucat), in ordinea
+    # player1-player2 de pe pagina: [(7, 5), (5, 7), ...]. Gol daca meciul nu
+    # s-a jucat inca sau daca structura n-a putut fi citita - vezi parse_set_scores.
+    set_scores: list[tuple[int, int]] = field(default_factory=list)
+    retired: bool = False  # abandon / walkover / descalificare - vezi parse_set_scores
 
 
 def fetch_match_detail_html(match_id: int, timeout: float = 15.0) -> str | None:
@@ -230,6 +235,37 @@ def parse_h2h(soup: BeautifulSoup) -> tuple[bool, list[RecentMatch]]:
     return True, []
 
 
+_SET_SCORE_RE = re.compile(r"(\d{1,2})\s*-\s*(\d{1,2})")
+_RETIRED_MARKERS = ("ret", "w/o", "wo.", "def", "walkover", "abandon")
+
+
+def parse_set_scores(soup: BeautifulSoup) -> tuple[list[tuple[int, int]], bool]:
+    """Scorul pe seturi al meciului de pe pagina match-detail, ex.
+    [(7, 5), (7, 5)], plus un flag "retired" (abandon/walkover).
+    NEconfirmat (2026-09-23): TennisExplorer nu a fost accesibil din sesiunea
+    in care s-a scris functia. Presupunere, din memorie: celula td.gScore din
+    gDetail contine "2 : 0" + "(7-5, 7-5)", cu tiebreak-ul intr-un <sup>
+    (ex. "7-6<sup>4</sup>"). get_text cu separator " " pastreaza <sup>-ul
+    separat ("7-6 4"), deci regex-ul ia doar primele doua numere din fiecare
+    set. Daca structura difera, intoarce ([], False) - check_results.py lasa
+    atunci games_result gol, nu ghiceste. Verifica cu tools/inspect_page.py
+    pe un meci terminat si corecteaza selectorul daca e nevoie."""
+    cell = soup.find(class_="gScore")
+    if cell is None:
+        return [], False
+    text = cell.get_text(" ", strip=True)
+    retired = any(marker in text.lower() for marker in _RETIRED_MARKERS)
+    parens = re.search(r"\(([^)]*)\)", text)
+    if parens is None:
+        return [], retired
+    sets: list[tuple[int, int]] = []
+    for part in parens.group(1).split(","):
+        m = _SET_SCORE_RE.search(part)
+        if m:
+            sets.append((int(m.group(1)), int(m.group(2))))
+    return sets, retired
+
+
 def _surname_tokens_from_profile_name(name: str) -> set[str]:
     """Din numele complet de pe gDetail (format "Nume Prenume", ex.
     "Parry Diane" sau "Bouzas Maneiro Jessica") extrage tokenii de nume de
@@ -309,6 +345,7 @@ def parse_match_detail(html: str) -> MatchDetailData:
     data.surface_balance = parse_surface_balance(soup)
     data.player1_recent, data.player2_recent = parse_recent_results(soup)
     data.h2h_exists, data.h2h_matches = parse_h2h(soup)
+    data.set_scores, data.retired = parse_set_scores(soup)
     _annotate_won(data.player1_recent, data.player1.name)
     _annotate_won(data.player2_recent, data.player2.name)
     return data

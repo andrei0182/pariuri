@@ -10,6 +10,11 @@ Filtre aplicate (praguri alese cu Andrei, 2026-09-16):
     zdrobitori unde diferenta e nesemnificativa practic)
   - fara limita maxima de cota (underdogi extremi raman inclusi)
   - toate categoriile de turnee raman incluse (UTR/ITF nu sunt excluse)
+  - edge brut <= MAX_EDGE_PP si estimare proprie <= MAX_COMPOSITE_PCT:
+    peste astea e aproape sigur o eroare de date (ex. Insfran vs Santos,
+    2026-09-23: edge 88.6pp, estimare 97% la cota 11.0), nu value real.
+    Meciurile respective apar separat in email, ca "suspecte", si NU se
+    logheaza in picks_log.csv.
 
 Acelasi tipar ca send-email-ul din proiectul SuperBet
 (daily_recommendations.py): Gmail SMTP, credentiale din variabile de
@@ -37,6 +42,11 @@ import pandas as pd
 MIN_EDGE_PP = 15.0
 MIN_ODDS = 1.0005
 MIN_COMPOSITE_PCT = 55.0
+# Praguri alese 2026-09-23. NU 30pp: Tenti (38.4pp, cota 3.8) si Gima
+# (43.0pp, cota 5.25) au fost pick-uri reale castigate - un prag de 30 le-ar
+# fi exclus. 50pp / 85% prinde doar cazurile clar stricate.
+MAX_EDGE_PP = 50.0
+MAX_COMPOSITE_PCT = 85.0
 
 _COL_P1, _COL_P2 = "Jucător 1", "Jucător 2"
 _COL_ODDS1, _COL_ODDS2 = "Cotă 1", "Cotă 2"
@@ -55,6 +65,7 @@ PICKS_LOG_COLUMNS = [
     "date", "tournament", "player1", "player2", "recommended_player", "opponent",
     "edge_pp", "rec_odds", "comp_pct", "games_line", "games_odds",
     "te_match_id", "result", "score", "checked_at",
+    "set_scores", "rec_games", "games_result",
 ]
 
 
@@ -63,6 +74,8 @@ def filter_recommended_picks(
     min_edge_pp: float = MIN_EDGE_PP,
     min_odds: float = MIN_ODDS,
     min_composite_pct: float = MIN_COMPOSITE_PCT,
+    max_edge_pp: float = MAX_EDGE_PP,
+    max_composite_pct: float = MAX_COMPOSITE_PCT,
 ) -> pd.DataFrame:
     """Pentru fiecare meci, calculeaza edge-ul (estimare - implicit) pe
     fiecare parte si pastreaza doar meciurile unde partea cu edge pozitiv
@@ -88,7 +101,10 @@ def filter_recommended_picks(
     exista pentru meciul respectiv. A patra conditie obligatorie, alaturi
     de edge, cota si min_composite_pct. Necesita --extended-odds la
     generarea raportului; daca extended-odds nu a rulat, coloanele sunt
-    goale si niciun meci nu trece de filtru)."""
+    goale si niciun meci nu trece de filtru).
+    max_edge_pp / max_composite_pct: plafoane pe edge-ul BRUT si pe estimarea
+    proprie - peste ele pick-ul e tratat ca eroare de date si exclus (vezi
+    list_suspect_picks, care le listeaza separat)."""
     rows = []
     for _, row in df.iterrows():
         comp1, comp2 = row.get(_COL_COMP1), row.get(_COL_COMP2)
@@ -120,6 +136,8 @@ def filter_recommended_picks(
             and not pd.isna(odds1)
             and odds1 >= min_odds
             and comp1 >= min_composite_pct
+            and edge1 <= max_edge_pp
+            and comp1 <= max_composite_pct
             and not pd.isna(games_odds1)
         ):
             new_row = row.copy()
@@ -137,6 +155,8 @@ def filter_recommended_picks(
             and odds2 >= min_odds
             and not pd.isna(comp2)
             and comp2 >= min_composite_pct
+            and -edge1 <= max_edge_pp
+            and comp2 <= max_composite_pct
             and not pd.isna(games_odds2)
         ):
             new_row = row.copy()
@@ -153,6 +173,17 @@ def filter_recommended_picks(
         return pd.DataFrame()
     result = pd.DataFrame(rows)
     return result.sort_values("_comp_pct", ascending=False)
+
+
+def list_suspect_picks(df: pd.DataFrame) -> pd.DataFrame:
+    """Meciurile care ar fi trecut de toate filtrele, dar depasesc
+    MAX_EDGE_PP sau MAX_COMPOSITE_PCT - aproape sigur date gresite (jucatori
+    inversati, rating lipsa etc.), de verificat manual, nu de pariat."""
+    uncapped = filter_recommended_picks(df, max_edge_pp=float("inf"), max_composite_pct=float("inf"))
+    if uncapped.empty:
+        return uncapped
+    suspect = (uncapped["_edge_pp"] > MAX_EDGE_PP) | (uncapped["_comp_pct"] > MAX_COMPOSITE_PCT)
+    return uncapped[suspect]
 
 
 def _clean(value) -> str:
@@ -210,6 +241,22 @@ def build_email_body(df: pd.DataFrame, date_str: str) -> str:
             if url:
                 lines.append(f"<p style='margin:6px 0;'><a href='{url}'>Vezi pe Superbet.ro</a></p>")
             lines.append("</div>")
+
+    suspects = list_suspect_picks(df)
+    if not suspects.empty:
+        lines.append(
+            f"<h3 style='color:#b00;'>Suspecte - NU pariati ({len(suspects)})</h3>"
+            f"<p>Edge peste {MAX_EDGE_PP:.0f}pp sau estimare peste {MAX_COMPOSITE_PCT:.0f}% - "
+            f"aproape sigur o eroare de date. Excluse din recomandari si din picks_log.csv.</p><ul>"
+        )
+        for _, row in suspects.iterrows():
+            p1, p2 = _clean(row.get(_COL_P1)), _clean(row.get(_COL_P2))
+            rec_name = p1 if row["_recommended_player"] == 1 else p2
+            lines.append(
+                f"<li>{p1} vs {p2}: {rec_name} (cota {row['_rec_odds']}, edge +{row['_edge_pp']:.0f}pp, "
+                f"estimare {row['_comp_pct']:.1f}%)</li>"
+            )
+        lines.append("</ul>")
 
     lines.append(
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#888; font-size:0.9em;'>"
@@ -296,6 +343,9 @@ def log_todays_picks(picks: pd.DataFrame, date_str: str) -> None:
             "result": "pending",
             "score": "",
             "checked_at": "",
+            "set_scores": "",
+            "rec_games": "",
+            "games_result": "",
         })
     if new_rows:
         log = pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True)
@@ -314,11 +364,29 @@ def accuracy_summary_html() -> str:
     if resolved.empty:
         return ""
     win_rate = (resolved["result"] == "won").mean()
-    return (
+    html = (
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
         f"<b>Statistica reala pana acum:</b> din {len(resolved)} recomandari confirmate, "
-        f"{(resolved['result'] == 'won').sum()} au fost castigate ({win_rate:.0%}).</p>"
+        f"{(resolved['result'] == 'won').sum()} au fost castigate ({win_rate:.0%}), "
+        f"profit {_profit_units(resolved, 'result', 'rec_odds'):+.2f} unitati la miza 1."
     )
+    if "games_result" in log.columns:
+        games = log[log["games_result"].isin(["won", "lost"])]
+        if not games.empty:
+            games_rate = (games["games_result"] == "won").mean()
+            html += (
+                f"<br><b>Peste game-uri jucator:</b> din {len(games)} confirmate, "
+                f"{(games['games_result'] == 'won').sum()} castigate ({games_rate:.0%}), "
+                f"profit {_profit_units(games, 'games_result', 'games_odds'):+.2f} unitati la miza 1."
+            )
+    return html + "</p>"
+
+
+def _profit_units(rows: pd.DataFrame, result_col: str, odds_col: str) -> float:
+    """Profit la miza fixa de 1 unitate: +(cota-1) la castig, -1 la pierdere."""
+    odds = pd.to_numeric(rows[odds_col], errors="coerce")
+    won = rows[result_col] == "won"
+    return float((odds - 1).where(won, -1).sum())
 
 
 def list_high_edge_matches(df: pd.DataFrame, min_edge_pp: float = 25.0) -> pd.DataFrame:

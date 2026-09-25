@@ -107,4 +107,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add recommendations_log.csv .last_run_date
           git diff --cached --quiet && echo "No log changes to commit." || git commit -m "Update football recommendations log ($today)"
-          git push
+          for i in 1 2 3 4 5; do
+            git push && break
+            echo "Push rejected (likely a race with another workflow) -- retrying after rebase ($i/5)."
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/$GITHUB_REF_NAME"
+            sleep $((RANDOM % 10 + 1))
+          done

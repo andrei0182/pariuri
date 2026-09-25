@@ -17,6 +17,12 @@ on:
     - cron: "0 1 * * *"  # ~3:00 Romania time when EET (UTC+2, winter)
   workflow_dispatch: {}  # lets you trigger it manually from the Actions tab to test
 
+# O singura rulare odata: a doua asteapta, iar la checkout vede deja
+# .last_run_date scris de prima si sare peste (fara email dublu).
+concurrency:
+  group: daily-football
+  cancel-in-progress: false
+
 jobs:
   send-recommendations:
     runs-on: ubuntu-latest

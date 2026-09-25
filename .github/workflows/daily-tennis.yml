@@ -109,4 +109,12 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .last_run_date stats/ data/
           git diff --cached --quiet && echo "Fara schimbari de comis." || git commit -m "Record tennis run date $today, update picks/stats log"
-          git push
+          # Celalalt workflow zilnic (tenis/fotbal) poate comite pe main cat timp
+          # asta ruleaza - aducem schimbarile lui inainte de push (fisiere
+          # diferite, deci rebase fara conflicte) si reincercam de cateva ori.
+          for attempt in 1 2 3 4; do
+            git pull --rebase -q && git push && break
+            echo "Push respins (incercarea $attempt), reincerc..."
+            sleep $((attempt * 5))
+          done
+          git status -sb | head -1 | grep -qv ahead

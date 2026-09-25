@@ -21,7 +21,7 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-09-23,,Max Wiskandt,Carlos Taberner,Max Wiskandt,Carlos Taberner,24.6,2.85,57.2,8.5,1.59,3330860.0,lost,2:0,2026-09-24,5-7 4-6,9,won
 2026-09-23,,Arina Arifullina,Kseniia Ruchkina,Arina Arifullina,Kseniia Ruchkina,20.599999999999994,2.52,56.8,10.5,1.77,3331278.0,lost,1:0,2026-09-24,0-6 0-0,0,void
 2026-09-23,,Alessia Popescu,Nadia Kulbiej,Alessia Popescu,Nadia Kulbiej,37.4,3.25,65.3,7.5,1.62,3329797.0,won,2:1,2026-09-24,6-4 6-7 6-3,18,won
-2026-09-23,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,20.300000000000004,2.55,56.1,10.5,1.78,3331038.0,pending,,,,,
+2026-09-23,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,20.300000000000004,2.55,56.1,10.5,1.78,3331038.0,lost,2:0,2026-09-25,3-6 1-6,4,lost
 2026-09-23,,Jacopo Bilardo,Mae Malige,Jacopo Bilardo,Mae Malige,18.799999999999997,2.45,56.0,10.5,1.71,3330190.0,lost,2:0,2026-09-24,4-6 3-6,7,lost
 2026-09-23,,Sven Corbinais,Etienne Donnet,Sven Corbinais,Etienne Donnet,34.6,4.4,55.2,6.5,1.59,3331166.0,lost,2:1,2026-09-24,6-2 5-7 1-6,12,won
 2026-09-23,,Leonel Cesar Castro,Pedro Henrique Chabalgoity,Leonel Cesar Castro,Pedro Henrique Chabalgoity,17.800000000000004,1.78,69.2,11.5,1.44,3330674.0,lost,2:1,2026-09-24,3-6 6-2 4-6,13,won
@@ -29,21 +29,28 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-09-23,,Francisco Comesana,Joaquin Aguilar Cardozo,Joaquin Aguilar Cardozo,Francisco Comesana,19.0,2.5,56.2,9.5,1.56,3331382.0,won,2:1,2026-09-24,7-5 5-7 6-4,18,won
 2026-09-23,,Olaf Pieczkowski,Zsombor Velcz,Zsombor Velcz,Olaf Pieczkowski,15.199999999999996,2.25,55.8,10.5,1.38,3330110.0,lost,2:0,2026-09-24,3-6 3-6,6,lost
 2026-09-23,,William Jansen,Seydina Andre,Seydina Andre,William Jansen,23.5,2.85,55.3,9.5,1.69,3330108.0,lost,2:0,2026-09-24,2-6 6-7,8,lost
-2026-09-24,,Liam Delicata,Koray Kirci,Liam Delicata,Koray Kirci,29.599999999999994,2.12,72.6,10.5,1.56,3331598.0,pending,,,,,
-2026-09-24,,Yuliya Hatouka,Ksenia Efremova,Yuliya Hatouka,Ksenia Efremova,37.0,3.35,64.0,7.5,1.64,3331782.0,pending,,,,,
-2026-09-24,,Ewen Lumsden,Mae Malige,Ewen Lumsden,Mae Malige,23.800000000000004,2.32,63.1,10.5,1.64,3331874.0,pending,,,,,
-2026-09-24,,Andrea Guerrieri,Jesper de Jong,Andrea Guerrieri,Jesper de Jong,28.4,2.72,62.5,9.5,1.61,3331054.0,pending,,,,,
-2026-09-24,,Iulia Maria Buculei,Linda Sevcikova,Linda Sevcikova,Iulia Maria Buculei,16.599999999999994,2.05,61.3,10.5,1.53,3331262.0,pending,,,,,
-2026-09-24,,Timo Legout,Colton Smith,Timo Legout,Colton Smith,15.100000000000001,2.07,60.2,10.5,1.48,3331420.0,pending,,,,,
-2026-09-24,,Jonas Forejtek,Maxime Chazal,Maxime Chazal,Jonas Forejtek,19.4,2.37,58.6,9.5,1.53,3331082.0,pending,,,,,
-2026-09-24,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,25.0,2.77,57.8,9.5,1.76,3331038.0,pending,,,,,
-2026-09-24,,Charo Esquiva Banuls,Juliana Giaccio,Juliana Giaccio,Charo Esquiva Banuls,26.400000000000006,2.9,57.7,8.5,1.67,3331642.0,pending,,,,,
-2026-09-24,,Olaf Pieczkowski,Sean Daryabeigi,Sean Daryabeigi,Olaf Pieczkowski,20.0,2.42,57.6,10.5,1.69,3332018.0,pending,,,,,
-2026-09-24,,Madison Brengle,Ekaterina Maklakova,Ekaterina Maklakova,Madison Brengle,31.799999999999997,3.65,56.5,7.5,1.72,3331488.0,pending,,,,,
-2026-09-24,,Ruslan Tiukaev,Michele Mecarelli,Ruslan Tiukaev,Michele Mecarelli,15.199999999999996,2.22,56.3,10.5,1.6,3331754.0,pending,,,,,
-2026-09-24,,Alec Deckers,Jake Fellows,Jake Fellows,Alec Deckers,34.2,4.1,56.3,7.5,1.52,3331622.0,pending,,,,,
-2026-09-24,,Izan Almazan Valiente,Maxim Mrva,Izan Almazan Valiente,Maxim Mrva,17.5,2.42,55.9,9.5,1.58,3331012.0,pending,,,,,
-2026-09-24,,Kayla Day,Evialina Laskevich,Evialina Laskevich,Kayla Day,36.49999999999999,4.65,55.9,6.5,1.58,3332048.0,pending,,,,,
-2026-09-24,,Julita Saner,Arina Gamretkaia,Arina Gamretkaia,Julita Saner,33.00000000000001,4.0,55.6,6.5,1.61,3331950.0,pending,,,,,
-2026-09-24,,Angelina Voloshchuk,Harmony Tan,Angelina Voloshchuk,Harmony Tan,19.199999999999996,2.57,55.3,9.5,1.62,3331076.0,pending,,,,,
-2026-09-24,,Sabrina Dias,Paola Lopez,Sabrina Dias,Paola Lopez,21.5,2.7,55.2,9.5,1.72,3331402.0,pending,,,,,
+2026-09-24,,Liam Delicata,Koray Kirci,Liam Delicata,Koray Kirci,29.599999999999994,2.12,72.6,10.5,1.56,3331598.0,lost,2:0,2026-09-25,4-6 2-6,6,lost
+2026-09-24,,Yuliya Hatouka,Ksenia Efremova,Yuliya Hatouka,Ksenia Efremova,37.0,3.35,64.0,7.5,1.64,3331782.0,won,2:0,2026-09-25,6-1 6-3,12,won
+2026-09-24,,Ewen Lumsden,Mae Malige,Ewen Lumsden,Mae Malige,23.800000000000004,2.32,63.1,10.5,1.64,3331874.0,won,2:1,2026-09-25,4-6 6-1 6-4,16,won
+2026-09-24,,Andrea Guerrieri,Jesper de Jong,Andrea Guerrieri,Jesper de Jong,28.4,2.72,62.5,9.5,1.61,3331054.0,lost,2:1,2026-09-25,6-3 6-7 6-7,18,won
+2026-09-24,,Iulia Maria Buculei,Linda Sevcikova,Linda Sevcikova,Iulia Maria Buculei,16.599999999999994,2.05,61.3,10.5,1.53,3331262.0,won,2:1,2026-09-25,7-5 0-6 6-2,13,won
+2026-09-24,,Timo Legout,Colton Smith,Timo Legout,Colton Smith,15.100000000000001,2.07,60.2,10.5,1.48,3331420.0,won,2:0,2026-09-25,6-3 6-3,12,won
+2026-09-24,,Jonas Forejtek,Maxime Chazal,Maxime Chazal,Jonas Forejtek,19.4,2.37,58.6,9.5,1.53,3331082.0,lost,2:1,2026-09-25,1-6 7-5 0-6,8,lost
+2026-09-24,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,25.0,2.77,57.8,9.5,1.76,3331038.0,lost,2:0,2026-09-25,3-6 1-6,4,lost
+2026-09-24,,Charo Esquiva Banuls,Juliana Giaccio,Juliana Giaccio,Charo Esquiva Banuls,26.400000000000006,2.9,57.7,8.5,1.67,3331642.0,lost,2:0,2026-09-25,5-7 2-6,7,lost
+2026-09-24,,Olaf Pieczkowski,Sean Daryabeigi,Sean Daryabeigi,Olaf Pieczkowski,20.0,2.42,57.6,10.5,1.69,3332018.0,won,2:0,2026-09-25,6-4 6-2,12,won
+2026-09-24,,Madison Brengle,Ekaterina Maklakova,Ekaterina Maklakova,Madison Brengle,31.799999999999997,3.65,56.5,7.5,1.72,3331488.0,lost,2:0,2026-09-25,3-6 6-7,9,won
+2026-09-24,,Ruslan Tiukaev,Michele Mecarelli,Ruslan Tiukaev,Michele Mecarelli,15.199999999999996,2.22,56.3,10.5,1.6,3331754.0,lost,2:1,2026-09-25,6-4 2-6 6-7,14,won
+2026-09-24,,Alec Deckers,Jake Fellows,Jake Fellows,Alec Deckers,34.2,4.1,56.3,7.5,1.52,3331622.0,lost,2:0,2026-09-25,4-6 4-6,8,won
+2026-09-24,,Izan Almazan Valiente,Maxim Mrva,Izan Almazan Valiente,Maxim Mrva,17.5,2.42,55.9,9.5,1.58,3331012.0,won,2:1,2026-09-25,7-5 0-6 6-2,13,won
+2026-09-24,,Kayla Day,Evialina Laskevich,Evialina Laskevich,Kayla Day,36.49999999999999,4.65,55.9,6.5,1.58,3332048.0,lost,2:0,2026-09-25,2-6 2-6,4,lost
+2026-09-24,,Julita Saner,Arina Gamretkaia,Arina Gamretkaia,Julita Saner,33.00000000000001,4.0,55.6,6.5,1.61,3331950.0,lost,2:0,2026-09-25,6-7 2-6,8,won
+2026-09-24,,Angelina Voloshchuk,Harmony Tan,Angelina Voloshchuk,Harmony Tan,19.199999999999996,2.57,55.3,9.5,1.62,3331076.0,won,2:1,2026-09-25,6-1 1-6 6-0,13,won
+2026-09-24,,Sabrina Dias,Paola Lopez,Sabrina Dias,Paola Lopez,21.5,2.7,55.2,9.5,1.72,3331402.0,lost,2:0,2026-09-25,1-6 0-6,1,lost
+2026-09-25,,Ana Sofia Sanchez,Astra Sharma,Ana Sofia Sanchez,Astra Sharma,21.099999999999994,2.05,65.8,10.5,1.51,3332488.0,pending,,,,,
+2026-09-25,,Liam Branger,Etienne Donnet,Liam Branger,Etienne Donnet,20.800000000000004,2.32,60.1,10.5,1.64,3332278.0,pending,,,,,
+2026-09-25,,Calvin Hemery,Carlos Taberner,Calvin Hemery,Carlos Taberner,18.4,2.35,58.1,10.5,1.55,3331810.0,pending,,,,,
+2026-09-25,,Karol Filar,Oscar Brown,Oscar Brown,Karol Filar,16.799999999999997,2.22,57.9,10.5,1.59,3332432.0,pending,,,,,
+2026-09-25,,Murphy Cassone,Daniel Masur,Daniel Masur,Murphy Cassone,18.5,2.45,56.5,10.5,1.56,3332276.0,pending,,,,,
+2026-09-25,,Jonas Gundacker,Lukas Pokorny,Jonas Gundacker,Lukas Pokorny,31.2,3.6,56.4,7.5,1.59,3331600.0,pending,,,,,
+2026-09-25,,Flynn Thomas,Theo Herrmann,Theo Herrmann,Flynn Thomas,22.10000000000001,2.67,56.2,9.5,1.67,3332378.0,pending,,,,,

@@ -18,6 +18,12 @@ on:
     - cron: "0 1 * * *"  # ~3:00 Romania time cand e EET (UTC+2, iarna)
   workflow_dispatch: {}  # trigger manual din tab-ul Actions, pentru testare
 
+# O singura rulare odata: a doua asteapta, iar la checkout vede deja
+# .last_run_date scris de prima si sare peste (fara email dublu).
+concurrency:
+  group: daily-tennis
+  cancel-in-progress: false
+
 jobs:
   send-report:
     runs-on: ubuntu-latest

@@ -198,18 +198,27 @@ def _clean(value) -> str:
 
 
 # Rezultatul backtest-ului din 2026-09-23 (stats/backtest_report.md): 568 de
-# meciuri jucate intre 8 si 21 sept. Pe exact filtrul din email (edge >= 15pp)
-# au iesit 225 de pariuri, castigate 16% (piata estima 22%), ROI ~-37% la o
-# marja de ~6%. De aceea pick-urile sunt marcate EXPERIMENTAL - continuam sa
-# le logam in picks_log.csv ca test pe hartie, nu ca sfat de pariere.
+# meciuri jucate intre 8 si 21 sept. Pe exact filtrul folosit ca sa alegem
+# jucatorul (edge >= 15pp) au iesit 225 de pariuri PE CASTIGATORUL MECIULUI,
+# castigate doar 16% (piata estima 22%), ROI ~-37%. De aceea, din 2026-09-25,
+# pick-ul recomandat NU mai e "jucatorul X castiga meciul" -- ramane doar ca
+# semnal de selectie interna -- ci market-ul de "Peste N game-uri" pentru
+# jucatorul respectiv, care are performanta reala mult mai buna (vezi
+# statistica de la finalul emailului: ~65% castigate, ROI pozitiv pe esantion
+# mic). Nu exista date istorice de cote pentru market-ul de game-uri (Superbet
+# nu pastreaza istoric), deci nu poate fi backtestat retroactiv ca mai sus --
+# e urmarit doar ca test pe hartie, pe masura ce se acumuleaza.
 EXPERIMENTAL_WARNING_HTML = (
     "<div style='margin:10px 0 16px 0; padding:12px; border:2px solid #b00; border-radius:6px; "
     "background:#fff3f3; color:#600;'>"
     "<b>EXPERIMENTAL — NU pariați pe baza acestor pick-uri.</b><br>"
-    "Backtest pe 568 de meciuri reale (8–21 sept. 2026): pe filtrul folosit mai jos (edge &ge; 15pp), "
-    "225 de pariuri, doar <b>16%</b> câștigate (piața estima 22%), randament estimat <b>&minus;37%</b>. "
-    "Când modelul nu e de acord cu cotele, de obicei greșește modelul. "
-    "Pick-urile sunt urmărite doar ca test pe hârtie (vezi statistica de la final).</div>"
+    "Pick-ul de mai jos e pe <b>Peste N game-uri</b> pentru jucătorul selectat, NU pe câștigătorul "
+    "meciului: backtest pe 568 de meciuri reale (8–21 sept. 2026) a arătat că a paria pe jucătorul "
+    "selectat să <i>câștige meciul</i> pierde bani (225 pariuri, 16% câștigate, ROI &minus;37% — "
+    "piața are de obicei dreptate când modelul nu e de acord cu ea). Market-ul de game-uri nu are "
+    "cote istorice de backtestat, deci e urmărit doar ca test pe hârtie (vezi statistica de la final). "
+    "Cota de câștigător meci și estimarea proprie apar mai jos doar ca informație despre cum a fost "
+    "ales jucătorul, nu ca pariu recomandat.</div>"
 )
 
 
@@ -252,8 +261,13 @@ def build_email_body(df: pd.DataFrame, date_str: str, underdog_html: str = "") -
             lines.append(f"<h3 style='margin:0 0 6px 0;'>{p1} vs {p2}</h3>")
             lines.append(f"<p style='margin:2px 0; color:#555;'>{tournament} — {time_text}</p>")
             lines.append(
-                f"<p style='margin:6px 0;'><b>Pick experimental: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata, "
-                f"estimare proprie {comp_pct:.1f}%, Peste {games_line} game-uri @ {games_odds})</p>"
+                f"<p style='margin:6px 0;'><b>Pick experimental: Peste {games_line} game-uri — {rec_name}</b> "
+                f"(cota {games_odds})</p>"
+            )
+            lines.append(
+                f"<p style='margin:6px 0; color:#777; font-size:0.9em;'>Cum a fost ales jucătorul (informativ, "
+                f"NU pariu recomandat): edge +{edge:.0f}pp față de piață pe câștigător meci, estimare proprie "
+                f"{comp_pct:.1f}%, cotă câștigător meci {rec_odds}.</p>"
             )
             lines.append(f"<p style='margin:6px 0;'><b>Cote Superbet:</b> {odds1} / {odds2} (implicit {implied1}% / {implied2}%)</p>")
             lines.append(f"<p style='margin:6px 0;'><b>Estimare noastra:</b> {comp1}% / {comp2}%</p>")
@@ -375,6 +389,39 @@ def log_todays_picks(picks: pd.DataFrame, date_str: str) -> None:
         log.to_csv(PICKS_LOG_PATH, index=False)
 
 
+def _wilson_interval(wins: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Interval de incredere Wilson (95% implicit) pentru o rata de succes -
+    mai robust decat +-1.96*stderr pe esantioane mici (n<30, cazul nostru
+    aici), unde aproximarea normala poate iesi in afara [0,1]. Folosit ca
+    sa nu citim un ROI/win-rate pe cateva zeci de pariuri ca fiind
+    "confirmat", cand intervalul e inca foarte larg."""
+    if n == 0:
+        return (0.0, 0.0)
+    p = wins / n
+    denom = 1 + z**2 / n
+    center = (p + z**2 / (2 * n)) / denom
+    spread = (z * ((p * (1 - p) / n + z**2 / (4 * n**2)) ** 0.5)) / denom
+    return (max(0.0, center - spread), min(1.0, center + spread))
+
+
+def _market_summary_line(rows: pd.DataFrame, result_col: str, odds_col: str, label: str) -> str:
+    """O linie de rezumat (rata + interval de incredere + ROI) pentru o
+    piata (coloana de rezultat + coloana de cota date). Pastreaza acelasi
+    format intre toate rezumatele din email (fotbal, tenis castigator meci,
+    tenis game-uri, outsideri game-uri)."""
+    n = len(rows)
+    wins = int((rows[result_col] == "won").sum())
+    win_rate = wins / n
+    lo, hi = _wilson_interval(wins, n)
+    profit = _profit_units(rows, result_col, odds_col)
+    roi = profit / n * 100
+    return (
+        f"<b>{label}:</b> din {n} confirmate, {wins} câștigate ({win_rate:.0%}, "
+        f"interval de încredere 95% {lo:.0%}–{hi:.0%} — larg pe eșantion mic, nu citiți doar rata), "
+        f"profit {profit:+.2f} unități la miza 1 (ROI {roi:+.0f}%/pariu)."
+    )
+
+
 def accuracy_summary_html() -> str:
     """Rezumatul ratei reale de castig, din picks_log.csv, pentru toate
     recomandarile confirmate pana acum (result in won/lost). Gol daca
@@ -386,22 +433,16 @@ def accuracy_summary_html() -> str:
     resolved = log[log["result"].isin(["won", "lost"])]
     if resolved.empty:
         return ""
-    win_rate = (resolved["result"] == "won").mean()
     html = (
         "<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
-        f"<b>Test pe hartie, pana acum:</b> din {len(resolved)} pick-uri confirmate, "
-        f"{(resolved['result'] == 'won').sum()} au fost castigate ({win_rate:.0%}), "
-        f"profit {_profit_units(resolved, 'result', 'rec_odds'):+.2f} unitati la miza 1."
+        "<b>Test pe hartie, pana acum</b> (informativ — pick-ul recomandat e pe game-uri, nu pe "
+        "câștigător meci, vezi avertismentul de mai sus):<br>"
+        + _market_summary_line(resolved, "result", "rec_odds", "Câștigător meci (nerecomandat, doar urmărit)")
     )
     if "games_result" in log.columns:
         games = log[log["games_result"].isin(["won", "lost"])]
         if not games.empty:
-            games_rate = (games["games_result"] == "won").mean()
-            html += (
-                f"<br><b>Peste game-uri jucator:</b> din {len(games)} confirmate, "
-                f"{(games['games_result'] == 'won').sum()} castigate ({games_rate:.0%}), "
-                f"profit {_profit_units(games, 'games_result', 'games_odds'):+.2f} unitati la miza 1."
-            )
+            html += "<br>" + _market_summary_line(games, "games_result", "games_odds", "Peste game-uri jucător (pick-ul recomandat)")
     return html + "</p>"
 
 
@@ -416,12 +457,10 @@ def underdog_summary_html() -> str:
     done = log[(log["filter_pass"] == "True") & log["games_result"].isin(["won", "lost"])]
     if done.empty:
         return ""
-    rate = (done["games_result"] == "won").mean()
     return (
-        "<p style='color:#555;'><b>Outsideri — game-uri, test pe hârtie:</b> "
-        f"{len(done)} linii confirmate (toate liniile loggate ale jucătorilor care trec de filtru), "
-        f"{(done['games_result'] == 'won').sum()} trecute ({rate:.0%}), "
-        f"profit {_profit_units(done, 'games_result', 'games_odds'):+.2f} unitati la miza 1.</p>"
+        "<p style='color:#555;'>"
+        + _market_summary_line(done, "games_result", "games_odds", "Outsideri — game-uri, test pe hârtie")
+        + "</p>"
     )
 
 

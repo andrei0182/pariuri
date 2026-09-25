@@ -189,6 +189,28 @@ def log_todays_picks(matched: pd.DataFrame, date_str: str) -> None:
         log.to_csv(path, index=False)
 
 
+def _wilson_interval(wins: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Interval de incredere Wilson (95%) pentru o rata de succes - mai
+    robust decat aproximarea normala pe esantioane mici. Acelasi calcul ca
+    la proiectul de tenis (send_report_email.py), ca sa nu citim rata de
+    succes ca fiind "confirmata" cand intervalul e inca larg."""
+    if n == 0:
+        return (0.0, 0.0)
+    p = wins / n
+    denom = 1 + z**2 / n
+    center = (p + z**2 / (2 * n)) / denom
+    spread = (z * ((p * (1 - p) / n + z**2 / (4 * n**2)) ** 0.5)) / denom
+    return (max(0.0, center - spread), min(1.0, center + spread))
+
+
+def _profit_units(rows: pd.DataFrame) -> float:
+    """Profit la miza fixa de 1 unitate pe cota Peste: +(cota-1) la castig
+    (result == over), -1 la pierdere (result == under)."""
+    odds = pd.to_numeric(rows["odds_over"], errors="coerce")
+    won = rows["result"] == "over"
+    return float((odds - 1).where(won, -1).sum())
+
+
 def accuracy_summary_html() -> str:
     path = Path(LOG_PATH)
     if not path.exists():
@@ -197,11 +219,21 @@ def accuracy_summary_html() -> str:
     resolved = log[log["result"].isin(["over", "under"])]
     if resolved.empty:
         return ""
-    hit_rate = (resolved["result"] == "over").mean()
+    n = len(resolved)
+    wins = int((resolved["result"] == "over").sum())
+    hit_rate = wins / n
+    lo, hi = _wilson_interval(wins, n)
+    # profitul foloseste doar randurile cu cota cunoscuta (odds_over poate
+    # lipsi cand scraper-ul n-a gasit cota Peste pentru meciul respectiv)
+    priced = resolved[pd.to_numeric(resolved["odds_over"], errors="coerce").notna()]
+    profit = _profit_units(priced)
+    roi = profit / len(priced) * 100 if len(priced) else 0.0
     return (
         f"<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
-        f"<b>Statistica reala pana acum:</b> din {len(resolved)} recomandari confirmate, "
-        f"{(resolved['result'] == 'over').sum()} au fost Peste 2.5 ({hit_rate:.0%}).</p>"
+        f"<b>Statistica reala pana acum:</b> din {n} recomandari confirmate, "
+        f"{wins} au fost Peste 2.5 ({hit_rate:.0%}, interval de incredere 95% {lo:.0%}-{hi:.0%} - "
+        f"larg pe esantion mic, nu cititi doar rata), profit {profit:+.2f} unitati la miza 1 pe cele "
+        f"{len(priced)} cu cota cunoscuta (ROI {roi:+.0f}%/pariu).</p>"
     )
 
 

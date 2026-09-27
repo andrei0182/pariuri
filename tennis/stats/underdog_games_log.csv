@@ -121,19 +121,19 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-25,,Anastasiya Kuparev,Didi Bredberg Canizares,Anastasiya Kuparev,Didi Bredberg Canizares,6.0,ITF,5.5,1.66,0.527,0.602,-0.125,28,0.679,False,3332428.0,lost,2:0,2026-09-26,6-7 6-7,12,won
 2026-09-25,,Leticia Romanova,Leah Luboldt,Leah Luboldt,Leticia Romanova,4.9,ITF,5.5,1.51,0.619,0.662,-0.066,7,0.857,False,3332418.0,lost,2:0,2026-09-26,2-6 3-6,5,lost
 2026-09-25,,Luisa Meyer Auf Der Heide,Leonie Schuknecht,Leonie Schuknecht,Luisa Meyer Auf Der Heide,5.15,ITF,5.5,1.55,0.527,0.645,-0.183,9,0.889,False,3332424.0,lost,2:0,2026-09-26,4-6 0-6,4,lost
-2026-09-26,,Guiomar Maristany de Reales,Jessica Pieri,Jessica Pieri,Guiomar Maristany de Reales,4.75,Challenger/125,5.5,1.44,0.691,0.694,-0.005,15,0.8,False,3332660.0,pending,,,,,
-2026-09-26,,Francesco Ferrari,Dmitry Popko,Francesco Ferrari,Dmitry Popko,5.45,ITF,5.5,1.46,0.528,0.685,-0.229,17,0.765,False,3332678.0,pending,,,,,
-2026-09-26,,Dmitry Dolzhenkov,Arvid Nordquist,Dmitry Dolzhenkov,Arvid Nordquist,6.4,ITF,5.5,1.61,0.528,0.621,-0.15,8,0.875,False,3332646.0,pending,,,,,
-2026-09-26,,Oliver Bonding,Gabe Avram,Gabe Avram,Oliver Bonding,5.25,ITF,5.5,1.51,0.528,0.662,-0.203,2,1.0,False,3332828.0,pending,,,,,
-2026-09-26,,Kayla Day,Ella Mcdonald,Ella Mcdonald,Kayla Day,5.25,ITF,5.5,1.56,0.528,0.641,-0.176,6,0.667,False,3332836.0,pending,,,,,
-2026-09-26,,Marie Mettraux,Alisa Oktiabreva,Marie Mettraux,Alisa Oktiabreva,12.0,ITF,3.5,1.43,0.601,0.699,-0.14,13,0.846,False,3332600.0,pending,,,,,
-2026-09-26,,Marie Mettraux,Alisa Oktiabreva,Marie Mettraux,Alisa Oktiabreva,12.0,ITF,4.5,1.76,0.459,0.568,-0.191,13,0.846,False,3332600.0,pending,,,,,
-2026-09-26,,Marie Mettraux,Alisa Oktiabreva,Marie Mettraux,Alisa Oktiabreva,12.0,ITF,5.5,2.27,0.345,0.441,-0.217,13,0.846,False,3332600.0,pending,,,,,
-2026-09-26,,Kristina Kroitor,Ellie Daniels,Ellie Daniels,Kristina Kroitor,5.75,ITF,5.5,1.46,0.528,0.685,-0.229,8,1.0,False,3332680.0,pending,,,,,
-2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,2.5,1.37,0.737,0.73,0.009,14,0.643,False,3332846.0,pending,,,,,
-2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,3.5,1.76,0.601,0.568,0.059,14,0.643,False,3332846.0,pending,,,,,
-2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,4.5,2.35,0.459,0.426,0.08,14,0.643,False,3332846.0,pending,,,,,
-2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,3.5,1.4,0.601,0.714,-0.158,0,,False,,pending,,,,,
-2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,4.5,1.72,0.459,0.581,-0.21,0,,False,,pending,,,,,
-2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,5.5,2.15,0.345,0.465,-0.258,0,,False,,pending,,,,,
-2026-09-26,,Julita Saner,Charlotte Pikkaart,Charlotte Pikkaart,Julita Saner,4.9,ITF,5.5,1.52,0.62,0.658,-0.057,20,0.8,False,3332744.0,pending,,,,,
+2026-09-26,,Guiomar Maristany de Reales,Jessica Pieri,Jessica Pieri,Guiomar Maristany de Reales,4.75,Challenger/125,5.5,1.44,0.691,0.694,-0.005,15,0.8,False,3332660.0,lost,2:0,2026-09-27,1-6 2-6,3,lost
+2026-09-26,,Francesco Ferrari,Dmitry Popko,Francesco Ferrari,Dmitry Popko,5.45,ITF,5.5,1.46,0.528,0.685,-0.229,17,0.765,False,3332678.0,lost,2:0,2026-09-27,4-6 3-6,7,won
+2026-09-26,,Dmitry Dolzhenkov,Arvid Nordquist,Dmitry Dolzhenkov,Arvid Nordquist,6.4,ITF,5.5,1.61,0.528,0.621,-0.15,8,0.875,False,3332646.0,lost,2:0,2026-09-27,2-6 3-6,5,lost
+2026-09-26,,Oliver Bonding,Gabe Avram,Gabe Avram,Oliver Bonding,5.25,ITF,5.5,1.51,0.528,0.662,-0.203,2,1.0,False,3332828.0,lost,2:0,2026-09-27,5-7 1-6,6,won
+2026-09-26,,Kayla Day,Ella Mcdonald,Ella Mcdonald,Kayla Day,5.25,ITF,5.5,1.56,0.528,0.641,-0.176,6,0.667,False,3332836.0,lost,2:0,2026-09-27,6-7 3-6,9,won
+2026-09-26,,Marie Mettraux,Alisa Oktiabreva,Marie Mettraux,Alisa Oktiabreva,12.0,ITF,3.5,1.43,0.601,0.699,-0.14,13,0.846,False,3332600.0,lost,2:1,2026-09-27,6-4 2-6 5-7,13,won
+2026-09-26,,Marie Mettraux,Alisa Oktiabreva,Marie Mettraux,Alisa Oktiabreva,12.0,ITF,4.5,1.76,0.459,0.568,-0.191,13,0.846,False,3332600.0,lost,2:1,2026-09-27,6-4 2-6 5-7,13,won
+2026-09-26,,Marie Mettraux,Alisa Oktiabreva,Marie Mettraux,Alisa Oktiabreva,12.0,ITF,5.5,2.27,0.345,0.441,-0.217,13,0.846,False,3332600.0,lost,2:1,2026-09-27,6-4 2-6 5-7,13,won
+2026-09-26,,Kristina Kroitor,Ellie Daniels,Ellie Daniels,Kristina Kroitor,5.75,ITF,5.5,1.46,0.528,0.685,-0.229,8,1.0,False,3332680.0,won,2:0,2026-09-27,6-2 6-2,12,won
+2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,2.5,1.37,0.737,0.73,0.009,14,0.643,False,3332846.0,won,1:0,2026-09-27,2-3,2,void
+2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,3.5,1.76,0.601,0.568,0.059,14,0.643,False,3332846.0,won,1:0,2026-09-27,2-3,2,void
+2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,4.5,2.35,0.459,0.426,0.08,14,0.643,False,3332846.0,won,1:0,2026-09-27,2-3,2,void
+2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,3.5,1.4,0.601,0.714,-0.158,0,,False,,no_data,,2026-09-27,,,
+2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,4.5,1.72,0.459,0.581,-0.21,0,,False,,no_data,,2026-09-27,,,
+2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,5.5,2.15,0.345,0.465,-0.258,0,,False,,no_data,,2026-09-27,,,
+2026-09-26,,Julita Saner,Charlotte Pikkaart,Charlotte Pikkaart,Julita Saner,4.9,ITF,5.5,1.52,0.62,0.658,-0.057,20,0.8,False,3332744.0,won,2:1,2026-09-27,6-3 0-6 6-2,12,won

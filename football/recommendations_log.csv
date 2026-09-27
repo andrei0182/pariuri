@@ -67,7 +67,12 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-09-22,SCOTLAND: CHALLENGE CUP,Clyde,Rangers B,1.23,21:45,over,3,2026-09-23
 2026-09-22,SCOTLAND: CHALLENGE CUP,East Kilbride,Celtic B,1.27,21:45,over,6,2026-09-23
 2026-09-22,SCOTLAND: CHALLENGE CUP,Gala Fairydean,Spartans,1.26,21:45,under,0,2026-09-23
-2026-09-26,ALGERIA: LIGUE 2,RC Kouba,Tlemcen,2.2,18:00,pending,,
-2026-09-26,SCOTLAND: CHALLENGE CUP,Stranraer,East Kilbride,1.3,17:00,pending,,
-2026-09-26,SPAIN: TERCERA RFEF - GROUP 12,Laguna,CD Marino,1.83,22:00,pending,,
-2026-09-26,SWITZERLAND: PROMOTION LEAGUE,Young Boys II,Basel II,1.27,17:00,pending,,
+2026-09-26,ALGERIA: LIGUE 2,RC Kouba,Tlemcen,2.2,18:00,under,2,2026-09-27
+2026-09-26,SCOTLAND: CHALLENGE CUP,Stranraer,East Kilbride,1.3,17:00,over,7,2026-09-27
+2026-09-26,SPAIN: TERCERA RFEF - GROUP 12,Laguna,CD Marino,1.83,22:00,over,4,2026-09-27
+2026-09-26,SWITZERLAND: PROMOTION LEAGUE,Young Boys II,Basel II,1.27,17:00,under,2,2026-09-27
+2026-09-27,CZECH REPUBLIC: 4. LIGA - GROUP A,SK Strakonice 1908,Cesky Krumlov,1.41,17:30,pending,,
+2026-09-27,INDONESIA: CHAMPIONSHIP,RANS Nusantara,Deltras Sidoarjo,1.53,11:30,pending,,
+2026-09-27,JAMAICA: PREMIER LEAGUE,Cavalier,Arnett Gardens,1.83,23:30,pending,,
+2026-09-27,JAMAICA: PREMIER LEAGUE,Portmore,Humble Lions,1.38,23:30,pending,,
+2026-09-27,PHILIPPINES: PFL,Kaya,Philippine Army,,10:00,pending,,

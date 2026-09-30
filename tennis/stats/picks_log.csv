@@ -60,7 +60,7 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-09-27,,Fiona Crawley,Lois Boisson,Fiona Crawley,Lois Boisson,26.199999999999996,2.45,63.4,10.5,1.71,3333000.0,won,2:1,2026-09-28,2-6 6-3 7-5,15,won
 2026-09-27,,Mirjana Jovanovic,Natalia Siedliska,Mirjana Jovanovic,Natalia Siedliska,26.800000000000004,3.2,55.2,7.5,1.6,3333072.0,lost,2:0,2026-09-28,4-6 2-6,6,lost
 2026-09-28,,Franco Agamenone,John Sperle,John Sperle,Franco Agamenone,18.9,2.4,56.9,10.5,1.63,3334750.0,won,2:1,2026-09-29,6-2 1-6 7-6,14,won
-2026-09-28,,Felipe Meligeni Alves,Carlos Maria Zarate,Carlos Maria Zarate,Felipe Meligeni Alves,24.89999999999999,2.9,56.8,9.5,1.66,3333944.0,pending,,,,,
+2026-09-28,,Felipe Meligeni Alves,Carlos Maria Zarate,Carlos Maria Zarate,Felipe Meligeni Alves,24.89999999999999,2.9,56.8,9.5,1.66,3333944.0,lost,2:0,2026-09-29,4-6 2-6,6,lost
 2026-09-28,,Valentino Grippo,Giannicola Misasi,Valentino Grippo,Giannicola Misasi,33.9,4.0,56.5,6.5,1.55,3334550.0,lost,2:0,2026-09-29,3-6 0-6,3,lost
 2026-09-29,,Lucia Bronzetti,Lois Boisson,Lucia Bronzetti,Lois Boisson,21.500000000000007,2.17,64.4,9.5,1.49,3334930.0,pending,,,,,
 2026-09-29,,Hugo Grenier,Carl Emil Overbeck,Carl Emil Overbeck,Hugo Grenier,16.599999999999994,2.0,63.3,10.5,1.41,3334910.0,pending,,,,,
@@ -72,3 +72,11 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-09-29,,Teodora Kostovic,Berfu Cengiz,Berfu Cengiz,Teodora Kostovic,21.4,2.57,57.5,9.5,1.64,3334522.0,pending,,,,,
 2026-09-29,,Zijun Jiang,Gaeul Jang,Zijun Jiang,Gaeul Jang,17.300000000000004,2.37,55.7,10.5,1.7,3335370.0,pending,,,,,
 2026-09-29,,Elsa Jacquemot,Vivian Wolff,Vivian Wolff,Elsa Jacquemot,25.799999999999997,3.15,55.2,7.5,1.51,3335166.0,pending,,,,,
+2026-09-30,,Lois Boisson,Martyna Kubka,Martyna Kubka,Lois Boisson,32.39999999999999,3.0,63.3,8.5,1.65,3336848.0,pending,,,,,
+2026-09-30,,Nicola Rispoli,Saba Purtseladze,Nicola Rispoli,Saba Purtseladze,16.9,2.07,61.1,10.5,1.52,3336774.0,pending,,,,,
+2026-09-30,,Thanaphat Boosarawongse,Andreja Petrovic,Thanaphat Boosarawongse,Andreja Petrovic,20.9,2.52,57.1,10.5,1.74,3336062.0,pending,,,,,
+2026-09-30,,Kristina Novak,Meritxell Teixido Garcia,Meritxell Teixido Garcia,Kristina Novak,30.199999999999996,3.4,56.9,7.5,1.65,3336746.0,pending,,,,,
+2026-09-30,,Manon Leonard,Clara Vlasselaer,Clara Vlasselaer,Manon Leonard,28.900000000000006,3.25,56.7,7.5,1.61,3336970.0,pending,,,,,
+2026-09-30,,Shintaro Imai,Zane Stevens,Zane Stevens,Shintaro Imai,33.2,4.0,55.8,7.5,1.73,3335158.0,pending,,,,,
+2026-09-30,,Alexandre Aubriot,Filip Krolo,Filip Krolo,Alexandre Aubriot,29.200000000000003,3.45,55.5,7.5,1.6,3335642.0,pending,,,,,
+2026-09-30,,Gabi Adrian Boitan,Vlad Cristian Breazu,Vlad Cristian Breazu,Gabi Adrian Boitan,19.6,2.55,55.4,10.5,1.75,3335686.0,pending,,,,,

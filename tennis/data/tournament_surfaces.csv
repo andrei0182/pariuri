@@ -44,6 +44,8 @@ tournament_slug,surface
 /bastad-wta/2026/wta-women/,Clay
 /bastad/2026/atp-men/,Clay
 /baza-itf/2026/wta-women/,Hard
+/beijing/2026/atp-men/,Hard
+/beijing/2026/wta-women/,Hard
 /belem-itf/2026/wta-women/,Hard
 /belgrade-itf/2026/wta-women/,Clay
 /berkeley-itf/2026/wta-women/,Hard
@@ -240,6 +242,7 @@ tournament_slug,surface
 /istanbul-5-challenger/2026/atp-men/,Hard
 /istanbul-challenger/2026/atp-men/,Hard
 /jackson-itf/2026/wta-women/,Clay
+/jingshan-challenger/2026/atp-men/,Hard
 /jingshan/2026/wta-women/,Hard
 /jiujiang-2/2026/wta-women/,Hard
 /jiujiang-challenger/2026/atp-men/,Hard
@@ -388,6 +391,7 @@ tournament_slug,surface
 /nakhon-pathom-itf/2026/wta-women/,Hard
 /nanao-itf/2026/wta-women/,Hard
 /nantes-itf/2026/wta-women/,Indoors
+/nashville-itf/2026/wta-women/,Hard
 /neapol-challenger/2026/atp-men/,Clay
 /new-delhi-itf/2026/wta-women/,Hard
 /newport-beach-wta/2026/wta-women/,Grass
@@ -550,6 +554,7 @@ tournament_slug,surface
 /targu-mures/2026/wta-women/,Clay
 /tarvisio-itf/2026/wta-women/,Clay
 /tauste-zaragoza-itf/2026/wta-women/,Hard
+/templeton-itf/2026/wta-women/,Hard
 /tianjin-2-itf/2026/wta-women/,Hard
 /tianjin-3-itf/2026/wta-women/,Hard
 /tianjin-4-itf/2026/wta-women/,Hard
@@ -559,6 +564,7 @@ tournament_slug,surface
 /todi-challenger/2026/atp-men/,Clay
 /tokyo-6-itf/2026/wta-women/,Hard
 /tokyo-itf/2026/wta-women/,Hard
+/tokyo-japan-open/2026/atp-men/,Hard
 /tolentino/2026/wta-women/,Clay
 /torello-itf/2026/wta-women/,Hard
 /toronto-wta/2026/wta-women/,Hard

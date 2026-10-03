@@ -84,8 +84,15 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-01,QATAR: QSL CUP,Qatar SC,Al Bidda,1.5,20:15,under,1,2026-10-02
 2026-10-01,UNITED ARAB EMIRATES: LEAGUE CUP,Al Sharjah,Al Dhafra,1.57,16:15,over,3,2026-10-02
 2026-10-01,UNITED ARAB EMIRATES: LEAGUE CUP,United FC,Hatta,1.67,16:15,over,5,2026-10-02
-2026-10-02,BANGLADESH: BFL,Fakirerpool YMC,Mohammedan,1.21,12:00,pending,,
-2026-10-02,MOROCCO: BOTOLA PRO,FUS Rabat,Amal Tiznit,2.25,19:00,pending,,
-2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Al Ain,Ajman,,16:15,pending,,
-2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Al Wasl,Ittihad Kalba,,16:15,pending,,
-2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Shabab Al-Ahli Dubai,Al Nasr,,18:45,pending,,
+2026-10-02,BANGLADESH: BFL,Fakirerpool YMC,Mohammedan,1.21,12:00,under,1,2026-10-03
+2026-10-02,MOROCCO: BOTOLA PRO,FUS Rabat,Amal Tiznit,2.25,19:00,under,1,2026-10-03
+2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Al Ain,Ajman,,16:15,over,5,2026-10-03
+2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Al Wasl,Ittihad Kalba,,16:15,over,4,2026-10-03
+2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Shabab Al-Ahli Dubai,Al Nasr,,18:45,under,2,2026-10-03
+2026-10-03,BANGLADESH: BFL,Fortis,City Club,1.5,12:00,pending,,
+2026-10-03,ENGLAND: EFL TROPHY,Colchester,Luton,1.56,17:00,pending,,
+2026-10-03,MOROCCO: BOTOLA 2,Stade Marocain,Ittihad Khemisset,2.42,18:00,pending,,
+2026-10-03,MOROCCO: BOTOLA PRO,COD Meknes,Kawkab Marrakech,2.47,21:00,pending,,
+2026-10-03,MOROCCO: BOTOLA PRO,Raja Casablanca,Renaissance Zemamra,2.2,23:00,pending,,
+2026-10-03,SPAIN: SEGUNDA RFEF - GROUP 1,Basconia,Llanera,1.65,18:00,pending,,
+2026-10-03,TUNISIA: LIGUE 2,Msaken,Chebba,2.42,17:00,pending,,

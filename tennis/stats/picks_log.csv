@@ -97,12 +97,17 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-01,,Aryan Shah,Evan Bynoe,Evan Bynoe,Aryan Shah,29.6,3.45,55.9,7.5,1.57,3337795.0,lost,2:1,2026-10-02,2-6 6-2 3-6,11,won
 2026-10-01,,Yuka Matsumoto,Jessica Hinojosa Gomez,Yuka Matsumoto,Jessica Hinojosa Gomez,22.6,2.72,55.9,9.5,1.75,3337697.0,lost,2:0,2026-10-02,1-6 2-6,3,lost
 2026-10-01,,Andrea Lola Popovic,Antonina Sushkova,Andrea Lola Popovic,Antonina Sushkova,31.999999999999996,3.8,55.8,7.5,1.7,3337807.0,lost,2:0,2026-10-02,1-6 0-6,1,lost
-2026-10-02,,Charlotte Van Zonneveld,Daria Zelinskaya,Charlotte Van Zonneveld,Daria Zelinskaya,20.9,2.2,62.5,10.5,1.61,3338167.0,pending,,,,,
-2026-10-02,,Astra Sharma,Ashley Lahey,Ashley Lahey,Astra Sharma,26.199999999999996,2.62,60.9,9.5,1.68,3338385.0,pending,,,,,
-2026-10-02,,Manuel Plunger,Benjamin Lock,Benjamin Lock,Manuel Plunger,15.300000000000004,2.02,60.7,10.5,1.5,3338171.0,pending,,,,,
-2026-10-02,,Yshai Oliel,Florent Bax,Yshai Oliel,Florent Bax,30.4,3.05,60.3,8.5,1.66,3338175.0,pending,,,,,
-2026-10-02,,Hugo Coquelin,Olaf Pieczkowski,Hugo Coquelin,Olaf Pieczkowski,30.200000000000003,3.2,58.6,8.5,1.73,3338375.0,pending,,,,,
-2026-10-02,,Alicia Dudeney,Katie Swan,Alicia Dudeney,Katie Swan,25.900000000000002,2.85,57.7,8.5,1.66,3338357.0,pending,,,,,
-2026-10-02,,Ashton Bowers,Chiara Di Genova,Chiara Di Genova,Ashton Bowers,35.800000000000004,4.15,57.6,6.5,1.61,3338329.0,pending,,,,,
-2026-10-02,,Tatjana Maria,Malaika Rapolu,Malaika Rapolu,Tatjana Maria,28.5,3.3,56.0,8.5,1.68,3338411.0,pending,,,,,
-2026-10-02,,Tessa Johanna Brockmann,Salma Djoubri,Salma Djoubri,Tessa Johanna Brockmann,28.4,3.35,55.6,7.5,1.62,3338331.0,pending,,,,,
+2026-10-02,,Charlotte Van Zonneveld,Daria Zelinskaya,Charlotte Van Zonneveld,Daria Zelinskaya,20.9,2.2,62.5,10.5,1.61,3338167.0,lost,1:0,2026-10-03,1-6 1-4,2,void
+2026-10-02,,Astra Sharma,Ashley Lahey,Ashley Lahey,Astra Sharma,26.199999999999996,2.62,60.9,9.5,1.68,3338385.0,lost,2:1,2026-10-03,6-2 0-6 2-6,8,lost
+2026-10-02,,Manuel Plunger,Benjamin Lock,Benjamin Lock,Manuel Plunger,15.300000000000004,2.02,60.7,10.5,1.5,3338171.0,won,2:0,2026-10-03,6-4 6-4,12,won
+2026-10-02,,Yshai Oliel,Florent Bax,Yshai Oliel,Florent Bax,30.4,3.05,60.3,8.5,1.66,3338175.0,lost,2:0,2026-10-03,3-6 1-6,4,lost
+2026-10-02,,Hugo Coquelin,Olaf Pieczkowski,Hugo Coquelin,Olaf Pieczkowski,30.200000000000003,3.2,58.6,8.5,1.73,3338375.0,won,1:0,2026-10-03,5-6,5,void
+2026-10-02,,Alicia Dudeney,Katie Swan,Alicia Dudeney,Katie Swan,25.900000000000002,2.85,57.7,8.5,1.66,3338357.0,lost,2:0,2026-10-03,5-7 4-6,9,won
+2026-10-02,,Ashton Bowers,Chiara Di Genova,Chiara Di Genova,Ashton Bowers,35.800000000000004,4.15,57.6,6.5,1.61,3338329.0,lost,2:0,2026-10-03,1-6 3-6,4,lost
+2026-10-02,,Tatjana Maria,Malaika Rapolu,Malaika Rapolu,Tatjana Maria,28.5,3.3,56.0,8.5,1.68,3338411.0,lost,2:0,2026-10-03,0-6 3-6,3,lost
+2026-10-02,,Tessa Johanna Brockmann,Salma Djoubri,Salma Djoubri,Tessa Johanna Brockmann,28.4,3.35,55.6,7.5,1.62,3338331.0,won,2:0,2026-10-03,6-4 6-3,12,won
+2026-10-03,,Lisa Pigato,Katie Swan,Lisa Pigato,Katie Swan,21.200000000000003,2.35,60.2,10.5,1.68,3338647.0,pending,,,,,
+2026-10-03,,Max Houkes,Benjamin Lock,Benjamin Lock,Max Houkes,40.9,5.6,56.9,6.5,1.68,3338599.0,pending,,,,,
+2026-10-03,,Jessica Bouzas Maneiro,Aliona Falei,Aliona Falei,Jessica Bouzas Maneiro,31.599999999999994,3.7,56.5,6.5,1.51,3338509.0,pending,,,,,
+2026-10-03,,Marta Soriano Santiago,Sophia Biolay,Marta Soriano Santiago,Sophia Biolay,19.6,2.55,55.4,9.5,1.67,3338573.0,pending,,,,,
+2026-10-03,,Robert Strombachs,Paul Jubb,Robert Strombachs,Paul Jubb,19.6,2.57,55.0,10.5,1.76,3338533.0,pending,,,,,

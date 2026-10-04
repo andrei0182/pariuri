@@ -89,10 +89,11 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Al Ain,Ajman,,16:15,over,5,2026-10-03
 2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Al Wasl,Ittihad Kalba,,16:15,over,4,2026-10-03
 2026-10-02,UNITED ARAB EMIRATES: LEAGUE CUP,Shabab Al-Ahli Dubai,Al Nasr,,18:45,under,2,2026-10-03
-2026-10-03,BANGLADESH: BFL,Fortis,City Club,1.5,12:00,pending,,
+2026-10-03,BANGLADESH: BFL,Fortis,City Club,1.5,12:00,over,6,2026-10-04
 2026-10-03,ENGLAND: EFL TROPHY,Colchester,Luton,1.56,17:00,pending,,
-2026-10-03,MOROCCO: BOTOLA 2,Stade Marocain,Ittihad Khemisset,2.42,18:00,pending,,
-2026-10-03,MOROCCO: BOTOLA PRO,COD Meknes,Kawkab Marrakech,2.47,21:00,pending,,
-2026-10-03,MOROCCO: BOTOLA PRO,Raja Casablanca,Renaissance Zemamra,2.2,23:00,pending,,
-2026-10-03,SPAIN: SEGUNDA RFEF - GROUP 1,Basconia,Llanera,1.65,18:00,pending,,
-2026-10-03,TUNISIA: LIGUE 2,Msaken,Chebba,2.42,17:00,pending,,
+2026-10-03,MOROCCO: BOTOLA 2,Stade Marocain,Ittihad Khemisset,2.42,18:00,under,1,2026-10-04
+2026-10-03,MOROCCO: BOTOLA PRO,COD Meknes,Kawkab Marrakech,2.47,21:00,under,1,2026-10-04
+2026-10-03,MOROCCO: BOTOLA PRO,Raja Casablanca,Renaissance Zemamra,2.2,23:00,under,1,2026-10-04
+2026-10-03,SPAIN: SEGUNDA RFEF - GROUP 1,Basconia,Llanera,1.65,18:00,under,2,2026-10-04
+2026-10-03,TUNISIA: LIGUE 2,Msaken,Chebba,2.42,17:00,under,0,2026-10-04
+2026-10-04,PHILIPPINES: PFL,Davao Aguilas,Tuloy,,12:45,pending,,

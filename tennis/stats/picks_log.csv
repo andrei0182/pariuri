@@ -111,9 +111,11 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-03,,Jessica Bouzas Maneiro,Aliona Falei,Aliona Falei,Jessica Bouzas Maneiro,31.599999999999994,3.7,56.5,6.5,1.51,3338509.0,lost,2:0,2026-10-04,3-6 3-6,6,lost
 2026-10-03,,Marta Soriano Santiago,Sophia Biolay,Marta Soriano Santiago,Sophia Biolay,19.6,2.55,55.4,9.5,1.67,3338573.0,lost,2:0,2026-10-04,4-6 0-6,4,lost
 2026-10-03,,Robert Strombachs,Paul Jubb,Robert Strombachs,Paul Jubb,19.6,2.57,55.0,10.5,1.76,3338533.0,lost,2:0,2026-10-04,2-6 6-7,8,lost
-2026-10-04,,Jessica Bouzas Maneiro,Alexandra Shubladze,Alexandra Shubladze,Jessica Bouzas Maneiro,21.5,2.37,60.7,9.5,1.56,3338903.0,pending,,,,,
-2026-10-04,,Benjamin Lock,Calvin Hemery,Benjamin Lock,Calvin Hemery,36.1,3.75,60.2,8.5,1.6,3339003.0,pending,,,,,
+2026-10-04,,Jessica Bouzas Maneiro,Alexandra Shubladze,Alexandra Shubladze,Jessica Bouzas Maneiro,21.5,2.37,60.7,9.5,1.56,3338903.0,won,2:0,2026-10-05,6-3 6-2,12,won
+2026-10-04,,Benjamin Lock,Calvin Hemery,Benjamin Lock,Calvin Hemery,36.1,3.75,60.2,8.5,1.6,3339003.0,lost,2:0,2026-10-05,3-6 3-6,6,lost
 2026-10-04,,Henrique Rocha,Inaki Monte De La Torre,Inaki Monte De La Torre,Henrique Rocha,24.699999999999996,2.67,59.4,9.5,1.65,3339625.0,pending,,,,,
-2026-10-04,,Sinja Kraus,Dayana Yastremska,Sinja Kraus,Dayana Yastremska,28.8,3.1,59.1,7.5,1.54,3338491.0,pending,,,,,
-2026-10-04,,Rose Marie Nijkamp,Astra Sharma,Rose Marie Nijkamp,Astra Sharma,36.199999999999996,4.0,58.8,6.5,1.57,3339691.0,pending,,,,,
-2026-10-04,,Rinko Matsuda,Sijia Wei,Rinko Matsuda,Sijia Wei,27.9,3.25,55.8,8.5,1.76,3338889.0,pending,,,,,
+2026-10-04,,Sinja Kraus,Dayana Yastremska,Sinja Kraus,Dayana Yastremska,28.8,3.1,59.1,7.5,1.54,3338491.0,won,2:0,2026-10-05,6-1 6-4,12,won
+2026-10-04,,Rose Marie Nijkamp,Astra Sharma,Rose Marie Nijkamp,Astra Sharma,36.199999999999996,4.0,58.8,6.5,1.57,3339691.0,lost,2:0,2026-10-05,3-6 1-6,4,lost
+2026-10-04,,Rinko Matsuda,Sijia Wei,Rinko Matsuda,Sijia Wei,27.9,3.25,55.8,8.5,1.76,3338889.0,lost,2:0,2026-10-05,2-6 2-6,4,lost
+2026-10-05,,Lara Schmidt,Viktoria Veleva,Viktoria Veleva,Lara Schmidt,32.1,2.35,70.9,10.5,1.68,3340599.0,pending,,,,,
+2026-10-05,,Patrick Schoen,Filip Misolic,Patrick Schoen,Filip Misolic,31.0,2.32,70.3,10.5,1.62,3340417.0,pending,,,,,

@@ -299,10 +299,12 @@ tournament_slug,surface
 /lakewood-2-itf/2026/wta-women/,Hard
 /lakewood-itf/2026/wta-women/,Hard
 /landisville-2-itf/2026/wta-women/,Hard
+/las-vegas-itf/2026/wta-women/,Hard
 /laver-cup/2026/atp-men/,Indoors
 /le-neubourg-itf/2026/wta-women/,Hard
 /leipzig-itf/2026/wta-women/,Clay
 /leiria-itf/2026/wta-women/,Hard
+/lexington-2-itf/2026/wta-women/,Hard
 /lexington-challenger/2026/atp-men/,Hard
 /lexington-itf/2026/wta-women/,Hard
 /liberec-challenger/2026/atp-men/,Clay
@@ -507,6 +509,7 @@ tournament_slug,surface
 /santa-fe-2-itf/2026/wta-women/,Hard
 /santa-margherita-di-pula-11-itf/2026/wta-women/,Clay
 /santa-margherita-di-pula-12-itf/2026/wta-women/,Clay
+/santa-margherita-di-pula-13-itf/2026/wta-women/,Clay
 /santa-margherita-di-pula-2-itf/2026/wta-women/,Clay
 /santa-margherita-di-pula-3-itf/2026/wta-women/,Clay
 /santa-margherita-di-pula-4-itf/2026/wta-women/,Clay
@@ -531,6 +534,7 @@ tournament_slug,surface
 /sevilla-challenger/2026/atp-men/,Clay
 /sevilla-itf/2026/wta-women/,Clay
 /shanghai-challenger/2026/atp-men/,Hard
+/shanghai/2026/atp-men/,Hard
 /sharm-el-sheikh-10-itf/2026/wta-women/,Hard
 /sharm-el-sheikh-11-itf/2026/wta-women/,Hard
 /sharm-el-sheikh-12-itf/2026/wta-women/,Hard

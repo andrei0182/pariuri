@@ -119,15 +119,35 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-04,,Rinko Matsuda,Sijia Wei,Rinko Matsuda,Sijia Wei,27.9,3.25,55.8,8.5,1.76,3338889.0,lost,2:0,2026-10-05,2-6 2-6,4,lost
 2026-10-05,,Lara Schmidt,Viktoria Veleva,Viktoria Veleva,Lara Schmidt,32.1,2.35,70.9,10.5,1.68,3340599.0,lost,2:0,2026-10-06,2-6 4-6,6,lost
 2026-10-05,,Patrick Schoen,Filip Misolic,Patrick Schoen,Filip Misolic,31.0,2.32,70.3,10.5,1.62,3340417.0,won,2:0,2026-10-06,6-1 6-2,12,won
-2026-10-06,,Etienne Niyigena,Claude Ishimwe,Claude Ishimwe,Etienne Niyigena,33.099999999999994,3.0,63.3,8.5,1.7,3341679.0,pending,,,,,
-2026-10-06,,Yiru Chen,Meiling Wang,Yiru Chen,Meiling Wang,43.1,4.55,63.0,6.5,1.69,3341461.0,pending,,,,,
-2026-10-06,,Pierre Antoine Tailleu,Mae Malige,Pierre Antoine Tailleu,Mae Malige,35.7,3.5,61.5,7.5,1.59,3342211.0,pending,,,,,
-2026-10-06,,Barakat Oyinlomo Quadre,Anastasia Bertacchi,Barakat Oyinlomo Quadre,Anastasia Bertacchi,16.4,2.05,61.1,10.5,1.54,3341493.0,pending,,,,,
-2026-10-06,,Quadre Barakat,Anastasia Bertacchi,Quadre Barakat,Anastasia Bertacchi,19.0,2.17,61.1,10.5,1.59,3341493.0,pending,,,,,
-2026-10-06,,Antonia Ruzic,Alicia Dudeney,Alicia Dudeney,Antonia Ruzic,28.999999999999993,3.0,59.9,7.5,1.53,3340387.0,pending,,,,,
-2026-10-06,,Guido Ivan Justo,Francisco Comesana,Guido Ivan Justo,Francisco Comesana,23.300000000000004,2.6,59.1,9.5,1.63,3340035.0,pending,,,,,
-2026-10-06,,Cristina Diaz Adrover,Lorena Solar Donoso,Lorena Solar Donoso,Cristina Diaz Adrover,24.400000000000006,2.67,58.5,9.5,1.72,3341881.0,pending,,,,,
-2026-10-06,,Eva Bennemann,Yasmin Ezzat,Yasmin Ezzat,Eva Bennemann,42.7,6.3,57.0,5.5,1.59,3341845.0,pending,,,,,
-2026-10-06,,Jessica Hinojosa Gomez,Anna Kmiecik,Anna Kmiecik,Jessica Hinojosa Gomez,19.699999999999996,2.52,55.9,10.5,1.76,3341495.0,pending,,,,,
-2026-10-06,,Emiliana Arango,Ayla Aksu,Ayla Aksu,Emiliana Arango,21.9,2.75,55.6,8.5,1.59,3340389.0,pending,,,,,
-2026-10-06,,Sara Cakarevic,Carolina Bohrer Martins,Carolina Bohrer Martins,Sara Cakarevic,21.299999999999997,2.65,55.5,9.5,1.72,3341855.0,pending,,,,,
+2026-10-06,,Etienne Niyigena,Claude Ishimwe,Claude Ishimwe,Etienne Niyigena,33.099999999999994,3.0,63.3,8.5,1.7,3341679.0,won,2:0,2026-10-07,6-1 6-4,12,won
+2026-10-06,,Yiru Chen,Meiling Wang,Yiru Chen,Meiling Wang,43.1,4.55,63.0,6.5,1.69,3341461.0,won,1:0,2026-10-07,7-6 3-2,10,void
+2026-10-06,,Pierre Antoine Tailleu,Mae Malige,Pierre Antoine Tailleu,Mae Malige,35.7,3.5,61.5,7.5,1.59,3342211.0,lost,2:1,2026-10-07,7-5 5-7 3-6,15,won
+2026-10-06,,Barakat Oyinlomo Quadre,Anastasia Bertacchi,Barakat Oyinlomo Quadre,Anastasia Bertacchi,16.4,2.05,61.1,10.5,1.54,3341493.0,lost,2:0,2026-10-07,6-7 2-6,8,lost
+2026-10-06,,Quadre Barakat,Anastasia Bertacchi,Quadre Barakat,Anastasia Bertacchi,19.0,2.17,61.1,10.5,1.59,3341493.0,lost,2:0,2026-10-07,6-7 2-6,8,lost
+2026-10-06,,Antonia Ruzic,Alicia Dudeney,Alicia Dudeney,Antonia Ruzic,28.999999999999993,3.0,59.9,7.5,1.53,3340387.0,won,2:1,2026-10-07,3-6 6-3 6-4,15,won
+2026-10-06,,Guido Ivan Justo,Francisco Comesana,Guido Ivan Justo,Francisco Comesana,23.300000000000004,2.6,59.1,9.5,1.63,3340035.0,won,2:1,2026-10-07,6-7 7-6 6-1,19,won
+2026-10-06,,Cristina Diaz Adrover,Lorena Solar Donoso,Lorena Solar Donoso,Cristina Diaz Adrover,24.400000000000006,2.67,58.5,9.5,1.72,3341881.0,lost,2:0,2026-10-07,2-6 1-6,3,lost
+2026-10-06,,Eva Bennemann,Yasmin Ezzat,Yasmin Ezzat,Eva Bennemann,42.7,6.3,57.0,5.5,1.59,3341845.0,lost,2:0,2026-10-07,1-6 5-7,6,won
+2026-10-06,,Jessica Hinojosa Gomez,Anna Kmiecik,Anna Kmiecik,Jessica Hinojosa Gomez,19.699999999999996,2.52,55.9,10.5,1.76,3341495.0,lost,2:0,2026-10-07,5-7 4-6,9,lost
+2026-10-06,,Emiliana Arango,Ayla Aksu,Ayla Aksu,Emiliana Arango,21.9,2.75,55.6,8.5,1.59,3340389.0,won,2:0,2026-10-07,6-3 6-2,12,won
+2026-10-06,,Sara Cakarevic,Carolina Bohrer Martins,Carolina Bohrer Martins,Sara Cakarevic,21.299999999999997,2.65,55.5,9.5,1.72,3341855.0,lost,2:0,2026-10-07,3-6 0-6,3,lost
+2026-10-07,,Mingge Xu,Aspen Schuman,Aspen Schuman,Mingge Xu,41.0,3.4,67.7,7.5,1.65,3342291.0,pending,,,,,
+2026-10-07,,Ksenia Efremova,Sophia Biolay,Sophia Biolay,Ksenia Efremova,33.0,2.7,66.7,9.5,1.73,3341489.0,pending,,,,,
+2026-10-07,,Nikolas Baker,Stefan Vujic,Nikolas Baker,Stefan Vujic,36.8,3.2,65.1,8.5,1.62,3342969.0,pending,,,,,
+2026-10-07,,Gabriele Pennaforti,Ruben Hartig,Ruben Hartig,Gabriele Pennaforti,37.3,3.35,64.3,7.5,1.6,3342999.0,pending,,,,,
+2026-10-07,,Derek Pham,Scott Jones,Scott Jones,Derek Pham,18.0,2.12,61.2,10.5,1.54,3341335.0,pending,,,,,
+2026-10-07,,Noah Schachter,Allan Gatoto,Allan Gatoto,Noah Schachter,24.89999999999999,2.57,60.3,10.5,1.76,3341663.0,pending,,,,,
+2026-10-07,,Holger Rune,Daniel Altmaier,Daniel Altmaier,Holger Rune,25.799999999999997,2.75,60.0,9.5,1.52,3341221.0,pending,,,,,
+2026-10-07,,Laia Petretic,Maria Martinez Vaquero,Laia Petretic,Maria Martinez Vaquero,32.9,3.35,59.9,7.5,1.64,3342263.0,pending,,,,,
+2026-10-07,,Pavlos Tsitsipas,Nicholas Campbell,Nicholas Campbell,Pavlos Tsitsipas,17.4,2.17,59.5,10.5,1.56,3342983.0,pending,,,,,
+2026-10-07,,Nick Hardt,Felipe Meligeni Alves,Nick Hardt,Felipe Meligeni Alves,21.799999999999997,2.5,59.0,9.5,1.56,3343169.0,pending,,,,,
+2026-10-07,,Josy Daems,Miriam Bianca Bulgaru,Josy Daems,Miriam Bianca Bulgaru,21.4,2.42,59.0,10.5,1.71,3342799.0,pending,,,,,
+2026-10-07,,Aleksandr Braynin,Hugo Cardinaud,Hugo Cardinaud,Aleksandr Braynin,38.2,4.4,58.8,6.5,1.55,3343159.0,pending,,,,,
+2026-10-07,,Joshua Charlton,Arjun Mehrotra,Arjun Mehrotra,Joshua Charlton,30.700000000000003,3.3,58.2,8.5,1.71,3342971.0,pending,,,,,
+2026-10-07,,Thomas Kostka,Marcus Walters,Thomas Kostka,Marcus Walters,37.8,4.5,57.9,6.5,1.64,3342981.0,pending,,,,,
+2026-10-07,,Valeriia Artemeva,Lujza Zimenova,Lujza Zimenova,Valeriia Artemeva,32.199999999999996,3.6,57.4,7.5,1.71,3343077.0,pending,,,,,
+2026-10-07,,Tsung-Hao Huang,Ko Suzuki,Ko Suzuki,Tsung-Hao Huang,29.799999999999997,3.3,57.3,8.5,1.75,3342785.0,pending,,,,,
+2026-10-07,,Vito Dell'Elba,Viktor Frydrych,Vito Dell'Elba,Viktor Frydrych,21.9,2.6,56.9,10.5,1.77,3343139.0,pending,,,,,
+2026-10-07,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,19.0,2.42,56.6,10.5,1.7,3343009.0,pending,,,,,
+2026-10-07,,Evangelos Kypriotis,Leyton Rivera,Evangelos Kypriotis,Leyton Rivera,16.200000000000003,2.32,55.5,10.5,1.65,3341627.0,pending,,,,,
+2026-10-07,,Yassine Smiej,Leandro Zgraggen,Leandro Zgraggen,Yassine Smiej,21.599999999999994,2.7,55.3,9.5,1.72,3343137.0,pending,,,,,

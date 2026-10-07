@@ -1,6 +1,6 @@
-# Backtest tenis — 2026-09-16 … 2026-09-29
+# Backtest tenis — 2026-09-22 … 2026-10-05
 
-Meciuri testate: **578** (simplu, terminate normal, ATP/WTA/Challenger/ITF).
+Meciuri testate: **573** (simplu, terminate normal, ATP/WTA/Challenger/ITF).
 
 Scurgeri de informatie ramase: rank-ul e cel actual, iar recordul pe suprafata include si meciuri jucate dupa cel testat. Ambele favorizeaza usor modelele, nu piata.
 
@@ -8,10 +8,10 @@ Scurgeri de informatie ramase: rank-ul e cel actual, iar recordul pe suprafata i
 
 | Varianta | Meciuri | Acuratete | Brier ↓ | Log-loss ↓ |
 |---|---|---|---|---|
-| Doar rank | 374 | 70.1% | 0.2158 | 0.6224 |
-| Model vechi (rank + forma + record general) | 374 | 67.6% | 0.2247 | 0.6407 |
-| Model nou (+ suprafata, H2H, forma ponderata) | 374 | 65.2% | 0.2247 | 0.6404 |
-| Piata (cote medii TennisExplorer) — doar etalon | 374 | 74.6% | 0.1666 | 0.5020 |
+| Doar rank | 374 | 69.3% | 0.2154 | 0.6218 |
+| Model vechi (rank + forma + record general) | 374 | 60.7% | 0.2296 | 0.6505 |
+| Model nou (+ suprafata, H2H, forma ponderata) | 374 | 57.5% | 0.2329 | 0.6567 |
+| Piata (cote medii TennisExplorer) — doar etalon | 374 | 73.3% | 0.1835 | 0.5441 |
 
 ## Ponderi invatate din date (regresie logistica)
 
@@ -19,14 +19,14 @@ Antrenat pe prima jumatate a perioadei, testat pe a doua (fara sa vada rezultate
 
 | Semnal | Pondere |
 |---|---|
-| rank_p | +3.258 |
-| form_new_p | +0.130 |
-| surface_p | -0.023 |
-| h2h_p | +0.428 |
-| fatigue_pp | +0.140 |
+| rank_p | +2.288 |
+| form_new_p | +0.099 |
+| surface_p | +0.095 |
+| h2h_p | -0.366 |
+| fatigue_pp | +0.263 |
 
-Pe jumatatea de test (289 meciuri): acuratete 67.1%, Brier 0.2145, log-loss 0.6151.
-Pe aceeasi jumatate: model nou Brier 0.2248, piata Brier 0.1747 (198 meciuri cu cote).
+Pe jumatatea de test (287 meciuri): acuratete 65.9%, Brier 0.2068, log-loss 0.5994.
+Pe aceeasi jumatate: model nou Brier 0.2236, piata Brier 0.1745 (204 meciuri cu cote).
 
 ## Calibrare model nou
 
@@ -34,19 +34,19 @@ Cand modelul isi favorizeaza un jucator cu X%, cat de des castiga acel jucator?
 
 | Interval estimare | Meciuri | Estimare medie | Castigat de fapt |
 |---|---|---|---|
-| 50-60% | 372 | 54.4% | 60.5% |
-| 60-70% | 119 | 64.1% | 72.3% |
-| 70-80% | 34 | 75.1% | 82.4% |
-| 80-90% | 18 | 83.5% | 88.9% |
-| 90-100% | 22 | 98.7% | 72.7% |
+| 50-60% | 359 | 54.3% | 54.3% |
+| 60-70% | 122 | 63.7% | 69.7% |
+| 70-80% | 37 | 74.3% | 83.8% |
+| 80-90% | 18 | 84.3% | 83.3% |
+| 90-100% | 22 | 98.8% | 77.3% |
 
 ## Pe suprafete (model nou)
 
 | Suprafata | Meciuri | Acuratete | Brier |
 |---|---|---|---|
-| necunoscuta | 95 | 70.5% | 0.2024 |
-| Clay | 161 | 60.9% | 0.2298 |
-| Hard | 270 | 67.8% | 0.2256 |
-| Indoors | 39 | 59.0% | 0.2404 |
+| necunoscuta | 65 | 70.8% | 0.2055 |
+| Clay | 130 | 59.2% | 0.2255 |
+| Hard | 311 | 60.5% | 0.2348 |
+| Indoors | 52 | 61.5% | 0.2182 |
 
 Brier: eroarea medie la patrat a probabilitatii (0 = perfect, 0.25 = aruncarea monedei). Log-loss: pedepseste mai tare increderea mare gresita. La ambele, mai mic e mai bine.

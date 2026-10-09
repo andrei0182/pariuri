@@ -1,170 +1,173 @@
-date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,comp_pct,games_line,games_odds,te_match_id,result,score,checked_at,set_scores,rec_games,games_result
-2026-09-18,,Darwin Blanch,Bryce Nakashima,Bryce Nakashima,Darwin Blanch,22.6,2.47,60.2,9.5,1.48,3326373.0,lost,2:0,2026-09-19,3-6 3-6,6,lost
-2026-09-19,,Alec Braund,Wihan van der Merwe,Alec Braund,Wihan van der Merwe,15.399999999999999,2.1,59.1,10.5,1.53,3326483.0,won,2:1,2026-09-20,5-7 6-3 6-1,17,won
-2026-09-19,,Eric Tripathi,Jake Dembo,Eric Tripathi,Jake Dembo,24.900000000000006,2.7,58.7,9.5,1.69,3326481.0,lost,2:1,2026-09-20,7-6 4-6 0-6,11,won
-2026-09-21,,Fermin Tenti,Mariano Kestelboim,Fermin Tenti,Mariano Kestelboim,38.400000000000006,3.8,62.2,7.5,1.56,3328305.0,won,1:0,2026-09-22,7-6,7,void
-2026-09-21,,Filip Misolic,Sebastian Gima,Sebastian Gima,Filip Misolic,43.0,5.25,60.2,6.5,1.69,3328408.0,won,2:1,2026-09-22,6-3 4-6 6-3,16,won
-2026-09-21,,Talia Gibson,Fiona Ferro,Fiona Ferro,Talia Gibson,17.1,2.27,58.6,9.5,1.51,3327152.0,lost,2:0,2026-09-22,3-6 3-6,6,lost
-2026-09-21,,Darya Astakhova,Magda Linette,Darya Astakhova,Magda Linette,20.800000000000004,2.7,55.6,9.5,1.65,3328383.0,won,2:1,2026-09-22,3-6 6-1 7-6,16,won
-2026-09-22,,Carlos Taberner,Petr Nesterov,Petr Nesterov,Carlos Taberner,25.5,2.47,63.1,9.5,1.58,3327284.0,lost,2:1,2026-09-23,4-6 6-1 0-6,10,won
-2026-09-22,,Alina Charaeva,Sofia Kenin,Alina Charaeva,Sofia Kenin,16.4,2.07,61.9,10.5,1.49,3326995.0,won,2:1,2026-09-23,3-6 7-6 6-4,16,won
-2026-09-22,,Gabriele Pennaforti,Nicholas David Ionel,Nicholas David Ionel,Gabriele Pennaforti,17.200000000000003,2.1,60.7,10.5,1.55,3328741.0,lost,2:0,2026-09-23,1-6 2-6,3,lost
-2026-09-22,,Theo Herrmann,Adan Freire da Silva,Theo Herrmann,Adan Freire da Silva,20.9,2.4,59.0,10.5,1.66,3330132.0,won,2:0,2026-09-23,6-2 7-6,13,won
-2026-09-22,,Lisa Zaar,Rebeka Masarova,Lisa Zaar,Rebeka Masarova,28.2,3.1,57.4,8.5,1.71,3329846.0,lost,2:1,2026-09-23,7-5 1-6 5-7,13,won
-2026-09-22,,Victoria Jimenez Kasintseva,Naiktha Bains,Naiktha Bains,Victoria Jimenez Kasintseva,21.599999999999994,2.62,56.3,9.5,1.68,3329898.0,won,1:0,2026-09-23,5-2,5,void
-2026-09-22,,Valentina Steiner,Caroline Werner,Valentina Steiner,Caroline Werner,21.0,2.65,56.0,9.5,1.68,3329894.0,won,2:0,2026-09-23,6-2 7-5,13,won
-2026-09-22,,Sebastian Gima,Jonas Forejtek,Sebastian Gima,Jonas Forejtek,29.9,3.65,55.3,6.5,1.42,3329882.0,lost,2:1,2026-09-23,4-6 6-4 3-6,13,won
-2026-09-22,,Santiago Rodriguez Taverna,Pedro Boscardin Dias,Santiago Rodriguez Taverna,Pedro Boscardin Dias,18.1,2.32,58.2,9.5,1.48,3330804.0,lost,2:0,2026-09-23,3-6 1-6,4,lost
-2026-09-22,,Genaro Alberto Olivieri,Valerio Aboian,Valerio Aboian,Genaro Alberto Olivieri,15.399999999999999,2.35,55.0,9.5,1.52,3330810.0,won,2:1,2026-09-23,1-6 6-2 6-3,13,won
-2026-09-23,,Valentina Ivanov,Tiphanie Lemaitre,Valentina Ivanov,Tiphanie Lemaitre,22.6,2.25,63.2,10.5,1.63,3330420.0,lost,2:0,2026-09-24,4-6 4-6,8,lost
-2026-09-23,,Sebastian Baez,Jenson Brooksby,Sebastian Baez,Jenson Brooksby,15.5,2.25,57.4,10.5,1.52,3329361.0,lost,2:0,2026-09-24,5-7 5-7,10,lost
-2026-09-23,,Max Wiskandt,Carlos Taberner,Max Wiskandt,Carlos Taberner,24.6,2.85,57.2,8.5,1.59,3330860.0,lost,2:0,2026-09-24,5-7 4-6,9,won
-2026-09-23,,Arina Arifullina,Kseniia Ruchkina,Arina Arifullina,Kseniia Ruchkina,20.599999999999994,2.52,56.8,10.5,1.77,3331278.0,lost,1:0,2026-09-24,0-6 0-0,0,void
-2026-09-23,,Alessia Popescu,Nadia Kulbiej,Alessia Popescu,Nadia Kulbiej,37.4,3.25,65.3,7.5,1.62,3329797.0,won,2:1,2026-09-24,6-4 6-7 6-3,18,won
-2026-09-23,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,20.300000000000004,2.55,56.1,10.5,1.78,3331038.0,lost,2:0,2026-09-25,3-6 1-6,4,lost
-2026-09-23,,Jacopo Bilardo,Mae Malige,Jacopo Bilardo,Mae Malige,18.799999999999997,2.45,56.0,10.5,1.71,3330190.0,lost,2:0,2026-09-24,4-6 3-6,7,lost
-2026-09-23,,Sven Corbinais,Etienne Donnet,Sven Corbinais,Etienne Donnet,34.6,4.4,55.2,6.5,1.59,3331166.0,lost,2:1,2026-09-24,6-2 5-7 1-6,12,won
-2026-09-23,,Leonel Cesar Castro,Pedro Henrique Chabalgoity,Leonel Cesar Castro,Pedro Henrique Chabalgoity,17.800000000000004,1.78,69.2,11.5,1.44,3330674.0,lost,2:1,2026-09-24,3-6 6-2 4-6,13,won
-2026-09-23,,Connie Ma,Akasha Urhobo,Connie Ma,Akasha Urhobo,30.6,3.25,58.5,7.5,1.61,3331496.0,won,2:0,2026-09-24,6-1 7-5,13,won
-2026-09-23,,Francisco Comesana,Joaquin Aguilar Cardozo,Joaquin Aguilar Cardozo,Francisco Comesana,19.0,2.5,56.2,9.5,1.56,3331382.0,won,2:1,2026-09-24,7-5 5-7 6-4,18,won
-2026-09-23,,Olaf Pieczkowski,Zsombor Velcz,Zsombor Velcz,Olaf Pieczkowski,15.199999999999996,2.25,55.8,10.5,1.38,3330110.0,lost,2:0,2026-09-24,3-6 3-6,6,lost
-2026-09-23,,William Jansen,Seydina Andre,Seydina Andre,William Jansen,23.5,2.85,55.3,9.5,1.69,3330108.0,lost,2:0,2026-09-24,2-6 6-7,8,lost
-2026-09-24,,Liam Delicata,Koray Kirci,Liam Delicata,Koray Kirci,29.599999999999994,2.12,72.6,10.5,1.56,3331598.0,lost,2:0,2026-09-25,4-6 2-6,6,lost
-2026-09-24,,Yuliya Hatouka,Ksenia Efremova,Yuliya Hatouka,Ksenia Efremova,37.0,3.35,64.0,7.5,1.64,3331782.0,won,2:0,2026-09-25,6-1 6-3,12,won
-2026-09-24,,Ewen Lumsden,Mae Malige,Ewen Lumsden,Mae Malige,23.800000000000004,2.32,63.1,10.5,1.64,3331874.0,won,2:1,2026-09-25,4-6 6-1 6-4,16,won
-2026-09-24,,Andrea Guerrieri,Jesper de Jong,Andrea Guerrieri,Jesper de Jong,28.4,2.72,62.5,9.5,1.61,3331054.0,lost,2:1,2026-09-25,6-3 6-7 6-7,18,won
-2026-09-24,,Iulia Maria Buculei,Linda Sevcikova,Linda Sevcikova,Iulia Maria Buculei,16.599999999999994,2.05,61.3,10.5,1.53,3331262.0,won,2:1,2026-09-25,7-5 0-6 6-2,13,won
-2026-09-24,,Timo Legout,Colton Smith,Timo Legout,Colton Smith,15.100000000000001,2.07,60.2,10.5,1.48,3331420.0,won,2:0,2026-09-25,6-3 6-3,12,won
-2026-09-24,,Jonas Forejtek,Maxime Chazal,Maxime Chazal,Jonas Forejtek,19.4,2.37,58.6,9.5,1.53,3331082.0,lost,2:1,2026-09-25,1-6 7-5 0-6,8,lost
-2026-09-24,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,25.0,2.77,57.8,9.5,1.76,3331038.0,lost,2:0,2026-09-25,3-6 1-6,4,lost
-2026-09-24,,Charo Esquiva Banuls,Juliana Giaccio,Juliana Giaccio,Charo Esquiva Banuls,26.400000000000006,2.9,57.7,8.5,1.67,3331642.0,lost,2:0,2026-09-25,5-7 2-6,7,lost
-2026-09-24,,Olaf Pieczkowski,Sean Daryabeigi,Sean Daryabeigi,Olaf Pieczkowski,20.0,2.42,57.6,10.5,1.69,3332018.0,won,2:0,2026-09-25,6-4 6-2,12,won
-2026-09-24,,Madison Brengle,Ekaterina Maklakova,Ekaterina Maklakova,Madison Brengle,31.799999999999997,3.65,56.5,7.5,1.72,3331488.0,lost,2:0,2026-09-25,3-6 6-7,9,won
-2026-09-24,,Ruslan Tiukaev,Michele Mecarelli,Ruslan Tiukaev,Michele Mecarelli,15.199999999999996,2.22,56.3,10.5,1.6,3331754.0,lost,2:1,2026-09-25,6-4 2-6 6-7,14,won
-2026-09-24,,Alec Deckers,Jake Fellows,Jake Fellows,Alec Deckers,34.2,4.1,56.3,7.5,1.52,3331622.0,lost,2:0,2026-09-25,4-6 4-6,8,won
-2026-09-24,,Izan Almazan Valiente,Maxim Mrva,Izan Almazan Valiente,Maxim Mrva,17.5,2.42,55.9,9.5,1.58,3331012.0,won,2:1,2026-09-25,7-5 0-6 6-2,13,won
-2026-09-24,,Kayla Day,Evialina Laskevich,Evialina Laskevich,Kayla Day,36.49999999999999,4.65,55.9,6.5,1.58,3332048.0,lost,2:0,2026-09-25,2-6 2-6,4,lost
-2026-09-24,,Julita Saner,Arina Gamretkaia,Arina Gamretkaia,Julita Saner,33.00000000000001,4.0,55.6,6.5,1.61,3331950.0,lost,2:0,2026-09-25,6-7 2-6,8,won
-2026-09-24,,Angelina Voloshchuk,Harmony Tan,Angelina Voloshchuk,Harmony Tan,19.199999999999996,2.57,55.3,9.5,1.62,3331076.0,won,2:1,2026-09-25,6-1 1-6 6-0,13,won
-2026-09-24,,Sabrina Dias,Paola Lopez,Sabrina Dias,Paola Lopez,21.5,2.7,55.2,9.5,1.72,3331402.0,lost,2:0,2026-09-25,1-6 0-6,1,lost
-2026-09-25,,Ana Sofia Sanchez,Astra Sharma,Ana Sofia Sanchez,Astra Sharma,21.099999999999994,2.05,65.8,10.5,1.51,3332488.0,lost,2:0,2026-09-26,4-6 2-6,6,lost
-2026-09-25,,Liam Branger,Etienne Donnet,Liam Branger,Etienne Donnet,20.800000000000004,2.32,60.1,10.5,1.64,3332278.0,lost,2:1,2026-09-26,7-5 3-6 6-7,16,won
-2026-09-25,,Calvin Hemery,Carlos Taberner,Calvin Hemery,Carlos Taberner,18.4,2.35,58.1,10.5,1.55,3331810.0,lost,2:1,2026-09-26,6-1 5-7 4-6,15,won
-2026-09-25,,Karol Filar,Oscar Brown,Oscar Brown,Karol Filar,16.799999999999997,2.22,57.9,10.5,1.59,3332432.0,won,2:0,2026-09-26,6-1 6-4,12,won
-2026-09-25,,Murphy Cassone,Daniel Masur,Daniel Masur,Murphy Cassone,18.5,2.45,56.5,10.5,1.56,3332276.0,lost,2:1,2026-09-26,7-4 6-7 4-6,17,won
-2026-09-25,,Jonas Gundacker,Lukas Pokorny,Jonas Gundacker,Lukas Pokorny,31.2,3.6,56.4,7.5,1.59,3331600.0,lost,2:0,2026-09-26,4-6 4-6,8,won
-2026-09-25,,Flynn Thomas,Theo Herrmann,Theo Herrmann,Flynn Thomas,22.10000000000001,2.67,56.2,9.5,1.67,3332378.0,lost,2:1,2026-09-26,3-6 7-5 5-7,15,won
-2026-09-26,,Oliver Bonding,Gabe Avram,Gabe Avram,Oliver Bonding,46.9,5.25,64.1,5.5,1.51,3332828.0,lost,2:0,2026-09-27,5-7 1-6,6,won
-2026-09-26,,Rudolf Molleker,Sebastian Dominko,Sebastian Dominko,Rudolf Molleker,16.799999999999997,1.97,63.3,11.5,1.47,3332574.0,won,2:0,2026-09-27,7-6 6-2,13,won
-2026-09-26,,Maria Golovina,Victoria Milovanova,Victoria Milovanova,Maria Golovina,15.199999999999996,2.22,56.3,10.5,1.63,3332642.0,lost,2:1,2026-09-27,7-5 4-6 6-7,17,won
-2026-09-27,,Fiona Crawley,Lois Boisson,Fiona Crawley,Lois Boisson,26.199999999999996,2.45,63.4,10.5,1.71,3333000.0,won,2:1,2026-09-28,2-6 6-3 7-5,15,won
-2026-09-27,,Mirjana Jovanovic,Natalia Siedliska,Mirjana Jovanovic,Natalia Siedliska,26.800000000000004,3.2,55.2,7.5,1.6,3333072.0,lost,2:0,2026-09-28,4-6 2-6,6,lost
-2026-09-28,,Franco Agamenone,John Sperle,John Sperle,Franco Agamenone,18.9,2.4,56.9,10.5,1.63,3334750.0,won,2:1,2026-09-29,6-2 1-6 7-6,14,won
-2026-09-28,,Felipe Meligeni Alves,Carlos Maria Zarate,Carlos Maria Zarate,Felipe Meligeni Alves,24.89999999999999,2.9,56.8,9.5,1.66,3333944.0,lost,2:0,2026-09-29,4-6 2-6,6,lost
-2026-09-28,,Valentino Grippo,Giannicola Misasi,Valentino Grippo,Giannicola Misasi,33.9,4.0,56.5,6.5,1.55,3334550.0,lost,2:0,2026-09-29,3-6 0-6,3,lost
-2026-09-29,,Lucia Bronzetti,Lois Boisson,Lucia Bronzetti,Lois Boisson,21.500000000000007,2.17,64.4,9.5,1.49,3334930.0,lost,2:0,2026-10-01,1-6 2-6,3,lost
-2026-09-29,,Hugo Grenier,Carl Emil Overbeck,Carl Emil Overbeck,Hugo Grenier,16.599999999999994,2.0,63.3,10.5,1.41,3334910.0,lost,2:0,2026-10-01,4-6 2-6,6,lost
-2026-09-29,,Melih Anavatan,Mae Malige,Melih Anavatan,Mae Malige,35.1,3.7,59.6,7.5,1.64,3335616.0,won,2:0,2026-10-01,7-5 7-5,14,won
-2026-09-29,,Lola Radivojevic,Melisa Ercan,Melisa Ercan,Lola Radivojevic,38.1,4.4,59.1,5.5,1.41,3334528.0,won,2:0,2026-10-01,6-2 6-2,12,won
-2026-09-29,,Gianluca Cadenasso,Benito Sanchez Martinez,Benito Sanchez Martinez,Gianluca Cadenasso,21.5,2.5,58.8,9.5,1.58,3333584.0,lost,2:0,2026-10-01,3-6 1-6,4,lost
-2026-09-29,,Astrid Wanja Brune Olsen,Sophia Ksandinov,Sophia Ksandinov,Astrid Wanja Brune Olsen,21.6,2.47,58.6,10.5,1.75,3335824.0,lost,2:0,2026-10-01,6-7 2-6,8,lost
-2026-09-29,,Max Wiskandt,Pierluigi Basile,Max Wiskandt,Pierluigi Basile,18.800000000000004,2.4,57.6,9.5,1.53,3335914.0,lost,2:1,2026-10-01,7-6 6-7 3-6,16,won
-2026-09-29,,Teodora Kostovic,Berfu Cengiz,Berfu Cengiz,Teodora Kostovic,21.4,2.57,57.5,9.5,1.64,3334522.0,lost,1:0,2026-10-01,1-6 0-0,1,void
-2026-09-29,,Zijun Jiang,Gaeul Jang,Zijun Jiang,Gaeul Jang,17.300000000000004,2.37,55.7,10.5,1.7,3335370.0,won,2:0,2026-10-01,6-3 6-0,12,won
-2026-09-29,,Elsa Jacquemot,Vivian Wolff,Vivian Wolff,Elsa Jacquemot,25.799999999999997,3.15,55.2,7.5,1.51,3335166.0,lost,2:0,2026-10-01,3-6 4-6,7,lost
-2026-09-30,,Lois Boisson,Martyna Kubka,Martyna Kubka,Lois Boisson,32.39999999999999,3.0,63.3,8.5,1.65,3336848.0,lost,2:0,2026-10-01,3-6 2-6,5,lost
-2026-09-30,,Nicola Rispoli,Saba Purtseladze,Nicola Rispoli,Saba Purtseladze,16.9,2.07,61.1,10.5,1.52,3336774.0,won,2:1,2026-10-01,4-6 6-1 6-3,16,won
-2026-09-30,,Thanaphat Boosarawongse,Andreja Petrovic,Thanaphat Boosarawongse,Andreja Petrovic,20.9,2.52,57.1,10.5,1.74,3336062.0,won,1:0,2026-10-01,6-1 2-0,8,void
-2026-09-30,,Kristina Novak,Meritxell Teixido Garcia,Meritxell Teixido Garcia,Kristina Novak,30.199999999999996,3.4,56.9,7.5,1.65,3336746.0,lost,2:0,2026-10-01,5-7 1-6,6,lost
-2026-09-30,,Manon Leonard,Clara Vlasselaer,Clara Vlasselaer,Manon Leonard,28.900000000000006,3.25,56.7,7.5,1.61,3336970.0,lost,2:0,2026-10-02,2-6 6-7,8,won
-2026-09-30,,Shintaro Imai,Zane Stevens,Zane Stevens,Shintaro Imai,33.2,4.0,55.8,7.5,1.73,3335158.0,lost,2:0,2026-10-01,4-6 2-6,6,lost
-2026-09-30,,Alexandre Aubriot,Filip Krolo,Filip Krolo,Alexandre Aubriot,29.200000000000003,3.45,55.5,7.5,1.6,3335642.0,won,2:0,2026-10-01,6-1 6-4,12,won
-2026-09-30,,Gabi Adrian Boitan,Vlad Cristian Breazu,Vlad Cristian Breazu,Gabi Adrian Boitan,19.6,2.55,55.4,10.5,1.75,3335686.0,lost,2:0,2026-10-01,1-6 4-6,5,lost
-2026-10-01,,Juncheng Shang,Sebastian Baez,Sebastian Baez,Juncheng Shang,26.4,2.17,69.9,10.5,1.49,3335230.0,lost,2:1,2026-10-02,7-5 3-6 5-7,15,won
-2026-10-01,,Scott Jones,Shintaro Imai,Scott Jones,Shintaro Imai,22.5,2.22,63.6,10.5,1.59,3337472.0,won,2:0,2026-10-02,6-1 6-2,12,won
-2026-10-01,,Linda Klimovicova,Alicia Dudeney,Alicia Dudeney,Linda Klimovicova,26.9,2.52,63.1,10.5,1.75,3337785.0,won,2:1,2026-10-02,3-6 6-3 6-2,15,won
-2026-10-01,,Snir Morag,Louis Larue,Snir Morag,Louis Larue,28.299999999999997,2.75,61.4,9.5,1.73,3337494.0,lost,2:0,2026-10-02,3-6 3-6,6,lost
-2026-10-01,,Micah Braswell,Hugo Coquelin,Hugo Coquelin,Micah Braswell,29.0,2.82,61.2,9.5,1.76,3337737.0,won,2:0,2026-10-02,6-4 6-0,12,won
-2026-10-01,,Eszter Meri,Astra Sharma,Eszter Meri,Astra Sharma,34.8,3.45,61.1,7.5,1.67,3337873.0,lost,2:1,2026-10-02,3-6 6-1 1-6,10,won
-2026-10-01,,Goncalo Marques,David Jorda Sanchis,Goncalo Marques,David Jorda Sanchis,15.300000000000004,2.12,59.2,10.5,1.45,3336730.0,lost,2:0,2026-10-02,4-6 5-7,9,lost
-2026-10-01,,Jeffrey V.D. Schulenburg,Michel Hopp,Michel Hopp,Jeffrey V.D. Schulenburg,26.1,2.85,58.1,9.5,1.75,3337597.0,lost,2:0,2026-10-02,4-6 4-6,8,lost
-2026-10-01,,Inaki Monte De La Torre,Jacob Fearnley,Inaki Monte De La Torre,Jacob Fearnley,29.0,3.25,57.4,7.5,1.55,3337735.0,pending,,,,,
-2026-10-01,,Max Sheldon,Olaf Pieczkowski,Max Sheldon,Olaf Pieczkowski,19.799999999999997,2.42,57.4,10.5,1.7,3337883.0,lost,2:1,2026-10-02,3-6 7-5 2-6,12,won
-2026-10-01,,Jonah Braswell,Jordan Lee,Jonah Braswell,Jordan Lee,32.8,3.75,56.9,7.5,1.74,3337841.0,won,2:0,2026-10-02,6-0 7-6,13,won
-2026-10-01,,Abedallah Shelbayh,Daniil Ostapenkov,Daniil Ostapenkov,Abedallah Shelbayh,26.39999999999999,3.05,56.8,8.5,1.55,3336980.0,lost,2:0,2026-10-02,1-6 5-7,6,lost
-2026-10-01,,Manon Leonard,Clara Vlasselaer,Clara Vlasselaer,Manon Leonard,24.200000000000003,2.8,56.7,9.5,1.76,3336970.0,lost,2:0,2026-10-02,2-6 6-7,8,lost
-2026-10-01,,Eva Lys,Xinran Sun,Xinran Sun,Eva Lys,23.699999999999996,2.85,56.6,8.5,1.6,3335264.0,won,1:0,2026-10-02,6-1 3-0,9,void
-2026-10-01,,Aryan Shah,Evan Bynoe,Evan Bynoe,Aryan Shah,29.6,3.45,55.9,7.5,1.57,3337795.0,lost,2:1,2026-10-02,2-6 6-2 3-6,11,won
-2026-10-01,,Yuka Matsumoto,Jessica Hinojosa Gomez,Yuka Matsumoto,Jessica Hinojosa Gomez,22.6,2.72,55.9,9.5,1.75,3337697.0,lost,2:0,2026-10-02,1-6 2-6,3,lost
-2026-10-01,,Andrea Lola Popovic,Antonina Sushkova,Andrea Lola Popovic,Antonina Sushkova,31.999999999999996,3.8,55.8,7.5,1.7,3337807.0,lost,2:0,2026-10-02,1-6 0-6,1,lost
-2026-10-02,,Charlotte Van Zonneveld,Daria Zelinskaya,Charlotte Van Zonneveld,Daria Zelinskaya,20.9,2.2,62.5,10.5,1.61,3338167.0,lost,1:0,2026-10-03,1-6 1-4,2,void
-2026-10-02,,Astra Sharma,Ashley Lahey,Ashley Lahey,Astra Sharma,26.199999999999996,2.62,60.9,9.5,1.68,3338385.0,lost,2:1,2026-10-03,6-2 0-6 2-6,8,lost
-2026-10-02,,Manuel Plunger,Benjamin Lock,Benjamin Lock,Manuel Plunger,15.300000000000004,2.02,60.7,10.5,1.5,3338171.0,won,2:0,2026-10-03,6-4 6-4,12,won
-2026-10-02,,Yshai Oliel,Florent Bax,Yshai Oliel,Florent Bax,30.4,3.05,60.3,8.5,1.66,3338175.0,lost,2:0,2026-10-03,3-6 1-6,4,lost
-2026-10-02,,Hugo Coquelin,Olaf Pieczkowski,Hugo Coquelin,Olaf Pieczkowski,30.200000000000003,3.2,58.6,8.5,1.73,3338375.0,won,1:0,2026-10-03,5-6,5,void
-2026-10-02,,Alicia Dudeney,Katie Swan,Alicia Dudeney,Katie Swan,25.900000000000002,2.85,57.7,8.5,1.66,3338357.0,lost,2:0,2026-10-03,5-7 4-6,9,won
-2026-10-02,,Ashton Bowers,Chiara Di Genova,Chiara Di Genova,Ashton Bowers,35.800000000000004,4.15,57.6,6.5,1.61,3338329.0,lost,2:0,2026-10-03,1-6 3-6,4,lost
-2026-10-02,,Tatjana Maria,Malaika Rapolu,Malaika Rapolu,Tatjana Maria,28.5,3.3,56.0,8.5,1.68,3338411.0,lost,2:0,2026-10-03,0-6 3-6,3,lost
-2026-10-02,,Tessa Johanna Brockmann,Salma Djoubri,Salma Djoubri,Tessa Johanna Brockmann,28.4,3.35,55.6,7.5,1.62,3338331.0,won,2:0,2026-10-03,6-4 6-3,12,won
-2026-10-03,,Lisa Pigato,Katie Swan,Lisa Pigato,Katie Swan,21.200000000000003,2.35,60.2,10.5,1.68,3338647.0,won,1:0,2026-10-04,4-0,4,void
-2026-10-03,,Max Houkes,Benjamin Lock,Benjamin Lock,Max Houkes,40.9,5.6,56.9,6.5,1.68,3338599.0,won,2:1,2026-10-04,7-6 3-6 6-2,16,won
-2026-10-03,,Jessica Bouzas Maneiro,Aliona Falei,Aliona Falei,Jessica Bouzas Maneiro,31.599999999999994,3.7,56.5,6.5,1.51,3338509.0,lost,2:0,2026-10-04,3-6 3-6,6,lost
-2026-10-03,,Marta Soriano Santiago,Sophia Biolay,Marta Soriano Santiago,Sophia Biolay,19.6,2.55,55.4,9.5,1.67,3338573.0,lost,2:0,2026-10-04,4-6 0-6,4,lost
-2026-10-03,,Robert Strombachs,Paul Jubb,Robert Strombachs,Paul Jubb,19.6,2.57,55.0,10.5,1.76,3338533.0,lost,2:0,2026-10-04,2-6 6-7,8,lost
-2026-10-04,,Jessica Bouzas Maneiro,Alexandra Shubladze,Alexandra Shubladze,Jessica Bouzas Maneiro,21.5,2.37,60.7,9.5,1.56,3338903.0,won,2:0,2026-10-05,6-3 6-2,12,won
-2026-10-04,,Benjamin Lock,Calvin Hemery,Benjamin Lock,Calvin Hemery,36.1,3.75,60.2,8.5,1.6,3339003.0,lost,2:0,2026-10-05,3-6 3-6,6,lost
-2026-10-04,,Henrique Rocha,Inaki Monte De La Torre,Inaki Monte De La Torre,Henrique Rocha,24.699999999999996,2.67,59.4,9.5,1.65,3339625.0,pending,,,,,
-2026-10-04,,Sinja Kraus,Dayana Yastremska,Sinja Kraus,Dayana Yastremska,28.8,3.1,59.1,7.5,1.54,3338491.0,won,2:0,2026-10-05,6-1 6-4,12,won
-2026-10-04,,Rose Marie Nijkamp,Astra Sharma,Rose Marie Nijkamp,Astra Sharma,36.199999999999996,4.0,58.8,6.5,1.57,3339691.0,lost,2:0,2026-10-05,3-6 1-6,4,lost
-2026-10-04,,Rinko Matsuda,Sijia Wei,Rinko Matsuda,Sijia Wei,27.9,3.25,55.8,8.5,1.76,3338889.0,lost,2:0,2026-10-05,2-6 2-6,4,lost
-2026-10-05,,Lara Schmidt,Viktoria Veleva,Viktoria Veleva,Lara Schmidt,32.1,2.35,70.9,10.5,1.68,3340599.0,lost,2:0,2026-10-06,2-6 4-6,6,lost
-2026-10-05,,Patrick Schoen,Filip Misolic,Patrick Schoen,Filip Misolic,31.0,2.32,70.3,10.5,1.62,3340417.0,won,2:0,2026-10-06,6-1 6-2,12,won
-2026-10-06,,Etienne Niyigena,Claude Ishimwe,Claude Ishimwe,Etienne Niyigena,33.099999999999994,3.0,63.3,8.5,1.7,3341679.0,won,2:0,2026-10-07,6-1 6-4,12,won
-2026-10-06,,Yiru Chen,Meiling Wang,Yiru Chen,Meiling Wang,43.1,4.55,63.0,6.5,1.69,3341461.0,won,1:0,2026-10-07,7-6 3-2,10,void
-2026-10-06,,Pierre Antoine Tailleu,Mae Malige,Pierre Antoine Tailleu,Mae Malige,35.7,3.5,61.5,7.5,1.59,3342211.0,lost,2:1,2026-10-07,7-5 5-7 3-6,15,won
-2026-10-06,,Barakat Oyinlomo Quadre,Anastasia Bertacchi,Barakat Oyinlomo Quadre,Anastasia Bertacchi,16.4,2.05,61.1,10.5,1.54,3341493.0,lost,2:0,2026-10-07,6-7 2-6,8,lost
-2026-10-06,,Quadre Barakat,Anastasia Bertacchi,Quadre Barakat,Anastasia Bertacchi,19.0,2.17,61.1,10.5,1.59,3341493.0,lost,2:0,2026-10-07,6-7 2-6,8,lost
-2026-10-06,,Antonia Ruzic,Alicia Dudeney,Alicia Dudeney,Antonia Ruzic,28.999999999999993,3.0,59.9,7.5,1.53,3340387.0,won,2:1,2026-10-07,3-6 6-3 6-4,15,won
-2026-10-06,,Guido Ivan Justo,Francisco Comesana,Guido Ivan Justo,Francisco Comesana,23.300000000000004,2.6,59.1,9.5,1.63,3340035.0,won,2:1,2026-10-07,6-7 7-6 6-1,19,won
-2026-10-06,,Cristina Diaz Adrover,Lorena Solar Donoso,Lorena Solar Donoso,Cristina Diaz Adrover,24.400000000000006,2.67,58.5,9.5,1.72,3341881.0,lost,2:0,2026-10-07,2-6 1-6,3,lost
-2026-10-06,,Eva Bennemann,Yasmin Ezzat,Yasmin Ezzat,Eva Bennemann,42.7,6.3,57.0,5.5,1.59,3341845.0,lost,2:0,2026-10-07,1-6 5-7,6,won
-2026-10-06,,Jessica Hinojosa Gomez,Anna Kmiecik,Anna Kmiecik,Jessica Hinojosa Gomez,19.699999999999996,2.52,55.9,10.5,1.76,3341495.0,lost,2:0,2026-10-07,5-7 4-6,9,lost
-2026-10-06,,Emiliana Arango,Ayla Aksu,Ayla Aksu,Emiliana Arango,21.9,2.75,55.6,8.5,1.59,3340389.0,won,2:0,2026-10-07,6-3 6-2,12,won
-2026-10-06,,Sara Cakarevic,Carolina Bohrer Martins,Carolina Bohrer Martins,Sara Cakarevic,21.299999999999997,2.65,55.5,9.5,1.72,3341855.0,lost,2:0,2026-10-07,3-6 0-6,3,lost
-2026-10-07,,Mingge Xu,Aspen Schuman,Aspen Schuman,Mingge Xu,41.0,3.4,67.7,7.5,1.65,3342291.0,won,2:0,2026-10-08,6-3 6-0,12,won
-2026-10-07,,Ksenia Efremova,Sophia Biolay,Sophia Biolay,Ksenia Efremova,33.0,2.7,66.7,9.5,1.73,3341489.0,won,2:1,2026-10-08,6-4 2-6 7-5,15,won
-2026-10-07,,Nikolas Baker,Stefan Vujic,Nikolas Baker,Stefan Vujic,36.8,3.2,65.1,8.5,1.62,3342969.0,lost,2:0,2026-10-08,6-7 2-6,8,lost
-2026-10-07,,Gabriele Pennaforti,Ruben Hartig,Ruben Hartig,Gabriele Pennaforti,37.3,3.35,64.3,7.5,1.6,3342999.0,lost,2:0,2026-10-08,3-6 2-6,5,lost
-2026-10-07,,Derek Pham,Scott Jones,Scott Jones,Derek Pham,18.0,2.12,61.2,10.5,1.54,3341335.0,lost,2:0,2026-10-08,1-6 6-7,7,lost
-2026-10-07,,Noah Schachter,Allan Gatoto,Allan Gatoto,Noah Schachter,24.89999999999999,2.57,60.3,10.5,1.76,3341663.0,lost,2:1,2026-10-08,6-3 3-6 4-6,13,won
-2026-10-07,,Holger Rune,Daniel Altmaier,Daniel Altmaier,Holger Rune,25.799999999999997,2.75,60.0,9.5,1.52,3341221.0,won,2:1,2026-10-08,1-6 7-6 6-4,14,won
-2026-10-07,,Laia Petretic,Maria Martinez Vaquero,Laia Petretic,Maria Martinez Vaquero,32.9,3.35,59.9,7.5,1.64,3342263.0,lost,2:1,2026-10-08,5-7 6-2 1-6,12,won
-2026-10-07,,Pavlos Tsitsipas,Nicholas Campbell,Nicholas Campbell,Pavlos Tsitsipas,17.4,2.17,59.5,10.5,1.56,3342983.0,lost,2:1,2026-10-08,7-5 5-7 6-7,18,won
-2026-10-07,,Nick Hardt,Felipe Meligeni Alves,Nick Hardt,Felipe Meligeni Alves,21.799999999999997,2.5,59.0,9.5,1.56,3343169.0,lost,2:0,2026-10-08,3-6 3-6,6,lost
-2026-10-07,,Josy Daems,Miriam Bianca Bulgaru,Josy Daems,Miriam Bianca Bulgaru,21.4,2.42,59.0,10.5,1.71,3342799.0,lost,2:1,2026-10-08,6-2 2-6 3-6,11,won
-2026-10-07,,Aleksandr Braynin,Hugo Cardinaud,Hugo Cardinaud,Aleksandr Braynin,38.2,4.4,58.8,6.5,1.55,3343159.0,lost,2:0,2026-10-08,4-6 2-6,6,lost
-2026-10-07,,Joshua Charlton,Arjun Mehrotra,Arjun Mehrotra,Joshua Charlton,30.700000000000003,3.3,58.2,8.5,1.71,3342971.0,lost,2:0,2026-10-08,1-6 2-6,3,lost
-2026-10-07,,Thomas Kostka,Marcus Walters,Thomas Kostka,Marcus Walters,37.8,4.5,57.9,6.5,1.64,3342981.0,lost,2:0,2026-10-08,6-7 2-6,8,won
-2026-10-07,,Valeriia Artemeva,Lujza Zimenova,Lujza Zimenova,Valeriia Artemeva,32.199999999999996,3.6,57.4,7.5,1.71,3343077.0,lost,2:0,2026-10-08,3-6 0-6,3,lost
-2026-10-07,,Tsung-Hao Huang,Ko Suzuki,Ko Suzuki,Tsung-Hao Huang,29.799999999999997,3.3,57.3,8.5,1.75,3342785.0,won,2:0,2026-10-08,6-3 6-3,12,won
-2026-10-07,,Vito Dell'Elba,Viktor Frydrych,Vito Dell'Elba,Viktor Frydrych,21.9,2.6,56.9,10.5,1.77,3343139.0,pending,,,,,
-2026-10-07,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,19.0,2.42,56.6,10.5,1.7,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost
-2026-10-07,,Evangelos Kypriotis,Leyton Rivera,Evangelos Kypriotis,Leyton Rivera,16.200000000000003,2.32,55.5,10.5,1.65,3341627.0,won,1:0,2026-10-08,4-6 6-2 2-0,12,void
-2026-10-07,,Yassine Smiej,Leandro Zgraggen,Leandro Zgraggen,Yassine Smiej,21.599999999999994,2.7,55.3,9.5,1.72,3343137.0,lost,2:1,2026-10-08,6-7 6-1 6-7,18,won
-2026-10-08,,Lana Virc,Chiara Fornasieri,Chiara Fornasieri,Lana Virc,19.800000000000004,2.0,65.6,10.5,1.51,3343779.0,won,2:1,2026-10-09,7-6 3-6 6-3,16,won
-2026-10-08,,Joshua Charlton,Sam Ryan Ziegann,Sam Ryan Ziegann,Joshua Charlton,23.700000000000003,2.6,58.7,10.5,1.7,3343559.0,won,2:0,2026-10-09,7-6 6-4,13,won
-2026-10-08,,Pavel Kotov,Tallon Griekspoor,Pavel Kotov,Tallon Griekspoor,22.5,2.65,57.9,10.5,1.58,3342817.0,won,2:0,2026-10-09,6-4 7-6,13,won
-2026-10-08,,Noah Boutleux,Guillaume Dalmasso,Noah Boutleux,Guillaume Dalmasso,22.299999999999997,2.55,57.9,10.5,1.71,3343709.0,lost,2:1,2026-10-09,6-4 4-6 4-6,14,won
-2026-10-08,,Baotong Xu,Tian Jialin,Baotong Xu,Tian Jialin,48.0,10.0,57.2,3.5,1.37,3343123.0,lost,2:0,2026-10-09,1-6 0-6,1,lost
-2026-10-08,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,17.300000000000004,2.32,56.6,10.5,1.66,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost
-2026-10-08,,Bernard Tomic,Matteo Arnaldi,Bernard Tomic,Matteo Arnaldi,21.200000000000003,2.7,56.0,9.5,1.51,3342825.0,lost,2:0,2026-10-09,3-6 1-6,4,lost
-2026-10-08,,Daniel Verbeek,Ziga Sesko,Daniel Verbeek,Ziga Sesko,34.099999999999994,4.15,55.8,6.5,1.58,3343181.0,lost,2:0,2026-10-09,2-6 4-6,6,lost
-2026-10-08,,Yiru Chen,Anna Yang,Yiru Chen,Anna Yang,21.599999999999994,2.7,55.3,9.5,1.75,3343385.0,won,2:1,2026-10-09,1-6 7-5 6-2,14,won
-2026-10-08,,Matisse Bobichon,Leonid Sheyngezikht,Leonid Sheyngezikht,Matisse Bobichon,33.10000000000001,4.1,55.2,6.5,1.52,3343627.0,lost,2:0,2026-10-09,0-6 0-6,0,lost
-2026-10-08,,Sergio Luis Hernandez Ramirez,Tristan Mccormick,Sergio Luis Hernandez Ramirez,Tristan Mccormick,28.1,3.35,55.1,7.5,1.6,3343909.0,lost,2:1,2026-10-09,4-6 6-3 4-6,14,won
-2026-10-09,,Vlad Cristian Breazu,George Lazarov,Vlad Cristian Breazu,George Lazarov,19.700000000000003,2.2,61.2,10.5,1.6,3344235.0,pending,,,,,
-2026-10-09,,Aliona Falei,Rebecca Sramkova,Aliona Falei,Rebecca Sramkova,18.0,2.3,58.6,9.5,1.54,3344113.0,pending,,,,,
-2026-10-09,,Keisuke Saitoh,Akira Santillan,Keisuke Saitoh,Akira Santillan,16.9,2.25,58.3,10.5,1.53,3343389.0,pending,,,,,
-2026-10-09,,Kris Van Wyk,Mathys Picard,Mathys Picard,Kris Van Wyk,17.199999999999996,2.25,57.8,10.5,1.61,3344219.0,pending,,,,,
-2026-10-09,,Lujza Beviz,Brenda Fruhvirtova,Lujza Beviz,Brenda Fruhvirtova,34.0,3.85,57.5,6.5,1.58,3344339.0,pending,,,,,
-2026-10-09,,Enrico Dalla Valle,Francesco Passaro,Enrico Dalla Valle,Francesco Passaro,17.9,2.27,58.9,10.5,1.51,3344469.0,pending,,,,,
+date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,comp_pct,games_line,games_odds,te_match_id,result,score,checked_at,set_scores,rec_games,games_result,games_excluded
+2026-09-18,,Darwin Blanch,Bryce Nakashima,Bryce Nakashima,Darwin Blanch,22.6,2.47,60.2,9.5,1.48,3326373.0,lost,2:0,2026-09-19,3-6 3-6,6,lost,
+2026-09-19,,Alec Braund,Wihan van der Merwe,Alec Braund,Wihan van der Merwe,15.399999999999999,2.1,59.1,10.5,1.53,3326483.0,won,2:1,2026-09-20,5-7 6-3 6-1,17,won,
+2026-09-19,,Eric Tripathi,Jake Dembo,Eric Tripathi,Jake Dembo,24.900000000000006,2.7,58.7,9.5,1.69,3326481.0,lost,2:1,2026-09-20,7-6 4-6 0-6,11,won,
+2026-09-21,,Fermin Tenti,Mariano Kestelboim,Fermin Tenti,Mariano Kestelboim,38.400000000000006,3.8,62.2,7.5,1.56,3328305.0,won,1:0,2026-09-22,7-6,7,void,
+2026-09-21,,Filip Misolic,Sebastian Gima,Sebastian Gima,Filip Misolic,43.0,5.25,60.2,6.5,1.69,3328408.0,won,2:1,2026-09-22,6-3 4-6 6-3,16,won,
+2026-09-21,,Talia Gibson,Fiona Ferro,Fiona Ferro,Talia Gibson,17.1,2.27,58.6,9.5,1.51,3327152.0,lost,2:0,2026-09-22,3-6 3-6,6,lost,
+2026-09-21,,Darya Astakhova,Magda Linette,Darya Astakhova,Magda Linette,20.800000000000004,2.7,55.6,9.5,1.65,3328383.0,won,2:1,2026-09-22,3-6 6-1 7-6,16,won,
+2026-09-22,,Carlos Taberner,Petr Nesterov,Petr Nesterov,Carlos Taberner,25.5,2.47,63.1,9.5,1.58,3327284.0,lost,2:1,2026-09-23,4-6 6-1 0-6,10,won,
+2026-09-22,,Alina Charaeva,Sofia Kenin,Alina Charaeva,Sofia Kenin,16.4,2.07,61.9,10.5,1.49,3326995.0,won,2:1,2026-09-23,3-6 7-6 6-4,16,won,
+2026-09-22,,Gabriele Pennaforti,Nicholas David Ionel,Nicholas David Ionel,Gabriele Pennaforti,17.200000000000003,2.1,60.7,10.5,1.55,3328741.0,lost,2:0,2026-09-23,1-6 2-6,3,lost,
+2026-09-22,,Theo Herrmann,Adan Freire da Silva,Theo Herrmann,Adan Freire da Silva,20.9,2.4,59.0,10.5,1.66,3330132.0,won,2:0,2026-09-23,6-2 7-6,13,won,
+2026-09-22,,Lisa Zaar,Rebeka Masarova,Lisa Zaar,Rebeka Masarova,28.2,3.1,57.4,8.5,1.71,3329846.0,lost,2:1,2026-09-23,7-5 1-6 5-7,13,won,
+2026-09-22,,Victoria Jimenez Kasintseva,Naiktha Bains,Naiktha Bains,Victoria Jimenez Kasintseva,21.599999999999994,2.62,56.3,9.5,1.68,3329898.0,won,1:0,2026-09-23,5-2,5,void,
+2026-09-22,,Valentina Steiner,Caroline Werner,Valentina Steiner,Caroline Werner,21.0,2.65,56.0,9.5,1.68,3329894.0,won,2:0,2026-09-23,6-2 7-5,13,won,
+2026-09-22,,Sebastian Gima,Jonas Forejtek,Sebastian Gima,Jonas Forejtek,29.9,3.65,55.3,6.5,1.42,3329882.0,lost,2:1,2026-09-23,4-6 6-4 3-6,13,won,
+2026-09-22,,Santiago Rodriguez Taverna,Pedro Boscardin Dias,Santiago Rodriguez Taverna,Pedro Boscardin Dias,18.1,2.32,58.2,9.5,1.48,3330804.0,lost,2:0,2026-09-23,3-6 1-6,4,lost,
+2026-09-22,,Genaro Alberto Olivieri,Valerio Aboian,Valerio Aboian,Genaro Alberto Olivieri,15.399999999999999,2.35,55.0,9.5,1.52,3330810.0,won,2:1,2026-09-23,1-6 6-2 6-3,13,won,
+2026-09-23,,Valentina Ivanov,Tiphanie Lemaitre,Valentina Ivanov,Tiphanie Lemaitre,22.6,2.25,63.2,10.5,1.63,3330420.0,lost,2:0,2026-09-24,4-6 4-6,8,lost,
+2026-09-23,,Sebastian Baez,Jenson Brooksby,Sebastian Baez,Jenson Brooksby,15.5,2.25,57.4,10.5,1.52,3329361.0,lost,2:0,2026-09-24,5-7 5-7,10,lost,
+2026-09-23,,Max Wiskandt,Carlos Taberner,Max Wiskandt,Carlos Taberner,24.6,2.85,57.2,8.5,1.59,3330860.0,lost,2:0,2026-09-24,5-7 4-6,9,won,
+2026-09-23,,Arina Arifullina,Kseniia Ruchkina,Arina Arifullina,Kseniia Ruchkina,20.599999999999994,2.52,56.8,10.5,1.77,3331278.0,lost,1:0,2026-09-24,0-6 0-0,0,void,
+2026-09-23,,Alessia Popescu,Nadia Kulbiej,Alessia Popescu,Nadia Kulbiej,37.4,3.25,65.3,7.5,1.62,3329797.0,won,2:1,2026-09-24,6-4 6-7 6-3,18,won,
+2026-09-23,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,20.300000000000004,2.55,56.1,10.5,1.78,3331038.0,lost,2:0,2026-09-25,3-6 1-6,4,lost,
+2026-09-23,,Jacopo Bilardo,Mae Malige,Jacopo Bilardo,Mae Malige,18.799999999999997,2.45,56.0,10.5,1.71,3330190.0,lost,2:0,2026-09-24,4-6 3-6,7,lost,
+2026-09-23,,Sven Corbinais,Etienne Donnet,Sven Corbinais,Etienne Donnet,34.6,4.4,55.2,6.5,1.59,3331166.0,lost,2:1,2026-09-24,6-2 5-7 1-6,12,won,
+2026-09-23,,Leonel Cesar Castro,Pedro Henrique Chabalgoity,Leonel Cesar Castro,Pedro Henrique Chabalgoity,17.800000000000004,1.78,69.2,11.5,1.44,3330674.0,lost,2:1,2026-09-24,3-6 6-2 4-6,13,won,
+2026-09-23,,Connie Ma,Akasha Urhobo,Connie Ma,Akasha Urhobo,30.6,3.25,58.5,7.5,1.61,3331496.0,won,2:0,2026-09-24,6-1 7-5,13,won,
+2026-09-23,,Francisco Comesana,Joaquin Aguilar Cardozo,Joaquin Aguilar Cardozo,Francisco Comesana,19.0,2.5,56.2,9.5,1.56,3331382.0,won,2:1,2026-09-24,7-5 5-7 6-4,18,won,
+2026-09-23,,Olaf Pieczkowski,Zsombor Velcz,Zsombor Velcz,Olaf Pieczkowski,15.199999999999996,2.25,55.8,10.5,1.38,3330110.0,lost,2:0,2026-09-24,3-6 3-6,6,lost,
+2026-09-23,,William Jansen,Seydina Andre,Seydina Andre,William Jansen,23.5,2.85,55.3,9.5,1.69,3330108.0,lost,2:0,2026-09-24,2-6 6-7,8,lost,
+2026-09-24,,Liam Delicata,Koray Kirci,Liam Delicata,Koray Kirci,29.599999999999994,2.12,72.6,10.5,1.56,3331598.0,lost,2:0,2026-09-25,4-6 2-6,6,lost,
+2026-09-24,,Yuliya Hatouka,Ksenia Efremova,Yuliya Hatouka,Ksenia Efremova,37.0,3.35,64.0,7.5,1.64,3331782.0,won,2:0,2026-09-25,6-1 6-3,12,won,
+2026-09-24,,Ewen Lumsden,Mae Malige,Ewen Lumsden,Mae Malige,23.800000000000004,2.32,63.1,10.5,1.64,3331874.0,won,2:1,2026-09-25,4-6 6-1 6-4,16,won,
+2026-09-24,,Andrea Guerrieri,Jesper de Jong,Andrea Guerrieri,Jesper de Jong,28.4,2.72,62.5,9.5,1.61,3331054.0,lost,2:1,2026-09-25,6-3 6-7 6-7,18,won,
+2026-09-24,,Iulia Maria Buculei,Linda Sevcikova,Linda Sevcikova,Iulia Maria Buculei,16.599999999999994,2.05,61.3,10.5,1.53,3331262.0,won,2:1,2026-09-25,7-5 0-6 6-2,13,won,
+2026-09-24,,Timo Legout,Colton Smith,Timo Legout,Colton Smith,15.100000000000001,2.07,60.2,10.5,1.48,3331420.0,won,2:0,2026-09-25,6-3 6-3,12,won,
+2026-09-24,,Jonas Forejtek,Maxime Chazal,Maxime Chazal,Jonas Forejtek,19.4,2.37,58.6,9.5,1.53,3331082.0,lost,2:1,2026-09-25,1-6 7-5 0-6,8,lost,
+2026-09-24,,Miriana Tona,Nahia Berecoechea,Miriana Tona,Nahia Berecoechea,25.0,2.77,57.8,9.5,1.76,3331038.0,lost,2:0,2026-09-25,3-6 1-6,4,lost,
+2026-09-24,,Charo Esquiva Banuls,Juliana Giaccio,Juliana Giaccio,Charo Esquiva Banuls,26.400000000000006,2.9,57.7,8.5,1.67,3331642.0,lost,2:0,2026-09-25,5-7 2-6,7,lost,
+2026-09-24,,Olaf Pieczkowski,Sean Daryabeigi,Sean Daryabeigi,Olaf Pieczkowski,20.0,2.42,57.6,10.5,1.69,3332018.0,won,2:0,2026-09-25,6-4 6-2,12,won,
+2026-09-24,,Madison Brengle,Ekaterina Maklakova,Ekaterina Maklakova,Madison Brengle,31.799999999999997,3.65,56.5,7.5,1.72,3331488.0,lost,2:0,2026-09-25,3-6 6-7,9,won,
+2026-09-24,,Ruslan Tiukaev,Michele Mecarelli,Ruslan Tiukaev,Michele Mecarelli,15.199999999999996,2.22,56.3,10.5,1.6,3331754.0,lost,2:1,2026-09-25,6-4 2-6 6-7,14,won,
+2026-09-24,,Alec Deckers,Jake Fellows,Jake Fellows,Alec Deckers,34.2,4.1,56.3,7.5,1.52,3331622.0,lost,2:0,2026-09-25,4-6 4-6,8,won,
+2026-09-24,,Izan Almazan Valiente,Maxim Mrva,Izan Almazan Valiente,Maxim Mrva,17.5,2.42,55.9,9.5,1.58,3331012.0,won,2:1,2026-09-25,7-5 0-6 6-2,13,won,
+2026-09-24,,Kayla Day,Evialina Laskevich,Evialina Laskevich,Kayla Day,36.49999999999999,4.65,55.9,6.5,1.58,3332048.0,lost,2:0,2026-09-25,2-6 2-6,4,lost,
+2026-09-24,,Julita Saner,Arina Gamretkaia,Arina Gamretkaia,Julita Saner,33.00000000000001,4.0,55.6,6.5,1.61,3331950.0,lost,2:0,2026-09-25,6-7 2-6,8,won,
+2026-09-24,,Angelina Voloshchuk,Harmony Tan,Angelina Voloshchuk,Harmony Tan,19.199999999999996,2.57,55.3,9.5,1.62,3331076.0,won,2:1,2026-09-25,6-1 1-6 6-0,13,won,
+2026-09-24,,Sabrina Dias,Paola Lopez,Sabrina Dias,Paola Lopez,21.5,2.7,55.2,9.5,1.72,3331402.0,lost,2:0,2026-09-25,1-6 0-6,1,lost,
+2026-09-25,,Ana Sofia Sanchez,Astra Sharma,Ana Sofia Sanchez,Astra Sharma,21.099999999999994,2.05,65.8,10.5,1.51,3332488.0,lost,2:0,2026-09-26,4-6 2-6,6,lost,
+2026-09-25,,Liam Branger,Etienne Donnet,Liam Branger,Etienne Donnet,20.800000000000004,2.32,60.1,10.5,1.64,3332278.0,lost,2:1,2026-09-26,7-5 3-6 6-7,16,won,
+2026-09-25,,Calvin Hemery,Carlos Taberner,Calvin Hemery,Carlos Taberner,18.4,2.35,58.1,10.5,1.55,3331810.0,lost,2:1,2026-09-26,6-1 5-7 4-6,15,won,
+2026-09-25,,Karol Filar,Oscar Brown,Oscar Brown,Karol Filar,16.799999999999997,2.22,57.9,10.5,1.59,3332432.0,won,2:0,2026-09-26,6-1 6-4,12,won,
+2026-09-25,,Murphy Cassone,Daniel Masur,Daniel Masur,Murphy Cassone,18.5,2.45,56.5,10.5,1.56,3332276.0,lost,2:1,2026-09-26,7-4 6-7 4-6,17,won,
+2026-09-25,,Jonas Gundacker,Lukas Pokorny,Jonas Gundacker,Lukas Pokorny,31.2,3.6,56.4,7.5,1.59,3331600.0,lost,2:0,2026-09-26,4-6 4-6,8,won,
+2026-09-25,,Flynn Thomas,Theo Herrmann,Theo Herrmann,Flynn Thomas,22.10000000000001,2.67,56.2,9.5,1.67,3332378.0,lost,2:1,2026-09-26,3-6 7-5 5-7,15,won,
+2026-09-26,,Oliver Bonding,Gabe Avram,Gabe Avram,Oliver Bonding,46.9,5.25,64.1,5.5,1.51,3332828.0,lost,2:0,2026-09-27,5-7 1-6,6,won,
+2026-09-26,,Rudolf Molleker,Sebastian Dominko,Sebastian Dominko,Rudolf Molleker,16.799999999999997,1.97,63.3,11.5,1.47,3332574.0,won,2:0,2026-09-27,7-6 6-2,13,won,
+2026-09-26,,Maria Golovina,Victoria Milovanova,Victoria Milovanova,Maria Golovina,15.199999999999996,2.22,56.3,10.5,1.63,3332642.0,lost,2:1,2026-09-27,7-5 4-6 6-7,17,won,
+2026-09-27,,Fiona Crawley,Lois Boisson,Fiona Crawley,Lois Boisson,26.199999999999996,2.45,63.4,10.5,1.71,3333000.0,won,2:1,2026-09-28,2-6 6-3 7-5,15,won,
+2026-09-27,,Mirjana Jovanovic,Natalia Siedliska,Mirjana Jovanovic,Natalia Siedliska,26.800000000000004,3.2,55.2,7.5,1.6,3333072.0,lost,2:0,2026-09-28,4-6 2-6,6,lost,
+2026-09-28,,Franco Agamenone,John Sperle,John Sperle,Franco Agamenone,18.9,2.4,56.9,10.5,1.63,3334750.0,won,2:1,2026-09-29,6-2 1-6 7-6,14,won,
+2026-09-28,,Felipe Meligeni Alves,Carlos Maria Zarate,Carlos Maria Zarate,Felipe Meligeni Alves,24.89999999999999,2.9,56.8,9.5,1.66,3333944.0,lost,2:0,2026-09-29,4-6 2-6,6,lost,
+2026-09-28,,Valentino Grippo,Giannicola Misasi,Valentino Grippo,Giannicola Misasi,33.9,4.0,56.5,6.5,1.55,3334550.0,lost,2:0,2026-09-29,3-6 0-6,3,lost,
+2026-09-29,,Lucia Bronzetti,Lois Boisson,Lucia Bronzetti,Lois Boisson,21.500000000000007,2.17,64.4,9.5,1.49,3334930.0,lost,2:0,2026-10-01,1-6 2-6,3,lost,
+2026-09-29,,Hugo Grenier,Carl Emil Overbeck,Carl Emil Overbeck,Hugo Grenier,16.599999999999994,2.0,63.3,10.5,1.41,3334910.0,lost,2:0,2026-10-01,4-6 2-6,6,lost,
+2026-09-29,,Melih Anavatan,Mae Malige,Melih Anavatan,Mae Malige,35.1,3.7,59.6,7.5,1.64,3335616.0,won,2:0,2026-10-01,7-5 7-5,14,won,
+2026-09-29,,Lola Radivojevic,Melisa Ercan,Melisa Ercan,Lola Radivojevic,38.1,4.4,59.1,5.5,1.41,3334528.0,won,2:0,2026-10-01,6-2 6-2,12,won,
+2026-09-29,,Gianluca Cadenasso,Benito Sanchez Martinez,Benito Sanchez Martinez,Gianluca Cadenasso,21.5,2.5,58.8,9.5,1.58,3333584.0,lost,2:0,2026-10-01,3-6 1-6,4,lost,
+2026-09-29,,Astrid Wanja Brune Olsen,Sophia Ksandinov,Sophia Ksandinov,Astrid Wanja Brune Olsen,21.6,2.47,58.6,10.5,1.75,3335824.0,lost,2:0,2026-10-01,6-7 2-6,8,lost,
+2026-09-29,,Max Wiskandt,Pierluigi Basile,Max Wiskandt,Pierluigi Basile,18.800000000000004,2.4,57.6,9.5,1.53,3335914.0,lost,2:1,2026-10-01,7-6 6-7 3-6,16,won,
+2026-09-29,,Teodora Kostovic,Berfu Cengiz,Berfu Cengiz,Teodora Kostovic,21.4,2.57,57.5,9.5,1.64,3334522.0,lost,1:0,2026-10-01,1-6 0-0,1,void,
+2026-09-29,,Zijun Jiang,Gaeul Jang,Zijun Jiang,Gaeul Jang,17.300000000000004,2.37,55.7,10.5,1.7,3335370.0,won,2:0,2026-10-01,6-3 6-0,12,won,
+2026-09-29,,Elsa Jacquemot,Vivian Wolff,Vivian Wolff,Elsa Jacquemot,25.799999999999997,3.15,55.2,7.5,1.51,3335166.0,lost,2:0,2026-10-01,3-6 4-6,7,lost,
+2026-09-30,,Lois Boisson,Martyna Kubka,Martyna Kubka,Lois Boisson,32.39999999999999,3.0,63.3,8.5,1.65,3336848.0,lost,2:0,2026-10-01,3-6 2-6,5,lost,
+2026-09-30,,Nicola Rispoli,Saba Purtseladze,Nicola Rispoli,Saba Purtseladze,16.9,2.07,61.1,10.5,1.52,3336774.0,won,2:1,2026-10-01,4-6 6-1 6-3,16,won,
+2026-09-30,,Thanaphat Boosarawongse,Andreja Petrovic,Thanaphat Boosarawongse,Andreja Petrovic,20.9,2.52,57.1,10.5,1.74,3336062.0,won,1:0,2026-10-01,6-1 2-0,8,void,
+2026-09-30,,Kristina Novak,Meritxell Teixido Garcia,Meritxell Teixido Garcia,Kristina Novak,30.199999999999996,3.4,56.9,7.5,1.65,3336746.0,lost,2:0,2026-10-01,5-7 1-6,6,lost,
+2026-09-30,,Manon Leonard,Clara Vlasselaer,Clara Vlasselaer,Manon Leonard,28.900000000000006,3.25,56.7,7.5,1.61,3336970.0,lost,2:0,2026-10-02,2-6 6-7,8,won,
+2026-09-30,,Shintaro Imai,Zane Stevens,Zane Stevens,Shintaro Imai,33.2,4.0,55.8,7.5,1.73,3335158.0,lost,2:0,2026-10-01,4-6 2-6,6,lost,
+2026-09-30,,Alexandre Aubriot,Filip Krolo,Filip Krolo,Alexandre Aubriot,29.200000000000003,3.45,55.5,7.5,1.6,3335642.0,won,2:0,2026-10-01,6-1 6-4,12,won,
+2026-09-30,,Gabi Adrian Boitan,Vlad Cristian Breazu,Vlad Cristian Breazu,Gabi Adrian Boitan,19.6,2.55,55.4,10.5,1.75,3335686.0,lost,2:0,2026-10-01,1-6 4-6,5,lost,
+2026-10-01,,Juncheng Shang,Sebastian Baez,Sebastian Baez,Juncheng Shang,26.4,2.17,69.9,10.5,1.49,3335230.0,lost,2:1,2026-10-02,7-5 3-6 5-7,15,won,
+2026-10-01,,Scott Jones,Shintaro Imai,Scott Jones,Shintaro Imai,22.5,2.22,63.6,10.5,1.59,3337472.0,won,2:0,2026-10-02,6-1 6-2,12,won,
+2026-10-01,,Linda Klimovicova,Alicia Dudeney,Alicia Dudeney,Linda Klimovicova,26.9,2.52,63.1,10.5,1.75,3337785.0,won,2:1,2026-10-02,3-6 6-3 6-2,15,won,
+2026-10-01,,Snir Morag,Louis Larue,Snir Morag,Louis Larue,28.299999999999997,2.75,61.4,9.5,1.73,3337494.0,lost,2:0,2026-10-02,3-6 3-6,6,lost,
+2026-10-01,,Micah Braswell,Hugo Coquelin,Hugo Coquelin,Micah Braswell,29.0,2.82,61.2,9.5,1.76,3337737.0,won,2:0,2026-10-02,6-4 6-0,12,won,
+2026-10-01,,Eszter Meri,Astra Sharma,Eszter Meri,Astra Sharma,34.8,3.45,61.1,7.5,1.67,3337873.0,lost,2:1,2026-10-02,3-6 6-1 1-6,10,won,
+2026-10-01,,Goncalo Marques,David Jorda Sanchis,Goncalo Marques,David Jorda Sanchis,15.300000000000004,2.12,59.2,10.5,1.45,3336730.0,lost,2:0,2026-10-02,4-6 5-7,9,lost,
+2026-10-01,,Jeffrey V.D. Schulenburg,Michel Hopp,Michel Hopp,Jeffrey V.D. Schulenburg,26.1,2.85,58.1,9.5,1.75,3337597.0,lost,2:0,2026-10-02,4-6 4-6,8,lost,
+2026-10-01,,Inaki Monte De La Torre,Jacob Fearnley,Inaki Monte De La Torre,Jacob Fearnley,29.0,3.25,57.4,7.5,1.55,3337735.0,void,,2026-10-09,,,void,
+2026-10-01,,Max Sheldon,Olaf Pieczkowski,Max Sheldon,Olaf Pieczkowski,19.799999999999997,2.42,57.4,10.5,1.7,3337883.0,lost,2:1,2026-10-02,3-6 7-5 2-6,12,won,
+2026-10-01,,Jonah Braswell,Jordan Lee,Jonah Braswell,Jordan Lee,32.8,3.75,56.9,7.5,1.74,3337841.0,won,2:0,2026-10-02,6-0 7-6,13,won,
+2026-10-01,,Abedallah Shelbayh,Daniil Ostapenkov,Daniil Ostapenkov,Abedallah Shelbayh,26.39999999999999,3.05,56.8,8.5,1.55,3336980.0,lost,2:0,2026-10-02,1-6 5-7,6,lost,
+2026-10-01,,Manon Leonard,Clara Vlasselaer,Clara Vlasselaer,Manon Leonard,24.200000000000003,2.8,56.7,9.5,1.76,3336970.0,lost,2:0,2026-10-02,2-6 6-7,8,lost,
+2026-10-01,,Eva Lys,Xinran Sun,Xinran Sun,Eva Lys,23.699999999999996,2.85,56.6,8.5,1.6,3335264.0,won,1:0,2026-10-02,6-1 3-0,9,void,
+2026-10-01,,Aryan Shah,Evan Bynoe,Evan Bynoe,Aryan Shah,29.6,3.45,55.9,7.5,1.57,3337795.0,lost,2:1,2026-10-02,2-6 6-2 3-6,11,won,
+2026-10-01,,Yuka Matsumoto,Jessica Hinojosa Gomez,Yuka Matsumoto,Jessica Hinojosa Gomez,22.6,2.72,55.9,9.5,1.75,3337697.0,lost,2:0,2026-10-02,1-6 2-6,3,lost,
+2026-10-01,,Andrea Lola Popovic,Antonina Sushkova,Andrea Lola Popovic,Antonina Sushkova,31.999999999999996,3.8,55.8,7.5,1.7,3337807.0,lost,2:0,2026-10-02,1-6 0-6,1,lost,
+2026-10-02,,Charlotte Van Zonneveld,Daria Zelinskaya,Charlotte Van Zonneveld,Daria Zelinskaya,20.9,2.2,62.5,10.5,1.61,3338167.0,lost,1:0,2026-10-03,1-6 1-4,2,void,
+2026-10-02,,Astra Sharma,Ashley Lahey,Ashley Lahey,Astra Sharma,26.199999999999996,2.62,60.9,9.5,1.68,3338385.0,lost,2:1,2026-10-03,6-2 0-6 2-6,8,lost,
+2026-10-02,,Manuel Plunger,Benjamin Lock,Benjamin Lock,Manuel Plunger,15.300000000000004,2.02,60.7,10.5,1.5,3338171.0,won,2:0,2026-10-03,6-4 6-4,12,won,
+2026-10-02,,Yshai Oliel,Florent Bax,Yshai Oliel,Florent Bax,30.4,3.05,60.3,8.5,1.66,3338175.0,lost,2:0,2026-10-03,3-6 1-6,4,lost,
+2026-10-02,,Hugo Coquelin,Olaf Pieczkowski,Hugo Coquelin,Olaf Pieczkowski,30.200000000000003,3.2,58.6,8.5,1.73,3338375.0,won,1:0,2026-10-03,5-6,5,void,
+2026-10-02,,Alicia Dudeney,Katie Swan,Alicia Dudeney,Katie Swan,25.900000000000002,2.85,57.7,8.5,1.66,3338357.0,lost,2:0,2026-10-03,5-7 4-6,9,won,
+2026-10-02,,Ashton Bowers,Chiara Di Genova,Chiara Di Genova,Ashton Bowers,35.800000000000004,4.15,57.6,6.5,1.61,3338329.0,lost,2:0,2026-10-03,1-6 3-6,4,lost,
+2026-10-02,,Tatjana Maria,Malaika Rapolu,Malaika Rapolu,Tatjana Maria,28.5,3.3,56.0,8.5,1.68,3338411.0,lost,2:0,2026-10-03,0-6 3-6,3,lost,
+2026-10-02,,Tessa Johanna Brockmann,Salma Djoubri,Salma Djoubri,Tessa Johanna Brockmann,28.4,3.35,55.6,7.5,1.62,3338331.0,won,2:0,2026-10-03,6-4 6-3,12,won,
+2026-10-03,,Lisa Pigato,Katie Swan,Lisa Pigato,Katie Swan,21.200000000000003,2.35,60.2,10.5,1.68,3338647.0,won,1:0,2026-10-04,4-0,4,void,
+2026-10-03,,Max Houkes,Benjamin Lock,Benjamin Lock,Max Houkes,40.9,5.6,56.9,6.5,1.68,3338599.0,won,2:1,2026-10-04,7-6 3-6 6-2,16,won,
+2026-10-03,,Jessica Bouzas Maneiro,Aliona Falei,Aliona Falei,Jessica Bouzas Maneiro,31.599999999999994,3.7,56.5,6.5,1.51,3338509.0,lost,2:0,2026-10-04,3-6 3-6,6,lost,
+2026-10-03,,Marta Soriano Santiago,Sophia Biolay,Marta Soriano Santiago,Sophia Biolay,19.6,2.55,55.4,9.5,1.67,3338573.0,lost,2:0,2026-10-04,4-6 0-6,4,lost,
+2026-10-03,,Robert Strombachs,Paul Jubb,Robert Strombachs,Paul Jubb,19.6,2.57,55.0,10.5,1.76,3338533.0,lost,2:0,2026-10-04,2-6 6-7,8,lost,
+2026-10-04,,Jessica Bouzas Maneiro,Alexandra Shubladze,Alexandra Shubladze,Jessica Bouzas Maneiro,21.5,2.37,60.7,9.5,1.56,3338903.0,won,2:0,2026-10-05,6-3 6-2,12,won,
+2026-10-04,,Benjamin Lock,Calvin Hemery,Benjamin Lock,Calvin Hemery,36.1,3.75,60.2,8.5,1.6,3339003.0,lost,2:0,2026-10-05,3-6 3-6,6,lost,
+2026-10-04,,Henrique Rocha,Inaki Monte De La Torre,Inaki Monte De La Torre,Henrique Rocha,24.699999999999996,2.67,59.4,9.5,1.65,3339625.0,pending,,,,,,
+2026-10-04,,Sinja Kraus,Dayana Yastremska,Sinja Kraus,Dayana Yastremska,28.8,3.1,59.1,7.5,1.54,3338491.0,won,2:0,2026-10-05,6-1 6-4,12,won,
+2026-10-04,,Rose Marie Nijkamp,Astra Sharma,Rose Marie Nijkamp,Astra Sharma,36.199999999999996,4.0,58.8,6.5,1.57,3339691.0,lost,2:0,2026-10-05,3-6 1-6,4,lost,
+2026-10-04,,Rinko Matsuda,Sijia Wei,Rinko Matsuda,Sijia Wei,27.9,3.25,55.8,8.5,1.76,3338889.0,lost,2:0,2026-10-05,2-6 2-6,4,lost,
+2026-10-05,,Lara Schmidt,Viktoria Veleva,Viktoria Veleva,Lara Schmidt,32.1,2.35,70.9,10.5,1.68,3340599.0,lost,2:0,2026-10-06,2-6 4-6,6,lost,
+2026-10-05,,Patrick Schoen,Filip Misolic,Patrick Schoen,Filip Misolic,31.0,2.32,70.3,10.5,1.62,3340417.0,won,2:0,2026-10-06,6-1 6-2,12,won,
+2026-10-06,,Etienne Niyigena,Claude Ishimwe,Claude Ishimwe,Etienne Niyigena,33.099999999999994,3.0,63.3,8.5,1.7,3341679.0,won,2:0,2026-10-07,6-1 6-4,12,won,
+2026-10-06,,Yiru Chen,Meiling Wang,Yiru Chen,Meiling Wang,43.1,4.55,63.0,6.5,1.69,3341461.0,won,1:0,2026-10-07,7-6 3-2,10,void,
+2026-10-06,,Pierre Antoine Tailleu,Mae Malige,Pierre Antoine Tailleu,Mae Malige,35.7,3.5,61.5,7.5,1.59,3342211.0,lost,2:1,2026-10-07,7-5 5-7 3-6,15,won,
+2026-10-06,,Barakat Oyinlomo Quadre,Anastasia Bertacchi,Barakat Oyinlomo Quadre,Anastasia Bertacchi,16.4,2.05,61.1,10.5,1.54,3341493.0,lost,2:0,2026-10-07,6-7 2-6,8,lost,
+2026-10-06,,Quadre Barakat,Anastasia Bertacchi,Quadre Barakat,Anastasia Bertacchi,19.0,2.17,61.1,10.5,1.59,3341493.0,lost,2:0,2026-10-07,6-7 2-6,8,lost,
+2026-10-06,,Antonia Ruzic,Alicia Dudeney,Alicia Dudeney,Antonia Ruzic,28.999999999999993,3.0,59.9,7.5,1.53,3340387.0,won,2:1,2026-10-07,3-6 6-3 6-4,15,won,
+2026-10-06,,Guido Ivan Justo,Francisco Comesana,Guido Ivan Justo,Francisco Comesana,23.300000000000004,2.6,59.1,9.5,1.63,3340035.0,won,2:1,2026-10-07,6-7 7-6 6-1,19,won,
+2026-10-06,,Cristina Diaz Adrover,Lorena Solar Donoso,Lorena Solar Donoso,Cristina Diaz Adrover,24.400000000000006,2.67,58.5,9.5,1.72,3341881.0,lost,2:0,2026-10-07,2-6 1-6,3,lost,
+2026-10-06,,Eva Bennemann,Yasmin Ezzat,Yasmin Ezzat,Eva Bennemann,42.7,6.3,57.0,5.5,1.59,3341845.0,lost,2:0,2026-10-07,1-6 5-7,6,won,
+2026-10-06,,Jessica Hinojosa Gomez,Anna Kmiecik,Anna Kmiecik,Jessica Hinojosa Gomez,19.699999999999996,2.52,55.9,10.5,1.76,3341495.0,lost,2:0,2026-10-07,5-7 4-6,9,lost,
+2026-10-06,,Emiliana Arango,Ayla Aksu,Ayla Aksu,Emiliana Arango,21.9,2.75,55.6,8.5,1.59,3340389.0,won,2:0,2026-10-07,6-3 6-2,12,won,
+2026-10-06,,Sara Cakarevic,Carolina Bohrer Martins,Carolina Bohrer Martins,Sara Cakarevic,21.299999999999997,2.65,55.5,9.5,1.72,3341855.0,lost,2:0,2026-10-07,3-6 0-6,3,lost,
+2026-10-07,,Mingge Xu,Aspen Schuman,Aspen Schuman,Mingge Xu,41.0,3.4,67.7,7.5,1.65,3342291.0,won,2:0,2026-10-08,6-3 6-0,12,won,
+2026-10-07,,Ksenia Efremova,Sophia Biolay,Sophia Biolay,Ksenia Efremova,33.0,2.7,66.7,9.5,1.73,3341489.0,won,2:1,2026-10-08,6-4 2-6 7-5,15,won,
+2026-10-07,,Nikolas Baker,Stefan Vujic,Nikolas Baker,Stefan Vujic,36.8,3.2,65.1,8.5,1.62,3342969.0,lost,2:0,2026-10-08,6-7 2-6,8,lost,
+2026-10-07,,Gabriele Pennaforti,Ruben Hartig,Ruben Hartig,Gabriele Pennaforti,37.3,3.35,64.3,7.5,1.6,3342999.0,lost,2:0,2026-10-08,3-6 2-6,5,lost,
+2026-10-07,,Derek Pham,Scott Jones,Scott Jones,Derek Pham,18.0,2.12,61.2,10.5,1.54,3341335.0,lost,2:0,2026-10-08,1-6 6-7,7,lost,
+2026-10-07,,Noah Schachter,Allan Gatoto,Allan Gatoto,Noah Schachter,24.89999999999999,2.57,60.3,10.5,1.76,3341663.0,lost,2:1,2026-10-08,6-3 3-6 4-6,13,won,
+2026-10-07,,Holger Rune,Daniel Altmaier,Daniel Altmaier,Holger Rune,25.799999999999997,2.75,60.0,9.5,1.52,3341221.0,won,2:1,2026-10-08,1-6 7-6 6-4,14,won,
+2026-10-07,,Laia Petretic,Maria Martinez Vaquero,Laia Petretic,Maria Martinez Vaquero,32.9,3.35,59.9,7.5,1.64,3342263.0,lost,2:1,2026-10-08,5-7 6-2 1-6,12,won,
+2026-10-07,,Pavlos Tsitsipas,Nicholas Campbell,Nicholas Campbell,Pavlos Tsitsipas,17.4,2.17,59.5,10.5,1.56,3342983.0,lost,2:1,2026-10-08,7-5 5-7 6-7,18,won,
+2026-10-07,,Nick Hardt,Felipe Meligeni Alves,Nick Hardt,Felipe Meligeni Alves,21.799999999999997,2.5,59.0,9.5,1.56,3343169.0,lost,2:0,2026-10-08,3-6 3-6,6,lost,
+2026-10-07,,Josy Daems,Miriam Bianca Bulgaru,Josy Daems,Miriam Bianca Bulgaru,21.4,2.42,59.0,10.5,1.71,3342799.0,lost,2:1,2026-10-08,6-2 2-6 3-6,11,won,
+2026-10-07,,Aleksandr Braynin,Hugo Cardinaud,Hugo Cardinaud,Aleksandr Braynin,38.2,4.4,58.8,6.5,1.55,3343159.0,lost,2:0,2026-10-08,4-6 2-6,6,lost,
+2026-10-07,,Joshua Charlton,Arjun Mehrotra,Arjun Mehrotra,Joshua Charlton,30.700000000000003,3.3,58.2,8.5,1.71,3342971.0,lost,2:0,2026-10-08,1-6 2-6,3,lost,
+2026-10-07,,Thomas Kostka,Marcus Walters,Thomas Kostka,Marcus Walters,37.8,4.5,57.9,6.5,1.64,3342981.0,lost,2:0,2026-10-08,6-7 2-6,8,won,
+2026-10-07,,Valeriia Artemeva,Lujza Zimenova,Lujza Zimenova,Valeriia Artemeva,32.199999999999996,3.6,57.4,7.5,1.71,3343077.0,lost,2:0,2026-10-08,3-6 0-6,3,lost,
+2026-10-07,,Tsung-Hao Huang,Ko Suzuki,Ko Suzuki,Tsung-Hao Huang,29.799999999999997,3.3,57.3,8.5,1.75,3342785.0,won,2:0,2026-10-08,6-3 6-3,12,won,
+2026-10-07,,Vito Dell'Elba,Viktor Frydrych,Vito Dell'Elba,Viktor Frydrych,21.9,2.6,56.9,10.5,1.77,3343139.0,pending,,,,,,
+2026-10-07,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,19.0,2.42,56.6,10.5,1.7,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost,
+2026-10-07,,Evangelos Kypriotis,Leyton Rivera,Evangelos Kypriotis,Leyton Rivera,16.200000000000003,2.32,55.5,10.5,1.65,3341627.0,won,1:0,2026-10-08,4-6 6-2 2-0,12,void,
+2026-10-07,,Yassine Smiej,Leandro Zgraggen,Leandro Zgraggen,Yassine Smiej,21.599999999999994,2.7,55.3,9.5,1.72,3343137.0,lost,2:1,2026-10-08,6-7 6-1 6-7,18,won,
+2026-10-08,,Lana Virc,Chiara Fornasieri,Chiara Fornasieri,Lana Virc,19.800000000000004,2.0,65.6,10.5,1.51,3343779.0,won,2:1,2026-10-09,7-6 3-6 6-3,16,won,
+2026-10-08,,Joshua Charlton,Sam Ryan Ziegann,Sam Ryan Ziegann,Joshua Charlton,23.700000000000003,2.6,58.7,10.5,1.7,3343559.0,won,2:0,2026-10-09,7-6 6-4,13,won,
+2026-10-08,,Pavel Kotov,Tallon Griekspoor,Pavel Kotov,Tallon Griekspoor,22.5,2.65,57.9,10.5,1.58,3342817.0,won,2:0,2026-10-09,6-4 7-6,13,won,
+2026-10-08,,Noah Boutleux,Guillaume Dalmasso,Noah Boutleux,Guillaume Dalmasso,22.299999999999997,2.55,57.9,10.5,1.71,3343709.0,lost,2:1,2026-10-09,6-4 4-6 4-6,14,won,
+2026-10-08,,Baotong Xu,Tian Jialin,Baotong Xu,Tian Jialin,48.0,10.0,57.2,3.5,1.37,3343123.0,lost,2:0,2026-10-09,1-6 0-6,1,lost,
+2026-10-08,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,17.300000000000004,2.32,56.6,10.5,1.66,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost,
+2026-10-08,,Bernard Tomic,Matteo Arnaldi,Bernard Tomic,Matteo Arnaldi,21.200000000000003,2.7,56.0,9.5,1.51,3342825.0,lost,2:0,2026-10-09,3-6 1-6,4,lost,
+2026-10-08,,Daniel Verbeek,Ziga Sesko,Daniel Verbeek,Ziga Sesko,34.099999999999994,4.15,55.8,6.5,1.58,3343181.0,lost,2:0,2026-10-09,2-6 4-6,6,lost,
+2026-10-08,,Yiru Chen,Anna Yang,Yiru Chen,Anna Yang,21.599999999999994,2.7,55.3,9.5,1.75,3343385.0,won,2:1,2026-10-09,1-6 7-5 6-2,14,won,
+2026-10-08,,Matisse Bobichon,Leonid Sheyngezikht,Leonid Sheyngezikht,Matisse Bobichon,33.10000000000001,4.1,55.2,6.5,1.52,3343627.0,lost,2:0,2026-10-09,0-6 0-6,0,lost,
+2026-10-08,,Sergio Luis Hernandez Ramirez,Tristan Mccormick,Sergio Luis Hernandez Ramirez,Tristan Mccormick,28.1,3.35,55.1,7.5,1.6,3343909.0,lost,2:1,2026-10-09,4-6 6-3 4-6,14,won,
+2026-10-09,,Vlad Cristian Breazu,George Lazarov,Vlad Cristian Breazu,George Lazarov,19.700000000000003,2.2,61.2,10.5,1.6,3344235.0,pending,,,,,,
+2026-10-09,,Aliona Falei,Rebecca Sramkova,Aliona Falei,Rebecca Sramkova,18.0,2.3,58.6,9.5,1.54,3344113.0,pending,,,,,,
+2026-10-09,,Keisuke Saitoh,Akira Santillan,Keisuke Saitoh,Akira Santillan,16.9,2.25,58.3,10.5,1.53,3343389.0,pending,,,,,,
+2026-10-09,,Kris Van Wyk,Mathys Picard,Mathys Picard,Kris Van Wyk,17.199999999999996,2.25,57.8,10.5,1.61,3344219.0,pending,,,,,,
+2026-10-09,,Lujza Beviz,Brenda Fruhvirtova,Lujza Beviz,Brenda Fruhvirtova,34.0,3.85,57.5,6.5,1.58,3344339.0,pending,,,,,,
+2026-10-09,,Enrico Dalla Valle,Francesco Passaro,Enrico Dalla Valle,Francesco Passaro,17.9,2.27,58.9,10.5,1.51,3344469.0,pending,,,,,,
+2026-10-09,,Nicolas Jara-Lozano,Tomas Farjat,Tomas Farjat,Nicolas Jara-Lozano,28.6,2.1,72.1,10.5,1.54,3344583,pending,,,,,,
+2026-10-09,,I Wen Wan,Ena Shibahara,I Wen Wan,Ena Shibahara,40.300000000000004,4.75,59.2,6.5,1.71,3344519,pending,,,,,,cota > 1.70
+2026-10-09,,Vesa Gjinaj,Lila Grace Bachour,Vesa Gjinaj,Lila Grace Bachour,37.1,4.6,56.7,6.5,1.7,3342531,pending,,,,,,

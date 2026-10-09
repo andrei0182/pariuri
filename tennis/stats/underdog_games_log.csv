@@ -5,7 +5,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-23,,David Petrofsky,Matyas Cerny,David Petrofsky,Matyas Cerny,16.0,ITF,5.5,2.57,0.346,0.389,-0.112,4,1.0,False,3331602.0,lost,2:0,2026-09-26,4-6 4-6,8,won
 2026-09-23,,Martin Riu,Aidan McHugh,Martin Riu,Aidan McHugh,12.0,ITF,4.5,1.53,0.46,0.654,-0.296,3,0.667,False,3330158.0,lost,2:0,2026-09-24,0-6 2-6,2,lost
 2026-09-23,,Martin Riu,Aidan McHugh,Martin Riu,Aidan McHugh,12.0,ITF,5.5,1.82,0.346,0.549,-0.371,3,0.667,False,3330158.0,lost,2:0,2026-09-24,0-6 2-6,2,lost
-2026-09-23,,Inaki Monte De La Torre,Benjamin Thomas George,Benjamin Thomas George,Inaki Monte De La Torre,6.9,ITF,5.5,1.66,0.528,0.602,-0.124,15,0.933,False,3330728.0,pending,,,,,
+2026-09-23,,Inaki Monte De La Torre,Benjamin Thomas George,Benjamin Thomas George,Inaki Monte De La Torre,6.9,ITF,5.5,1.66,0.528,0.602,-0.124,15,0.933,False,3330728.0,void,,2026-10-09,,,void
 2026-09-23,,Kuan Shou Chen,Shaoyun Liu,Shaoyun Liu,Kuan Shou Chen,6.9,ITF,5.5,1.6,0.528,0.625,-0.155,16,0.875,False,3331422.0,lost,1:0,2026-09-24,4-6 4-6,8,won
 2026-09-23,,Marwan Ehab,Paul Jubb,Marwan Ehab,Paul Jubb,12.0,ITF,3.5,1.4,0.603,0.714,-0.156,5,0.8,False,3331656.0,lost,2:0,2026-09-25,3-6 3-6,6,won
 2026-09-23,,Marwan Ehab,Paul Jubb,Marwan Ehab,Paul Jubb,12.0,ITF,4.5,1.72,0.46,0.581,-0.208,5,0.8,False,3331656.0,lost,2:0,2026-09-25,3-6 3-6,6,won
@@ -113,10 +113,10 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-25,,Lilian Marmousez,Luka Talan Lopatic,Luka Talan Lopatic,Lilian Marmousez,5.65,ITF,5.5,1.58,0.527,0.633,-0.168,14,0.857,False,3332256.0,lost,2:0,2026-09-26,4-6 1-6,5,lost
 2026-09-25,,Mateus Alves,Joao Victor Couto Loureiro,Joao Victor Couto Loureiro,Mateus Alves,7.0,ITF,5.5,1.58,0.345,0.633,-0.456,16,0.875,False,3332486.0,lost,2:0,2026-09-26,6-7 4-6,10,won
 2026-09-25,,Tena Lukas,Alisa Oktiabreva,Tena Lukas,Alisa Oktiabreva,4.85,ITF,5.5,1.5,0.619,0.667,-0.072,18,0.944,False,3332222.0,lost,1:0,2026-09-26,2-6 0-3,2,void
-2026-09-25,,Jennifer Rosa Dourado,Josefina Estevez,Jennifer Rosa Dourado,Josefina Estevez,5.0,ITF,5.5,1.51,0.527,0.662,-0.204,0,,False,,no_data,,2026-09-26,,,
-2026-09-25,,Henry Dornbusch,Karim AL-Amin,Henry Dornbusch,Karim AL-Amin,5.75,ITF,5.5,1.52,0.527,0.658,-0.199,9,0.778,False,3332416.0,pending,,,,,
-2026-09-25,,Naoki Nakagawa,Corban Crowther,Corban Crowther,Naoki Nakagawa,6.7,ITF,4.5,1.38,0.647,0.725,-0.107,0,,False,,no_data,,2026-09-26,,,
-2026-09-25,,Naoki Nakagawa,Corban Crowther,Corban Crowther,Naoki Nakagawa,6.7,ITF,5.5,1.69,0.527,0.592,-0.11,0,,False,,no_data,,2026-09-26,,,
+2026-09-25,,Jennifer Rosa Dourado,Josefina Estevez,Jennifer Rosa Dourado,Josefina Estevez,5.0,ITF,5.5,1.51,0.527,0.662,-0.204,0,,False,,void,,2026-10-09,,,void
+2026-09-25,,Henry Dornbusch,Karim AL-Amin,Henry Dornbusch,Karim AL-Amin,5.75,ITF,5.5,1.52,0.527,0.658,-0.199,9,0.778,False,3332416.0,void,,2026-10-09,,,void
+2026-09-25,,Naoki Nakagawa,Corban Crowther,Corban Crowther,Naoki Nakagawa,6.7,ITF,4.5,1.38,0.647,0.725,-0.107,0,,False,,void,,2026-10-09,,,void
+2026-09-25,,Naoki Nakagawa,Corban Crowther,Corban Crowther,Naoki Nakagawa,6.7,ITF,5.5,1.69,0.527,0.592,-0.11,0,,False,,void,,2026-10-09,,,void
 2026-09-25,,Charlotte Pikkaart,Natalia Siedliska,Charlotte Pikkaart,Natalia Siedliska,6.3,ITF,5.5,1.68,0.527,0.595,-0.115,20,0.8,False,3332420.0,lost,2:0,2026-09-26,2-6 4-6,6,won
 2026-09-25,,Anastasiya Kuparev,Didi Bredberg Canizares,Anastasiya Kuparev,Didi Bredberg Canizares,6.0,ITF,5.5,1.66,0.527,0.602,-0.125,28,0.679,False,3332428.0,lost,2:0,2026-09-26,6-7 6-7,12,won
 2026-09-25,,Leticia Romanova,Leah Luboldt,Leah Luboldt,Leticia Romanova,4.9,ITF,5.5,1.51,0.619,0.662,-0.066,7,0.857,False,3332418.0,lost,2:0,2026-09-26,2-6 3-6,5,lost
@@ -133,17 +133,17 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,2.5,1.37,0.737,0.73,0.009,14,0.643,False,3332846.0,won,1:0,2026-09-27,2-3,2,void
 2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,3.5,1.76,0.601,0.568,0.059,14,0.643,False,3332846.0,won,1:0,2026-09-27,2-3,2,void
 2026-09-26,,Astra Sharma,Paola Lopez,Paola Lopez,Astra Sharma,20.0,ITF,4.5,2.35,0.459,0.426,0.08,14,0.643,False,3332846.0,won,1:0,2026-09-27,2-3,2,void
-2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,3.5,1.4,0.601,0.714,-0.158,0,,False,,no_data,,2026-09-27,,,
-2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,4.5,1.72,0.459,0.581,-0.21,0,,False,,no_data,,2026-09-27,,,
-2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,5.5,2.15,0.345,0.465,-0.258,0,,False,,no_data,,2026-09-27,,,
+2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,3.5,1.4,0.601,0.714,-0.158,0,,False,,void,,2026-10-09,,,void
+2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,4.5,1.72,0.459,0.581,-0.21,0,,False,,void,,2026-10-09,,,void
+2026-09-26,,Nikola Breckova,Mirjana Jovanovic,Mirjana Jovanovic,Nikola Breckova,11.0,ITF,5.5,2.15,0.345,0.465,-0.258,0,,False,,void,,2026-10-09,,,void
 2026-09-26,,Julita Saner,Charlotte Pikkaart,Charlotte Pikkaart,Julita Saner,4.9,ITF,5.5,1.52,0.62,0.658,-0.057,20,0.8,False,3332744.0,won,2:1,2026-09-27,6-3 0-6 6-2,12,won
-2026-09-28,,Rigele Te,James Duckworth,Rigele Te,James Duckworth,6.5,ATP/WTA,5.5,1.31,0.726,0.763,-0.049,11,1.0,True,3334568.0,pending,,,,,
+2026-09-28,,Rigele Te,James Duckworth,Rigele Te,James Duckworth,6.5,ATP/WTA,5.5,1.31,0.726,0.763,-0.049,11,1.0,True,3334568.0,void,,2026-10-09,,,void
 2026-09-28,,Alessio Basile,Vano Losaberidze,Vano Losaberidze,Alessio Basile,7.1,ITF,5.5,1.66,0.346,0.602,-0.426,13,0.769,False,3334538.0,lost,2:0,2026-09-29,2-6 0-6,2,lost
 2026-09-28,,D.Nicolae Madaras,Francesco Ferrari,Francesco Ferrari,D.Nicolae Madaras,5.9,ITF,5.5,1.65,0.528,0.606,-0.129,18,0.778,False,3334542.0,lost,2:0,2026-09-29,4-6 2-6,6,won
 2026-09-28,,Kirill Kistanov,Yuga Tashiro,Kirill Kistanov,Yuga Tashiro,10.0,ITF,4.5,1.58,0.46,0.633,-0.273,4,1.0,False,3334104.0,lost,2:1,2026-09-29,2-6 6-3 1-6,9,won
 2026-09-28,,Kirill Kistanov,Yuga Tashiro,Kirill Kistanov,Yuga Tashiro,10.0,ITF,5.5,1.97,0.346,0.508,-0.319,4,1.0,False,3334104.0,lost,2:1,2026-09-29,2-6 6-3 1-6,9,won
 2026-09-28,,Seiya Nakanishi,Stefan Menichella,Seiya Nakanishi,Stefan Menichella,5.9,ITF,5.5,1.6,0.528,0.625,-0.156,8,0.75,False,3334564.0,won,2:0,2026-10-01,6-3 6-4,12,won
-2026-09-28,,Stefan Menichella,Kenta Kawada,Kenta Kawada,Stefan Menichella,6.4,ITF,5.5,1.61,0.528,0.621,-0.151,10,0.6,False,3334562.0,pending,,,,,
+2026-09-28,,Stefan Menichella,Kenta Kawada,Kenta Kawada,Stefan Menichella,6.4,ITF,5.5,1.61,0.528,0.621,-0.151,10,0.6,False,3334562.0,void,,2026-10-09,,,void
 2026-09-29,,Jiayi Wang,Zhuoxuan Bai,Jiayi Wang,Zhuoxuan Bai,4.2,ATP/WTA,5.5,1.35,0.69,0.741,-0.069,17,0.824,False,3335142.0,lost,2:0,2026-10-01,1-6 0-6,1,lost
 2026-09-29,,Adam Walton,Alexandr Binda,Alexandr Binda,Adam Walton,8.2,Challenger/125,5.5,1.46,0.436,0.685,-0.364,19,1.0,False,3335296.0,lost,2:0,2026-10-01,1-6 0-6,1,lost
 2026-09-29,,Mattia Bellucci,Keisuke Saitoh,Keisuke Saitoh,Mattia Bellucci,7.9,Challenger/125,5.5,1.63,0.436,0.613,-0.29,10,0.8,False,3335294.0,lost,2:0,2026-10-01,2-6 2-6,4,lost
@@ -173,7 +173,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-29,,Filip Cristian Jianu,Mihai Razvan Marinescu,Mihai Razvan Marinescu,Filip Cristian Jianu,8.3,ITF,5.5,1.97,0.345,0.508,-0.319,12,0.75,False,3335670.0,lost,1:0,2026-10-01,1-5,1,void
 2026-09-29,,Vladislav Melnic,Luca Stefan Prunescu Nita,Luca Stefan Prunescu Nita,Vladislav Melnic,6.1,ITF,5.5,1.63,0.528,0.613,-0.139,5,0.6,False,3335698.0,lost,2:0,2026-10-01,1-6 2-6,3,lost
 2026-09-29,,Oscar Brown,Pavel Skvortcov,Pavel Skvortcov,Oscar Brown,6.6,ITF,5.5,1.57,0.528,0.637,-0.171,3,1.0,False,3335592.0,lost,2:0,2026-10-01,4-6 1-6,5,lost
-2026-09-29,,Maria Andrienko,Felitsata Dorofeeva-Rybas,Maria Andrienko,Felitsata Dorofeeva-Rybas,5.75,ITF,5.5,1.61,0.528,0.621,-0.15,14,0.929,False,3335828.0,pending,,,,,
+2026-09-29,,Maria Andrienko,Felitsata Dorofeeva-Rybas,Maria Andrienko,Felitsata Dorofeeva-Rybas,5.75,ITF,5.5,1.61,0.528,0.621,-0.15,14,0.929,False,3335828.0,void,,2026-10-09,,,void
 2026-09-29,,Maria Malina Rosca,Sapfo Sakellaridi,Maria Malina Rosca,Sapfo Sakellaridi,18.0,ITF,3.5,1.6,0.602,0.625,-0.037,6,0.5,False,3335852.0,lost,2:0,2026-10-01,1-6 4-6,5,won
 2026-09-29,,Maria Malina Rosca,Sapfo Sakellaridi,Maria Malina Rosca,Sapfo Sakellaridi,18.0,ITF,4.5,2.05,0.46,0.488,-0.057,6,0.5,False,3335852.0,lost,2:0,2026-10-01,1-6 4-6,5,won
 2026-09-29,,Maria Malina Rosca,Sapfo Sakellaridi,Maria Malina Rosca,Sapfo Sakellaridi,18.0,ITF,5.5,2.72,0.345,0.368,-0.06,6,0.5,False,3335852.0,lost,2:0,2026-10-01,1-6 4-6,5,lost
@@ -199,7 +199,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-29,,Ha Eum Lee,Xiaowei Li,Xiaowei Li,Ha Eum Lee,9.9,ITF,4.5,1.65,0.46,0.606,-0.241,18,0.667,False,3335358.0,lost,2:0,2026-10-01,1-6 2-6,3,lost
 2026-09-29,,Ha Eum Lee,Xiaowei Li,Xiaowei Li,Ha Eum Lee,9.9,ITF,5.5,2.07,0.345,0.483,-0.285,18,0.667,False,3335358.0,lost,2:0,2026-10-01,1-6 2-6,3,lost
 2026-09-29,,Yuzuha Negishi,Meng-Yi Chen,Yuzuha Negishi,Meng-Yi Chen,6.1,ITF,5.5,1.66,0.528,0.602,-0.124,17,0.941,False,3335364.0,lost,2:1,2026-10-01,1-6 6-4 2-6,9,won
-2026-09-29,,Stefan Menichella,Kenta Kawada,Kenta Kawada,Stefan Menichella,6.4,ITF,5.5,1.7,0.528,0.588,-0.102,11,0.636,False,3334562.0,pending,,,,,
+2026-09-29,,Stefan Menichella,Kenta Kawada,Kenta Kawada,Stefan Menichella,6.4,ITF,5.5,1.7,0.528,0.588,-0.102,11,0.636,False,3334562.0,void,,2026-10-09,,,void
 2026-09-30,,Daria Snigur,Katarzyna Kawa,Katarzyna Kawa,Daria Snigur,5.9,ATP/WTA,4.5,1.34,0.785,0.746,0.052,16,0.812,False,3336644.0,lost,2:1,2026-10-01,6-3 4-6 5-7,15,won
 2026-09-30,,Daria Snigur,Katarzyna Kawa,Katarzyna Kawa,Daria Snigur,5.9,ATP/WTA,5.5,1.58,0.684,0.633,0.081,16,0.812,False,3336644.0,lost,2:1,2026-10-01,6-3 4-6 5-7,15,won
 2026-09-30,,Gianluca Cadenasso,Lorenzo Angelini,Lorenzo Angelini,Gianluca Cadenasso,4.45,Challenger/125,5.5,1.4,0.726,0.714,0.016,16,0.875,True,3336608.0,lost,2:1,2026-10-01,7-5 3-6 0-6,10,won
@@ -239,9 +239,9 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-30,,Rada Koleva,Viktoria Veleva,Rada Koleva,Viktoria Veleva,7.4,ITF,5.5,1.83,0.345,0.546,-0.368,1,1.0,False,3335834.0,lost,2:0,2026-10-01,0-6 2-6,2,lost
 2026-09-30,,Carolina Gasparini,Daria Maria Tudor,Daria Maria Tudor,Carolina Gasparini,8.2,ITF,4.5,1.56,0.46,0.641,-0.282,1,0.0,False,3335850.0,lost,2:0,2026-10-01,3-6 1-6,4,lost
 2026-09-30,,Carolina Gasparini,Daria Maria Tudor,Daria Maria Tudor,Carolina Gasparini,8.2,ITF,5.5,1.92,0.345,0.521,-0.337,1,0.0,False,3335850.0,lost,2:0,2026-10-01,3-6 1-6,4,lost
-2026-09-30,,Tara Wuerth,Nicole Gadient,Nicole Gadient,Tara Wuerth,12.0,ITF,3.5,1.44,0.602,0.694,-0.134,0,,False,,no_data,,2026-10-01,,,
-2026-09-30,,Tara Wuerth,Nicole Gadient,Nicole Gadient,Tara Wuerth,12.0,ITF,4.5,1.77,0.46,0.565,-0.186,0,,False,,no_data,,2026-10-01,,,
-2026-09-30,,Tara Wuerth,Nicole Gadient,Nicole Gadient,Tara Wuerth,12.0,ITF,5.5,2.27,0.345,0.441,-0.216,0,,False,,no_data,,2026-10-01,,,
+2026-09-30,,Tara Wuerth,Nicole Gadient,Nicole Gadient,Tara Wuerth,12.0,ITF,3.5,1.44,0.602,0.694,-0.134,0,,False,,void,,2026-10-09,,,void
+2026-09-30,,Tara Wuerth,Nicole Gadient,Nicole Gadient,Tara Wuerth,12.0,ITF,4.5,1.77,0.46,0.565,-0.186,0,,False,,void,,2026-10-09,,,void
+2026-09-30,,Tara Wuerth,Nicole Gadient,Nicole Gadient,Tara Wuerth,12.0,ITF,5.5,2.27,0.345,0.441,-0.216,0,,False,,void,,2026-10-09,,,void
 2026-09-30,,Carmen Lopez Martinez,Charo Esquiva Banuls,Carmen Lopez Martinez,Charo Esquiva Banuls,6.3,ITF,5.5,1.68,0.528,0.595,-0.113,9,0.667,False,3336742.0,lost,2:0,2026-10-01,3-6 3-6,6,won
 2026-09-30,,Lisa Pigato,Jasmijn Gimbrere,Jasmijn Gimbrere,Lisa Pigato,13.0,ITF,3.5,1.46,0.602,0.685,-0.122,15,0.867,False,3336164.0,lost,2:0,2026-10-01,1-6 1-6,2,lost
 2026-09-30,,Lisa Pigato,Jasmijn Gimbrere,Jasmijn Gimbrere,Lisa Pigato,13.0,ITF,4.5,1.82,0.46,0.549,-0.163,15,0.867,False,3336164.0,lost,2:0,2026-10-01,1-6 1-6,2,lost
@@ -254,7 +254,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-09-30,,Zoe Doldan,Luna Maria Cinalli,Zoe Doldan,Luna Maria Cinalli,11.0,ITF,2.5,1.3,0.737,0.769,-0.042,4,1.0,False,3336438.0,lost,2:0,2026-10-01,0-6 4-6,4,won
 2026-09-30,,Zoe Doldan,Luna Maria Cinalli,Zoe Doldan,Luna Maria Cinalli,11.0,ITF,3.5,1.64,0.602,0.61,-0.013,4,1.0,False,3336438.0,lost,2:0,2026-10-01,0-6 4-6,4,won
 2026-09-30,,Zoe Doldan,Luna Maria Cinalli,Zoe Doldan,Luna Maria Cinalli,11.0,ITF,4.5,2.12,0.46,0.472,-0.025,4,1.0,False,3336438.0,lost,2:0,2026-10-01,0-6 4-6,4,lost
-2026-09-30,,Stefan Menichella,Kenta Kawada,Kenta Kawada,Stefan Menichella,6.4,ITF,5.5,1.7,0.528,0.588,-0.102,11,0.636,False,3334562.0,pending,,,,,
+2026-09-30,,Stefan Menichella,Kenta Kawada,Kenta Kawada,Stefan Menichella,6.4,ITF,5.5,1.7,0.528,0.588,-0.102,11,0.636,False,3334562.0,void,,2026-10-09,,,void
 2026-10-01,,Yushan Shao,Anastasia Zakharova,Yushan Shao,Anastasia Zakharova,8.6,ATP/WTA,3.5,1.26,0.735,0.794,-0.073,6,0.667,False,3335256.0,lost,2:0,2026-10-02,0-6 2-6,2,lost
 2026-10-01,,Yushan Shao,Anastasia Zakharova,Yushan Shao,Anastasia Zakharova,8.6,ATP/WTA,4.5,1.5,0.628,0.667,-0.058,6,0.667,False,3335256.0,lost,2:0,2026-10-02,0-6 2-6,2,lost
 2026-10-01,,Yushan Shao,Anastasia Zakharova,Yushan Shao,Anastasia Zakharova,8.6,ATP/WTA,5.5,1.8,0.488,0.556,-0.122,6,0.667,False,3335256.0,lost,2:0,2026-10-02,0-6 2-6,2,lost
@@ -280,8 +280,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-01,,Max Houkes,Allan Gatoto,Allan Gatoto,Max Houkes,11.0,ITF,5.5,2.12,0.346,0.472,-0.267,9,0.889,False,3337520.0,lost,2:0,2026-10-02,2-6 1-6,3,lost
 2026-10-01,,Cahir Warik,Florent Bax,Cahir Warik,Florent Bax,9.5,ITF,4.5,1.5,0.461,0.667,-0.309,20,0.85,False,3337526.0,lost,2:0,2026-10-02,1-6 2-6,3,lost
 2026-10-01,,Cahir Warik,Florent Bax,Cahir Warik,Florent Bax,9.5,ITF,5.5,1.74,0.346,0.575,-0.398,20,0.85,False,3337526.0,lost,2:0,2026-10-02,1-6 2-6,3,lost
-2026-10-01,,Alexander Ritschard,Juan-Samuel Arauzo-Martinez,Juan-Samuel Arauzo-Martinez,Alexander Ritschard,11.0,ITF,4.5,1.63,0.461,0.613,-0.249,1,1.0,False,3336878.0,pending,,,,,
-2026-10-01,,Alexander Ritschard,Juan-Samuel Arauzo-Martinez,Juan-Samuel Arauzo-Martinez,Alexander Ritschard,11.0,ITF,5.5,2.07,0.346,0.483,-0.284,1,1.0,False,3336878.0,pending,,,,,
+2026-10-01,,Alexander Ritschard,Juan-Samuel Arauzo-Martinez,Juan-Samuel Arauzo-Martinez,Alexander Ritschard,11.0,ITF,4.5,1.63,0.461,0.613,-0.249,1,1.0,False,3336878.0,void,,2026-10-09,,,void
+2026-10-01,,Alexander Ritschard,Juan-Samuel Arauzo-Martinez,Juan-Samuel Arauzo-Martinez,Alexander Ritschard,11.0,ITF,5.5,2.07,0.346,0.483,-0.284,1,1.0,False,3336878.0,void,,2026-10-09,,,void
 2026-10-01,,Nicolas Ifi,Pedro Rodenas,Nicolas Ifi,Pedro Rodenas,6.6,ITF,5.5,1.6,0.528,0.625,-0.155,12,1.0,False,3337038.0,won,2:1,2026-10-02,4-6 7-6 6-4,17,won
 2026-10-01,,Michiel de Krom,Sander Jong,Michiel de Krom,Sander Jong,5.4,ITF,5.5,1.53,0.528,0.654,-0.192,18,1.0,False,3337725.0,lost,2:1,2026-10-02,6-3 3-6 3-6,12,won
 2026-10-01,,Xavi Palomar,Miguel Damas,Xavi Palomar,Miguel Damas,6.2,ITF,5.5,1.64,0.528,0.61,-0.134,8,0.875,False,3337813.0,lost,2:0,2026-10-02,0-6 1-6,1,lost
@@ -314,9 +314,9 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-01,,Giulia Safina Popa,Beatris Spasova,Beatris Spasova,Giulia Safina Popa,19.0,ITF,2.5,1.31,0.736,0.763,-0.035,9,0.667,False,3336778.0,lost,2:1,2026-10-02,4-6 7-3 1-6,12,won
 2026-10-01,,Giulia Safina Popa,Beatris Spasova,Beatris Spasova,Giulia Safina Popa,19.0,ITF,3.5,1.64,0.602,0.61,-0.013,9,0.667,False,3336778.0,lost,2:1,2026-10-02,4-6 7-3 1-6,12,won
 2026-10-01,,Giulia Safina Popa,Beatris Spasova,Beatris Spasova,Giulia Safina Popa,19.0,ITF,4.5,2.15,0.461,0.465,-0.009,9,0.667,False,3336778.0,lost,2:1,2026-10-02,4-6 7-3 1-6,12,won
-2026-10-01,,Darya Velikova,Felitsata Dorofeeva-Rybas,Darya Velikova,Felitsata Dorofeeva-Rybas,15.0,ITF,3.5,1.53,0.602,0.654,-0.079,16,0.625,False,3336776.0,pending,,,,,
-2026-10-01,,Darya Velikova,Felitsata Dorofeeva-Rybas,Darya Velikova,Felitsata Dorofeeva-Rybas,15.0,ITF,4.5,1.92,0.461,0.521,-0.115,16,0.625,False,3336776.0,pending,,,,,
-2026-10-01,,Darya Velikova,Felitsata Dorofeeva-Rybas,Darya Velikova,Felitsata Dorofeeva-Rybas,15.0,ITF,5.5,2.52,0.346,0.397,-0.129,16,0.625,False,3336776.0,pending,,,,,
+2026-10-01,,Darya Velikova,Felitsata Dorofeeva-Rybas,Darya Velikova,Felitsata Dorofeeva-Rybas,15.0,ITF,3.5,1.53,0.602,0.654,-0.079,16,0.625,False,3336776.0,void,,2026-10-09,,,void
+2026-10-01,,Darya Velikova,Felitsata Dorofeeva-Rybas,Darya Velikova,Felitsata Dorofeeva-Rybas,15.0,ITF,4.5,1.92,0.461,0.521,-0.115,16,0.625,False,3336776.0,void,,2026-10-09,,,void
+2026-10-01,,Darya Velikova,Felitsata Dorofeeva-Rybas,Darya Velikova,Felitsata Dorofeeva-Rybas,15.0,ITF,5.5,2.52,0.346,0.397,-0.129,16,0.625,False,3336776.0,void,,2026-10-09,,,void
 2026-10-01,,Viktoria Veleva,Sonja Zhenikhova,Viktoria Veleva,Sonja Zhenikhova,5.1,ITF,5.5,1.52,0.528,0.658,-0.197,18,0.833,False,3337545.0,lost,2:1,2026-10-02,2-6 6-4 3-6,11,won
 2026-10-01,,Galena Krastenova,Oana Georgeta Simion,Galena Krastenova,Oana Georgeta Simion,6.0,ITF,5.5,1.62,0.528,0.617,-0.144,9,1.0,False,3337561.0,lost,2:0,2026-10-02,5-7 2-6,7,won
 2026-10-01,,Valentina Ivanov,Alba Maria Coromina Boluda,Alba Maria Coromina Boluda,Valentina Ivanov,5.1,ITF,5.5,1.54,0.528,0.649,-0.187,8,0.625,False,3337543.0,lost,2:0,2026-10-02,3-6 1-6,4,lost
@@ -356,7 +356,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-02,,Millen Hurrion,Louis Larue,Louis Larue,Millen Hurrion,7.4,ITF,4.5,1.44,0.46,0.694,-0.337,18,0.889,False,3338135.0,lost,2:0,2026-10-03,1-6 0-6,1,lost
 2026-10-02,,Millen Hurrion,Louis Larue,Louis Larue,Millen Hurrion,7.4,ITF,5.5,1.73,0.345,0.578,-0.403,18,0.889,False,3338135.0,lost,2:0,2026-10-03,1-6 0-6,1,lost
 2026-10-02,,Jakub Nicod,Charles Bertimon,Charles Bertimon,Jakub Nicod,4.75,ITF,5.5,1.53,0.618,0.654,-0.054,9,1.0,False,3338243.0,won,1:0,2026-10-03,4-6 2-0,6,void
-2026-10-02,,Astrid Wanja Brune Olsen,Felitsata Dorofeeva-Rybas,Astrid Wanja Brune Olsen,Felitsata Dorofeeva-Rybas,6.0,ITF,5.5,1.66,0.529,0.602,-0.122,18,0.778,False,3338169.0,pending,,,,,
+2026-10-02,,Astrid Wanja Brune Olsen,Felitsata Dorofeeva-Rybas,Astrid Wanja Brune Olsen,Felitsata Dorofeeva-Rybas,6.0,ITF,5.5,1.66,0.529,0.602,-0.122,18,0.778,False,3338169.0,void,,2026-10-09,,,void
 2026-10-02,,Valentina Losciale,Ekaterina Dotsenko,Valentina Losciale,Ekaterina Dotsenko,5.4,ITF,5.5,1.57,0.529,0.637,-0.17,14,0.929,False,3338351.0,lost,2:0,2026-10-03,4-6 2-6,6,won
 2026-10-02,,Ha Eum Lee,Ke Ren,Ke Ren,Ha Eum Lee,5.75,ITF,5.5,1.61,0.529,0.621,-0.149,17,0.941,False,3337985.0,lost,2:0,2026-10-03,5-7 1-6,6,won
 2026-10-02,,Sean Hodkin,Aurelien Ferrer,Aurelien Ferrer,Sean Hodkin,20.0,ITF,2.5,1.28,0.735,0.781,-0.059,2,0.5,False,3337877.0,lost,2:0,2026-10-04,3-6 0-6,3,won
@@ -383,8 +383,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-03,,Han Shi,Chengyiyi Yuan,Chengyiyi Yuan,Han Shi,5.9,Challenger/125,5.5,1.54,0.648,0.649,-0.001,17,0.824,False,3338679.0,lost,2:1,2026-10-05,6-3 4-6 4-6,14,won
 2026-10-03,,Naoto Tomizawa,Max Dahlin,Naoto Tomizawa,Max Dahlin,5.0,ITF,5.5,1.5,0.528,0.667,-0.208,7,0.857,False,3338737.0,lost,2:0,2026-10-04,2-6 3-6,5,lost
 2026-10-03,,Gabi Adrian Boitan,Borys Zgola,Borys Zgola,Gabi Adrian Boitan,6.5,ITF,5.5,1.6,0.528,0.625,-0.155,11,0.727,False,3338547.0,lost,2:0,2026-10-04,1-6 1-6,2,lost
-2026-10-03,,Aurelien Ferrer,Jules Alias,Aurelien Ferrer,Jules Alias,7.0,ITF,4.5,1.42,0.461,0.704,-0.345,0,,False,,no_data,,2026-10-04,,,
-2026-10-03,,Aurelien Ferrer,Jules Alias,Aurelien Ferrer,Jules Alias,7.0,ITF,5.5,1.77,0.346,0.565,-0.388,0,,False,,no_data,,2026-10-04,,,
+2026-10-03,,Aurelien Ferrer,Jules Alias,Aurelien Ferrer,Jules Alias,7.0,ITF,4.5,1.42,0.461,0.704,-0.345,0,,False,,void,,2026-10-09,,,void
+2026-10-03,,Aurelien Ferrer,Jules Alias,Aurelien Ferrer,Jules Alias,7.0,ITF,5.5,1.77,0.346,0.565,-0.388,0,,False,,void,,2026-10-09,,,void
 2026-10-04,,Carlos Alcaraz,Denis Shapovalov,Denis Shapovalov,Carlos Alcaraz,6.1,ATP/WTA,5.5,1.26,0.725,0.794,-0.087,11,0.909,True,3338895.0,lost,1:0,2026-10-05,6-7 1-2,7,void
 2026-10-04,,Linda Noskova,Viktorija Golubic,Viktorija Golubic,Linda Noskova,5.35,ATP/WTA,5.5,1.49,0.725,0.671,0.08,14,0.929,True,3338501.0,lost,2:0,2026-10-05,2-6 1-6,3,lost
 2026-10-04,,Polina Kudermetova,Mirra Andreeva,Polina Kudermetova,Mirra Andreeva,7.8,ATP/WTA,4.5,1.41,0.626,0.709,-0.118,15,0.867,False,3338529.0,lost,2:0,2026-10-05,4-6 1-6,5,won
@@ -677,3 +677,9 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-09,,Daria Egorova,Yiru Chen,Yiru Chen,Daria Egorova,17.0,ITF,5.5,2.67,0.343,0.375,-0.084,12,0.917,False,3344065.0,pending,,,,,
 2026-10-09,,Yanan Hou,Jiaqi Wang,Yanan Hou,Jiaqi Wang,6.5,ITF,4.5,1.43,0.65,0.699,-0.07,11,0.636,False,3344067.0,pending,,,,,
 2026-10-09,,Maria Valentina Pop,Felitsata Dorofeeva-Rybas,Maria Valentina Pop,Felitsata Dorofeeva-Rybas,4.65,ITF,5.5,1.51,0.62,0.662,-0.065,1,1.0,False,3344163.0,pending,,,,,
+2026-10-09,,Nereo Suarez,Rocco Valente,Nereo Suarez,Rocco Valente,9.6,ITF,4.5,1.58,0.456,0.633,-0.28,2,0.5,False,3343239,pending,,,,,
+2026-10-09,,Nereo Suarez,Rocco Valente,Nereo Suarez,Rocco Valente,9.6,ITF,5.5,1.92,0.343,0.521,-0.341,2,0.5,False,3343239,pending,,,,,
+2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,3.5,1.43,0.599,0.699,-0.144,4,1.0,False,3344441,pending,,,,,
+2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,4.5,1.78,0.456,0.562,-0.188,4,1.0,False,3344441,pending,,,,,
+2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,5.5,2.3,0.343,0.435,-0.211,4,1.0,False,3344441,pending,,,,,
+2026-10-09,,Facundo Pereyra,Santiago Pedro Franchini,Facundo Pereyra,Santiago Pedro Franchini,6.0,ITF,5.5,1.65,0.53,0.606,-0.126,4,0.5,False,3344439,pending,,,,,

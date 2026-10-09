@@ -148,17 +148,22 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-07,,Valeriia Artemeva,Lujza Zimenova,Lujza Zimenova,Valeriia Artemeva,32.199999999999996,3.6,57.4,7.5,1.71,3343077.0,lost,2:0,2026-10-08,3-6 0-6,3,lost
 2026-10-07,,Tsung-Hao Huang,Ko Suzuki,Ko Suzuki,Tsung-Hao Huang,29.799999999999997,3.3,57.3,8.5,1.75,3342785.0,won,2:0,2026-10-08,6-3 6-3,12,won
 2026-10-07,,Vito Dell'Elba,Viktor Frydrych,Vito Dell'Elba,Viktor Frydrych,21.9,2.6,56.9,10.5,1.77,3343139.0,pending,,,,,
-2026-10-07,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,19.0,2.42,56.6,10.5,1.7,3343009.0,pending,,,,,
+2026-10-07,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,19.0,2.42,56.6,10.5,1.7,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost
 2026-10-07,,Evangelos Kypriotis,Leyton Rivera,Evangelos Kypriotis,Leyton Rivera,16.200000000000003,2.32,55.5,10.5,1.65,3341627.0,won,1:0,2026-10-08,4-6 6-2 2-0,12,void
 2026-10-07,,Yassine Smiej,Leandro Zgraggen,Leandro Zgraggen,Yassine Smiej,21.599999999999994,2.7,55.3,9.5,1.72,3343137.0,lost,2:1,2026-10-08,6-7 6-1 6-7,18,won
-2026-10-08,,Lana Virc,Chiara Fornasieri,Chiara Fornasieri,Lana Virc,19.800000000000004,2.0,65.6,10.5,1.51,3343779.0,pending,,,,,
-2026-10-08,,Joshua Charlton,Sam Ryan Ziegann,Sam Ryan Ziegann,Joshua Charlton,23.700000000000003,2.6,58.7,10.5,1.7,3343559.0,pending,,,,,
-2026-10-08,,Pavel Kotov,Tallon Griekspoor,Pavel Kotov,Tallon Griekspoor,22.5,2.65,57.9,10.5,1.58,3342817.0,pending,,,,,
-2026-10-08,,Noah Boutleux,Guillaume Dalmasso,Noah Boutleux,Guillaume Dalmasso,22.299999999999997,2.55,57.9,10.5,1.71,3343709.0,pending,,,,,
-2026-10-08,,Baotong Xu,Tian Jialin,Baotong Xu,Tian Jialin,48.0,10.0,57.2,3.5,1.37,3343123.0,pending,,,,,
-2026-10-08,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,17.300000000000004,2.32,56.6,10.5,1.66,3343009.0,pending,,,,,
-2026-10-08,,Bernard Tomic,Matteo Arnaldi,Bernard Tomic,Matteo Arnaldi,21.200000000000003,2.7,56.0,9.5,1.51,3342825.0,pending,,,,,
-2026-10-08,,Daniel Verbeek,Ziga Sesko,Daniel Verbeek,Ziga Sesko,34.099999999999994,4.15,55.8,6.5,1.58,3343181.0,pending,,,,,
-2026-10-08,,Yiru Chen,Anna Yang,Yiru Chen,Anna Yang,21.599999999999994,2.7,55.3,9.5,1.75,3343385.0,pending,,,,,
-2026-10-08,,Matisse Bobichon,Leonid Sheyngezikht,Leonid Sheyngezikht,Matisse Bobichon,33.10000000000001,4.1,55.2,6.5,1.52,3343627.0,pending,,,,,
-2026-10-08,,Sergio Luis Hernandez Ramirez,Tristan Mccormick,Sergio Luis Hernandez Ramirez,Tristan Mccormick,28.1,3.35,55.1,7.5,1.6,3343909.0,pending,,,,,
+2026-10-08,,Lana Virc,Chiara Fornasieri,Chiara Fornasieri,Lana Virc,19.800000000000004,2.0,65.6,10.5,1.51,3343779.0,won,2:1,2026-10-09,7-6 3-6 6-3,16,won
+2026-10-08,,Joshua Charlton,Sam Ryan Ziegann,Sam Ryan Ziegann,Joshua Charlton,23.700000000000003,2.6,58.7,10.5,1.7,3343559.0,won,2:0,2026-10-09,7-6 6-4,13,won
+2026-10-08,,Pavel Kotov,Tallon Griekspoor,Pavel Kotov,Tallon Griekspoor,22.5,2.65,57.9,10.5,1.58,3342817.0,won,2:0,2026-10-09,6-4 7-6,13,won
+2026-10-08,,Noah Boutleux,Guillaume Dalmasso,Noah Boutleux,Guillaume Dalmasso,22.299999999999997,2.55,57.9,10.5,1.71,3343709.0,lost,2:1,2026-10-09,6-4 4-6 4-6,14,won
+2026-10-08,,Baotong Xu,Tian Jialin,Baotong Xu,Tian Jialin,48.0,10.0,57.2,3.5,1.37,3343123.0,lost,2:0,2026-10-09,1-6 0-6,1,lost
+2026-10-08,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,17.300000000000004,2.32,56.6,10.5,1.66,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost
+2026-10-08,,Bernard Tomic,Matteo Arnaldi,Bernard Tomic,Matteo Arnaldi,21.200000000000003,2.7,56.0,9.5,1.51,3342825.0,lost,2:0,2026-10-09,3-6 1-6,4,lost
+2026-10-08,,Daniel Verbeek,Ziga Sesko,Daniel Verbeek,Ziga Sesko,34.099999999999994,4.15,55.8,6.5,1.58,3343181.0,lost,2:0,2026-10-09,2-6 4-6,6,lost
+2026-10-08,,Yiru Chen,Anna Yang,Yiru Chen,Anna Yang,21.599999999999994,2.7,55.3,9.5,1.75,3343385.0,won,2:1,2026-10-09,1-6 7-5 6-2,14,won
+2026-10-08,,Matisse Bobichon,Leonid Sheyngezikht,Leonid Sheyngezikht,Matisse Bobichon,33.10000000000001,4.1,55.2,6.5,1.52,3343627.0,lost,2:0,2026-10-09,0-6 0-6,0,lost
+2026-10-08,,Sergio Luis Hernandez Ramirez,Tristan Mccormick,Sergio Luis Hernandez Ramirez,Tristan Mccormick,28.1,3.35,55.1,7.5,1.6,3343909.0,lost,2:1,2026-10-09,4-6 6-3 4-6,14,won
+2026-10-09,,Vlad Cristian Breazu,George Lazarov,Vlad Cristian Breazu,George Lazarov,19.700000000000003,2.2,61.2,10.5,1.6,3344235.0,pending,,,,,
+2026-10-09,,Aliona Falei,Rebecca Sramkova,Aliona Falei,Rebecca Sramkova,18.0,2.3,58.6,9.5,1.54,3344113.0,pending,,,,,
+2026-10-09,,Keisuke Saitoh,Akira Santillan,Keisuke Saitoh,Akira Santillan,16.9,2.25,58.3,10.5,1.53,3343389.0,pending,,,,,
+2026-10-09,,Kris Van Wyk,Mathys Picard,Mathys Picard,Kris Van Wyk,17.199999999999996,2.25,57.8,10.5,1.61,3344219.0,pending,,,,,
+2026-10-09,,Lujza Beviz,Brenda Fruhvirtova,Lujza Beviz,Brenda Fruhvirtova,34.0,3.85,57.5,6.5,1.58,3344339.0,pending,,,,,

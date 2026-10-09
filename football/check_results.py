@@ -18,6 +18,7 @@ import subprocess
 import sys
 import unicodedata
 from datetime import date as Date
+from datetime import timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -25,8 +26,11 @@ import pandas as pd
 LOG_PATH = "recommendations_log.csv"
 LOG_COLUMNS = [
     "date", "league", "home_team", "away_team", "odds_over",
-    "kickoff_local", "result", "total_goals", "checked_at",
+    "kickoff_local", "result", "total_goals", "checked_at", "excluded",
 ]
+# Un meci inca "pending" dupa atatea zile (amanat, anulat, negasit pe
+# BetExplorer) e marcat "void" - altfel ramane blocat si e re-cautat zilnic.
+VOID_AFTER_DAYS = 5
 
 
 def normalize_name(name: str) -> str:
@@ -103,6 +107,16 @@ def main() -> None:
         return
 
     today_str = Date.today().isoformat()
+    void_before = (Date.today() - timedelta(days=VOID_AFTER_DAYS)).isoformat()
+    stale = log.index[(log["result"] == "pending") & (log["date"] < void_before)]
+    for idx in stale:
+        log.loc[idx, "result"] = "void"
+        log.loc[idx, "checked_at"] = today_str
+        print(f"  {log.loc[idx, 'home_team']} vs {log.loc[idx, 'away_team']} ({log.loc[idx, 'date']}): "
+              f"inca pending dupa {VOID_AFTER_DAYS} zile -> void")
+    if len(stale):
+        save_log(log)
+
     pending = log[(log["result"] == "pending") & (log["date"] < today_str)]
     if pending.empty:
         print("No past-dated pending picks to check.")

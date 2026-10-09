@@ -42,8 +42,16 @@ import pandas as pd
 LOG_PATH = "recommendations_log.csv"
 LOG_COLUMNS = [
     "date", "league", "home_team", "away_team", "odds_over",
-    "kickoff_local", "result", "total_goals", "checked_at",
+    "kickoff_local", "result", "total_goals", "checked_at", "excluded",
 ]
+
+# Analiza din 2026-10-09 pe 102 meciuri logate: cu cota Over 2.5 <= 2.00,
+# 76% au iesit Peste (ROI +14%); peste 2.00 doar 3 din 15 (20%, ROI -54%).
+# O cota atat de mare la doua echipe "100% over" inseamna de obicei ca
+# istoricul are 1-2 meciuri, iar casa stie mai bine. Aceste meciuri nu mai
+# apar ca recomandari, dar sunt logate (excluded="odds>2.0") ca sa putem
+# verifica in timp daca excluderea e justificata.
+MAX_ODDS_OVER = 2.0
 
 _SUFFIX_BET = " (BetExplorer)"
 _SUFFIX_SB = " (Superbet)"
@@ -158,7 +166,22 @@ def match_across_sources(high_confidence: pd.DataFrame, superbet: pd.DataFrame) 
     
 
 
-def log_todays_picks(matched: pd.DataFrame, date_str: str) -> None:
+def _odds_over(row) -> float | None:
+    try:
+        return float(row.get("Odds Over" + _SUFFIX_SB, ""))
+    except (TypeError, ValueError):
+        return None
+
+
+def split_by_odds(matched: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """(recomandari, excluse): excluse = cota Over 2.5 > MAX_ODDS_OVER."""
+    if matched.empty:
+        return matched, matched
+    too_high = matched.apply(lambda r: (_odds_over(r) or 0) > MAX_ODDS_OVER, axis=1)
+    return matched[~too_high], matched[too_high]
+
+
+def log_todays_picks(matched: pd.DataFrame, date_str: str, excluded: str = "") -> None:
     """Appends today's matched picks to the persistent results log."""
     path = Path(LOG_PATH)
     if path.exists():
@@ -183,6 +206,7 @@ def log_todays_picks(matched: pd.DataFrame, date_str: str) -> None:
             "result": "pending",
             "total_goals": "",
             "checked_at": "",
+            "excluded": excluded,
         })
     if new_rows:
         log = pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True)
@@ -195,17 +219,25 @@ def accuracy_summary_html() -> str:
         return ""
     log = pd.read_csv(path, dtype=str)
     resolved = log[log["result"].isin(["over", "under"])]
+    if "excluded" in resolved.columns:
+        resolved = resolved[resolved["excluded"].fillna("") == ""]
     if resolved.empty:
         return ""
     hit_rate = (resolved["result"] == "over").mean()
+    odds = pd.to_numeric(resolved["odds_over"], errors="coerce")
+    won = resolved["result"] == "over"
+    profit = float((odds - 1).where(won, -1).sum())
     return (
         f"<p style='margin-top:20px; padding-top:10px; border-top:1px solid #ddd; color:#555;'>"
         f"<b>Statistica reala pana acum:</b> din {len(resolved)} recomandari confirmate, "
-        f"{(resolved['result'] == 'over').sum()} au fost Peste 2.5 ({hit_rate:.0%}).</p>"
+        f"{won.sum()} au fost Peste 2.5 ({hit_rate:.0%}), "
+        f"profit {profit:+.2f} unitati la miza 1.</p>"
     )
 
 
-def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str) -> str:
+def build_email_body(
+    matched: pd.DataFrame, unmatched_count: int, date_str: str, excluded: pd.DataFrame | None = None
+) -> str:
     lines = []
     lines.append(f"<h2>Recomandari zilnice -- {date_str}</h2>")
     lines.append(
@@ -241,6 +273,16 @@ def build_email_body(matched: pd.DataFrame, unmatched_count: int, date_str: str)
             if match_url:
                 lines.append(f"<p style='margin:6px 0;'><a href='{match_url}'>Vezi pe Superbet.ro</a></p>")
             lines.append("</div>")
+
+    if excluded is not None and not excluded.empty:
+        names = "; ".join(
+            f"{r.get('Home Team' + _SUFFIX_BET, '')} vs {r.get('Away Team' + _SUFFIX_BET, '')} (cota {_odds_over(r)})"
+            for _, r in excluded.iterrows()
+        )
+        lines.append(
+            f"<p style='color:#888; font-size:0.9em;'>Excluse (cota Peste 2.5 &gt; {MAX_ODDS_OVER:.2f} - "
+            f"istoric: doar 20% au iesit Peste): {names}</p>"
+        )
 
     if unmatched_count:
         lines.append(
@@ -287,15 +329,17 @@ def main() -> None:
         for name in unmatched_names:
             print(f"  - {name}")
 
-    body = build_email_body(matched, unmatched_count, args.date)
-    subject = f"Recomandari zilnice ({len(matched)} meciuri) -- {args.date}"
+    picks, excluded = split_by_odds(matched)
+    body = build_email_body(picks, unmatched_count, args.date, excluded)
+    subject = f"Recomandari zilnice ({len(picks)} meciuri) -- {args.date}"
 
     if args.dry_run:
         print(subject)
         print(body)
         return
 
-    log_todays_picks(matched, args.date)
+    log_todays_picks(picks, args.date)
+    log_todays_picks(excluded, args.date, excluded=f"odds>{MAX_ODDS_OVER}")
 
     if matched.empty and unmatched_count == 0:
         print("No high-confidence matches at all today -- skipping email.")

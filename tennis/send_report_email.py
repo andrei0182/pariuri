@@ -67,8 +67,29 @@ PICKS_LOG_COLUMNS = [
     "date", "tournament", "player1", "player2", "recommended_player", "opponent",
     "edge_pp", "rec_odds", "comp_pct", "games_line", "games_odds",
     "te_match_id", "result", "score", "checked_at",
-    "set_scores", "rec_games", "games_result",
+    "set_scores", "rec_games", "games_result", "games_excluded",
 ]
+
+# Analiza din 2026-10-09 pe 149 de pariuri "Peste X game-uri" logate: liniile
+# 8-9.5 au iesit in 46% din cazuri (impreuna cu cotele > 1.70: 68 de pariuri,
+# ROI -24%), restul in 65% (81 de pariuri, ROI +4%). Pick-ul ramane in email,
+# dar linia de game-uri e marcata EXCLUS si nu intra in statistica.
+GAMES_EXCLUDED_LINE_RANGE = (8.0, 9.5)
+GAMES_MAX_ODDS = 1.70
+
+
+def games_exclusion_reason(line, odds) -> str:
+    """"" daca linia de game-uri e ok, altfel motivul excluderii."""
+    try:
+        line, odds = float(line), float(odds)
+    except (TypeError, ValueError):
+        return ""
+    lo, hi = GAMES_EXCLUDED_LINE_RANGE
+    if lo <= line <= hi:
+        return f"linie {lo:g}-{hi:g}"
+    if odds > GAMES_MAX_ODDS:
+        return f"cota > {GAMES_MAX_ODDS:.2f}"
+    return ""
 
 
 def filter_recommended_picks(
@@ -251,9 +272,14 @@ def build_email_body(df: pd.DataFrame, date_str: str, underdog_html: str = "") -
             lines.append("<div style='margin-bottom:16px; padding:10px; border:1px solid #ddd; border-radius:6px;'>")
             lines.append(f"<h3 style='margin:0 0 6px 0;'>{p1} vs {p2}</h3>")
             lines.append(f"<p style='margin:2px 0; color:#555;'>{tournament} — {time_text}</p>")
+            excluded = games_exclusion_reason(games_line, games_odds)
+            games_text = (
+                f"<s>Peste {games_line} game-uri @ {games_odds}</s> EXCLUS ({excluded})"
+                if excluded else f"Peste {games_line} game-uri @ {games_odds}"
+            )
             lines.append(
                 f"<p style='margin:6px 0;'><b>Pick experimental: {rec_name}</b> (cota {rec_odds}, edge +{edge:.0f}pp fata de piata, "
-                f"estimare proprie {comp_pct:.1f}%, Peste {games_line} game-uri @ {games_odds})</p>"
+                f"estimare proprie {comp_pct:.1f}%, {games_text})</p>"
             )
             lines.append(f"<p style='margin:6px 0;'><b>Cote Superbet:</b> {odds1} / {odds2} (implicit {implied1}% / {implied2}%)</p>")
             lines.append(f"<p style='margin:6px 0;'><b>Estimare noastra:</b> {comp1}% / {comp2}%</p>")
@@ -369,6 +395,7 @@ def log_todays_picks(picks: pd.DataFrame, date_str: str) -> None:
             "set_scores": "",
             "rec_games": "",
             "games_result": "",
+            "games_excluded": games_exclusion_reason(row["_games_line"], row["_games_odds"]),
         })
     if new_rows:
         log = pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True)
@@ -395,6 +422,8 @@ def accuracy_summary_html() -> str:
     )
     if "games_result" in log.columns:
         games = log[log["games_result"].isin(["won", "lost"])]
+        if "games_excluded" in games.columns:
+            games = games[games["games_excluded"].fillna("") == ""]
         if not games.empty:
             games_rate = (games["games_result"] == "won").mean()
             html += (

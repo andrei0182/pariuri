@@ -41,6 +41,9 @@ LOG_COLUMNS = [
 # existe coloana, sau cand parse_set_scores n-a gasit nimic. Dupa atat, le
 # lasam goale ca sa nu re-fetch-uim la nesfarsit pagini pe care nu le putem citi.
 GAMES_BACKFILL_DAYS = 14
+# Un pick inca "pending" dupa atatea zile (walkover, meci anulat, meci negasit
+# pe TennisExplorer) e marcat "void" - altfel ramane blocat si e re-cautat zilnic.
+VOID_AFTER_DAYS = 5
 
 
 def normalize_name(name: str) -> str:
@@ -162,6 +165,8 @@ def print_summary(log: pd.DataFrame) -> None:
             f"profit {profit:+.2f} unitati (miza 1)."
         )
     games = log[log["games_result"].isin(["won", "lost"])]
+    if "games_excluded" in log.columns:
+        games = games[games["games_excluded"].fillna("") == ""]
     if "filter_pass" in log.columns:  # log-ul de outsideri: doar ce trece de filtru
         games = games[games["filter_pass"].astype(str) == "True"]
     if not games.empty:
@@ -192,6 +197,17 @@ def check_log(path: Path, columns: list[str]) -> None:
     today = Date.today()
     today_str = today.isoformat()
     backfill_from = (today - timedelta(days=GAMES_BACKFILL_DAYS)).isoformat()
+    void_before = (today - timedelta(days=VOID_AFTER_DAYS)).isoformat()
+    stale = log.index[log["result"].isin(["pending", "no_data"]) & (log["date"] < void_before)
+                      & (log["games_result"].isna() | (log["games_result"] == ""))]
+    for idx in stale:
+        log.loc[idx, "result"] = "void"
+        log.loc[idx, "games_result"] = "void"
+        log.loc[idx, "checked_at"] = today_str
+        print(f"  {log.loc[idx, 'recommended_player']} ({log.loc[idx, 'date']}): "
+              f"fara rezultat dupa {VOID_AFTER_DAYS} zile -> void")
+    if len(stale):
+        save_log(log, path)
     games_missing = log["games_result"].isna() | (log["games_result"] == "")
 
     is_pending = (log["result"] == "pending") & (log["date"] < today_str)

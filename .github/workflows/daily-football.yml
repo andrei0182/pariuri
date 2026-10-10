@@ -74,6 +74,22 @@ jobs:
         working-directory: football
         run: python scrape_betexplorer.py --date ${{ steps.date.outputs.value }} --with-stats --output betexplorer_output/matches.xlsx
 
+      - name: Show what BetExplorer served (title + text, in the log)
+        if: failure() && env.SKIP_RUN != 'true'
+        working-directory: football
+        run: |
+          python - <<'PY' || true
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          page = Path("load_date_failure.html")
+          if not page.exists():
+              raise SystemExit("load_date_failure.html lipseste")
+          soup = BeautifulSoup(page.read_text(errors="replace"), "lxml")
+          print("TITLE:", soup.title.get_text(strip=True) if soup.title else None)
+          print("TABLES:", len(soup.select("table")), "| table.table-main:", len(soup.select("table.table-main")))
+          print("TEXT:", " ".join(soup.get_text(" ", strip=True).split())[:1500])
+          PY
+
       - name: Upload BetExplorer failure debug files
         if: failure() && env.SKIP_RUN != 'true'
         uses: actions/upload-artifact@v4

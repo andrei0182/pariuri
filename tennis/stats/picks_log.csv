@@ -113,7 +113,7 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-03,,Robert Strombachs,Paul Jubb,Robert Strombachs,Paul Jubb,19.6,2.57,55.0,10.5,1.76,3338533.0,lost,2:0,2026-10-04,2-6 6-7,8,lost,
 2026-10-04,,Jessica Bouzas Maneiro,Alexandra Shubladze,Alexandra Shubladze,Jessica Bouzas Maneiro,21.5,2.37,60.7,9.5,1.56,3338903.0,won,2:0,2026-10-05,6-3 6-2,12,won,
 2026-10-04,,Benjamin Lock,Calvin Hemery,Benjamin Lock,Calvin Hemery,36.1,3.75,60.2,8.5,1.6,3339003.0,lost,2:0,2026-10-05,3-6 3-6,6,lost,
-2026-10-04,,Henrique Rocha,Inaki Monte De La Torre,Inaki Monte De La Torre,Henrique Rocha,24.699999999999996,2.67,59.4,9.5,1.65,3339625.0,pending,,,,,,
+2026-10-04,,Henrique Rocha,Inaki Monte De La Torre,Inaki Monte De La Torre,Henrique Rocha,24.699999999999996,2.67,59.4,9.5,1.65,3339625.0,void,,2026-10-10,,,void,
 2026-10-04,,Sinja Kraus,Dayana Yastremska,Sinja Kraus,Dayana Yastremska,28.8,3.1,59.1,7.5,1.54,3338491.0,won,2:0,2026-10-05,6-1 6-4,12,won,
 2026-10-04,,Rose Marie Nijkamp,Astra Sharma,Rose Marie Nijkamp,Astra Sharma,36.199999999999996,4.0,58.8,6.5,1.57,3339691.0,lost,2:0,2026-10-05,3-6 1-6,4,lost,
 2026-10-04,,Rinko Matsuda,Sijia Wei,Rinko Matsuda,Sijia Wei,27.9,3.25,55.8,8.5,1.76,3338889.0,lost,2:0,2026-10-05,2-6 2-6,4,lost,
@@ -162,12 +162,16 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-08,,Yiru Chen,Anna Yang,Yiru Chen,Anna Yang,21.599999999999994,2.7,55.3,9.5,1.75,3343385.0,won,2:1,2026-10-09,1-6 7-5 6-2,14,won,
 2026-10-08,,Matisse Bobichon,Leonid Sheyngezikht,Leonid Sheyngezikht,Matisse Bobichon,33.10000000000001,4.1,55.2,6.5,1.52,3343627.0,lost,2:0,2026-10-09,0-6 0-6,0,lost,
 2026-10-08,,Sergio Luis Hernandez Ramirez,Tristan Mccormick,Sergio Luis Hernandez Ramirez,Tristan Mccormick,28.1,3.35,55.1,7.5,1.6,3343909.0,lost,2:1,2026-10-09,4-6 6-3 4-6,14,won,
-2026-10-09,,Vlad Cristian Breazu,George Lazarov,Vlad Cristian Breazu,George Lazarov,19.700000000000003,2.2,61.2,10.5,1.6,3344235.0,pending,,,,,,
-2026-10-09,,Aliona Falei,Rebecca Sramkova,Aliona Falei,Rebecca Sramkova,18.0,2.3,58.6,9.5,1.54,3344113.0,pending,,,,,,
-2026-10-09,,Keisuke Saitoh,Akira Santillan,Keisuke Saitoh,Akira Santillan,16.9,2.25,58.3,10.5,1.53,3343389.0,pending,,,,,,
-2026-10-09,,Kris Van Wyk,Mathys Picard,Mathys Picard,Kris Van Wyk,17.199999999999996,2.25,57.8,10.5,1.61,3344219.0,pending,,,,,,
-2026-10-09,,Lujza Beviz,Brenda Fruhvirtova,Lujza Beviz,Brenda Fruhvirtova,34.0,3.85,57.5,6.5,1.58,3344339.0,pending,,,,,,
-2026-10-09,,Enrico Dalla Valle,Francesco Passaro,Enrico Dalla Valle,Francesco Passaro,17.9,2.27,58.9,10.5,1.51,3344469.0,pending,,,,,,
+2026-10-09,,Vlad Cristian Breazu,George Lazarov,Vlad Cristian Breazu,George Lazarov,19.700000000000003,2.2,61.2,10.5,1.6,3344235.0,lost,2:0,2026-10-10,3-6 1-6,4,lost,
+2026-10-09,,Aliona Falei,Rebecca Sramkova,Aliona Falei,Rebecca Sramkova,18.0,2.3,58.6,9.5,1.54,3344113.0,lost,2:1,2026-10-10,1-6 6-2 2-6,9,lost,
+2026-10-09,,Keisuke Saitoh,Akira Santillan,Keisuke Saitoh,Akira Santillan,16.9,2.25,58.3,10.5,1.53,3343389.0,won,2:1,2026-10-10,3-7 6-1 6-4,15,won,
+2026-10-09,,Kris Van Wyk,Mathys Picard,Mathys Picard,Kris Van Wyk,17.199999999999996,2.25,57.8,10.5,1.61,3344219.0,lost,2:1,2026-10-10,7-3 3-6 6-7,16,won,
+2026-10-09,,Lujza Beviz,Brenda Fruhvirtova,Lujza Beviz,Brenda Fruhvirtova,34.0,3.85,57.5,6.5,1.58,3344339.0,won,2:1,2026-10-10,3-7 6-3 6-4,15,won,
+2026-10-09,,Enrico Dalla Valle,Francesco Passaro,Enrico Dalla Valle,Francesco Passaro,17.9,2.27,58.9,10.5,1.51,3344469.0,lost,2:0,2026-10-10,3-6 4-6,7,lost,
 2026-10-09,,Nicolas Jara-Lozano,Tomas Farjat,Tomas Farjat,Nicolas Jara-Lozano,28.6,2.1,72.1,10.5,1.54,3344583,pending,,,,,,
 2026-10-09,,I Wen Wan,Ena Shibahara,I Wen Wan,Ena Shibahara,40.300000000000004,4.75,59.2,6.5,1.71,3344519,pending,,,,,,cota > 1.70
-2026-10-09,,Vesa Gjinaj,Lila Grace Bachour,Vesa Gjinaj,Lila Grace Bachour,37.1,4.6,56.7,6.5,1.7,3342531,pending,,,,,,
+2026-10-09,,Vesa Gjinaj,Lila Grace Bachour,Vesa Gjinaj,Lila Grace Bachour,37.1,4.6,56.7,6.5,1.7,3342531,lost,2:0,2026-10-10,3-6 1-6,4,lost,
+2026-10-10,,Chiara Fornasieri,Lujza Beviz,Lujza Beviz,Chiara Fornasieri,16.800000000000004,2.0,62.7,10.5,1.51,3344661.0,pending,,,,,,
+2026-10-10,,Ignacio Buse,Zizou Bergs,Ignacio Buse,Zizou Bergs,18.299999999999997,2.4,57.5,9.5,1.45,3344257.0,pending,,,,,,linie 8-9.5
+2026-10-10,,Lucrezia Stefanini,Anna Blinkova,Lucrezia Stefanini,Anna Blinkova,18.9,2.57,55.0,9.5,1.66,3344779.0,pending,,,,,,linie 8-9.5
+2026-10-10,,Alejandro Garcia Carbajal,Matisse Bobichon,Alejandro Garcia Carbajal,Matisse Bobichon,22.5,2.8,55.0,9.5,1.76,3344717.0,pending,,,,,,linie 8-9.5

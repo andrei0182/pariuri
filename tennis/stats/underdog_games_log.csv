@@ -679,10 +679,10 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-09,,Maria Valentina Pop,Felitsata Dorofeeva-Rybas,Maria Valentina Pop,Felitsata Dorofeeva-Rybas,4.65,ITF,5.5,1.51,0.62,0.662,-0.065,1,1.0,False,3344163.0,pending,,,,,
 2026-10-09,,Nereo Suarez,Rocco Valente,Nereo Suarez,Rocco Valente,9.6,ITF,4.5,1.58,0.456,0.633,-0.28,2,0.5,False,3343239,lost,2:0,2026-10-10,3-6 6-7,9,won
 2026-10-09,,Nereo Suarez,Rocco Valente,Nereo Suarez,Rocco Valente,9.6,ITF,5.5,1.92,0.343,0.521,-0.341,2,0.5,False,3343239,lost,2:0,2026-10-10,3-6 6-7,9,won
-2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,3.5,1.43,0.599,0.699,-0.144,4,1.0,False,3344441,pending,,,,,
-2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,4.5,1.78,0.456,0.562,-0.188,4,1.0,False,3344441,pending,,,,,
-2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,5.5,2.3,0.343,0.435,-0.211,4,1.0,False,3344441,pending,,,,,
-2026-10-09,,Facundo Pereyra,Santiago Pedro Franchini,Facundo Pereyra,Santiago Pedro Franchini,6.0,ITF,5.5,1.65,0.53,0.606,-0.126,4,0.5,False,3344439,pending,,,,,
+2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,3.5,1.43,0.599,0.699,-0.144,4,1.0,False,3344441,lost,2:0,2026-10-10,1-6 2-6,3,lost
+2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,4.5,1.78,0.456,0.562,-0.188,4,1.0,False,3344441,lost,2:0,2026-10-10,1-6 2-6,3,lost
+2026-10-09,,Tomas Giangrasso,A.L.Lingua Lavallen,Tomas Giangrasso,A.L.Lingua Lavallen,14.0,ITF,5.5,2.3,0.343,0.435,-0.211,4,1.0,False,3344441,lost,2:0,2026-10-10,1-6 2-6,3,lost
+2026-10-09,,Facundo Pereyra,Santiago Pedro Franchini,Facundo Pereyra,Santiago Pedro Franchini,6.0,ITF,5.5,1.65,0.53,0.606,-0.126,4,0.5,False,3344439,lost,2:0,2026-10-10,2-6 0-6,2,lost
 2026-10-10,,Arthur Fils,Pavel Kotov,Pavel Kotov,Arthur Fils,6.5,ATP/WTA,5.5,1.32,0.68,0.758,-0.102,8,0.75,False,3344079.0,pending,,,,,
 2026-10-10,,Camilo Ugo Carabelli,Felix Auger-Aliassime,Camilo Ugo Carabelli,Felix Auger-Aliassime,9.6,ATP/WTA,5.5,1.37,0.492,0.73,-0.326,15,0.867,False,3344105.0,pending,,,,,
 2026-10-10,,Juan Manuel Cerundolo,Carlos Alcaraz,Juan Manuel Cerundolo,Carlos Alcaraz,13.0,ATP/WTA,4.5,1.27,0.633,0.787,-0.196,17,0.882,False,3344181.0,pending,,,,,
@@ -694,3 +694,6 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-10,,Yuliya Perapekhina,Andrea Lola Popovic,Andrea Lola Popovic,Yuliya Perapekhina,6.6,ITF,5.5,1.6,0.53,0.625,-0.152,7,0.714,False,3344573.0,pending,,,,,
 2026-10-10,,Felitsata Dorofeeva-Rybas,Aurora Corvi,Aurora Corvi,Felitsata Dorofeeva-Rybas,8.5,ITF,4.5,1.58,0.454,0.633,-0.282,12,0.917,False,3344643.0,pending,,,,,
 2026-10-10,,Felitsata Dorofeeva-Rybas,Aurora Corvi,Aurora Corvi,Felitsata Dorofeeva-Rybas,8.5,ITF,5.5,1.95,0.342,0.513,-0.333,12,0.917,False,3344643.0,pending,,,,,
+2026-10-10,,Tristan Mccormick,Victor Bini,Victor Bini,Tristan Mccormick,6.4,ITF,5.5,1.42,0.53,0.704,-0.247,17,0.824,False,3344775.0,pending,,,,,
+2026-10-10,,Klara Stepankova,Julita Saner,Klara Stepankova,Julita Saner,8.5,ITF,4.5,1.58,0.454,0.633,-0.282,0,,False,3344899.0,pending,,,,,
+2026-10-10,,Klara Stepankova,Julita Saner,Klara Stepankova,Julita Saner,8.5,ITF,5.5,1.95,0.342,0.513,-0.333,0,,False,3344899.0,pending,,,,,

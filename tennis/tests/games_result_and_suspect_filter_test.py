@@ -90,7 +90,8 @@ class ResolveGamesTests(unittest.TestCase):
         self.assertEqual(check_results.resolve_games(_pick("Sebastian Baez", "x", "10.5"), detail), ("", "", ""))
 
 
-def _report_row(p1: str, p2: str, comp1: float, impl1: float, odds1: float, odds2: float, tour: str = "atp") -> dict:
+def _report_row(p1: str, p2: str, comp1: float, impl1: float, odds1: float, odds2: float,
+                tour: str = "atp", elo1: float | None = None, elo_n: int = 20) -> dict:
     return {
         sre._COL_P1: p1, sre._COL_P2: p2, sre._COL_TOUR: tour,
         sre._COL_COMP1: comp1, sre._COL_COMP2: 100 - comp1,
@@ -99,34 +100,48 @@ def _report_row(p1: str, p2: str, comp1: float, impl1: float, odds1: float, odds
         sre._COL_RATING_CONF: 1.0,
         sre._COL_GAMES_LINE_P1: 3.5, sre._COL_GAMES_ODDS_P1: 1.4,
         sre._COL_GAMES_LINE_P2: 3.5, sre._COL_GAMES_ODDS_P2: 1.4,
+        sre._COL_ELO1: comp1 if elo1 is None else elo1, sre._COL_ELO_MIN_N: elo_n,
     }
 
 
-class SuspectEdgeFilterTests(unittest.TestCase):
-    """Regulile din 2026-10-11: estimare combinata (piata + 30% model),
-    favorit (>= 50%), cota <= 2.0, fara ITF/UTR."""
+class PickFilterTests(unittest.TestCase):
+    """Regulile v3 (2026-10-11): estimare combinata = piata + 30% din Elo,
+    favorit (>= 50%), ambii cu >= 10 meciuri in istoric, cota <= 2.0, fara
+    ITF/UTR. Modelul compus vechi doar marcheaza meciurile suspecte."""
 
     def setUp(self):
         self.df = pd.DataFrame([
-            _report_row("Guisella Insfran", "Sophia Santos", 97.0, 8.4, 11.0, 1.03),   # edge 88.6 -> suspect
-            _report_row("Fav Ales", "Adversar Unu", 80.0, 60.0, 1.6, 2.4),            # combinat 66% (+6pp) -> pick
-            _report_row("Sebastian Baez", "Jenson Brooksby", 57.4, 41.9, 2.25, 1.62),  # outsider: combinat 46.5% -> nu
+            _report_row("Guisella Insfran", "Sophia Santos", 97.0, 8.4, 11.0, 1.03, elo1=10.0),  # suspect, nu pick
+            _report_row("Fav Ales", "Adversar Unu", 55.0, 60.0, 1.6, 2.4, elo1=80.0),   # combinat 66% (+6pp) -> pick
+            _report_row("Sebastian Baez", "Jenson Brooksby", 57.4, 41.9, 2.25, 1.62),   # outsider: combinat 46.5% -> nu
             _report_row("Fav Itf", "Adversar Doi", 80.0, 60.0, 1.6, 2.4, tour="itf-m"),  # ITF -> nu
+            _report_row("Fav Nou", "Adversar Trei", 80.0, 60.0, 1.6, 2.4, elo_n=5),     # istoric Elo prea scurt -> nu
         ])
 
-    def test_only_favourite_outside_itf_is_picked(self):
+    def test_only_established_favourite_outside_itf_is_picked(self):
         picks = sre.filter_recommended_picks(self.df)
         self.assertEqual(list(picks[sre._COL_P1]), ["Fav Ales"])
         self.assertAlmostEqual(picks.iloc[0]["_blend_pct"], 66.0)
         self.assertAlmostEqual(picks.iloc[0]["_blend_edge_pp"], 6.0)
+        self.assertAlmostEqual(picks.iloc[0]["_elo_pct"], 80.0)
 
-    def test_small_model_edge_on_favourite_is_not_enough(self):
-        # model +15pp -> combinat doar +4.5pp, sub pragul de 5pp
+    def test_player2_side(self):
+        df = pd.DataFrame([_report_row("Outsider", "Fav Doi", 50.0, 40.0, 2.5, 1.6, elo1=20.0)])  # Elo J2 80%
+        picks = sre.filter_recommended_picks(df)
+        self.assertEqual(picks.iloc[0]["_recommended_player"], 2)
+        self.assertAlmostEqual(picks.iloc[0]["_blend_pct"], 66.0)
+
+    def test_small_elo_edge_on_favourite_is_not_enough(self):
+        # Elo +15pp -> combinat doar +4.5pp, sub pragul de 5pp
         df = pd.DataFrame([_report_row("Fav Mic", "X", 75.0, 60.0, 1.6, 2.4)])
         self.assertTrue(sre.filter_recommended_picks(df).empty)
 
     def test_odds_above_two_rejected(self):
         df = pd.DataFrame([_report_row("Egal", "X", 80.0, 48.0, 2.05, 1.8)])  # combinat 57.6%, dar cota 2.05
+        self.assertTrue(sre.filter_recommended_picks(df).empty)
+
+    def test_without_elo_columns_no_picks(self):
+        df = self.df.drop(columns=[sre._COL_ELO1, sre._COL_ELO_MIN_N])
         self.assertTrue(sre.filter_recommended_picks(df).empty)
 
     def test_suspect_listed_separately(self):
@@ -139,7 +154,26 @@ class SuspectEdgeFilterTests(unittest.TestCase):
         self.assertIn("EXPERIMENTAL", body)
         self.assertIn("NU pariați", body)
         self.assertIn("Pick experimental: Fav Ales", body)
+        self.assertIn("Elo 80.0%", body)
         self.assertIn("Guisella Insfran", body)
+
+
+class AddEloColumnsTests(unittest.TestCase):
+    def test_probability_and_min_matches_from_book(self):
+        import elo
+        book = elo.EloBook()
+        for _ in range(12):
+            book.update("/player/a/", "/player/b/", "Hard")
+        df = pd.DataFrame([
+            {sre._COL_SLUG1: "/player/a/", sre._COL_SLUG2: "/player/b/", sre._COL_SURFACE: "hard"},
+            {sre._COL_SLUG1: "/player/b/", sre._COL_SLUG2: "/player/nou/", sre._COL_SURFACE: ""},
+            {sre._COL_SLUG1: float("nan"), sre._COL_SLUG2: "/player/b/", sre._COL_SURFACE: "Clay"},
+        ])
+        out = sre.add_elo_columns(df, book=book)
+        self.assertGreater(out.loc[0, sre._COL_ELO1], 80)
+        self.assertEqual(out.loc[0, sre._COL_ELO_MIN_N], 12)
+        self.assertEqual(out.loc[1, sre._COL_ELO_MIN_N], 0)
+        self.assertTrue(pd.isna(out.loc[2, sre._COL_ELO1]))
 
 
 if __name__ == "__main__":

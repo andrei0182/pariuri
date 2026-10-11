@@ -23,8 +23,9 @@ import underdog  # noqa: E402
 
 class GamesExclusionTests(unittest.TestCase):
     def test_reasons(self):
-        self.assertEqual(sre.games_exclusion_reason(8.5, 1.55), "linie 8-9.5")
-        self.assertEqual(sre.games_exclusion_reason(9.5, 1.60), "linie 8-9.5")
+        self.assertEqual(sre.games_exclusion_reason(8.5, 1.55), "linie 8-10")
+        self.assertEqual(sre.games_exclusion_reason(9.5, 1.60), "linie 8-10")
+        self.assertEqual(sre.games_exclusion_reason(10.0, 1.60), "linie 8-10")
         self.assertEqual(sre.games_exclusion_reason(10.5, 1.75), "cota > 1.70")
         self.assertEqual(sre.games_exclusion_reason(10.5, 1.64), "")
         self.assertEqual(sre.games_exclusion_reason(7.5, 1.70), "")
@@ -39,6 +40,18 @@ class GamesExclusionTests(unittest.TestCase):
             log.to_csv(sre.PICKS_LOG_PATH, index=False)
             html = sre.accuracy_summary_html()
         self.assertIn("din 1 confirmate, 1 castigate", html)
+
+    def test_summary_separates_current_rules(self):
+        log = pd.DataFrame([
+            {"result": "lost", "rec_odds": "3.0", "rules": ""},
+            {"result": "lost", "rec_odds": "2.5", "rules": ""},
+            {"result": "won", "rec_odds": "1.5", "rules": sre.RULES_VERSION},
+        ])
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(sre, "PICKS_LOG_PATH", Path(tmp) / "p.csv"):
+            log.to_csv(sre.PICKS_LOG_PATH, index=False)
+            html = sre.accuracy_summary_html()
+        self.assertIn("Reguli noi (de pe 11 oct.):</b> din 1 pick-uri confirmate, 1 au fost castigate (100%), profit +0.50", html)
+        self.assertIn("Tot istoricul (include regulile vechi):</b> din 3 pick-uri confirmate", html)
 
 
 class StaleVoidTests(unittest.TestCase):

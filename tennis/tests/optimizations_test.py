@@ -50,7 +50,7 @@ class GamesExclusionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp, mock.patch.object(sre, "PICKS_LOG_PATH", Path(tmp) / "p.csv"):
             log.to_csv(sre.PICKS_LOG_PATH, index=False)
             html = sre.accuracy_summary_html()
-        self.assertIn("Reguli noi (de pe 11 oct.):</b> din 1 pick-uri confirmate, 1 au fost castigate (100%), profit +0.50", html)
+        self.assertIn("Reguli Elo (de pe 12 oct.):</b> din 1 pick-uri confirmate, 1 au fost castigate (100%), profit +0.50", html)
         self.assertIn("Tot istoricul (include regulile vechi):</b> din 3 pick-uri confirmate", html)
 
 

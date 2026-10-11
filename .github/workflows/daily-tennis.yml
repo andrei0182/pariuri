@@ -83,7 +83,7 @@ jobs:
       - name: Diagnostic filtru
         if: env.SKIP_RUN != 'true'
         working-directory: tennis
-        run: python diagnose_filter.py output/tenis.xlsx --min-composite-pct 52
+        run: python diagnose_filter.py output/tenis.xlsx
 
       - name: Upload report as workflow artifact
         if: env.SKIP_RUN != 'true'

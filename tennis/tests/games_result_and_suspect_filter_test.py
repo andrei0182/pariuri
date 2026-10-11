@@ -3,7 +3,8 @@
   (parse_set_scores + check_results.resolve_games), dupa Baez vs Brooksby:
   Baez peste 10.5 game-uri @ 1.52, a pierdut 5-7 5-7 -> 10 game-uri
 - plafonul pe edge/estimare (MAX_EDGE_PP / MAX_COMPOSITE_PCT) din
-  send_report_email.py, dupa Insfran vs Santos (edge 88.6pp, estimare 97%)
+  send_report_email.py, dupa Insfran vs Santos (edge 88.6pp, estimare 97%),
+  si regulile de selectie din 2026-10-11
 
 HTML-ul din teste e construit dupa structura PRESUPUSA a td.gScore (vezi
 docstring-ul parse_set_scores) - nu e o captura reala a paginii.
@@ -89,9 +90,9 @@ class ResolveGamesTests(unittest.TestCase):
         self.assertEqual(check_results.resolve_games(_pick("Sebastian Baez", "x", "10.5"), detail), ("", "", ""))
 
 
-def _report_row(p1: str, p2: str, comp1: float, impl1: float, odds1: float, odds2: float) -> dict:
+def _report_row(p1: str, p2: str, comp1: float, impl1: float, odds1: float, odds2: float, tour: str = "atp") -> dict:
     return {
-        sre._COL_P1: p1, sre._COL_P2: p2,
+        sre._COL_P1: p1, sre._COL_P2: p2, sre._COL_TOUR: tour,
         sre._COL_COMP1: comp1, sre._COL_COMP2: 100 - comp1,
         sre._COL_IMPL1: impl1, sre._COL_IMPL2: 100 - impl1,
         sre._COL_ODDS1: odds1, sre._COL_ODDS2: odds2,
@@ -102,16 +103,31 @@ def _report_row(p1: str, p2: str, comp1: float, impl1: float, odds1: float, odds
 
 
 class SuspectEdgeFilterTests(unittest.TestCase):
+    """Regulile din 2026-10-11: estimare combinata (piata + 30% model),
+    favorit (>= 50%), cota <= 2.0, fara ITF/UTR."""
+
     def setUp(self):
         self.df = pd.DataFrame([
             _report_row("Guisella Insfran", "Sophia Santos", 97.0, 8.4, 11.0, 1.03),   # edge 88.6 -> suspect
-            _report_row("Sebastian Gima", "Filip Misolic", 60.2, 17.2, 5.25, 1.15),   # edge 43.0 -> real, ramane
-            _report_row("Sebastian Baez", "Jenson Brooksby", 57.4, 41.9, 2.25, 1.62),  # edge 15.5 -> ramane
+            _report_row("Fav Ales", "Adversar Unu", 80.0, 60.0, 1.6, 2.4),            # combinat 66% (+6pp) -> pick
+            _report_row("Sebastian Baez", "Jenson Brooksby", 57.4, 41.9, 2.25, 1.62),  # outsider: combinat 46.5% -> nu
+            _report_row("Fav Itf", "Adversar Doi", 80.0, 60.0, 1.6, 2.4, tour="itf-m"),  # ITF -> nu
         ])
 
-    def test_suspect_excluded_from_picks(self):
+    def test_only_favourite_outside_itf_is_picked(self):
         picks = sre.filter_recommended_picks(self.df)
-        self.assertEqual(sorted(picks[sre._COL_P1]), ["Sebastian Baez", "Sebastian Gima"])
+        self.assertEqual(list(picks[sre._COL_P1]), ["Fav Ales"])
+        self.assertAlmostEqual(picks.iloc[0]["_blend_pct"], 66.0)
+        self.assertAlmostEqual(picks.iloc[0]["_blend_edge_pp"], 6.0)
+
+    def test_small_model_edge_on_favourite_is_not_enough(self):
+        # model +15pp -> combinat doar +4.5pp, sub pragul de 5pp
+        df = pd.DataFrame([_report_row("Fav Mic", "X", 75.0, 60.0, 1.6, 2.4)])
+        self.assertTrue(sre.filter_recommended_picks(df).empty)
+
+    def test_odds_above_two_rejected(self):
+        df = pd.DataFrame([_report_row("Egal", "X", 80.0, 48.0, 2.05, 1.8)])  # combinat 57.6%, dar cota 2.05
+        self.assertTrue(sre.filter_recommended_picks(df).empty)
 
     def test_suspect_listed_separately(self):
         suspects = sre.list_suspect_picks(self.df)
@@ -122,7 +138,7 @@ class SuspectEdgeFilterTests(unittest.TestCase):
         self.assertIn("Suspecte", body)
         self.assertIn("EXPERIMENTAL", body)
         self.assertIn("NU pariați", body)
-        self.assertNotIn("Recomandare:", body)
+        self.assertIn("Pick experimental: Fav Ales", body)
         self.assertIn("Guisella Insfran", body)
 
 

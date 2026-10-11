@@ -702,7 +702,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-10,,Connor Robb-Wilcox,Finn Willman,Finn Willman,Connor Robb-Wilcox,5.85,ITF,5.5,1.51,0.53,0.662,-0.2,7,0.857,False,3344841.0,pending,,,,,
 2026-10-10,,Tea Lukic,Akira Roy,Akira Roy,Tea Lukic,6.5,ITF,4.5,1.43,0.65,0.699,-0.07,1,1.0,False,3344855.0,pending,,,,,
 2026-10-10,,Tea Lukic,Akira Roy,Akira Roy,Tea Lukic,6.5,ITF,5.5,1.71,0.53,0.585,-0.094,1,1.0,False,3344855.0,pending,,,,,
-2026-10-10,,Facundo Pereyra,Augusto Mateo Lucarelli,Facundo Pereyra,Augusto Mateo Lucarelli,5.35,ITF,5.5,1.49,0.53,0.671,-0.21,4,0.5,False,3344869.0,pending,,,,,
+2026-10-10,,Facundo Pereyra,Augusto Mateo Lucarelli,Facundo Pereyra,Augusto Mateo Lucarelli,5.35,ITF,5.5,1.49,0.53,0.671,-0.21,4,0.5,False,3344869.0,won,2:1,2026-10-11,6-7 6-4 6-2,18,won
 2026-10-10,,Azuna Ichioka,Zoe Olmos,Zoe Olmos,Azuna Ichioka,19.0,ITF,2.5,1.31,0.735,0.763,-0.037,8,0.875,False,3344851.0,pending,,,,,
 2026-10-10,,Azuna Ichioka,Zoe Olmos,Zoe Olmos,Azuna Ichioka,19.0,ITF,3.5,1.65,0.597,0.606,-0.015,8,0.875,False,3344851.0,pending,,,,,
 2026-10-10,,Azuna Ichioka,Zoe Olmos,Zoe Olmos,Azuna Ichioka,19.0,ITF,4.5,2.15,0.454,0.465,-0.023,8,0.875,False,3344851.0,pending,,,,,
@@ -712,3 +712,5 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-11,,Patrick Schoen,Guilherme Valdoleiros,Guilherme Valdoleiros,Patrick Schoen,20.0,Challenger/125,4.5,2.37,0.549,0.422,0.302,21,0.762,False,3345325.0,pending,,,,,
 2026-10-11,,Diogo Marques,Oleksii Krutykh,Diogo Marques,Oleksii Krutykh,7.2,Challenger/125,5.5,1.49,0.432,0.671,-0.357,9,1.0,False,3345311.0,pending,,,,,
 2026-10-11,,George Lazarov,Mattia Nannelli,Mattia Nannelli,George Lazarov,5.1,ITF,5.5,1.55,0.53,0.645,-0.178,2,1.0,False,3345033.0,pending,,,,,
+2026-10-11,,Gabriel Gomez,Robin Catry,Gabriel Gomez,Robin Catry,12.0,Challenger/125,4.5,1.5,0.549,0.667,-0.176,8,0.75,False,3345299.0,pending,,,,,
+2026-10-11,,Gabriel Gomez,Robin Catry,Gabriel Gomez,Robin Catry,12.0,Challenger/125,5.5,1.92,0.432,0.521,-0.171,8,0.75,False,3345299.0,pending,,,,,

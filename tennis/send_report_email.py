@@ -35,6 +35,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import player_history
 import underdog
 
 # Regulile din 2026-10-11, dupa analiza a 172 de pick-uri reale si a 67.784
@@ -601,6 +602,15 @@ def _underdog_candidates(df: pd.DataFrame) -> pd.DataFrame | None:
     return underdog.select_underdogs(df, underdog.build_history(), main._COLUMN_LABELS)
 
 
+def _player_history_analysis(df: pd.DataFrame) -> pd.DataFrame | None:
+    """Analiza pe istoricul jucatorilor (vezi player_history.py). None daca
+    istoricul (data/results.csv.gz) lipseste."""
+    if not player_history.elo.history.RESULTS_CSV.exists():
+        print("Fara data/results.csv.gz - sar peste analiza pe istoricul jucatorilor.")
+        return None
+    return player_history.analyze(df, player_history.build_history())
+
+
 def send_email(subject: str, html_body: str) -> None:
     gmail_address = os.environ["GMAIL_ADDRESS"]
     gmail_app_password = os.environ["GMAIL_APP_PASSWORD"]
@@ -650,6 +660,9 @@ def main() -> None:
     log_daily_stats(df, picks, args.date)
     underdogs = _underdog_candidates(df)
     underdog_html = underdog.email_section_html(underdogs) if underdogs is not None else ""
+    history_picks = _player_history_analysis(df)
+    if history_picks is not None:
+        underdog_html = player_history.email_section_html(history_picks) + underdog_html
     body = build_email_body(df, args.date, underdog_html)
     subject = f"Raport tenis EXPERIMENTAL ({len(df)} meciuri) — {args.date}"
 
@@ -665,6 +678,8 @@ def main() -> None:
     log_todays_picks(picks, args.date)
     if underdogs is not None:
         underdog.log_underdogs(underdogs, args.date)
+    if history_picks is not None:
+        player_history.log_picks(history_picks, args.date)
     send_email(subject, body)
     print(f"Email trimis: {subject}")
 

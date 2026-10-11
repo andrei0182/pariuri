@@ -25,6 +25,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import player_history
 import underdog
 from tenis_scraper import tennisexplorer
 
@@ -179,7 +180,8 @@ def print_summary(log: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    for path, columns in ((LOG_PATH, LOG_COLUMNS), (underdog.LOG_PATH, underdog.LOG_COLUMNS)):
+    for path, columns in ((LOG_PATH, LOG_COLUMNS), (underdog.LOG_PATH, underdog.LOG_COLUMNS),
+                          (player_history.LOG_PATH, player_history.LOG_COLUMNS)):
         print(f"\n== {path} ==")
         check_log(path, columns)
 

@@ -171,9 +171,12 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-09,,Nicolas Jara-Lozano,Tomas Farjat,Tomas Farjat,Nicolas Jara-Lozano,28.6,2.1,72.1,10.5,1.54,3344583,pending,,,,,,
 2026-10-09,,I Wen Wan,Ena Shibahara,I Wen Wan,Ena Shibahara,40.300000000000004,4.75,59.2,6.5,1.71,3344519,lost,2:0,2026-10-10,3-6 5-7,8,won,cota > 1.70
 2026-10-09,,Vesa Gjinaj,Lila Grace Bachour,Vesa Gjinaj,Lila Grace Bachour,37.1,4.6,56.7,6.5,1.7,3342531,lost,2:0,2026-10-10,3-6 1-6,4,lost,
-2026-10-10,,Chiara Fornasieri,Lujza Beviz,Lujza Beviz,Chiara Fornasieri,16.800000000000004,2.0,62.7,10.5,1.51,3344661.0,pending,,,,,,
-2026-10-10,,Ignacio Buse,Zizou Bergs,Ignacio Buse,Zizou Bergs,18.299999999999997,2.4,57.5,9.5,1.45,3344257.0,pending,,,,,,linie 8-9.5
-2026-10-10,,Lucrezia Stefanini,Anna Blinkova,Lucrezia Stefanini,Anna Blinkova,18.9,2.57,55.0,9.5,1.66,3344779.0,pending,,,,,,linie 8-9.5
-2026-10-10,,Alejandro Garcia Carbajal,Matisse Bobichon,Alejandro Garcia Carbajal,Matisse Bobichon,22.5,2.8,55.0,9.5,1.76,3344717.0,pending,,,,,,linie 8-9.5
+2026-10-10,,Chiara Fornasieri,Lujza Beviz,Lujza Beviz,Chiara Fornasieri,16.800000000000004,2.0,62.7,10.5,1.51,3344661.0,won,2:0,2026-10-11,6-3 6-1,12,won,
+2026-10-10,,Ignacio Buse,Zizou Bergs,Ignacio Buse,Zizou Bergs,18.299999999999997,2.4,57.5,9.5,1.45,3344257.0,lost,2:0,2026-10-11,0-6 3-6,3,lost,linie 8-9.5
+2026-10-10,,Lucrezia Stefanini,Anna Blinkova,Lucrezia Stefanini,Anna Blinkova,18.9,2.57,55.0,9.5,1.66,3344779.0,won,2:0,2026-10-11,6-2 6-3,12,won,linie 8-9.5
+2026-10-10,,Alejandro Garcia Carbajal,Matisse Bobichon,Alejandro Garcia Carbajal,Matisse Bobichon,22.5,2.8,55.0,9.5,1.76,3344717.0,lost,2:0,2026-10-11,4-6 2-6,6,lost,linie 8-9.5
 2026-10-10,,Naho Sato,Ena Shibahara,Naho Sato,Ena Shibahara,17.5,2.12,60.5,10.5,1.57,3344797.0,pending,,,,,,
 2026-10-10,,Maria Camila Torres Murcia,Lila Grace Bachour,Maria Camila Torres Murcia,Lila Grace Bachour,20.4,1.8,71.5,11.5,1.46,3344881.0,pending,,,,,,
+2026-10-11,,Lujza Beviz,Maileen Nuudi,Lujza Beviz,Maileen Nuudi,23.299999999999997,2.25,63.9,10.5,1.64,3345003.0,pending,,,,,,
+2026-10-11,,Maxime Janvier,Daniel de Jonge,Daniel de Jonge,Maxime Janvier,19.1,2.15,61.5,11.5,1.52,3345287.0,pending,,,,,,
+2026-10-11,,Sara Sorribes Tormo,Daria Kasatkina,Sara Sorribes Tormo,Daria Kasatkina,16.9,2.37,56.3,9.5,1.55,3344943.0,pending,,,,,,linie 8-9.5

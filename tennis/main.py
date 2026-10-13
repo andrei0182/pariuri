@@ -437,6 +437,13 @@ def _surface_summary(balance: dict[str, tuple[str, str]]) -> str:
     return " | ".join(parts) if parts else ""
 
 
+def _to_float(value) -> float | None:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def _fetch_schedule_cached(te_type: str, date: dt.date, cache: dict) -> list[tennisexplorer.ScheduledMatch]:
     """Mai multe tur-uri Superbet (ex. challenger, itf-m, utr-m) mapeaza pe
     acelasi te_type ("atp-single") - evitam fetch-uri repetate ale aceleiasi
@@ -495,6 +502,8 @@ def build_report(
                 "player2": sb_match.player2,
                 "odds_1": sb_match.odds_winner.player1,
                 "odds_2": sb_match.odds_winner.player2,
+                "te_odds_1": None,
+                "te_odds_2": None,
                 "match_url": sb_match.match_url,
                 "te_match_id": None,
                 "p1_ranking": None,
@@ -575,6 +584,10 @@ def build_report(
 
             match_found = tennisexplorer.find_scheduled_match(sb_match.player1, sb_match.player2, schedule)
             scheduled, swapped = match_found if match_found is not None else (None, False)
+            if scheduled is not None:
+                # cota medie a pietei (TennisExplorer, mai multe case) - in ordinea Superbet
+                te_odds = [_to_float(scheduled.odds_home), _to_float(scheduled.odds_away)]
+                row["te_odds_1"], row["te_odds_2"] = te_odds[::-1] if swapped else te_odds
             if scheduled is not None and scheduled.match_id is not None:
                 row["te_match_id"] = scheduled.match_id
                 time.sleep(te_delay)  # nu bombarda serverul TennisExplorer
@@ -661,6 +674,7 @@ _COLUMN_LABELS = {
     "tour": "Tur", "tournament": "Turneu", "time": "Ora",
     "player1": "Jucător 1", "player2": "Jucător 2",
     "odds_1": "Cotă 1", "odds_2": "Cotă 2", "match_url": "Link Superbet",
+    "te_odds_1": "Cotă medie piață J1 (TennisExplorer)", "te_odds_2": "Cotă medie piață J2 (TennisExplorer)",
     "te_match_id": "TennisExplorer match_id",
     "p1_ranking": "Rank J1", "p2_ranking": "Rank J2",
     "surface": "Suprafață Meci",

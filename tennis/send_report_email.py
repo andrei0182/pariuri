@@ -35,6 +35,7 @@ from pathlib import Path
 
 import pandas as pd
 
+import market_value
 import player_history
 import underdog
 
@@ -663,6 +664,8 @@ def main() -> None:
     history_picks = _player_history_analysis(df)
     if history_picks is not None:
         underdog_html = player_history.email_section_html(history_picks) + underdog_html
+    value_picks = market_value.find_value(df)
+    underdog_html = market_value.email_section_html(value_picks) + underdog_html
     body = build_email_body(df, args.date, underdog_html)
     subject = f"Raport tenis EXPERIMENTAL ({len(df)} meciuri) — {args.date}"
 
@@ -680,6 +683,7 @@ def main() -> None:
         underdog.log_underdogs(underdogs, args.date)
     if history_picks is not None:
         player_history.log_picks(history_picks, args.date)
+    market_value.log_value(value_picks, args.date)
     send_email(subject, body)
     print(f"Email trimis: {subject}")
 

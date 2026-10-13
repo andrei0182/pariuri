@@ -36,6 +36,7 @@ from pathlib import Path
 import pandas as pd
 
 import market_value
+import model90
 import player_history
 import underdog
 
@@ -612,6 +613,20 @@ def _player_history_analysis(df: pd.DataFrame) -> pd.DataFrame | None:
     return player_history.analyze(df, player_history.build_history())
 
 
+def _model90_picks(df: pd.DataFrame, date_str: str):
+    """(alegeri, modele) din model90.py, sau None fara istoric / la eroare -
+    emailul pleaca oricum."""
+    import datetime as dt
+
+    if not model90.elo.history.RESULTS_CSV.exists():
+        return None
+    try:
+        return model90.run_today(df, dt.date.fromisoformat(date_str))
+    except Exception as exc:  # noqa: BLE001
+        print(f"Model 90% a esuat, sar peste sectiune: {exc}")
+        return None
+
+
 def send_email(subject: str, html_body: str) -> None:
     gmail_address = os.environ["GMAIL_ADDRESS"]
     gmail_app_password = os.environ["GMAIL_APP_PASSWORD"]
@@ -666,6 +681,9 @@ def main() -> None:
         underdog_html = player_history.email_section_html(history_picks) + underdog_html
     value_picks = market_value.find_value(df)
     underdog_html = market_value.email_section_html(value_picks) + underdog_html
+    model_picks = _model90_picks(df, args.date)
+    if model_picks is not None:
+        underdog_html = model90.email_section_html(*model_picks) + underdog_html
     body = build_email_body(df, args.date, underdog_html)
     subject = f"Raport tenis EXPERIMENTAL ({len(df)} meciuri) — {args.date}"
 
@@ -684,6 +702,8 @@ def main() -> None:
     if history_picks is not None:
         player_history.log_picks(history_picks, args.date)
     market_value.log_value(value_picks, args.date)
+    if model_picks is not None:
+        model90.log_picks(model_picks[0], args.date)
     send_email(subject, body)
     print(f"Email trimis: {subject}")
 

@@ -26,6 +26,7 @@ from pathlib import Path
 import pandas as pd
 
 import market_value
+import model90
 import player_history
 import underdog
 from tenis_scraper import tennisexplorer
@@ -147,6 +148,10 @@ def resolve_games(row: pd.Series, detail: tennisexplorer.MatchDetailData) -> tup
         return "", str(rec_games), set_scores
     if pd.isna(line):
         return "", str(rec_games), set_scores
+    if str(row.get("games_bet", "")) == "opp_under":
+        # pariul e "adversarul face SUB linie" (model90.py)
+        opp_games = sum(b if side == 1 else a for a, b in detail.set_scores)
+        return ("won" if opp_games < line else "lost"), str(rec_games), set_scores
     return ("won" if rec_games > line else "lost"), str(rec_games), set_scores
 
 
@@ -183,7 +188,8 @@ def print_summary(log: pd.DataFrame) -> None:
 def main() -> None:
     for path, columns in ((LOG_PATH, LOG_COLUMNS), (underdog.LOG_PATH, underdog.LOG_COLUMNS),
                           (player_history.LOG_PATH, player_history.LOG_COLUMNS),
-                          (market_value.LOG_PATH, market_value.LOG_COLUMNS)):
+                          (market_value.LOG_PATH, market_value.LOG_COLUMNS),
+                          (model90.LOG_PATH, model90.LOG_COLUMNS)):
         print(f"\n== {path} ==")
         check_log(path, columns)
 

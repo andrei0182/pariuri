@@ -418,6 +418,11 @@ def _games_lines_text(lines: list) -> str:
     return "; ".join(f"{pg.line}@{pg.over}" for pg in sorted(lines, key=lambda pg: pg.line) if pg.over)
 
 
+def _games_under_text(lines: list) -> str:
+    """Aceleasi linii, cu cota Sub, ex. "5.5@1.62; 6.5@1.35"."""
+    return "; ".join(f"{pg.line}@{pg.under}" for pg in sorted(lines, key=lambda pg: pg.line) if pg.under)
+
+
 def _h2h_summary(h2h: list[tennisexplorer.H2HMatch], exclude_match_id: int | None) -> str:
     """Ex. "Baez 2-0 (2026 Rome Clay 6-3 7-6; 2026 Auckland Hard 7-5 6-0)"."""
     past = [m for m in h2h if not m.is_current and (m.match_id is None or m.match_id != exclude_match_id)]
@@ -538,6 +543,8 @@ def build_report(
                 "p2_slug": "",
                 "p1_games_lines": "",
                 "p2_games_lines": "",
+                "p1_games_under": "",
+                "p2_games_under": "",
                 "odds_p1_games_min_line": None,
                 "odds_p1_games_min_line_over": None,
                 "odds_p2_games_min_line": None,
@@ -577,6 +584,8 @@ def build_report(
                     p2_min_line = min(p2_games_lines, key=lambda pg: pg.line, default=None)
                     row["p1_games_lines"] = _games_lines_text(p1_games_lines)
                     row["p2_games_lines"] = _games_lines_text(p2_games_lines)
+                    row["p1_games_under"] = _games_under_text(p1_games_lines)
+                    row["p2_games_under"] = _games_under_text(p2_games_lines)
                     row["odds_p1_games_min_line"] = p1_min_line.line if p1_min_line else None
                     row["odds_p1_games_min_line_over"] = p1_min_line.over if p1_min_line else None
                     row["odds_p2_games_min_line"] = p2_min_line.line if p2_min_line else None
@@ -707,6 +716,8 @@ _COLUMN_LABELS = {
     "p2_slug": "TennisExplorer J2",
     "p1_games_lines": "Linii Game-uri J1 (linie@cotă Peste)",
     "p2_games_lines": "Linii Game-uri J2 (linie@cotă Peste)",
+    "p1_games_under": "Linii Game-uri J1 (linie@cotă Sub)",
+    "p2_games_under": "Linii Game-uri J2 (linie@cotă Sub)",
     "odds_p1_games_min_line": "Linie Minimă Disponibilă Total Game-uri J1 (meci întreg)",
     "odds_p1_games_min_line_over": "Cotă Peste la Linia Minimă J1",
     "odds_p2_games_min_line": "Linie Minimă Disponibilă Total Game-uri J2 (meci întreg)",

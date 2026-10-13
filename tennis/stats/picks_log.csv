@@ -147,7 +147,7 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-07,,Thomas Kostka,Marcus Walters,Thomas Kostka,Marcus Walters,37.8,4.5,57.9,6.5,1.64,3342981.0,lost,2:0,2026-10-08,6-7 2-6,8,won,,,,
 2026-10-07,,Valeriia Artemeva,Lujza Zimenova,Lujza Zimenova,Valeriia Artemeva,32.199999999999996,3.6,57.4,7.5,1.71,3343077.0,lost,2:0,2026-10-08,3-6 0-6,3,lost,,,,
 2026-10-07,,Tsung-Hao Huang,Ko Suzuki,Ko Suzuki,Tsung-Hao Huang,29.799999999999997,3.3,57.3,8.5,1.75,3342785.0,won,2:0,2026-10-08,6-3 6-3,12,won,,,,
-2026-10-07,,Vito Dell'Elba,Viktor Frydrych,Vito Dell'Elba,Viktor Frydrych,21.9,2.6,56.9,10.5,1.77,3343139.0,pending,,,,,,,,,
+2026-10-07,,Vito Dell'Elba,Viktor Frydrych,Vito Dell'Elba,Viktor Frydrych,21.9,2.6,56.9,10.5,1.77,3343139.0,void,,2026-10-13,,,void,,,,
 2026-10-07,,Manuel Mazza,Ivan Ivanov,Manuel Mazza,Ivan Ivanov,19.0,2.42,56.6,10.5,1.7,3343009.0,lost,2:0,2026-10-09,3-6 4-6,7,lost,,,,
 2026-10-07,,Evangelos Kypriotis,Leyton Rivera,Evangelos Kypriotis,Leyton Rivera,16.200000000000003,2.32,55.5,10.5,1.65,3341627.0,won,1:0,2026-10-08,4-6 6-2 2-0,12,void,,,,
 2026-10-07,,Yassine Smiej,Leandro Zgraggen,Leandro Zgraggen,Yassine Smiej,21.599999999999994,2.7,55.3,9.5,1.72,3343137.0,lost,2:1,2026-10-08,6-7 6-1 6-7,18,won,,,,
@@ -182,15 +182,15 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-11,,Sara Sorribes Tormo,Daria Kasatkina,Sara Sorribes Tormo,Daria Kasatkina,16.9,2.37,56.3,9.5,1.55,3344943.0,lost,2:1,2026-10-12,6-2 2-6 1-6,9,lost,linie 8-9.5,,,
 2026-10-11,,Raluca Georgiana Serban,Sarah van Emst,Sarah van Emst,Raluca Georgiana Serban,34.2,1.9,65.7,11.5,1.5,3345369.0,lost,2:1,2026-10-12,2-6 6-4 4-6,12,won,,58.5,82.4,v3
 2026-10-11,,Michael Vrbensky,Olle Wallin,Olle Wallin,Michael Vrbensky,20.39999999999999,1.26,73.5,11.5,1.13,3345327.0,lost,1:0,2026-10-12,3-4,3,void,,77.8,92.1,v3
-2026-10-12,,Emiliana Arango,Gabriela Andrea Knutson,Gabriela Andrea Knutson,Emiliana Arango,31.199999999999996,1.67,68.5,10.5,1.33,3345387.0,pending,,,,,,,65.3,87.1,v3
-2026-10-12,,Xiyu Wang,Xinyu Wang,Xiyu Wang,Xinyu Wang,25.6,1.85,57.3,10.5,1.38,3344981.0,pending,,,,,,,58.6,76.5,v3
-2026-10-12,,Adam Walton,Marin Cilic,Adam Walton,Marin Cilic,22.099999999999994,1.78,58.6,10.5,1.31,3345075.0,pending,,,,,,,59.1,74.6,v3
-2026-10-12,,Yanaki Milev,Federico Iannaccone,Yanaki Milev,Federico Iannaccone,21.700000000000003,1.92,50.3,11.5,1.48,3347029.0,pending,,,,,,,54.3,69.5,v3
-2026-10-12,,Jennifer Ruggeri,Elizara Yaneva,Elizara Yaneva,Jennifer Ruggeri,21.699999999999996,1.6,57.6,10.5,1.3,3346537.0,pending,,,,,,,64.6,79.8,v3
-2026-10-12,,Milos Karol,Oleksii Krutykh,Oleksii Krutykh,Milos Karol,20.000000000000007,1.46,59.1,11.5,1.21,3347007.0,pending,,,,,,,68.4,82.4,v3
-2026-10-12,,Patrick Schoen,Michael Vrbensky,Patrick Schoen,Michael Vrbensky,20.0,1.17,75.0,11.5,1.08,3346603.0,pending,,,,,,,83.4,97.4,v3
-2026-10-12,,Sascha Wayenburg,Liam Broady,Sascha Wayenburg,Liam Broady,19.60000000000001,1.35,69.3,10.5,1.14,3345405.0,pending,,,,,,,74.5,88.2,v3
-2026-10-12,,Fajing Sun,Jie Cui,Fajing Sun,Jie Cui,19.39999999999999,1.97,54.4,10.5,1.43,3345079.0,pending,,,,,,,53.0,66.6,v3
+2026-10-12,,Emiliana Arango,Gabriela Andrea Knutson,Gabriela Andrea Knutson,Emiliana Arango,31.199999999999996,1.67,68.5,10.5,1.33,3345387.0,won,2:0,2026-10-13,6-4 6-3,12,won,,65.3,87.1,v3
+2026-10-12,,Xiyu Wang,Xinyu Wang,Xiyu Wang,Xinyu Wang,25.6,1.85,57.3,10.5,1.38,3344981.0,won,2:0,2026-10-13,6-2 6-0,12,won,,58.6,76.5,v3
+2026-10-12,,Adam Walton,Marin Cilic,Adam Walton,Marin Cilic,22.099999999999994,1.78,58.6,10.5,1.31,3345075.0,lost,2:1,2026-10-13,3-6 6-3 1-6,10,lost,,59.1,74.6,v3
+2026-10-12,,Yanaki Milev,Federico Iannaccone,Yanaki Milev,Federico Iannaccone,21.700000000000003,1.92,50.3,11.5,1.48,3347029.0,lost,2:1,2026-10-13,6-7 6-4 6-7,18,won,,54.3,69.5,v3
+2026-10-12,,Jennifer Ruggeri,Elizara Yaneva,Elizara Yaneva,Jennifer Ruggeri,21.699999999999996,1.6,57.6,10.5,1.3,3346537.0,won,2:1,2026-10-13,1-6 7-6 6-1,14,won,,64.6,79.8,v3
+2026-10-12,,Milos Karol,Oleksii Krutykh,Oleksii Krutykh,Milos Karol,20.000000000000007,1.46,59.1,11.5,1.21,3347007.0,lost,2:1,2026-10-13,1-6 7-5 6-7,14,won,,68.4,82.4,v3
+2026-10-12,,Patrick Schoen,Michael Vrbensky,Patrick Schoen,Michael Vrbensky,20.0,1.17,75.0,11.5,1.08,3346603.0,lost,2:0,2026-10-13,3-6 4-6,7,lost,,83.4,97.4,v3
+2026-10-12,,Sascha Wayenburg,Liam Broady,Sascha Wayenburg,Liam Broady,19.60000000000001,1.35,69.3,10.5,1.14,3345405.0,won,2:0,2026-10-13,6-4 6-4,12,won,,74.5,88.2,v3
+2026-10-12,,Fajing Sun,Jie Cui,Fajing Sun,Jie Cui,19.39999999999999,1.97,54.4,10.5,1.43,3345079.0,lost,2:0,2026-10-13,3-6 5-7,8,lost,,53.0,66.6,v3
 2026-10-13,,Pedro Boscardin Dias,Facundo Mena,Facundo Mena,Pedro Boscardin Dias,32.400000000000006,1.82,61.2,10.5,1.35,3346243.0,pending,,,,,,,61.0,83.7,v3
 2026-10-13,,Dane Sweeny,Bernard Tomic,Bernard Tomic,Dane Sweeny,26.200000000000003,1.87,50.9,10.5,1.35,3345073.0,pending,,,,,,,57.9,76.2,v3
 2026-10-13,,Pavel Kotov,Vit Kopriva,Pavel Kotov,Vit Kopriva,25.89999999999999,1.52,62.3,10.5,1.21,3345083.0,pending,,,,,,,69.0,87.1,v3
@@ -203,3 +203,4 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-13,,Jacob Fearnley,George Loffhagen,George Loffhagen,Jacob Fearnley,18.299999999999997,1.95,46.1,10.5,1.43,3347597.0,pending,,,,,,,53.2,66.0,v3
 2026-10-13,,Michael Mmoh,Laslo Djere,Laslo Djere,Michael Mmoh,17.499999999999993,1.68,51.3,10.5,1.29,3346377.0,pending,,,,,,,60.9,73.1,v3
 2026-10-13,,Hubert Hurkacz,Alejandro Davidovich Fokina,Hubert Hurkacz,Alejandro Davidovich Fokina,17.4,1.83,47.3,10.5,1.28,3346611.0,pending,,,,,,,56.8,69.0,v3
+2026-10-13,,Tristan Boyer,Alejandro Moro Canas,Alejandro Moro Canas,Tristan Boyer,22.0,1.87,52.8,10.5,1.34,3345429.0,pending,,,,,,,56.6,72.0,v3

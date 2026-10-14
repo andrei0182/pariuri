@@ -1,5 +1,5 @@
 """Teste pentru excluderea meciurilor cu cota Peste 2.5 > 2.00 (2026-10-09:
-doar 3 din 15 au iesit Peste) si pentru marcarea "void" a pick-urilor
+doar 3 din 15 au iesit Peste) sau < 1.40 (2026-10-14: ROI -9%) si pentru marcarea "void" a pick-urilor
 blocate pe "pending". Ruleaza: cd football && python -m unittest tests.odds_filter_test"""
 from __future__ import annotations
 
@@ -27,27 +27,35 @@ def _match(home, away, odds):
 
 class OddsFilterTests(unittest.TestCase):
     def setUp(self):
-        self.matched = pd.DataFrame([_match("A", "B", "1.55"), _match("C", "D", "2.35"), _match("E", "F", "2.00")])
+        self.matched = pd.DataFrame([_match("A", "B", "1.55"), _match("C", "D", "2.35"), _match("E", "F", "2.00"),
+                                     _match("G", "H", "1.30"), _match("I", "J", "1.40"), _match("K", "L", "")])
 
     def test_split(self):
         picks, excluded = dr.split_by_odds(self.matched)
-        self.assertEqual(list(picks["Home Team" + B]), ["A", "E"])  # 2.00 inclusiv ramane
-        self.assertEqual(list(excluded["Home Team" + B]), ["C"])
+        # 2.00 si 1.40 inclusiv raman; fara cota ramane
+        self.assertEqual(list(picks["Home Team" + B]), ["A", "E", "I", "K"])
+        self.assertEqual(list(excluded["Home Team" + B]), ["C", "G"])
+
+    def test_reasons(self):
+        self.assertEqual([dr.exclusion_reason(r) for _, r in self.matched.iterrows()],
+                         ["", "odds>2.0", "", "odds<1.4", "", ""])
 
     def test_email_lists_excluded_separately(self):
         picks, excluded = dr.split_by_odds(self.matched)
         body = dr.build_email_body(picks, 0, "2026-10-09", excluded)
-        self.assertEqual(body.count("<h3"), 2)
+        self.assertEqual(body.count("<h3"), 4)  # un bloc per recomandare
         self.assertIn("Excluse", body)
         self.assertIn("C vs D (cota 2.35)", body)
+        self.assertIn("G vs H (cota 1.3)", body)
 
     def test_excluded_are_logged_with_flag(self):
         picks, excluded = dr.split_by_odds(self.matched)
         with tempfile.TemporaryDirectory() as tmp, mock.patch.object(dr, "LOG_PATH", str(Path(tmp) / "log.csv")):
             dr.log_todays_picks(picks, "2026-10-09")
-            dr.log_todays_picks(excluded, "2026-10-09", excluded="odds>2.0")
+            dr.log_excluded(excluded, "2026-10-09")
             log = pd.read_csv(dr.LOG_PATH, dtype=str, keep_default_na=False)
-        self.assertEqual(dict(zip(log["home_team"], log["excluded"])), {"A": "", "E": "", "C": "odds>2.0"})
+        self.assertEqual(dict(zip(log["home_team"], log["excluded"])),
+                         {"A": "", "E": "", "I": "", "K": "", "C": "odds>2.0", "G": "odds<1.4"})
 
 
 class StalePendingTests(unittest.TestCase):

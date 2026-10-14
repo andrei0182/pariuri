@@ -1,0 +1,11 @@
+date,tournament,tour,player1,player2,market,recommended_player,opponent,probability,threshold,rec_odds,games_bet,games_line,games_odds,te_match_id,result,score,checked_at,set_scores,rec_games,games_result
+2026-10-14,,itf-f,Styliani Roussopoulou,Elena Ruxandra Bertea,castiga meciul,Elena Ruxandra Bertea,Styliani Roussopoulou,0.911,0.83,1.0,over,8.5,,3348237.0,pending,,,,,
+2026-10-14,,itf-f,Kristina Kroitor,Ines Faltinger,castiga meciul,Kristina Kroitor,Ines Faltinger,0.889,0.83,1.01,over,8.5,,3348175.0,pending,,,,,
+2026-10-14,,itf-m,Marat Salbiev,Romain Faucon,castiga meciul,Romain Faucon,Marat Salbiev,0.885,0.83,1.05,over,8.5,,3348039.0,pending,,,,,
+2026-10-14,,itf-f,Sara Victoria Balan,Anastasiia Nikolaieva,castiga meciul,Sara Victoria Balan,Anastasiia Nikolaieva,0.848,0.83,1.88,over,8.5,,3348189.0,pending,,,,,
+2026-10-14,,itf-m,Olaf Pieczkowski,Hoyoung Roh,castiga meciul,Hoyoung Roh,Olaf Pieczkowski,0.841,0.83,1.97,over,8.5,,3348601.0,pending,,,,,
+2026-10-14,,itf-m,Matyas Fuele,Thomas Kostka,castiga meciul,Matyas Fuele,Thomas Kostka,0.841,0.83,1.16,over,8.5,,3349063.0,pending,,,,,
+2026-10-14,,itf-f,Emma Mazzoni,Dunja Maric,castiga meciul,Dunja Maric,Emma Mazzoni,0.839,0.83,1.0,over,8.5,,3348943.0,pending,,,,,
+2026-10-14,,wta,Magdalena Frech,Iga Swiatek,castiga meciul,Iga Swiatek,Magdalena Frech,0.832,0.83,1.04,over,8.5,,3347407.0,pending,,,,,
+2026-10-14,,itf-f,Federica Sacco,Ioana-Stefania Boian,castiga meciul,Federica Sacco,Ioana-Stefania Boian,0.83,0.83,1.22,over,8.5,,3349303.0,pending,,,,,
+2026-10-14,,itf-f,Styliani Roussopoulou,Elena Ruxandra Bertea,adversarul sub 6.5 game-uri,Elena Ruxandra Bertea,Styliani Roussopoulou,0.808,0.785,1.0,opp_under,6.5,,3348237.0,pending,,,,,

@@ -788,8 +788,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-13,,Rohan Belday,Dragos Nicolae Cazacu,Rohan Belday,Dragos Nicolae Cazacu,5.9,ITF,5.5,1.54,0.531,0.649,-0.182,1,1.0,False,3347307.0,lost,2:0,2026-10-14,3-6 4-6,7,won
 2026-10-13,,Timothee Andriveau,Asahi Harazaki,Timothee Andriveau,Asahi Harazaki,6.3,ITF,5.5,1.66,0.531,0.602,-0.118,6,0.667,False,3346275.0,lost,2:0,2026-10-14,1-6 4-6,5,lost
 2026-10-13,,Alejandro Melero Kretzer,Louis Hull,Louis Hull,Alejandro Melero Kretzer,5.55,ITF,5.5,1.53,0.531,0.654,-0.187,8,0.75,False,3346977.0,lost,2:1,2026-10-14,3-6 6-3 1-6,10,won
-2026-10-13,,Stijn Paardekooper,Rodrigo Cruz,Rodrigo Cruz,Stijn Paardekooper,8.1,ITF,4.5,1.49,0.453,0.671,-0.324,2,1.0,False,3347309.0,pending,,,,,
-2026-10-13,,Stijn Paardekooper,Rodrigo Cruz,Rodrigo Cruz,Stijn Paardekooper,8.1,ITF,5.5,1.9,0.341,0.526,-0.351,2,1.0,False,3347309.0,pending,,,,,
+2026-10-13,,Stijn Paardekooper,Rodrigo Cruz,Rodrigo Cruz,Stijn Paardekooper,8.1,ITF,4.5,1.49,0.453,0.671,-0.324,2,1.0,False,3347309.0,won,2:0,2026-10-14,6-3 6-1,12,won
+2026-10-13,,Stijn Paardekooper,Rodrigo Cruz,Rodrigo Cruz,Stijn Paardekooper,8.1,ITF,5.5,1.9,0.341,0.526,-0.351,2,1.0,False,3347309.0,won,2:0,2026-10-14,6-3 6-1,12,won
 2026-10-13,,Tomas Jirousek,Michael Lorenzetti,Michael Lorenzetti,Tomas Jirousek,5.9,ITF,5.5,1.52,0.531,0.658,-0.193,0,,False,,no_data,,2026-10-14,,,
 2026-10-13,,Pablo Roche Alcaya,Tito Chavez,Pablo Roche Alcaya,Tito Chavez,5.9,ITF,5.5,1.54,0.531,0.649,-0.182,6,1.0,False,3348399.0,won,2:0,2026-10-14,6-4 7-6,13,won
 2026-10-13,,Alexander Baez,Adam Duda,Adam Duda,Alexander Baez,11.0,ITF,4.5,1.65,0.453,0.606,-0.252,5,0.8,False,3348845.0,pending,,,,,
@@ -854,3 +854,19 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-14,,Zuzanna Bednarz,Melissa Boyden,Melissa Boyden,Zuzanna Bednarz,8.0,ITF,5.5,1.87,0.341,0.535,-0.361,0,,False,,pending,,,,,
 2026-10-14,,Cas de Ruiter,Marshall Tutu,Cas de Ruiter,Marshall Tutu,5.8,ITF,5.5,1.56,0.531,0.641,-0.171,10,1.0,False,3349095.0,pending,,,,,
 2026-10-14,,Laura Svatikova,Kristina Kovgan,Kristina Kovgan,Laura Svatikova,6.3,ITF,5.5,1.69,0.531,0.592,-0.102,0,,False,,pending,,,,,
+2026-10-14,,Maxence Bertimon,Marko Savija,Marko Savija,Maxence Bertimon,10.0,ITF,4.5,1.58,0.454,0.633,-0.283,10,0.8,False,3347831.0,pending,,,,,
+2026-10-14,,Maxence Bertimon,Marko Savija,Marko Savija,Maxence Bertimon,10.0,ITF,5.5,1.9,0.341,0.526,-0.351,10,0.8,False,3347831.0,pending,,,,,
+2026-10-14,,Lawrence Bataljin,Daniel Domingos,Lawrence Bataljin,Daniel Domingos,5.8,ITF,5.5,1.63,0.531,0.613,-0.134,24,0.75,False,3347921.0,pending,,,,,
+2026-10-14,,Meng-Yi Chen,Sijia Wei,Meng-Yi Chen,Sijia Wei,6.3,ITF,5.5,1.69,0.531,0.592,-0.102,17,0.824,False,3347551.0,pending,,,,,
+2026-10-14,,Vivian Wolff,Natalie Kha,Natalie Kha,Vivian Wolff,5.15,ITF,5.5,1.55,0.531,0.645,-0.177,0,,False,,pending,,,,,
+2026-10-14,,Juliette Mazzoni,Miriam Bianca Bulgaru,Juliette Mazzoni,Miriam Bianca Bulgaru,20.0,ITF,1.5,1.27,0.861,0.787,0.094,4,0.5,False,3348945.0,pending,,,,,
+2026-10-14,,Juliette Mazzoni,Miriam Bianca Bulgaru,Juliette Mazzoni,Miriam Bianca Bulgaru,20.0,ITF,2.5,1.69,0.735,0.592,0.242,4,0.5,False,3348945.0,pending,,,,,
+2026-10-14,,Juliette Mazzoni,Miriam Bianca Bulgaru,Juliette Mazzoni,Miriam Bianca Bulgaru,20.0,ITF,3.5,2.4,0.596,0.417,0.431,4,0.5,False,3348945.0,pending,,,,,
+2026-10-14,,Sophie Luescher,Maria Mikhailova,Maria Mikhailova,Sophie Luescher,7.0,ITF,4.5,1.48,0.454,0.676,-0.329,15,0.867,False,3348193.0,pending,,,,,
+2026-10-14,,Sophie Luescher,Maria Mikhailova,Maria Mikhailova,Sophie Luescher,7.0,ITF,5.5,1.78,0.341,0.562,-0.392,15,0.867,False,3348193.0,pending,,,,,
+2026-10-14,,Giulia Safina Popa,Daniela Ciobanu,Daniela Ciobanu,Giulia Safina Popa,11.0,ITF,3.5,1.39,0.596,0.719,-0.171,9,0.889,False,3348197.0,pending,,,,,
+2026-10-14,,Giulia Safina Popa,Daniela Ciobanu,Daniela Ciobanu,Giulia Safina Popa,11.0,ITF,4.5,1.7,0.454,0.588,-0.229,9,0.889,False,3348197.0,pending,,,,,
+2026-10-14,,Giulia Safina Popa,Daniela Ciobanu,Daniela Ciobanu,Giulia Safina Popa,11.0,ITF,5.5,2.12,0.341,0.472,-0.276,9,0.889,False,3348197.0,pending,,,,,
+2026-10-14,,Emilija Miljkovic,Arina Gabriela Vasilescu,Emilija Miljkovic,Arina Gabriela Vasilescu,20.0,ITF,2.5,1.35,0.735,0.741,-0.008,0,,False,,pending,,,,,
+2026-10-14,,Emilija Miljkovic,Arina Gabriela Vasilescu,Emilija Miljkovic,Arina Gabriela Vasilescu,20.0,ITF,3.5,1.75,0.596,0.571,0.043,0,,False,,pending,,,,,
+2026-10-14,,Emilija Miljkovic,Arina Gabriela Vasilescu,Emilija Miljkovic,Arina Gabriela Vasilescu,20.0,ITF,4.5,2.3,0.454,0.435,0.043,0,,False,,pending,,,,,

@@ -52,6 +52,10 @@ LOG_COLUMNS = [
 # apar ca recomandari, dar sunt logate (excluded="odds>2.0") ca sa putem
 # verifica in timp daca excluderea e justificata.
 MAX_ODDS_OVER = 2.0
+# Analiza din 2026-10-14 pe 125 de meciuri: sub 1.40 au iesit 70% Peste, dar
+# la cota medie 1.30 asta inseamna pierdere (37 de meciuri, -3.4u, ROI -9%);
+# intre 1.40 si 2.00: 58 de meciuri, ~77%, ROI ~+27%. Le excludem la fel.
+MIN_ODDS_OVER = 1.40
 
 _SUFFIX_BET = " (BetExplorer)"
 _SUFFIX_SB = " (Superbet)"
@@ -173,12 +177,35 @@ def _odds_over(row) -> float | None:
         return None
 
 
+def exclusion_reason(row) -> str:
+    """"" daca meciul ramane recomandare, altfel motivul (scris si in log).
+    Fara cota cunoscuta, meciul ramane (nu avem pe ce exclude)."""
+    odds = _odds_over(row)
+    if odds is None:
+        return ""
+    if odds > MAX_ODDS_OVER:
+        return f"odds>{MAX_ODDS_OVER}"
+    if odds < MIN_ODDS_OVER:
+        return f"odds<{MIN_ODDS_OVER}"
+    return ""
+
+
 def split_by_odds(matched: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """(recomandari, excluse): excluse = cota Over 2.5 > MAX_ODDS_OVER."""
+    """(recomandari, excluse): excluse = cota Over 2.5 in afara intervalului
+    [MIN_ODDS_OVER, MAX_ODDS_OVER]."""
     if matched.empty:
         return matched, matched
-    too_high = matched.apply(lambda r: (_odds_over(r) or 0) > MAX_ODDS_OVER, axis=1)
-    return matched[~too_high], matched[too_high]
+    out = matched.apply(lambda r: exclusion_reason(r) != "", axis=1)
+    return matched[~out], matched[out]
+
+
+def log_excluded(excluded: pd.DataFrame, date_str: str) -> None:
+    """Logheaza meciurile excluse, fiecare cu motivul lui (odds>2.0 / odds<1.4)."""
+    if excluded.empty:
+        return
+    reasons = excluded.apply(exclusion_reason, axis=1)
+    for reason in sorted(set(reasons)):
+        log_todays_picks(excluded[reasons == reason], date_str, excluded=reason)
 
 
 def log_todays_picks(matched: pd.DataFrame, date_str: str, excluded: str = "") -> None:
@@ -280,8 +307,9 @@ def build_email_body(
             for _, r in excluded.iterrows()
         )
         lines.append(
-            f"<p style='color:#888; font-size:0.9em;'>Excluse (cota Peste 2.5 &gt; {MAX_ODDS_OVER:.2f} - "
-            f"istoric: doar 20% au iesit Peste): {names}</p>"
+            f"<p style='color:#888; font-size:0.9em;'>Excluse (cota Peste 2.5 in afara intervalului "
+            f"{MIN_ODDS_OVER:.2f}&ndash;{MAX_ODDS_OVER:.2f}; istoric: peste 2.00 doar 18% au iesit Peste, "
+            f"sub 1.40 castigul e prea mic si iese pe pierdere): {names}</p>"
         )
 
     if unmatched_count:
@@ -339,7 +367,7 @@ def main() -> None:
         return
 
     log_todays_picks(picks, args.date)
-    log_todays_picks(excluded, args.date, excluded=f"odds>{MAX_ODDS_OVER}")
+    log_excluded(excluded, args.date)
 
     if matched.empty and unmatched_count == 0:
         print("No high-confidence matches at all today -- skipping email.")

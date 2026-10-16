@@ -145,8 +145,9 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-14,ASIA: AFC CHAMPIONS LEAGUE,Kashiwa Reysol,Port MTI FC,1.34,13:00,over,6,2026-10-15,odds<1.4
 2026-10-14,EUROPE: CHAMPIONS LEAGUE,Bodo/Glimt,Dortmund,1.37,22:00,under,1,2026-10-15,odds<1.4
 2026-10-14,EUROPE: CHAMPIONS LEAGUE,Slovan Bratislava,Stuttgart,1.34,22:00,over,3,2026-10-15,odds<1.4
-2026-10-15,EUROPE: EUROPA LEAGUE,Lyon,Crystal Palace,1.64,19:45,pending,,,
-2026-10-15,EUROPE: EUROPA LEAGUE,Royale Union SG,Real Sociedad,1.66,19:45,pending,,,
-2026-10-15,EUROPE: EUROPA LEAGUE,Ferencvaros,Plzen,1.67,22:00,pending,,,
-2026-10-15,EUROPE: EUROPA LEAGUE,Jagiellonia,Ararat-Armenia,1.61,22:00,pending,,,
-2026-10-15,EUROPE: EUROPA LEAGUE,Marseille,Olympiacos Piraeus,1.74,22:00,pending,,,
+2026-10-15,EUROPE: EUROPA LEAGUE,Lyon,Crystal Palace,1.64,19:45,over,5,2026-10-16,
+2026-10-15,EUROPE: EUROPA LEAGUE,Royale Union SG,Real Sociedad,1.66,19:45,under,2,2026-10-16,
+2026-10-15,EUROPE: EUROPA LEAGUE,Ferencvaros,Plzen,1.67,22:00,over,3,2026-10-16,
+2026-10-15,EUROPE: EUROPA LEAGUE,Jagiellonia,Ararat-Armenia,1.61,22:00,over,4,2026-10-16,
+2026-10-15,EUROPE: EUROPA LEAGUE,Marseille,Olympiacos Piraeus,1.74,22:00,under,1,2026-10-16,
+2026-10-16,MYANMAR: NATIONAL LEAGUE,Thitsar Arman,Ispe FC,1.37,12:00,pending,,,odds<1.4

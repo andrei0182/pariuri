@@ -1,5 +1,5 @@
 date,tournament,tour,player1,player2,market,recommended_player,opponent,probability,threshold,rec_odds,games_bet,games_line,games_odds,te_match_id,result,score,checked_at,set_scores,rec_games,games_result
-2026-10-14,,itf-f,Styliani Roussopoulou,Elena Ruxandra Bertea,castiga meciul,Elena Ruxandra Bertea,Styliani Roussopoulou,0.911,0.83,1.0,over,8.5,,3348237.0,pending,,,,,
+2026-10-14,,itf-f,Styliani Roussopoulou,Elena Ruxandra Bertea,castiga meciul,Elena Ruxandra Bertea,Styliani Roussopoulou,0.911,0.83,1.0,over,8.5,,3348237.0,won,2:0,2026-10-16,6-0 6-2,12,won
 2026-10-14,,itf-f,Kristina Kroitor,Ines Faltinger,castiga meciul,Kristina Kroitor,Ines Faltinger,0.889,0.83,1.01,over,8.5,,3348175.0,won,2:1,2026-10-15,5-7 6-1 6-1,17,won
 2026-10-14,,itf-m,Marat Salbiev,Romain Faucon,castiga meciul,Romain Faucon,Marat Salbiev,0.885,0.83,1.05,over,8.5,,3348039.0,won,2:0,2026-10-15,6-3 7-6,13,won
 2026-10-14,,itf-f,Sara Victoria Balan,Anastasiia Nikolaieva,castiga meciul,Sara Victoria Balan,Anastasiia Nikolaieva,0.848,0.83,1.88,over,8.5,,3348189.0,won,2:1,2026-10-15,5-7 6-2 6-4,17,won
@@ -8,23 +8,27 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-14,,itf-f,Emma Mazzoni,Dunja Maric,castiga meciul,Dunja Maric,Emma Mazzoni,0.839,0.83,1.0,over,8.5,,3348943.0,won,2:0,2026-10-15,3-1,3,void
 2026-10-14,,wta,Magdalena Frech,Iga Swiatek,castiga meciul,Iga Swiatek,Magdalena Frech,0.832,0.83,1.04,over,8.5,,3347407.0,won,2:0,2026-10-15,6-2 6-1,12,won
 2026-10-14,,itf-f,Federica Sacco,Ioana-Stefania Boian,castiga meciul,Federica Sacco,Ioana-Stefania Boian,0.83,0.83,1.22,over,8.5,,3349303.0,won,2:0,2026-10-15,6-1 6-4,12,won
-2026-10-14,,itf-f,Styliani Roussopoulou,Elena Ruxandra Bertea,adversarul sub 6.5 game-uri,Elena Ruxandra Bertea,Styliani Roussopoulou,0.808,0.785,1.0,opp_under,6.5,,3348237.0,pending,,,,,
-2026-10-15,,utr-m,Liam Oliver,Daniel Jankoski,castiga meciul,Daniel Jankoski,Liam Oliver,0.888,0.815,1.12,over,8.5,,3349627.0,pending,,,,,
-2026-10-15,,itf-f,Florentine Dekkers,Kamonwan Yodpetch,castiga meciul,Kamonwan Yodpetch,Florentine Dekkers,0.869,0.815,1.08,over,8.5,,3349973.0,pending,,,,,
-2026-10-15,,itf-m,Florent Bax,Ruslan Serazhetdinov,castiga meciul,Florent Bax,Ruslan Serazhetdinov,0.865,0.815,1.008,over,8.5,,3349725.0,pending,,,,,
-2026-10-15,,itf-f,Honori Koyama,Sijia Wei,castiga meciul,Sijia Wei,Honori Koyama,0.861,0.815,1.0,over,8.5,,3349667.0,pending,,,,,
-2026-10-15,,itf-m,Eliakim Coulibaly,Louis Larue,castiga meciul,Eliakim Coulibaly,Louis Larue,0.859,0.815,1.005,over,8.5,,3349685.0,pending,,,,,
-2026-10-15,,itf-f,Jana Kolodynska,Junhan Zhang,castiga meciul,Junhan Zhang,Jana Kolodynska,0.857,0.815,1.97,over,8.5,,3349639.0,pending,,,,,
-2026-10-15,,utr-m,Cian McDonnell,Marshall Tutu,castiga meciul,Marshall Tutu,Cian McDonnell,0.856,0.815,1.28,over,8.5,,3349941.0,pending,,,,,
-2026-10-15,,itf-f,Giulia Safina Popa,Iulia Maria Buculei,castiga meciul,Giulia Safina Popa,Iulia Maria Buculei,0.855,0.815,1.06,over,8.5,,3349999.0,pending,,,,,
-2026-10-15,,utr-m,Uladzislau Tarasevich,Sebastian Bozemoj,castiga meciul,Uladzislau Tarasevich,Sebastian Bozemoj,0.854,0.815,1.003,over,8.5,,3349937.0,pending,,,,,
-2026-10-15,,itf-m,Nicolas Hollender,Juan Sebastian Gomez,castiga meciul,Juan Sebastian Gomez,Nicolas Hollender,0.852,0.815,1.007,over,8.5,,3349351.0,pending,,,,,
+2026-10-14,,itf-f,Styliani Roussopoulou,Elena Ruxandra Bertea,adversarul sub 6.5 game-uri,Elena Ruxandra Bertea,Styliani Roussopoulou,0.808,0.785,1.0,opp_under,6.5,,3348237.0,won,2:0,2026-10-16,6-0 6-2,12,won
+2026-10-15,,utr-m,Liam Oliver,Daniel Jankoski,castiga meciul,Daniel Jankoski,Liam Oliver,0.888,0.815,1.12,over,8.5,,3349627.0,won,2:0,2026-10-16,6-2 6-2,12,won
+2026-10-15,,itf-f,Florentine Dekkers,Kamonwan Yodpetch,castiga meciul,Kamonwan Yodpetch,Florentine Dekkers,0.869,0.815,1.08,over,8.5,,3349973.0,won,2:1,2026-10-16,6-2 5-7 6-3,17,won
+2026-10-15,,itf-m,Florent Bax,Ruslan Serazhetdinov,castiga meciul,Florent Bax,Ruslan Serazhetdinov,0.865,0.815,1.008,over,8.5,,3349725.0,won,2:0,2026-10-16,6-3 6-0,12,won
+2026-10-15,,itf-f,Honori Koyama,Sijia Wei,castiga meciul,Sijia Wei,Honori Koyama,0.861,0.815,1.0,over,8.5,,3349667.0,won,2:0,2026-10-16,6-0 6-0,12,won
+2026-10-15,,itf-m,Eliakim Coulibaly,Louis Larue,castiga meciul,Eliakim Coulibaly,Louis Larue,0.859,0.815,1.005,over,8.5,,3349685.0,lost,1:0,2026-10-16,3-6 1-2,4,void
+2026-10-15,,itf-f,Jana Kolodynska,Junhan Zhang,castiga meciul,Junhan Zhang,Jana Kolodynska,0.857,0.815,1.97,over,8.5,,3349639.0,won,2:0,2026-10-16,7-6 6-1,13,won
+2026-10-15,,utr-m,Cian McDonnell,Marshall Tutu,castiga meciul,Marshall Tutu,Cian McDonnell,0.856,0.815,1.28,over,8.5,,3349941.0,won,2:0,2026-10-16,6-4 6-2,12,won
+2026-10-15,,itf-f,Giulia Safina Popa,Iulia Maria Buculei,castiga meciul,Giulia Safina Popa,Iulia Maria Buculei,0.855,0.815,1.06,over,8.5,,3349999.0,won,2:0,2026-10-16,6-2 6-3,12,won
+2026-10-15,,utr-m,Uladzislau Tarasevich,Sebastian Bozemoj,castiga meciul,Uladzislau Tarasevich,Sebastian Bozemoj,0.854,0.815,1.003,over,8.5,,3349937.0,won,2:0,2026-10-16,,,
+2026-10-15,,itf-m,Nicolas Hollender,Juan Sebastian Gomez,castiga meciul,Juan Sebastian Gomez,Nicolas Hollender,0.852,0.815,1.007,over,8.5,,3349351.0,won,2:0,2026-10-16,6-2 7-6,13,won
 2026-10-15,,utr-f,Xenia Bandurowska,Denise Hrdinkova,castiga meciul,Denise Hrdinkova,Xenia Bandurowska,0.848,0.815,1.003,over,8.5,,3350011.0,pending,,,,,
-2026-10-15,,itf-m,Yash Chaurasia,Jack Loge,castiga meciul,Jack Loge,Yash Chaurasia,0.848,0.815,1.01,over,8.5,,3349727.0,pending,,,,,
-2026-10-15,,itf-m,Robin Bertrand,Mohamed Nazim Makhlouf,castiga meciul,Robin Bertrand,Mohamed Nazim Makhlouf,0.847,0.815,1.02,over,8.5,,3349983.0,pending,,,,,
+2026-10-15,,itf-m,Yash Chaurasia,Jack Loge,castiga meciul,Jack Loge,Yash Chaurasia,0.848,0.815,1.01,over,8.5,,3349727.0,won,2:0,2026-10-16,6-4 6-1,12,won
+2026-10-15,,itf-m,Robin Bertrand,Mohamed Nazim Makhlouf,castiga meciul,Robin Bertrand,Mohamed Nazim Makhlouf,0.847,0.815,1.02,over,8.5,,3349983.0,won,2:0,2026-10-16,6-1 6-1,12,won
 2026-10-15,,itf-f,Martina Okalova,Alicia Herrero Linana,castiga meciul,Alicia Herrero Linana,Martina Okalova,0.847,0.815,1.15,over,8.5,,3349517.0,pending,,,,,
-2026-10-15,,itf-m,Pedro Sakamoto,Pedro Albuquerque Dietrich,castiga meciul,Pedro Sakamoto,Pedro Albuquerque Dietrich,0.846,0.815,1.007,over,8.5,,3350137.0,pending,,,,,
-2026-10-15,,itf-f,Dune Vaissaud,Kamilla Bartone,castiga meciul,Dune Vaissaud,Kamilla Bartone,0.837,0.815,1.78,over,8.5,,3350003.0,pending,,,,,
-2026-10-15,,itf-f,Alisa Terentyeva,Lamis Alhussein Abdel Aziz,castiga meciul,Lamis Alhussein Abdel Aziz,Alisa Terentyeva,0.829,0.815,1.01,over,8.5,,3350077.0,pending,,,,,
-2026-10-15,,itf-m,Nikita Mashtakov,Henry Best,castiga meciul,Nikita Mashtakov,Henry Best,0.817,0.815,1.01,over,8.5,,3349807.0,pending,,,,,
+2026-10-15,,itf-m,Pedro Sakamoto,Pedro Albuquerque Dietrich,castiga meciul,Pedro Sakamoto,Pedro Albuquerque Dietrich,0.846,0.815,1.007,over,8.5,,3350137.0,won,2:0,2026-10-16,6-3 6-4,12,won
+2026-10-15,,itf-f,Dune Vaissaud,Kamilla Bartone,castiga meciul,Dune Vaissaud,Kamilla Bartone,0.837,0.815,1.78,over,8.5,,3350003.0,won,2:1,2026-10-16,5-7 7-6 6-4,18,won
+2026-10-15,,itf-f,Alisa Terentyeva,Lamis Alhussein Abdel Aziz,castiga meciul,Lamis Alhussein Abdel Aziz,Alisa Terentyeva,0.829,0.815,1.01,over,8.5,,3350077.0,won,2:0,2026-10-16,6-0 6-3,12,won
+2026-10-15,,itf-m,Nikita Mashtakov,Henry Best,castiga meciul,Nikita Mashtakov,Henry Best,0.817,0.815,1.01,over,8.5,,3349807.0,won,2:1,2026-10-16,5-7 6-0 6-2,17,won
 2026-10-15,,itf-f,Defne Cirpanli,Felitsata Dorofeeva-Rybas,castiga meciul,Felitsata Dorofeeva-Rybas,Defne Cirpanli,0.817,0.815,1.0,over,8.5,,3349703.0,pending,,,,,
+2026-10-16,,utr-m,Dawid Wisniewski,Marshall Tutu,castiga meciul,Marshall Tutu,Dawid Wisniewski,0.892,0.82,1.008,over,8.5,,3350563.0,pending,,,,,
+2026-10-16,,itf-f,Arina Gamretkaia,Felitsata Dorofeeva-Rybas,castiga meciul,Felitsata Dorofeeva-Rybas,Arina Gamretkaia,0.863,0.82,1.01,over,8.5,,3350401.0,pending,,,,,
+2026-10-16,,itf-f,Martina Okalova,Alicia Herrero Linana,castiga meciul,Alicia Herrero Linana,Martina Okalova,0.84,0.82,1.15,over,8.5,,3349517.0,pending,,,,,
+2026-10-16,,utr-f,Sonja Wedenski,Anamaria Federica Oana,castiga meciul,Anamaria Federica Oana,Sonja Wedenski,0.838,0.82,1.002,over,8.5,,3350581.0,pending,,,,,

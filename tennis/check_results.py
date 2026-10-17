@@ -259,7 +259,7 @@ def check_log(path: Path, columns: list[str]) -> None:
             log.loc[idx, "rec_games"] = rec_games
             log.loc[idx, "set_scores"] = set_scores
             print(
-                f"  {p1} vs {p2} -> {rec} peste {row.get('games_line', '')} game-uri: "
+                f"  {p1} vs {p2} -> {rec} peste {row.get('games_line', '?')} game-uri: "
                 f"{games_result} ({rec_games} game-uri, {set_scores})"
             )
 

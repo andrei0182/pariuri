@@ -57,5 +57,28 @@ class MarketValueTests(unittest.TestCase):
         self.assertIn("1 din 1 castigate (media pietei astepta ~0.6), profit +0.85u", html)
 
 
+class CheckResultsWithoutGamesLineTests(unittest.TestCase):
+    def test_retired_match_in_log_without_games_line(self):
+        """2026-10-17: un abandon intr-un log fara coloana games_line oprea check_results."""
+        import check_results
+        from tenis_scraper.tennisexplorer import MatchDetailData, PlayerProfile, RecentMatch
+
+        detail = MatchDetailData(
+            player1=PlayerProfile(name="Fuele Matyas"), player2=PlayerProfile(name="Bilozertsev Nikita"),
+            set_scores=[(3, 6), (1, 0)], retired=True,
+            player2_recent=[RecentMatch(opponent="Fuele Matyas", won=True, score="1:0")],
+        )
+        row = {c: "" for c in mv.LOG_COLUMNS} | {
+            "date": "2026-10-16", "player1": "Matyas Fuele", "player2": "Nikita Bilozertsev",
+            "recommended_player": "Nikita Bilozertsev", "opponent": "Matyas Fuele", "te_match_id": "1", "result": "pending"}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "v.csv"
+            pd.DataFrame([row]).to_csv(path, index=False)
+            with mock.patch.object(check_results.tennisexplorer, "fetch_and_parse_match", return_value=detail):
+                check_results.check_log(path, mv.LOG_COLUMNS)
+            log = pd.read_csv(path, dtype=str)
+        self.assertEqual(log.loc[0, "result"], "won")
+
+
 if __name__ == "__main__":
     unittest.main()

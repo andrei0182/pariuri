@@ -490,8 +490,9 @@ def underdog_summary_html() -> str:
 def _profit_units(rows: pd.DataFrame, result_col: str, odds_col: str) -> float:
     """Profit la miza fixa de 1 unitate: +(cota-1) la castig, -1 la pierdere."""
     odds = pd.to_numeric(rows[odds_col], errors="coerce")
+    priced = odds.notna()  # fara cota nu stim profitul (altfel pierderea ar conta -1, castigul 0)
     won = rows[result_col] == "won"
-    return float((odds - 1).where(won, -1).sum())
+    return float((odds[priced] - 1).where(won[priced], -1).sum())
 
 
 def list_high_edge_matches(df: pd.DataFrame, min_edge_pp: float = 25.0) -> pd.DataFrame:

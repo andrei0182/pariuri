@@ -179,11 +179,14 @@ def print_summary(log: pd.DataFrame) -> None:
         games = games[games["filter_pass"].astype(str) == "True"]
     if not games.empty:
         win_rate = (games["games_result"] == "won").mean()
-        profit = _profit_units(games, "games_result", "games_odds")
-        print(
-            f"Peste game-uri jucator: {len(games)} confirmate, {win_rate:.0%} castigate, "
-            f"profit {profit:+.2f} unitati (miza 1)."
-        )
+        priced = int(pd.to_numeric(games["games_odds"], errors="coerce").notna().sum())
+        if priced == 0:
+            profit_text = "profit necunoscut (fara cote)"
+        else:
+            profit_text = f"profit {_profit_units(games, 'games_result', 'games_odds'):+.2f} unitati (miza 1)"
+            if priced < len(games):
+                profit_text += f" pe {priced} din {len(games)} cu cota"
+        print(f"Peste game-uri jucator: {len(games)} confirmate, {win_rate:.0%} castigate, {profit_text}.")
 
 
 def main() -> None:

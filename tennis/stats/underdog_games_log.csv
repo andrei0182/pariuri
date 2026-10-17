@@ -717,7 +717,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-11,,Laurent Lokoli,Marco Dessi,Marco Dessi,Laurent Lokoli,19.0,Challenger/125,3.5,1.47,0.682,0.68,0.002,3,1.0,False,3345269.0,lost,2:0,2026-10-12,2-6 2-6,4,won
 2026-10-11,,Laurent Lokoli,Marco Dessi,Marco Dessi,Laurent Lokoli,19.0,Challenger/125,4.5,1.95,0.549,0.513,0.071,3,1.0,False,3345269.0,lost,2:0,2026-10-12,2-6 2-6,4,lost
 2026-10-11,,Laurent Lokoli,Marco Dessi,Marco Dessi,Laurent Lokoli,19.0,Challenger/125,5.5,2.47,0.432,0.405,0.066,3,1.0,False,3345269.0,lost,2:0,2026-10-12,2-6 2-6,4,lost
-2026-10-11,,Alexandre Bergeron,Marc van der Merwe,Alexandre Bergeron,Marc van der Merwe,5.0,ITF,5.5,1.45,0.53,0.69,-0.231,5,0.8,False,3345953.0,pending,,,,,
+2026-10-11,,Alexandre Bergeron,Marc van der Merwe,Alexandre Bergeron,Marc van der Merwe,5.0,ITF,5.5,1.45,0.53,0.69,-0.231,5,0.8,False,3345953.0,void,,2026-10-17,,,void
 2026-10-12,,Daniil Medvedev,Dalibor Svrcina,Dalibor Svrcina,Daniil Medvedev,5.85,ATP/WTA,5.5,1.36,0.725,0.735,-0.014,19,1.0,True,3345009.0,lost,2:0,2026-10-13,2-6 3-6,5,lost
 2026-10-12,,Zizou Bergs,Carlos Alcaraz,Zizou Bergs,Carlos Alcaraz,7.9,ATP/WTA,5.5,1.37,0.494,0.73,-0.323,17,1.0,False,3345039.0,won,2:0,2026-10-13,7-5 7-6,14,won
 2026-10-12,,Mika Brunold,Mathys Domenc,Mathys Domenc,Mika Brunold,5.3,Challenger/125,5.5,1.28,0.725,0.781,-0.072,7,0.857,True,3345417.0,lost,2:0,2026-10-13,6-7 3-6,9,won
@@ -912,7 +912,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-15,,Honori Koyama,Sijia Wei,Honori Koyama,Sijia Wei,19.0,ITF,3.5,1.63,0.595,0.613,-0.03,17,0.765,False,3349667.0,lost,2:0,2026-10-16,0-6 0-6,0,lost
 2026-10-15,,Honori Koyama,Sijia Wei,Honori Koyama,Sijia Wei,19.0,ITF,4.5,2.1,0.453,0.476,-0.048,17,0.765,False,3349667.0,lost,2:0,2026-10-16,0-6 0-6,0,lost
 2026-10-15,,Honori Koyama,Sijia Wei,Honori Koyama,Sijia Wei,19.0,ITF,5.5,2.8,0.34,0.357,-0.047,17,0.765,False,3349667.0,lost,2:0,2026-10-16,0-6 0-6,0,lost
-2026-10-15,,Valeriya Strakhova,Malaika Rapolu,Valeriya Strakhova,Malaika Rapolu,5.65,ITF,5.5,1.62,0.533,0.617,-0.136,20,0.9,False,3349519.0,pending,,,,,
+2026-10-15,,Valeriya Strakhova,Malaika Rapolu,Valeriya Strakhova,Malaika Rapolu,5.65,ITF,5.5,1.62,0.533,0.617,-0.136,20,0.9,False,3349519.0,lost,2:1,2026-10-17,1-6 6-4 2-6,9,won
 2026-10-15,,Chiara Fornasieri,Matilde Paoletti,Chiara Fornasieri,Matilde Paoletti,6.4,ITF,4.5,1.43,0.652,0.699,-0.067,12,0.75,False,3349921.0,lost,2:0,2026-10-16,2-6 5-7,7,won
 2026-10-15,,Chiara Fornasieri,Matilde Paoletti,Chiara Fornasieri,Matilde Paoletti,6.4,ITF,5.5,1.7,0.533,0.588,-0.094,12,0.75,False,3349921.0,lost,2:0,2026-10-16,2-6 5-7,7,won
 2026-10-15,,Noemi Maines,Natalija Senic,Noemi Maines,Natalija Senic,5.4,ITF,5.5,1.56,0.533,0.641,-0.168,14,0.786,False,3349919.0,lost,2:0,2026-10-16,3-6 4-6,7,won
@@ -929,25 +929,36 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-15,,Defne Cirpanli,Felitsata Dorofeeva-Rybas,Defne Cirpanli,Felitsata Dorofeeva-Rybas,20.0,ITF,3.5,1.67,0.595,0.599,-0.006,15,1.0,False,3349703.0,pending,,,,,
 2026-10-15,,Defne Cirpanli,Felitsata Dorofeeva-Rybas,Defne Cirpanli,Felitsata Dorofeeva-Rybas,20.0,ITF,4.5,2.17,0.453,0.461,-0.016,15,1.0,False,3349703.0,pending,,,,,
 2026-10-15,,Sara Victoria Balan,Anna Lena Ebster,Anna Lena Ebster,Sara Victoria Balan,6.3,ITF,5.5,1.68,0.533,0.595,-0.104,22,0.864,False,3350073.0,lost,2:1,2026-10-16,2-6 7-6 0-6,9,won
-2026-10-15,,Uladzislau Tarasevich,Sebastian Bozemoj,Sebastian Bozemoj,Uladzislau Tarasevich,15.0,ITF,3.5,1.39,0.595,0.719,-0.172,10,0.6,False,3349937.0,pending,,,,,
-2026-10-15,,Uladzislau Tarasevich,Sebastian Bozemoj,Sebastian Bozemoj,Uladzislau Tarasevich,15.0,ITF,4.5,1.8,0.453,0.556,-0.184,10,0.6,False,3349937.0,pending,,,,,
-2026-10-15,,Uladzislau Tarasevich,Sebastian Bozemoj,Sebastian Bozemoj,Uladzislau Tarasevich,15.0,ITF,5.5,2.22,0.34,0.45,-0.244,10,0.6,False,3349937.0,pending,,,,,
-2026-10-16,,Ann Li,Iga Swiatek,Ann Li,Iga Swiatek,4.4,ATP/WTA,5.5,1.36,0.725,0.735,-0.014,16,1.0,True,3350513.0,pending,,,,,
-2026-10-16,,Pedro Sakamoto,Nicolas Bruna,Nicolas Bruna,Pedro Sakamoto,6.2,ITF,5.5,1.49,0.534,0.671,-0.204,21,0.81,False,3350653.0,pending,,,,,
-2026-10-16,,Dorian Tremblay,Emilien Demanet,Dorian Tremblay,Emilien Demanet,7.5,ITF,4.5,1.38,0.455,0.725,-0.372,13,0.923,False,3350437.0,pending,,,,,
-2026-10-16,,Dorian Tremblay,Emilien Demanet,Dorian Tremblay,Emilien Demanet,7.5,ITF,5.5,1.69,0.341,0.592,-0.424,13,0.923,False,3350437.0,pending,,,,,
-2026-10-16,,Florent Bax,Allan Gatoto,Allan Gatoto,Florent Bax,12.0,ITF,4.5,1.57,0.455,0.637,-0.286,11,0.818,False,3350453.0,pending,,,,,
-2026-10-16,,Florent Bax,Allan Gatoto,Allan Gatoto,Florent Bax,12.0,ITF,5.5,2.07,0.341,0.483,-0.294,11,0.818,False,3350453.0,pending,,,,,
-2026-10-16,,Louis Larue,Jack Loge,Louis Larue,Jack Loge,6.7,ITF,5.5,1.55,0.534,0.645,-0.172,19,0.842,False,3350479.0,pending,,,,,
-2026-10-16,,Sarah Ye,Sijia Wei,Sarah Ye,Sijia Wei,20.0,ITF,2.5,1.33,0.736,0.752,-0.022,7,0.857,False,3350295.0,pending,,,,,
-2026-10-16,,Sarah Ye,Sijia Wei,Sarah Ye,Sijia Wei,20.0,ITF,3.5,1.68,0.596,0.595,0.002,7,0.857,False,3350295.0,pending,,,,,
-2026-10-16,,Sarah Ye,Sijia Wei,Sarah Ye,Sijia Wei,20.0,ITF,4.5,2.2,0.455,0.455,0.0,7,0.857,False,3350295.0,pending,,,,,
-2026-10-16,,Valeriya Strakhova,Malaika Rapolu,Valeriya Strakhova,Malaika Rapolu,5.75,ITF,5.5,1.62,0.534,0.617,-0.134,20,0.9,False,3349519.0,pending,,,,,
-2026-10-16,,Alisa Oktiabreva,Cristiana Nicoleta Todoni,Cristiana Nicoleta Todoni,Alisa Oktiabreva,9.4,ITF,4.5,1.63,0.455,0.613,-0.259,14,0.857,False,3350609.0,pending,,,,,
-2026-10-16,,Alisa Oktiabreva,Cristiana Nicoleta Todoni,Cristiana Nicoleta Todoni,Alisa Oktiabreva,9.4,ITF,5.5,2.0,0.341,0.5,-0.318,14,0.857,False,3350609.0,pending,,,,,
-2026-10-16,,Kristina Kroitor,Justine Bretnacher,Justine Bretnacher,Kristina Kroitor,13.0,ITF,3.5,1.45,0.596,0.69,-0.136,14,0.714,False,3350355.0,pending,,,,,
-2026-10-16,,Kristina Kroitor,Justine Bretnacher,Justine Bretnacher,Kristina Kroitor,13.0,ITF,4.5,1.82,0.455,0.549,-0.172,14,0.714,False,3350355.0,pending,,,,,
-2026-10-16,,Kristina Kroitor,Justine Bretnacher,Justine Bretnacher,Kristina Kroitor,13.0,ITF,5.5,2.32,0.341,0.431,-0.209,14,0.714,False,3350355.0,pending,,,,,
+2026-10-15,,Uladzislau Tarasevich,Sebastian Bozemoj,Sebastian Bozemoj,Uladzislau Tarasevich,15.0,ITF,3.5,1.39,0.595,0.719,-0.172,10,0.6,False,3349937.0,lost,2:0,2026-10-17,3-6 4-6,7,won
+2026-10-15,,Uladzislau Tarasevich,Sebastian Bozemoj,Sebastian Bozemoj,Uladzislau Tarasevich,15.0,ITF,4.5,1.8,0.453,0.556,-0.184,10,0.6,False,3349937.0,lost,2:0,2026-10-17,3-6 4-6,7,won
+2026-10-15,,Uladzislau Tarasevich,Sebastian Bozemoj,Sebastian Bozemoj,Uladzislau Tarasevich,15.0,ITF,5.5,2.22,0.34,0.45,-0.244,10,0.6,False,3349937.0,lost,2:0,2026-10-17,3-6 4-6,7,won
+2026-10-16,,Ann Li,Iga Swiatek,Ann Li,Iga Swiatek,4.4,ATP/WTA,5.5,1.36,0.725,0.735,-0.014,16,1.0,True,3350513.0,lost,2:0,2026-10-17,4-6 1-6,5,lost
+2026-10-16,,Pedro Sakamoto,Nicolas Bruna,Nicolas Bruna,Pedro Sakamoto,6.2,ITF,5.5,1.49,0.534,0.671,-0.204,21,0.81,False,3350653.0,lost,2:0,2026-10-17,4-6 4-6,8,won
+2026-10-16,,Dorian Tremblay,Emilien Demanet,Dorian Tremblay,Emilien Demanet,7.5,ITF,4.5,1.38,0.455,0.725,-0.372,13,0.923,False,3350437.0,lost,2:0,2026-10-17,6-7 1-6,7,won
+2026-10-16,,Dorian Tremblay,Emilien Demanet,Dorian Tremblay,Emilien Demanet,7.5,ITF,5.5,1.69,0.341,0.592,-0.424,13,0.923,False,3350437.0,lost,2:0,2026-10-17,6-7 1-6,7,won
+2026-10-16,,Florent Bax,Allan Gatoto,Allan Gatoto,Florent Bax,12.0,ITF,4.5,1.57,0.455,0.637,-0.286,11,0.818,False,3350453.0,lost,2:0,2026-10-17,1-6 2-6,3,lost
+2026-10-16,,Florent Bax,Allan Gatoto,Allan Gatoto,Florent Bax,12.0,ITF,5.5,2.07,0.341,0.483,-0.294,11,0.818,False,3350453.0,lost,2:0,2026-10-17,1-6 2-6,3,lost
+2026-10-16,,Louis Larue,Jack Loge,Louis Larue,Jack Loge,6.7,ITF,5.5,1.55,0.534,0.645,-0.172,19,0.842,False,3350479.0,lost,2:0,2026-10-17,0-6 1-6,1,lost
+2026-10-16,,Sarah Ye,Sijia Wei,Sarah Ye,Sijia Wei,20.0,ITF,2.5,1.33,0.736,0.752,-0.022,7,0.857,False,3350295.0,lost,1:0,2026-10-17,,,
+2026-10-16,,Sarah Ye,Sijia Wei,Sarah Ye,Sijia Wei,20.0,ITF,3.5,1.68,0.596,0.595,0.002,7,0.857,False,3350295.0,lost,1:0,2026-10-17,,,
+2026-10-16,,Sarah Ye,Sijia Wei,Sarah Ye,Sijia Wei,20.0,ITF,4.5,2.2,0.455,0.455,0.0,7,0.857,False,3350295.0,lost,1:0,2026-10-17,,,
+2026-10-16,,Valeriya Strakhova,Malaika Rapolu,Valeriya Strakhova,Malaika Rapolu,5.75,ITF,5.5,1.62,0.534,0.617,-0.134,20,0.9,False,3349519.0,lost,2:1,2026-10-17,1-6 6-4 2-6,9,won
+2026-10-16,,Alisa Oktiabreva,Cristiana Nicoleta Todoni,Cristiana Nicoleta Todoni,Alisa Oktiabreva,9.4,ITF,4.5,1.63,0.455,0.613,-0.259,14,0.857,False,3350609.0,lost,2:0,2026-10-17,2-6 2-6,4,lost
+2026-10-16,,Alisa Oktiabreva,Cristiana Nicoleta Todoni,Cristiana Nicoleta Todoni,Alisa Oktiabreva,9.4,ITF,5.5,2.0,0.341,0.5,-0.318,14,0.857,False,3350609.0,lost,2:0,2026-10-17,2-6 2-6,4,lost
+2026-10-16,,Kristina Kroitor,Justine Bretnacher,Justine Bretnacher,Kristina Kroitor,13.0,ITF,3.5,1.45,0.596,0.69,-0.136,14,0.714,False,3350355.0,lost,2:0,2026-10-17,2-6 5-7,7,won
+2026-10-16,,Kristina Kroitor,Justine Bretnacher,Justine Bretnacher,Kristina Kroitor,13.0,ITF,4.5,1.82,0.455,0.549,-0.172,14,0.714,False,3350355.0,lost,2:0,2026-10-17,2-6 5-7,7,won
+2026-10-16,,Kristina Kroitor,Justine Bretnacher,Justine Bretnacher,Kristina Kroitor,13.0,ITF,5.5,2.32,0.341,0.431,-0.209,14,0.714,False,3350355.0,lost,2:0,2026-10-17,2-6 5-7,7,won
 2026-10-16,,Arina Gamretkaia,Felitsata Dorofeeva-Rybas,Arina Gamretkaia,Felitsata Dorofeeva-Rybas,8.3,ITF,4.5,1.57,0.455,0.637,-0.286,6,0.833,False,3350401.0,pending,,,,,
 2026-10-16,,Arina Gamretkaia,Felitsata Dorofeeva-Rybas,Arina Gamretkaia,Felitsata Dorofeeva-Rybas,8.3,ITF,5.5,1.92,0.341,0.521,-0.345,6,0.833,False,3350401.0,pending,,,,,
-2026-10-16,,Hien Quang Hien Pham,Oscar Brown,Hien Quang Hien Pham,Oscar Brown,6.2,ITF,5.5,1.65,0.534,0.606,-0.118,5,1.0,False,3350335.0,pending,,,,,
+2026-10-16,,Hien Quang Hien Pham,Oscar Brown,Hien Quang Hien Pham,Oscar Brown,6.2,ITF,5.5,1.65,0.534,0.606,-0.118,5,1.0,False,3350335.0,lost,2:0,2026-10-17,2-6 2-6,4,lost
+2026-10-17,,Amir Omarkhanov,Rei Sakamoto,Amir Omarkhanov,Rei Sakamoto,7.6,ATP/WTA,5.5,1.38,0.487,0.725,-0.327,8,0.875,False,3351075.0,pending,,,,,
+2026-10-17,,Iga Swiatek,Maja Chwalinska,Maja Chwalinska,Iga Swiatek,5.2,ATP/WTA,5.5,1.49,0.723,0.671,0.078,10,1.0,True,3350909.0,pending,,,,,
+2026-10-17,,Ioannis Xilas,Jip Van Assendelft,Jip Van Assendelft,Ioannis Xilas,7.8,ITF,4.5,1.46,0.455,0.685,-0.336,5,1.0,False,3350947.0,pending,,,,,
+2026-10-17,,Ioannis Xilas,Jip Van Assendelft,Jip Van Assendelft,Ioannis Xilas,7.8,ITF,5.5,1.77,0.342,0.565,-0.395,5,1.0,False,3350947.0,pending,,,,,
+2026-10-17,,B.Bozemoj,Leevi Saatela,Leevi Saatela,B.Bozemoj,5.8,ITF,5.5,1.58,0.535,0.633,-0.155,0,,False,,pending,,,,,
+2026-10-17,,Yuga Tashiro,Hien Quang Hien Pham,Hien Quang Hien Pham,Yuga Tashiro,4.9,ITF,5.5,1.47,0.618,0.68,-0.091,5,1.0,False,3350931.0,pending,,,,,
+2026-10-17,,Klara Vaja,Alisa Baranovska,Klara Vaja,Alisa Baranovska,7.1,ITF,4.5,1.48,0.455,0.676,-0.327,17,0.706,False,3351065.0,pending,,,,,
+2026-10-17,,Klara Vaja,Alisa Baranovska,Klara Vaja,Alisa Baranovska,7.1,ITF,5.5,1.8,0.342,0.556,-0.385,17,0.706,False,3351065.0,pending,,,,,
+2026-10-17,,Arina Gabriela Vasilescu,Sonja Wedenski,Sonja Wedenski,Arina Gabriela Vasilescu,20.0,ITF,2.5,1.47,0.736,0.68,0.082,0,,False,,pending,,,,,
+2026-10-17,,Arina Gabriela Vasilescu,Sonja Wedenski,Sonja Wedenski,Arina Gabriela Vasilescu,20.0,ITF,3.5,2.0,0.596,0.5,0.192,0,,False,,pending,,,,,
+2026-10-17,,Arina Gabriela Vasilescu,Sonja Wedenski,Sonja Wedenski,Arina Gabriela Vasilescu,20.0,ITF,4.5,2.75,0.455,0.364,0.251,0,,False,,pending,,,,,

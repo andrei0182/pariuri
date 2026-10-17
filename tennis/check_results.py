@@ -158,8 +158,9 @@ def resolve_games(row: pd.Series, detail: tennisexplorer.MatchDetailData) -> tup
 def _profit_units(rows: pd.DataFrame, result_col: str, odds_col: str) -> float:
     """Profit la miza fixa de 1 unitate: +(cota-1) la castig, -1 la pierdere."""
     odds = pd.to_numeric(rows[odds_col], errors="coerce")
+    priced = odds.notna()  # fara cota nu stim profitul: o pierdere fara cota ar conta -1, un castig 0
     won = rows[result_col] == "won"
-    return float((odds - 1).where(won, -1).sum())
+    return float((odds[priced] - 1).where(won[priced], -1).sum())
 
 
 def print_summary(log: pd.DataFrame) -> None:
@@ -222,6 +223,8 @@ def check_log(path: Path, columns: list[str]) -> None:
 
     is_pending = (log["result"] == "pending") & (log["date"] < today_str)
     needs_games = log["result"].isin(["won", "lost"]) & games_missing & (log["date"] >= backfill_from)
+    if "games_line" not in columns:  # log fara pariu la game-uri (ex. market_value)
+        needs_games &= False
     to_check = log[is_pending | needs_games]
     if to_check.empty:
         print("Nimic 'pending' din zile anterioare si nimic de completat la game-uri.")
@@ -253,7 +256,7 @@ def check_log(path: Path, columns: list[str]) -> None:
             log.loc[idx, "checked_at"] = today_str
             print(f"  {p1} vs {p2} -> {rec}: {result} ({score})")
 
-        games_result, rec_games, set_scores = resolve_games(log.loc[idx], detail)
+        games_result, rec_games, set_scores = ("", "", "") if "games_line" not in columns else resolve_games(log.loc[idx], detail)
         if games_result:
             log.loc[idx, "games_result"] = games_result
             log.loc[idx, "rec_games"] = rec_games

@@ -151,7 +151,11 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-15,EUROPE: EUROPA LEAGUE,Jagiellonia,Ararat-Armenia,1.61,22:00,over,4,2026-10-16,
 2026-10-15,EUROPE: EUROPA LEAGUE,Marseille,Olympiacos Piraeus,1.74,22:00,under,1,2026-10-16,
 2026-10-16,MYANMAR: NATIONAL LEAGUE,Thitsar Arman,Ispe FC,1.37,12:00,over,5,2026-10-17,odds<1.4
-2026-10-17,CZECH REPUBLIC: 4. LIGA - GROUP C,Chrudim B,Letohrad,1.41,16:30,pending,,,
-2026-10-17,ISRAEL: LIGAT HA'AL,Maccabi Petah Tikva,Maccabi Haifa,1.4,19:30,pending,,,
-2026-10-17,VIETNAM: V.LEAGUE 1,Da Nang,Hai Phong,1.87,14:00,pending,,,
-2026-10-17,ITALY: PRIMAVERA 2,Pescara U19,Salernitana U19,1.32,12:00,pending,,,odds<1.4
+2026-10-17,CZECH REPUBLIC: 4. LIGA - GROUP C,Chrudim B,Letohrad,1.41,16:30,under,2,2026-10-18,
+2026-10-17,ISRAEL: LIGAT HA'AL,Maccabi Petah Tikva,Maccabi Haifa,1.4,19:30,over,3,2026-10-18,
+2026-10-17,VIETNAM: V.LEAGUE 1,Da Nang,Hai Phong,1.87,14:00,over,6,2026-10-18,
+2026-10-17,ITALY: PRIMAVERA 2,Pescara U19,Salernitana U19,1.32,12:00,over,6,2026-10-18,odds<1.4
+2026-10-18,ENGLAND: PREMIER LEAGUE 2,Brighton U21,Bournemouth U21,1.4,15:30,pending,,,
+2026-10-18,HONG KONG: PREMIER LEAGUE,Shatin,Hong Kong FC,1.44,11:00,pending,,,
+2026-10-18,MALTA: CHALLENGE LEAGUE,Naxxar,Victoria Hotspurs,1.51,15:00,pending,,,
+2026-10-18,SINGAPORE: PREMIER LEAGUE,FC Jurong,Lion City,1.42,14:30,pending,,,

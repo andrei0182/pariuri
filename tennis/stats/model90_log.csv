@@ -28,8 +28,18 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-15,,itf-f,Alisa Terentyeva,Lamis Alhussein Abdel Aziz,castiga meciul,Lamis Alhussein Abdel Aziz,Alisa Terentyeva,0.829,0.815,1.01,over,8.5,,3350077.0,won,2:0,2026-10-16,6-0 6-3,12,won
 2026-10-15,,itf-m,Nikita Mashtakov,Henry Best,castiga meciul,Nikita Mashtakov,Henry Best,0.817,0.815,1.01,over,8.5,,3349807.0,won,2:1,2026-10-16,5-7 6-0 6-2,17,won
 2026-10-15,,itf-f,Defne Cirpanli,Felitsata Dorofeeva-Rybas,castiga meciul,Felitsata Dorofeeva-Rybas,Defne Cirpanli,0.817,0.815,1.0,over,8.5,,3349703.0,pending,,,,,
-2026-10-16,,utr-m,Dawid Wisniewski,Marshall Tutu,castiga meciul,Marshall Tutu,Dawid Wisniewski,0.892,0.82,1.008,over,8.5,,3350563.0,pending,,,,,
+2026-10-16,,utr-m,Dawid Wisniewski,Marshall Tutu,castiga meciul,Marshall Tutu,Dawid Wisniewski,0.892,0.82,1.008,over,8.5,,3350563.0,lost,2:1,2026-10-18,6-7 6-3 2-6,14,won
 2026-10-16,,itf-f,Arina Gamretkaia,Felitsata Dorofeeva-Rybas,castiga meciul,Felitsata Dorofeeva-Rybas,Arina Gamretkaia,0.863,0.82,1.01,over,8.5,,3350401.0,pending,,,,,
 2026-10-16,,itf-f,Martina Okalova,Alicia Herrero Linana,castiga meciul,Alicia Herrero Linana,Martina Okalova,0.84,0.82,1.15,over,8.5,,3349517.0,won,2:1,2026-10-17,7-6 5-7 6-1,18,won
-2026-10-16,,utr-f,Sonja Wedenski,Anamaria Federica Oana,castiga meciul,Anamaria Federica Oana,Sonja Wedenski,0.838,0.82,1.002,over,8.5,,3350581.0,pending,,,,,
-2026-10-17,,utr-m,Ondrej Hujo,Sebastian Bozemoj,castiga meciul,Ondrej Hujo,Sebastian Bozemoj,0.902,0.815,1.12,over,8.5,,3350975.0,pending,,,,,
+2026-10-16,,utr-f,Sonja Wedenski,Anamaria Federica Oana,castiga meciul,Anamaria Federica Oana,Sonja Wedenski,0.838,0.82,1.002,over,8.5,,3350581.0,lost,2:0,2026-10-18,3-6 4-6,7,lost
+2026-10-17,,utr-m,Ondrej Hujo,Sebastian Bozemoj,castiga meciul,Ondrej Hujo,Sebastian Bozemoj,0.902,0.815,1.12,over,8.5,,3350975.0,won,2:0,2026-10-18,6-3 6-1,12,won
+2026-10-18,,itf-f,Jana Otzipka,Megan Mae Root,castiga meciul,Jana Otzipka,Megan Mae Root,0.948,0.815,1.003,over,8.5,,3352541.0,pending,,,,,
+2026-10-18,,itf-m,Adan Freire da Silva,Hanu Patel,castiga meciul,Adan Freire da Silva,Hanu Patel,0.9,0.815,1.03,over,8.5,,3352267.0,pending,,,,,
+2026-10-18,,itf-f,Jana Otzipka,Megan Mae Root,adversarul sub 6.5 game-uri,Jana Otzipka,Megan Mae Root,0.857,0.755,1.003,opp_under,6.5,,3352541.0,pending,,,,,
+2026-10-18,,itf-f,Hajar Crinebouch,Diana Marcinkevica,castiga meciul,Diana Marcinkevica,Hajar Crinebouch,0.847,0.815,2.02,over,8.5,,3352561.0,pending,,,,,
+2026-10-18,,itf-m,Kenny de Schepper,Nicolas Gry,castiga meciul,Kenny de Schepper,Nicolas Gry,0.829,0.815,1.04,over,8.5,,3352263.0,pending,,,,,
+2026-10-18,,itf-f,Viktoria Morvayova,Hiroko Kuwata,castiga meciul,Viktoria Morvayova,Hiroko Kuwata,0.823,0.815,1.06,over,8.5,,3352687.0,pending,,,,,
+2026-10-18,,itf-f,Delia Gaillard,Marine Szostak,castiga meciul,Marine Szostak,Delia Gaillard,0.821,0.815,1.04,over,8.5,,3352555.0,pending,,,,,
+2026-10-18,,itf-f,Annabel Wong,Petra Sedlackova,castiga meciul,Petra Sedlackova,Annabel Wong,0.82,0.815,1.04,over,8.5,,3352679.0,pending,,,,,
+2026-10-18,,itf-f,Lizette Cabrera,Megan Davies,castiga meciul,Lizette Cabrera,Megan Davies,0.817,0.815,1.01,over,8.5,,3352677.0,pending,,,,,
+2026-10-18,,itf-f,Tessa Johanna Brockmann,Mia Wainwright,castiga meciul,Tessa Johanna Brockmann,Mia Wainwright,0.816,0.815,1.02,over,8.5,,3352669.0,pending,,,,,

@@ -135,7 +135,7 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-13,ASIA: AFC CHAMPIONS LEAGUE,Al Sadd,Al Hilal,1.39,19:00,under,2,2026-10-14,
 2026-10-13,ENGLAND: EFL TROPHY,Gillingham,Brighton U21,1.27,21:00,over,7,2026-10-14,
 2026-10-13,ENGLAND: EFL TROPHY,Walsall,Fulham U21,1.33,21:00,over,5,2026-10-14,
-2026-10-13,ENGLAND: NATIONAL LEAGUE CUP,Scunthorpe,Derby U21,1.41,21:00,pending,,,
+2026-10-13,ENGLAND: NATIONAL LEAGUE CUP,Scunthorpe,Derby U21,1.41,21:00,void,,2026-10-19,
 2026-10-13,ENGLAND: PREMIER LEAGUE CUP,Bromley U21,Coventry U21,1.52,21:00,over,3,2026-10-14,
 2026-10-13,EUROPE: CHAMPIONS LEAGUE,Galatasaray,Barcelona,1.2,22:00,over,5,2026-10-14,
 2026-10-13,EUROPE: CHAMPIONS LEAGUE,Inter,Club Brugge KV,1.38,22:00,over,7,2026-10-14,
@@ -155,7 +155,8 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-17,ISRAEL: LIGAT HA'AL,Maccabi Petah Tikva,Maccabi Haifa,1.4,19:30,over,3,2026-10-18,
 2026-10-17,VIETNAM: V.LEAGUE 1,Da Nang,Hai Phong,1.87,14:00,over,6,2026-10-18,
 2026-10-17,ITALY: PRIMAVERA 2,Pescara U19,Salernitana U19,1.32,12:00,over,6,2026-10-18,odds<1.4
-2026-10-18,ENGLAND: PREMIER LEAGUE 2,Brighton U21,Bournemouth U21,1.4,15:30,pending,,,
-2026-10-18,HONG KONG: PREMIER LEAGUE,Shatin,Hong Kong FC,1.44,11:00,pending,,,
-2026-10-18,MALTA: CHALLENGE LEAGUE,Naxxar,Victoria Hotspurs,1.51,15:00,pending,,,
-2026-10-18,SINGAPORE: PREMIER LEAGUE,FC Jurong,Lion City,1.42,14:30,pending,,,
+2026-10-18,ENGLAND: PREMIER LEAGUE 2,Brighton U21,Bournemouth U21,1.4,15:30,over,6,2026-10-19,
+2026-10-18,HONG KONG: PREMIER LEAGUE,Shatin,Hong Kong FC,1.44,11:00,over,4,2026-10-19,
+2026-10-18,MALTA: CHALLENGE LEAGUE,Naxxar,Victoria Hotspurs,1.51,15:00,under,1,2026-10-19,
+2026-10-18,SINGAPORE: PREMIER LEAGUE,FC Jurong,Lion City,1.42,14:30,under,2,2026-10-19,
+2026-10-19,INDIA: ISL,Punjab,Mumbai City,2.12,17:00,pending,,,odds>2.0

@@ -8,6 +8,7 @@ tournament_slug,surface
 /aldershot-itf/2026/wta-women/,Hard
 /alicante-challenger/2026/atp-men/,Clay
 /alkmaar-itf/2026/wta-women/,Clay
+/almaty/2026/atp-men/,Indoors
 /amstelveen-itf/2026/wta-women/,Clay
 /amstetten-itf/2026/wta-women/,Clay
 /andong-itf/2026/wta-women/,Hard
@@ -67,6 +68,7 @@ tournament_slug,surface
 /bogota-5-challenger/2026/atp-men/,Clay
 /bogota-wta/2026/wta-women/,Clay
 /bol-12-itf/2026/wta-women/,Clay
+/bol-15-itf/2026/wta-women/,Clay
 /bol-2-itf/2026/wta-women/,Clay
 /bol-3-itf/2026/wta-women/,Clay
 /bolszewo-itf/2026/wta-women/,Clay
@@ -89,6 +91,7 @@ tournament_slug,surface
 /brisbane-7-itf/2026/wta-women/,Hard
 /brisbane-8-itf/2026/wta-women/,Hard
 /brownsburg-challenger/2026/atp-men/,Hard
+/brussels/2026/atp-men/,Indoors
 /bucaramanga-challenger/2026/atp-men/,Clay
 /bucharest-2-itf/2026/wta-women/,Clay
 /bucharest-4-itf/2026/wta-women/,Clay
@@ -422,6 +425,7 @@ tournament_slug,surface
 /newport-beach-wta/2026/wta-women/,Grass
 /newport-challenger/2026/atp-men/,Grass
 /nice-itf/2026/wta-women/,Clay
+/ningbo-wta/2026/wta-women/,Hard
 /nogent-sur-marne-itf/2026/wta-women/,Clay
 /nottingham-3-challenger/2026/atp-men/,Grass
 /nottingham-3-itf/2026/wta-women/,Hard
@@ -442,6 +446,7 @@ tournament_slug,surface
 /orlando-2-itf/2026/wta-women/,Clay
 /orlando-5-itf/2026/wta-women/,Clay
 /osaka-itf/2026/wta-women/,Hard
+/osaka-wta/2026/wta-women/,Hard
 /osijek-itf/2026/wta-women/,Clay
 /ostrava-challenger/2026/atp-men/,Clay
 /ourense-itf/2026/wta-women/,Hard

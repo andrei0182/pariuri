@@ -160,6 +160,11 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-18,MALTA: CHALLENGE LEAGUE,Naxxar,Victoria Hotspurs,1.51,15:00,under,1,2026-10-19,
 2026-10-18,SINGAPORE: PREMIER LEAGUE,FC Jurong,Lion City,1.42,14:30,under,2,2026-10-19,
 2026-10-19,INDIA: ISL,Punjab,Mumbai City,2.12,17:00,under,2,2026-10-20,odds>2.0
-2026-10-20,ASIA: AFC CHALLENGE LEAGUE,Fortis,Goa,1.95,16:25,pending,,,
-2026-10-20,EUROPE: CHAMPIONS LEAGUE,Liverpool,Villarreal,1.46,22:00,pending,,,
-2026-10-20,EUROPE: CHAMPIONS LEAGUE,PSG,Barcelona,1.2,22:00,pending,,,odds<1.4
+2026-10-20,ASIA: AFC CHALLENGE LEAGUE,Fortis,Goa,1.95,16:25,over,3,2026-10-21,
+2026-10-20,EUROPE: CHAMPIONS LEAGUE,Liverpool,Villarreal,1.46,22:00,over,7,2026-10-21,
+2026-10-20,EUROPE: CHAMPIONS LEAGUE,PSG,Barcelona,1.2,22:00,over,6,2026-10-21,odds<1.4
+2026-10-21,ENGLAND: PREMIER LEAGUE CUP,Norwich U21,Bristol City U21,1.44,21:00,pending,,,
+2026-10-21,EUROPE: CHAMPIONS LEAGUE,Lille,Galatasaray,1.57,19:45,pending,,,
+2026-10-21,SPAIN: TERCERA RFEF - GROUP 11,Arenal,Manacor,1.47,21:45,pending,,,
+2026-10-21,EUROPE: CHAMPIONS LEAGUE,Aston Villa,Viking,1.29,22:00,pending,,,odds<1.4
+2026-10-21,EUROPE: CHAMPIONS LEAGUE,Betis,Feyenoord,1.37,22:00,pending,,,odds<1.4

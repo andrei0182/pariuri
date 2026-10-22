@@ -163,8 +163,15 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-20,ASIA: AFC CHALLENGE LEAGUE,Fortis,Goa,1.95,16:25,over,3,2026-10-21,
 2026-10-20,EUROPE: CHAMPIONS LEAGUE,Liverpool,Villarreal,1.46,22:00,over,7,2026-10-21,
 2026-10-20,EUROPE: CHAMPIONS LEAGUE,PSG,Barcelona,1.2,22:00,over,6,2026-10-21,odds<1.4
-2026-10-21,ENGLAND: PREMIER LEAGUE CUP,Norwich U21,Bristol City U21,1.44,21:00,pending,,,
-2026-10-21,EUROPE: CHAMPIONS LEAGUE,Lille,Galatasaray,1.57,19:45,pending,,,
-2026-10-21,SPAIN: TERCERA RFEF - GROUP 11,Arenal,Manacor,1.47,21:45,pending,,,
-2026-10-21,EUROPE: CHAMPIONS LEAGUE,Aston Villa,Viking,1.29,22:00,pending,,,odds<1.4
-2026-10-21,EUROPE: CHAMPIONS LEAGUE,Betis,Feyenoord,1.37,22:00,pending,,,odds<1.4
+2026-10-21,ENGLAND: PREMIER LEAGUE CUP,Norwich U21,Bristol City U21,1.44,21:00,under,2,2026-10-22,
+2026-10-21,EUROPE: CHAMPIONS LEAGUE,Lille,Galatasaray,1.57,19:45,over,6,2026-10-22,
+2026-10-21,SPAIN: TERCERA RFEF - GROUP 11,Arenal,Manacor,1.47,21:45,under,2,2026-10-22,
+2026-10-21,EUROPE: CHAMPIONS LEAGUE,Aston Villa,Viking,1.29,22:00,over,4,2026-10-22,odds<1.4
+2026-10-21,EUROPE: CHAMPIONS LEAGUE,Betis,Feyenoord,1.37,22:00,under,1,2026-10-22,odds<1.4
+2026-10-22,EUROPE: CONFERENCE LEAGUE,Jablonec,Brighton,1.52,19:45,pending,,,
+2026-10-22,EUROPE: CONFERENCE LEAGUE,Kauno Zalgiris,Brann,1.67,19:45,pending,,,
+2026-10-22,EUROPE: CONFERENCE LEAGUE,Ajax,Atalanta,1.57,22:00,pending,,,
+2026-10-22,EUROPE: CONFERENCE LEAGUE,Borac Banja Luka,KuPS,1.95,22:00,pending,,,
+2026-10-22,EUROPE: CONFERENCE LEAGUE,Monaco,Freiburg,1.74,22:00,pending,,,
+2026-10-22,EUROPE: EUROPA LEAGUE,Ferencvaros,Torreense,1.62,19:45,pending,,,
+2026-10-22,EUROPE: EUROPA LEAGUE,Besiktas,Crystal Palace,1.53,22:00,pending,,,

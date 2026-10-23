@@ -101,18 +101,25 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-21,,itf-m,Matyas Fuele,Martin Soukal,castiga meciul,Matyas Fuele,Martin Soukal,0.83,0.82,1.03,over,8.5,,3356061.0,won,2:1,2026-10-22,1-6 6-4 6-4,13,won
 2026-10-21,,itf-m,Martim Bernardo,Nicolas Jadoun,castiga meciul,Nicolas Jadoun,Martim Bernardo,0.83,0.82,1.009,over,8.5,,3354905.0,won,2:0,2026-10-22,6-1 6-1,12,won
 2026-10-21,,itf-f,Laia Petretic,Madalena Matias,castiga meciul,Laia Petretic,Madalena Matias,0.827,0.82,1.01,over,8.5,,3355143.0,won,2:0,2026-10-22,6-2 7-5,13,won
-2026-10-21,,utr-f,Aliaksandra Skapets,Rikke de Koning,castiga meciul,Rikke de Koning,Aliaksandra Skapets,0.824,0.82,1.003,over,8.5,,3356097.0,pending,,,,,
+2026-10-21,,utr-f,Aliaksandra Skapets,Rikke de Koning,castiga meciul,Rikke de Koning,Aliaksandra Skapets,0.824,0.82,1.003,over,8.5,,3356097.0,won,2:0,2026-10-23,6-1 6-2,12,won
 2026-10-21,,itf-f,Mell E.R.Gonzalez,Madison Brengle,castiga meciul,Madison Brengle,Mell E.R.Gonzalez,0.823,0.82,1.1,over,8.5,,3356213.0,won,2:0,2026-10-22,6-3 6-0,12,won
-2026-10-21,,itf-f,Yara Bartashevich,Ema Burgic,castiga meciul,Yara Bartashevich,Ema Burgic,0.821,0.82,1.54,over,8.5,,3355459.0,pending,,,,,
-2026-10-22,,itf-m,Samir Banerjee,Samarth Sahita,castiga meciul,Samir Banerjee,Samarth Sahita,0.894,0.81,1.007,over,8.5,,3356461.0,pending,,,,,
-2026-10-22,,itf-m,Daniel Domingos,Lucas G.Franca,castiga meciul,Daniel Domingos,Lucas G.Franca,0.891,0.81,1.02,over,8.5,,3356665.0,pending,,,,,
+2026-10-21,,itf-f,Yara Bartashevich,Ema Burgic,castiga meciul,Yara Bartashevich,Ema Burgic,0.821,0.82,1.54,over,8.5,,3355459.0,won,2:0,2026-10-23,6-4 7-5,13,won
+2026-10-22,,itf-m,Samir Banerjee,Samarth Sahita,castiga meciul,Samir Banerjee,Samarth Sahita,0.894,0.81,1.007,over,8.5,,3356461.0,won,2:0,2026-10-23,6-3 6-2,12,won
+2026-10-22,,itf-m,Daniel Domingos,Lucas G.Franca,castiga meciul,Daniel Domingos,Lucas G.Franca,0.891,0.81,1.02,over,8.5,,3356665.0,won,1:0,2026-10-23,6-1 5-0,11,void
 2026-10-22,,utr-m,Harrison McElnea,Deni Zmak,castiga meciul,Deni Zmak,Harrison McElnea,0.878,0.81,1.005,over,8.5,,3356865.0,pending,,,,,
-2026-10-22,,itf-f,Nour Sahnoun,Elena Milovanovic,castiga meciul,Elena Milovanovic,Nour Sahnoun,0.855,0.81,1.006,over,8.5,,3356545.0,pending,,,,,
-2026-10-22,,itf-m,Karan Singh,Adil Kalyanpur,castiga meciul,Karan Singh,Adil Kalyanpur,0.851,0.81,1.02,over,8.5,,3356411.0,pending,,,,,
-2026-10-22,,itf-m,Mohamed Nazim Makhlouf,Cesar Bouchelaghem,castiga meciul,Cesar Bouchelaghem,Mohamed Nazim Makhlouf,0.839,0.81,1.1,over,8.5,,3356593.0,pending,,,,,
-2026-10-22,,itf-f,Marie Charlotte Vogt,Baotong Xu,castiga meciul,Marie Charlotte Vogt,Baotong Xu,0.834,0.81,1.08,over,8.5,,3356749.0,pending,,,,,
-2026-10-22,,itf-m,Matteo Gribaldo,Tobia Costanzo Baragiola Mordini,castiga meciul,Tobia Costanzo Baragiola Mordini,Matteo Gribaldo,0.833,0.81,1.51,over,8.5,,3356739.0,pending,,,,,
-2026-10-22,,itf-f,Kristina Dmitruk,Victoria Brand,castiga meciul,Victoria Brand,Kristina Dmitruk,0.829,0.81,4.45,over,8.5,,3356771.0,pending,,,,,
-2026-10-22,,itf-m,Arthur Bouquier,Maximilian Marterer,castiga meciul,Maximilian Marterer,Arthur Bouquier,0.827,0.81,1.83,over,8.5,,3356479.0,pending,,,,,
-2026-10-22,,itf-m,Thantub Suksumrarn,Cooper Kose,castiga meciul,Thantub Suksumrarn,Cooper Kose,0.823,0.81,1.16,over,8.5,,3356579.0,pending,,,,,
-2026-10-22,,itf-m,Emilien Demanet,Louis Larue,castiga meciul,Emilien Demanet,Louis Larue,0.817,0.81,1.03,over,8.5,,3355731.0,pending,,,,,
+2026-10-22,,itf-f,Nour Sahnoun,Elena Milovanovic,castiga meciul,Elena Milovanovic,Nour Sahnoun,0.855,0.81,1.006,over,8.5,,3356545.0,won,2:0,2026-10-23,6-1 6-0,12,won
+2026-10-22,,itf-m,Karan Singh,Adil Kalyanpur,castiga meciul,Karan Singh,Adil Kalyanpur,0.851,0.81,1.02,over,8.5,,3356411.0,won,2:0,2026-10-23,6-1 6-1,12,won
+2026-10-22,,itf-m,Mohamed Nazim Makhlouf,Cesar Bouchelaghem,castiga meciul,Cesar Bouchelaghem,Mohamed Nazim Makhlouf,0.839,0.81,1.1,over,8.5,,3356593.0,lost,2:0,2026-10-23,2-6 6-7,8,lost
+2026-10-22,,itf-f,Marie Charlotte Vogt,Baotong Xu,castiga meciul,Marie Charlotte Vogt,Baotong Xu,0.834,0.81,1.08,over,8.5,,3356749.0,won,2:0,2026-10-23,6-3 6-0,12,won
+2026-10-22,,itf-m,Matteo Gribaldo,Tobia Costanzo Baragiola Mordini,castiga meciul,Tobia Costanzo Baragiola Mordini,Matteo Gribaldo,0.833,0.81,1.51,over,8.5,,3356739.0,lost,2:1,2026-10-23,6-1 3-6 4-6,13,won
+2026-10-22,,itf-f,Kristina Dmitruk,Victoria Brand,castiga meciul,Victoria Brand,Kristina Dmitruk,0.829,0.81,4.45,over,8.5,,3356771.0,lost,2:1,2026-10-23,6-1 2-6 2-6,10,won
+2026-10-22,,itf-m,Arthur Bouquier,Maximilian Marterer,castiga meciul,Maximilian Marterer,Arthur Bouquier,0.827,0.81,1.83,over,8.5,,3356479.0,won,2:0,2026-10-23,6-3 7-6,13,won
+2026-10-22,,itf-m,Thantub Suksumrarn,Cooper Kose,castiga meciul,Thantub Suksumrarn,Cooper Kose,0.823,0.81,1.16,over,8.5,,3356579.0,won,2:0,2026-10-23,6-4 6-4,12,won
+2026-10-22,,itf-m,Emilien Demanet,Louis Larue,castiga meciul,Emilien Demanet,Louis Larue,0.817,0.81,1.03,over,8.5,,3355731.0,lost,2:0,2026-10-23,4-6 6-7,10,won
+2026-10-23,,utr-f,Francesca Franchi,Nina Kruijer,castiga meciul,Nina Kruijer,Francesca Franchi,0.907,0.81,1.0,over,8.5,,3357153.0,pending,,,,,
+2026-10-23,,utr-m,Diego Fernandez Flores,Deni Zmak,castiga meciul,Deni Zmak,Diego Fernandez Flores,0.881,0.81,1.15,over,8.5,,3357169.0,pending,,,,,
+2026-10-23,,itf-m,Louis Larue,Eliakim Coulibaly,castiga meciul,Eliakim Coulibaly,Louis Larue,0.834,0.81,1.005,over,8.5,,3357183.0,pending,,,,,
+2026-10-23,,utr-m,Nathan Mansfield,Miguel Semedo,castiga meciul,Miguel Semedo,Nathan Mansfield,0.831,0.81,1.05,over,8.5,,3357163.0,pending,,,,,
+2026-10-23,,itf-f,Kristina Dmitruk,Lamis Alhussein Abdel Aziz,castiga meciul,Lamis Alhussein Abdel Aziz,Kristina Dmitruk,0.83,0.81,2.32,over,8.5,,3357219.0,pending,,,,,
+2026-10-23,,itf-m,L.Gavrielides,Simone Massellani,castiga meciul,L.Gavrielides,Simone Massellani,0.819,0.81,1.32,over,8.5,,3357229.0,pending,,,,,
+2026-10-23,,utr-f,Francesca Franchi,Nina Kruijer,adversarul sub 6.5 game-uri,Nina Kruijer,Francesca Franchi,0.815,0.81,1.0,opp_under,6.5,,3357153.0,pending,,,,,

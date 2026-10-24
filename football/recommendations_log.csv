@@ -175,6 +175,8 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-22,EUROPE: CONFERENCE LEAGUE,Monaco,Freiburg,1.74,22:00,over,3,2026-10-23,
 2026-10-22,EUROPE: EUROPA LEAGUE,Ferencvaros,Torreense,1.62,19:45,over,5,2026-10-23,
 2026-10-22,EUROPE: EUROPA LEAGUE,Besiktas,Crystal Palace,1.53,22:00,over,4,2026-10-23,
-2026-10-23,AUSTRALIA: A-LEAGUE,Brisbane Roar,Perth Glory,1.82,12:00,pending,,,
-2026-10-23,BELGIUM: PRO LEAGUE U21,Westerlo U21,Seraing U21,1.39,21:30,pending,,,odds<1.4
-2026-10-23,ENGLAND: PREMIER LEAGUE 2,Fulham U21,Brighton U21,1.33,21:00,pending,,,odds<1.4
+2026-10-23,AUSTRALIA: A-LEAGUE,Brisbane Roar,Perth Glory,1.82,12:00,over,3,2026-10-24,
+2026-10-23,BELGIUM: PRO LEAGUE U21,Westerlo U21,Seraing U21,1.39,21:30,under,2,2026-10-24,odds<1.4
+2026-10-23,ENGLAND: PREMIER LEAGUE 2,Fulham U21,Brighton U21,1.33,21:00,over,6,2026-10-24,odds<1.4
+2026-10-24,AUSTRALIA: A-LEAGUE,Melbourne Victory,Melbourne City,1.76,11:40,pending,,,
+2026-10-24,SAUDI ARABIA: DIVISION 2,Al Safa,Al Ain,1.9,18:55,pending,,,

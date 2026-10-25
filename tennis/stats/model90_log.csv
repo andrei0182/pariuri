@@ -46,7 +46,7 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-19,,itf-m,Matteo Gribaldo,Marcel Zielinski,castiga meciul,Marcel Zielinski,Matteo Gribaldo,0.901,0.83,1.16,over,8.5,,3353539.0,lost,2:0,2026-10-21,3-6 2-6,5,lost
 2026-10-19,,utr-f,Nina Kruijer,Leandra Nizetic,castiga meciul,Nina Kruijer,Leandra Nizetic,0.888,0.83,1.002,over,8.5,,3353085.0,won,2:0,2026-10-20,7-5 6-1,13,won
 2026-10-19,,utr-f,Gabrielle Leslie,Madelynn Ludwig,castiga meciul,Gabrielle Leslie,Madelynn Ludwig,0.878,0.83,1.43,over,8.5,,3353107.0,won,2:0,2026-10-20,6-4 6-1,12,won
-2026-10-19,,itf-f,Ariadna Garcia-Patron Canals,Isabel Pascual Montalvo,castiga meciul,Isabel Pascual Montalvo,Ariadna Garcia-Patron Canals,0.854,0.83,1.21,over,8.5,,3353577.0,pending,,,,,
+2026-10-19,,itf-f,Ariadna Garcia-Patron Canals,Isabel Pascual Montalvo,castiga meciul,Isabel Pascual Montalvo,Ariadna Garcia-Patron Canals,0.854,0.83,1.21,over,8.5,,3353577.0,void,,2026-10-25,,,void
 2026-10-19,,itf-m,Valerio Bracci,Gabriele Bosio,castiga meciul,Gabriele Bosio,Valerio Bracci,0.847,0.83,1.04,over,8.5,,3353545.0,won,2:0,2026-10-20,6-4 7-5,13,won
 2026-10-19,,itf-m,Noah Perfetti,Giulio Stella,castiga meciul,Noah Perfetti,Giulio Stella,0.838,0.83,1.06,over,8.5,,3353361.0,lost,2:0,2026-10-20,3-6 6-7,9,won
 2026-10-19,,utr-f,Nina Kruijer,Leandra Nizetic,adversarul sub 6.5 game-uri,Nina Kruijer,Leandra Nizetic,0.786,0.775,1.002,opp_under,6.5,,3353085.0,won,2:0,2026-10-20,7-5 6-1,13,won
@@ -116,12 +116,13 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-22,,itf-m,Arthur Bouquier,Maximilian Marterer,castiga meciul,Maximilian Marterer,Arthur Bouquier,0.827,0.81,1.83,over,8.5,,3356479.0,won,2:0,2026-10-23,6-3 7-6,13,won
 2026-10-22,,itf-m,Thantub Suksumrarn,Cooper Kose,castiga meciul,Thantub Suksumrarn,Cooper Kose,0.823,0.81,1.16,over,8.5,,3356579.0,won,2:0,2026-10-23,6-4 6-4,12,won
 2026-10-22,,itf-m,Emilien Demanet,Louis Larue,castiga meciul,Emilien Demanet,Louis Larue,0.817,0.81,1.03,over,8.5,,3355731.0,lost,2:0,2026-10-23,4-6 6-7,10,won
-2026-10-23,,utr-f,Francesca Franchi,Nina Kruijer,castiga meciul,Nina Kruijer,Francesca Franchi,0.907,0.81,1.0,over,8.5,,3357153.0,pending,,,,,
+2026-10-23,,utr-f,Francesca Franchi,Nina Kruijer,castiga meciul,Nina Kruijer,Francesca Franchi,0.907,0.81,1.0,over,8.5,,3357153.0,won,2:0,2026-10-25,6-4 6-3,12,won
 2026-10-23,,utr-m,Diego Fernandez Flores,Deni Zmak,castiga meciul,Deni Zmak,Diego Fernandez Flores,0.881,0.81,1.15,over,8.5,,3357169.0,lost,2:0,2026-10-24,4-6 5-7,9,won
 2026-10-23,,itf-m,Louis Larue,Eliakim Coulibaly,castiga meciul,Eliakim Coulibaly,Louis Larue,0.834,0.81,1.005,over,8.5,,3357183.0,won,2:0,2026-10-24,6-2 6-1,12,won
-2026-10-23,,utr-m,Nathan Mansfield,Miguel Semedo,castiga meciul,Miguel Semedo,Nathan Mansfield,0.831,0.81,1.05,over,8.5,,3357163.0,pending,,,,,
+2026-10-23,,utr-m,Nathan Mansfield,Miguel Semedo,castiga meciul,Miguel Semedo,Nathan Mansfield,0.831,0.81,1.05,over,8.5,,3357163.0,won,2:0,2026-10-25,7-6 6-3,13,won
 2026-10-23,,itf-f,Kristina Dmitruk,Lamis Alhussein Abdel Aziz,castiga meciul,Lamis Alhussein Abdel Aziz,Kristina Dmitruk,0.83,0.81,2.32,over,8.5,,3357219.0,won,2:1,2026-10-24,7-6 4-6 6-1,17,won
 2026-10-23,,itf-m,L.Gavrielides,Simone Massellani,castiga meciul,L.Gavrielides,Simone Massellani,0.819,0.81,1.32,over,8.5,,3357229.0,won,2:1,2026-10-24,4-6 6-1 6-0,16,won
-2026-10-23,,utr-f,Francesca Franchi,Nina Kruijer,adversarul sub 6.5 game-uri,Nina Kruijer,Francesca Franchi,0.815,0.81,1.0,opp_under,6.5,,3357153.0,pending,,,,,
-2026-10-24,,utr-f,Nina Kruijer,Malkia Ngounoue,castiga meciul,Nina Kruijer,Malkia Ngounoue,0.822,0.81,1.63,over,8.5,,3357855.0,pending,,,,,
-2026-10-24,,utr-m,Mihai Alexandru Coman,Nathan Mansfield,castiga meciul,Mihai Alexandru Coman,Nathan Mansfield,0.812,0.81,1.6,over,8.5,,3357859.0,pending,,,,,
+2026-10-23,,utr-f,Francesca Franchi,Nina Kruijer,adversarul sub 6.5 game-uri,Nina Kruijer,Francesca Franchi,0.815,0.81,1.0,opp_under,6.5,,3357153.0,won,2:0,2026-10-25,6-4 6-3,12,lost
+2026-10-24,,utr-f,Nina Kruijer,Malkia Ngounoue,castiga meciul,Nina Kruijer,Malkia Ngounoue,0.822,0.81,1.63,over,8.5,,3357855.0,lost,2:0,2026-10-25,3-6 5-7,8,lost
+2026-10-24,,utr-m,Mihai Alexandru Coman,Nathan Mansfield,castiga meciul,Mihai Alexandru Coman,Nathan Mansfield,0.812,0.81,1.6,over,8.5,,3357859.0,won,2:0,2026-10-25,6-2 6-1,12,won
+2026-10-25,,utr-m,Keerthivassan Suresh,Sandesh Dattatray Kurale,castiga meciul,Keerthivassan Suresh,Sandesh Dattatray Kurale,0.919,0.815,1.26,over,8.5,,3358487.0,pending,,,,,

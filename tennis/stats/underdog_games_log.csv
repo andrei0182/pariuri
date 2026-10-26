@@ -983,8 +983,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-20,,Adhithya Ganesan,Hitesh Chauhan,Hitesh Chauhan,Adhithya Ganesan,5.5,ITF,5.5,1.48,0.537,0.676,-0.205,16,0.875,False,3354413.0,lost,2:0,2026-10-21,0-6 3-6,3,lost
 2026-10-20,,Chirag Duhan,Aditya Vardhan Duddupudi,Aditya Vardhan Duddupudi,Chirag Duhan,8.1,ITF,4.5,1.5,0.455,0.667,-0.318,6,0.667,False,3354403.0,lost,2:0,2026-10-21,5-7 0-6,5,won
 2026-10-20,,Chirag Duhan,Aditya Vardhan Duddupudi,Aditya Vardhan Duddupudi,Chirag Duhan,8.1,ITF,5.5,1.78,0.343,0.562,-0.39,6,0.667,False,3354403.0,lost,2:0,2026-10-21,5-7 0-6,5,lost
-2026-10-20,,Cezar Cretu,Valentin Gonzalez-Galino,Valentin Gonzalez-Galino,Cezar Cretu,7.8,ITF,4.5,1.5,0.455,0.667,-0.318,9,0.778,False,3354853.0,pending,,,,,
-2026-10-20,,Cezar Cretu,Valentin Gonzalez-Galino,Valentin Gonzalez-Galino,Cezar Cretu,7.8,ITF,5.5,1.83,0.343,0.546,-0.373,9,0.778,False,3354853.0,pending,,,,,
+2026-10-20,,Cezar Cretu,Valentin Gonzalez-Galino,Valentin Gonzalez-Galino,Cezar Cretu,7.8,ITF,4.5,1.5,0.455,0.667,-0.318,9,0.778,False,3354853.0,void,,2026-10-26,,,void
+2026-10-20,,Cezar Cretu,Valentin Gonzalez-Galino,Valentin Gonzalez-Galino,Cezar Cretu,7.8,ITF,5.5,1.83,0.343,0.546,-0.373,9,0.778,False,3354853.0,void,,2026-10-26,,,void
 2026-10-20,,Emilien Demanet,Andrea Motta,Andrea Motta,Emilien Demanet,7.2,ITF,4.5,1.44,0.455,0.694,-0.345,10,1.0,False,3354889.0,lost,2:0,2026-10-21,1-6 2-6,3,lost
 2026-10-20,,Emilien Demanet,Andrea Motta,Andrea Motta,Emilien Demanet,7.2,ITF,5.5,1.75,0.343,0.571,-0.4,10,1.0,False,3354889.0,lost,2:0,2026-10-21,1-6 2-6,3,lost
 2026-10-20,,Alexey Dubinin,Louis Larue,Alexey Dubinin,Louis Larue,6.6,ITF,4.5,1.41,0.655,0.709,-0.077,13,0.846,False,3354891.0,lost,2:0,2026-10-21,0-6 0-6,0,lost
@@ -1001,8 +1001,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-20,,Oriana Gniewkowska,Sofia Camila Rojas,Oriana Gniewkowska,Sofia Camila Rojas,4.8,ITF,5.5,1.51,0.62,0.662,-0.063,18,0.722,False,3355173.0,lost,2:0,2026-10-21,1-6 5-7,6,won
 2026-10-20,,Ekaterina Yashina,Nour Sahnoun,Nour Sahnoun,Ekaterina Yashina,7.1,ITF,4.5,1.47,0.455,0.68,-0.332,14,0.786,False,3355165.0,won,2:1,2026-10-21,4-7 6-3 6-4,16,won
 2026-10-20,,Ekaterina Yashina,Nour Sahnoun,Nour Sahnoun,Ekaterina Yashina,7.1,ITF,5.5,1.77,0.343,0.565,-0.394,14,0.786,False,3355165.0,won,2:1,2026-10-21,4-7 6-3 6-4,16,won
-2026-10-20,,Anna Blinkova,Andre Lukosiute,Andre Lukosiute,Anna Blinkova,7.9,ITF,4.5,1.48,0.455,0.676,-0.327,0,,False,,no_data,,2026-10-21,,,
-2026-10-20,,Anna Blinkova,Andre Lukosiute,Andre Lukosiute,Anna Blinkova,7.9,ITF,5.5,1.77,0.343,0.565,-0.394,0,,False,,no_data,,2026-10-21,,,
+2026-10-20,,Anna Blinkova,Andre Lukosiute,Andre Lukosiute,Anna Blinkova,7.9,ITF,4.5,1.48,0.455,0.676,-0.327,0,,False,,void,,2026-10-26,,,void
+2026-10-20,,Anna Blinkova,Andre Lukosiute,Andre Lukosiute,Anna Blinkova,7.9,ITF,5.5,1.77,0.343,0.565,-0.394,0,,False,,void,,2026-10-26,,,void
 2026-10-21,,Arthur Bellegy,Lorenzo Angelini,Arthur Bellegy,Lorenzo Angelini,6.1,ITF,5.5,1.66,0.537,0.602,-0.108,16,0.875,False,3355767.0,lost,2:0,2026-10-22,1-6 2-6,3,lost
 2026-10-21,,Henry Best,Alan Wazny,Henry Best,Alan Wazny,5.2,ITF,5.5,1.45,0.537,0.69,-0.221,12,0.833,False,3354377.0,lost,2:1,2026-10-24,6-4 2-6 1-6,9,won
 2026-10-21,,David Tixhon,C.Cordoba,David Tixhon,C.Cordoba,5.45,ITF,5.5,1.5,0.537,0.667,-0.194,15,0.867,False,3355911.0,won,2:0,2026-10-24,6-2 6-3,12,won
@@ -1111,6 +1111,18 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-10-24,,Chirag Duhan,Karan Singh,Chirag Duhan,Karan Singh,6.1,ITF,5.5,1.46,0.539,0.685,-0.213,16,1.0,False,3357563.0,lost,2:0,2026-10-25,3-6 2-6,5,lost
 2026-10-24,,Cezar Cretu,Fons Van Sambeek,Fons Van Sambeek,Cezar Cretu,5.15,ITF,5.5,1.48,0.539,0.676,-0.203,18,1.0,False,3357681.0,lost,2:0,2026-10-25,3-6 5-7,8,won
 2026-10-24,,Jack Loge,Daniel Domingos,Daniel Domingos,Jack Loge,6.4,ITF,5.5,1.59,0.539,0.629,-0.143,10,0.9,False,3357685.0,lost,2:0,2026-10-25,4-6 2-6,6,won
-2026-10-25,,Harriet Dart,Mei Yamaguchi,Mei Yamaguchi,Harriet Dart,4.75,ATP/WTA,5.5,1.4,0.722,0.714,0.011,20,0.9,True,3358451.0,pending,,,,,
-2026-10-25,,Sayaka Ishii,Yulia Putintseva,Sayaka Ishii,Yulia Putintseva,6.8,ATP/WTA,4.5,1.38,0.783,0.725,0.08,20,0.8,False,3358183.0,pending,,,,,
-2026-10-25,,Sayaka Ishii,Yulia Putintseva,Sayaka Ishii,Yulia Putintseva,6.8,ATP/WTA,5.5,1.64,0.676,0.61,0.108,20,0.8,False,3358183.0,pending,,,,,
+2026-10-25,,Harriet Dart,Mei Yamaguchi,Mei Yamaguchi,Harriet Dart,4.75,ATP/WTA,5.5,1.4,0.722,0.714,0.011,20,0.9,True,3358451.0,lost,2:0,2026-10-26,2-6 1-6,3,lost
+2026-10-25,,Sayaka Ishii,Yulia Putintseva,Sayaka Ishii,Yulia Putintseva,6.8,ATP/WTA,4.5,1.38,0.783,0.725,0.08,20,0.8,False,3358183.0,lost,2:1,2026-10-26,6-4 2-6 3-6,11,won
+2026-10-25,,Sayaka Ishii,Yulia Putintseva,Sayaka Ishii,Yulia Putintseva,6.8,ATP/WTA,5.5,1.64,0.676,0.61,0.108,20,0.8,False,3358183.0,lost,2:1,2026-10-26,6-4 2-6 3-6,11,won
+2026-10-26,,Alexandra Eala,Mika Stojsavljevic,Mika Stojsavljevic,Alexandra Eala,5.55,ATP/WTA,4.5,1.29,0.784,0.775,0.012,11,0.818,False,3358245.0,pending,,,,,
+2026-10-26,,Alexandra Eala,Mika Stojsavljevic,Mika Stojsavljevic,Alexandra Eala,5.55,ATP/WTA,5.5,1.54,0.678,0.649,0.044,11,0.818,False,3358245.0,pending,,,,,
+2026-10-26,,Moyuka Uchijima,Elise Mertens,Moyuka Uchijima,Elise Mertens,5.15,ATP/WTA,5.5,1.47,0.722,0.68,0.062,18,0.944,True,3358239.0,pending,,,,,
+2026-10-26,,Lucio Ratti,Mateo Del Pino,Mateo Del Pino,Lucio Ratti,8.6,Challenger/125,4.5,1.49,0.549,0.671,-0.182,17,0.706,False,3360431.0,pending,,,,,
+2026-10-26,,Lucio Ratti,Mateo Del Pino,Mateo Del Pino,Lucio Ratti,8.6,Challenger/125,5.5,1.85,0.43,0.541,-0.205,17,0.706,False,3360431.0,pending,,,,,
+2026-10-26,,Tomas Barrios Vera,Juan Estevez,Juan Estevez,Tomas Barrios Vera,4.3,Challenger/125,5.5,1.33,0.722,0.752,-0.039,19,0.947,True,3359567.0,pending,,,,,
+2026-10-26,,Carmen Andreea Herea,Abril Cardenas Olivares,Abril Cardenas Olivares,Carmen Andreea Herea,13.0,Challenger/125,3.5,1.45,0.681,0.69,-0.012,0,,False,3359627.0,pending,,,,,
+2026-10-26,,Carmen Andreea Herea,Abril Cardenas Olivares,Abril Cardenas Olivares,Carmen Andreea Herea,13.0,Challenger/125,4.5,1.77,0.549,0.565,-0.029,0,,False,3359627.0,pending,,,,,
+2026-10-26,,Carmen Andreea Herea,Abril Cardenas Olivares,Abril Cardenas Olivares,Carmen Andreea Herea,13.0,Challenger/125,5.5,2.32,0.43,0.431,-0.003,0,,False,3359627.0,pending,,,,,
+2026-10-26,,Adela Polakovicova,Petra Sedlackova,Adela Polakovicova,Petra Sedlackova,13.0,ITF,3.5,1.46,0.597,0.685,-0.128,18,0.833,False,3359693.0,pending,,,,,
+2026-10-26,,Adela Polakovicova,Petra Sedlackova,Adela Polakovicova,Petra Sedlackova,13.0,ITF,4.5,1.82,0.46,0.549,-0.162,18,0.833,False,3359693.0,pending,,,,,
+2026-10-26,,Adela Polakovicova,Petra Sedlackova,Adela Polakovicova,Petra Sedlackova,13.0,ITF,5.5,2.32,0.347,0.431,-0.195,18,0.833,False,3359693.0,pending,,,,,

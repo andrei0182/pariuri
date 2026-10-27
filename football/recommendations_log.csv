@@ -185,3 +185,5 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-25,AUSTRALIA: AUSTRALIAN CHAMPIONSHIP,Sydney Olympic,Bayswater,1.4,06:00,over,3,2026-10-26,
 2026-10-25,CAMEROON: ELITE ONE,Stade Renard,Panthere,1.97,16:30,over,3,2026-10-26,
 2026-10-25,CAMEROON: ELITE ONE,Bamenda,Dynamo Douala,2.17,16:30,under,2,2026-10-26,odds>2.0
+2026-10-27,VENEZUELA: LIGA FUTVE,Puerto Cabello,Caracas,1.92,23:30,pending,,,
+2026-10-27,ENGLAND: EFL TROPHY,Blackpool,Aston Villa U21,1.31,21:00,pending,,,odds<1.4

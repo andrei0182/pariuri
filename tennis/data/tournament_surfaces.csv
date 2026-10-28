@@ -435,6 +435,7 @@ tournament_slug,surface
 /monza-challenger/2026/atp-men/,Clay
 /monzon-itf/2026/wta-women/,Hard
 /morelia-challenger/2026/atp-men/,Hard
+/morelia-itf/2026/wta-women/,Hard
 /mouilleron-le-captif-challenger/2026/atp-men/,Indoors
 /munich/2026/atp-men/,Clay
 /murska-sobota-itf/2026/wta-women/,Indoors
@@ -447,6 +448,7 @@ tournament_slug,surface
 /nashville-itf/2026/wta-women/,Hard
 /neapol-challenger/2026/atp-men/,Clay
 /neuquen-itf/2026/wta-women/,Clay
+/new-braunfels-itf/2026/wta-women/,Hard
 /new-delhi-itf/2026/wta-women/,Hard
 /newport-beach-wta/2026/wta-women/,Grass
 /newport-challenger/2026/atp-men/,Grass
@@ -454,6 +456,7 @@ tournament_slug,surface
 /ningbo-challenger/2026/atp-men/,Hard
 /ningbo-wta/2026/wta-women/,Hard
 /nogent-sur-marne-itf/2026/wta-women/,Clay
+/norman-itf/2026/wta-women/,Hard
 /nottingham-3-challenger/2026/atp-men/,Grass
 /nottingham-3-itf/2026/wta-women/,Hard
 /nottingham-6-itf/2026/wta-women/,Hard
@@ -519,6 +522,7 @@ tournament_slug,surface
 /quebec-city-itf/2026/wta-women/,Indoors
 /queen-s-club/2026/atp-men/,Grass
 /queen-s-club/2026/wta-women/,Grass
+/queretaro/2026/wta-women/,Clay
 /quinta-do-lago-itf/2026/wta-women/,Hard
 /quito-challenger/2026/atp-men/,Clay
 /rabat/2026/wta-women/,Clay
@@ -622,6 +626,7 @@ tournament_slug,surface
 /strasbourg/2026/wta-women/,Clay
 /stuttgart/2026/atp-men/,Grass
 /stuttgart/2026/wta-women/,Clay
+/sumter-2-itf/2026/wta-women/,Clay
 /sumter-itf/2026/wta-women/,Hard
 /suzhou/2026/wta-women/,Hard
 /swan-hill-itf/2026/wta-women/,Grass
@@ -632,6 +637,7 @@ tournament_slug,surface
 /szczecin-challenger/2026/atp-men/,Clay
 /szekesfehervar-itf/2026/wta-women/,Clay
 /szentendre-itf/2026/wta-women/,Clay
+/taby-itf/2026/wta-women/,Indoors
 /taipei-2-itf/2026/wta-women/,Hard
 /taipei-3-itf/2026/wta-women/,Hard
 /takasaki-itf/2026/wta-women/,Hard

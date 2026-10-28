@@ -235,8 +235,12 @@ date,tournament,player1,player2,recommended_player,opponent,edge_pp,rec_odds,com
 2026-10-26,,Ognjen Milic,Kaichi Uchida,Ognjen Milic,Kaichi Uchida,23.5,1.43,64.6,10.5,1.16,3358529.0,lost,2:0,2026-10-27,6-7 2-6,8,lost,,71.8,88.2,v3
 2026-10-26,,Arthur Fery,Jacob Fearnley,Jacob Fearnley,Arthur Fery,22.099999999999994,1.95,45.5,10.5,1.38,3360119.0,lost,1:0,2026-10-27,1-5,1,void,,54.6,70.1,v3
 2026-10-26,,Martin Borisiouk,Yaroslav Demin,Martin Borisiouk,Yaroslav Demin,17.4,1.9,54.3,11.5,1.44,3358227.0,lost,2:0,2026-10-27,6-7 3-6,9,lost,,53.3,65.5,v3
-2026-10-27,,Kaitlin Quevedo,Sofia Kenin,Kaitlin Quevedo,Sofia Kenin,34.599999999999994,1.76,73.8,10.5,1.35,3358267.0,pending,,,,,,,63.6,87.8,v3
-2026-10-27,,Alibek Kachmazov,Rio Noguchi,Alibek Kachmazov,Rio Noguchi,27.699999999999996,1.54,55.8,10.5,1.24,3360869.0,pending,,,,,,,68.4,87.8,v3
-2026-10-27,,Jerome Kym,Arthur Rinderknech,Jerome Kym,Arthur Rinderknech,25.900000000000006,1.78,55.1,11.5,1.26,3358343.0,pending,,,,,,,60.3,78.4,v3
-2026-10-27,,Anastasia Zakharova,Magda Linette,Anastasia Zakharova,Magda Linette,21.200000000000003,1.92,52.4,10.5,1.43,3359733.0,pending,,,,,,,55.1,69.9,v3
-2026-10-27,,Naoya Honda,Filip Peliwo,Filip Peliwo,Naoya Honda,20.000000000000007,2.0,48.5,10.5,1.46,3360895.0,pending,,,,,,,52.4,66.4,v3
+2026-10-27,,Kaitlin Quevedo,Sofia Kenin,Kaitlin Quevedo,Sofia Kenin,34.599999999999994,1.76,73.8,10.5,1.35,3358267.0,won,2:1,2026-10-28,6-4 5-7 6-4,17,won,,63.6,87.8,v3
+2026-10-27,,Alibek Kachmazov,Rio Noguchi,Alibek Kachmazov,Rio Noguchi,27.699999999999996,1.54,55.8,10.5,1.24,3360869.0,won,2:0,2026-10-28,6-3 6-1,12,won,,68.4,87.8,v3
+2026-10-27,,Jerome Kym,Arthur Rinderknech,Jerome Kym,Arthur Rinderknech,25.900000000000006,1.78,55.1,11.5,1.26,3358343.0,won,2:0,2026-10-28,7-6 6-4,13,won,,60.3,78.4,v3
+2026-10-27,,Anastasia Zakharova,Magda Linette,Anastasia Zakharova,Magda Linette,21.200000000000003,1.92,52.4,10.5,1.43,3359733.0,lost,2:0,2026-10-28,6-7 4-6,10,lost,,55.1,69.9,v3
+2026-10-27,,Naoya Honda,Filip Peliwo,Filip Peliwo,Naoya Honda,20.000000000000007,2.0,48.5,10.5,1.46,3360895.0,lost,2:1,2026-10-28,7-5 3-6 6-7,16,won,,52.4,66.4,v3
+2026-10-28,,Alvaro Guillen Meza,J.A.Hernandez Serrano,J.A.Hernandez Serrano,Alvaro Guillen Meza,38.800000000000004,2.0,62.9,10.5,1.46,3363043.0,pending,,,,,,,58.0,85.2,v3
+2026-10-28,,Cristina Bucsa,Maya Joint,Maya Joint,Cristina Bucsa,20.699999999999996,1.72,52.4,10.5,1.33,3362309.0,pending,,,,,,,60.8,75.3,v3
+2026-10-28,,Jurij Rodionov,Nikoloz Basilashvili,Nikoloz Basilashvili,Jurij Rodionov,20.000000000000007,1.66,55.3,10.5,1.26,3358323.0,pending,,,,,,,62.4,76.4,v3
+2026-10-28,,Joaquin Aguilar Cardozo,Miguel Tobon,Joaquin Aguilar Cardozo,Miguel Tobon,17.89999999999999,1.55,64.9,10.5,1.25,3363047.0,pending,,,,,,,65.1,77.6,v3

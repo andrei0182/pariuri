@@ -45,6 +45,13 @@ TARGET_RATE = 0.90
 VALIDATION_DAYS = 21
 MIN_VALIDATION_PICKS = 30
 TRAIN_FROM = "2026-05-01"   # primele saptamani de istoric doar "incalzesc" Elo / forma
+# Filtre aplicate alegerilor (din log, 13-28 oct.): pierderile mari veneau cand
+# adversarul avea foarte putine meciuri la noi (modelul il crede slab doar
+# pentru ca nu-l cunoaste) sau cand piata dadea sub 40% (cota > 2.5) unui
+# jucator caruia modelul ii dadea > 80% - o diferenta atat de mare e aproape
+# mereu o eroare de date (nume inversate, adversar necunoscut).
+MIN_OPP_MATCHES = 5
+MAX_PICK_ODDS = 2.5
 LEVEL_CODE = {"ATP/WTA": 2, "Challenger/125": 1, "ITF": 0}
 SURFACE_CODE = {"Hard": 0, "Clay": 1, "Grass": 2, "Indoors": 3}
 FEATURES = [
@@ -226,13 +233,15 @@ def predict(df: pd.DataFrame, state: State, models: dict[str, Model], today: dt.
         for side in (1, 2):
             other = 3 - side
             feats = pd.DataFrame([state.features(slugs[side], slugs[other], surface, today, level)])
+            odds = r.get(_ODDS[side])
+            if feats.iloc[0]["n_y"] < MIN_OPP_MATCHES or (pd.notna(odds) and float(odds) > MAX_PICK_ODDS):
+                continue
             for target, model in models.items():
                 if model.threshold is None:
                     continue
                 prob = float(model.proba(feats)[0])
                 if prob < model.threshold:
                     continue
-                odds = r.get(_ODDS[side])
                 rows.append({
                     "tournament": r.get(_TOURNAMENT, ""), "tour": r.get(_TOUR, ""), "time": _ro_time(r.get(_TIME)),
                     "player1": names[1], "player2": names[2], "market": MARKETS[target],
@@ -304,7 +313,8 @@ def summary_html() -> str:
 def email_section_html(picks: pd.DataFrame, models: dict[str, Model]) -> str:
     head = ("<h3 style='margin-top:24px;'>Model 90% (URMARIRE PE HARTIE)</h3>"
             "<p style='color:#555;'>Model statistic antrenat doar pe istoricul jucatorilor (fara cote). "
-            "Pragul e ales zilnic ca sa dea &ge; 90% pe ultimele 3 saptamani, pe care modelul nu le-a vazut. ")
+            "Pragul e ales zilnic ca sa dea &ge; 90% pe ultimele 3 saptamani, pe care modelul nu le-a vazut. "
+            f"Excludem meciurile cu adversar cu sub {MIN_OPP_MATCHES} meciuri in istoric si cotele peste {MAX_PICK_ODDS}. ")
     head += "; ".join(
         f"{MARKETS[t]}: prag {m.threshold}, {m.validation_rate:.0%} din {m.validation_picks} in validare"
         if m.threshold is not None else f"{MARKETS[t]}: 90% neatins in validare, nicio alegere"

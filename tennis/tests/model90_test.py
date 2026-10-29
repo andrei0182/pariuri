@@ -71,6 +71,20 @@ class Model90Tests(unittest.TestCase):
         self.assertEqual(len(log), len(picks))
         self.assertEqual(list(log.columns), m.LOG_COLUMNS)
 
+    def test_filters_unknown_opponent_and_high_odds(self):
+        state, rows = m.build(_history())
+        models = {t: m.train(rows, t) for t in m.MARKETS}
+        base = {m._P1: "Slab", m._P2: "Tare", m._ODDS[1]: 4.0, m._ODDS[2]: 1.2,
+                m._SLUG[1]: "/w1/", m._SLUG[2]: "/s1/", m._SURFACE: "hard", m._TOUR: "challenger",
+                m._TOURNAMENT: "X", m._TIME: "2026-07-01 10:00:00", m._TE_ID: 7}
+        unknown = dict(base, **{m._P1: "Nou", m._SLUG[1]: "/nou/"})      # adversar fara niciun meci
+        high = dict(base, **{m._ODDS[2]: m.MAX_PICK_ODDS + 0.5})          # piata il vede outsider
+        day = dt.date(2026, 7, 1)
+        self.assertIn("Tare", list(m.predict(pd.DataFrame([base]), state, models, day).recommended_player))
+        for row in (unknown, high):
+            picks = m.predict(pd.DataFrame([row]), state, models, day)
+            self.assertNotIn("Tare", list(picks.recommended_player) if not picks.empty else [])
+
     def test_resolve_opponent_under(self):
         detail = MatchDetailData(player1=PlayerProfile(name="Tare Ana"), player2=PlayerProfile(name="Slab Bob"),
                                  set_scores=[(6, 3), (6, 2)], retired=False)

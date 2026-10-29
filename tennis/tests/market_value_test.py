@@ -2,6 +2,7 @@
 Ruleaza fara retea: cd tennis && python -m unittest tests.market_value_test"""
 from __future__ import annotations
 
+import datetime as dt
 import sys
 import tempfile
 import unittest
@@ -69,7 +70,8 @@ class CheckResultsWithoutGamesLineTests(unittest.TestCase):
             player2_recent=[RecentMatch(opponent="Fuele Matyas", won=True, score="1:0")],
         )
         row = {c: "" for c in mv.LOG_COLUMNS} | {
-            "date": "2026-10-16", "player1": "Matyas Fuele", "player2": "Nikita Bilozertsev",
+            # data recenta: un rand mai vechi de VOID_AFTER_DAYS ar fi marcat void inainte de verificare
+            "date": (dt.date.today() - dt.timedelta(days=1)).isoformat(), "player1": "Matyas Fuele", "player2": "Nikita Bilozertsev",
             "recommended_player": "Nikita Bilozertsev", "opponent": "Matyas Fuele", "te_match_id": "1", "result": "pending"}
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "v.csv"

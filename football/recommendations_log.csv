@@ -191,3 +191,7 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-10-28,Romania: Romanian Cup,Sporting Liesti,FC Bacau,,15:00,under,0,2026-10-29,
 2026-10-28,Venezuela: Liga FUTVE,Metropolitanos,Portuguesa,1.88,01:30,under,0,2026-10-29,
 2026-10-28,Venezuela: Liga FUTVE,Carabobo,La Guaira,2.2,01:30,over,4,2026-10-29,odds>2.0
+2026-10-30,AUSTRALIA: A-LEAGUE,Brisbane Roar,Auckland FC,1.92,11:00,pending,,,
+2026-10-30,ENGLAND: PREMIER LEAGUE CUP,Birmingham U21,Swansea U21,1.24,21:00,pending,,,odds<1.4
+2026-10-30,ENGLAND: PREMIER LEAGUE CUP,Coventry U21,Ipswich U21,1.25,21:00,pending,,,odds<1.4
+2026-10-30,ENGLAND: PREMIER LEAGUE CUP,Newcastle Utd U21,Peterborough U21,1.24,21:00,pending,,,odds<1.4

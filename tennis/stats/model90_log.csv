@@ -230,9 +230,12 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-30,,itf-f,Bella Payne,Dana Guzman,castiga meciul,Dana Guzman,Bella Payne,0.848,0.79,1.03,over,8.5,,3364371.0,won,2:0,2026-10-31,6-4 6-2,12,won
 2026-10-30,,itf-f,Caijsa Wilda Hennemann,Elizaveta Anikina,castiga meciul,Caijsa Wilda Hennemann,Elizaveta Anikina,0.844,0.79,1.06,over,8.5,,3364175.0,lost,2:0,2026-10-31,6-7 4-6,10,won
 2026-10-30,,itf-f,Chloe Noel,Alina Shcherbinina,castiga meciul,Alina Shcherbinina,Chloe Noel,0.821,0.79,1.2,over,8.5,,3364373.0,won,2:0,2026-10-31,6-1 7-5,13,won
-2026-10-30,,utr-f,Denise Hrdinkova,Francesca Franchi,castiga meciul,Denise Hrdinkova,Francesca Franchi,0.813,0.79,1.0,over,8.5,,3364227.0,pending,,,,,
+2026-10-30,,utr-f,Denise Hrdinkova,Francesca Franchi,castiga meciul,Denise Hrdinkova,Francesca Franchi,0.813,0.79,1.0,over,8.5,,3364227.0,won,2:0,2026-11-01,6-2 6-2,12,won
 2026-10-30,,utr-m,James Lorenzetti,Zaid Mashni,castiga meciul,Zaid Mashni,James Lorenzetti,0.8,0.79,1.07,over,8.5,,3362861.0,won,2:0,2026-10-31,6-1 6-3,12,won
 2026-10-30,,itf-m,Viktor Durasovic,Oliver Tarvet,castiga meciul,Oliver Tarvet,Viktor Durasovic,0.795,0.79,1.03,over,8.5,,3364163.0,won,2:0,2026-10-31,6-4 6-0,12,won
 2026-10-30,,itf-f,Reese Brantmeier,Valentina Ryser,castiga meciul,Reese Brantmeier,Valentina Ryser,0.795,0.79,1.12,over,8.5,,3364319.0,won,2:1,2026-10-31,5-7 6-3 6-2,17,won
 2026-10-30,,utr-m,Vojtech Vales,Tarek Erlewein,castiga meciul,Vojtech Vales,Tarek Erlewein,0.791,0.79,1.26,over,8.5,,3362871.0,lost,2:0,2026-10-31,6-7 0-6,6,lost
-2026-10-31,,itf-f,Oceane Dodin,Clara Burel,castiga meciul,Clara Burel,Oceane Dodin,0.842,0.795,1.17,over,8.5,,3364761.0,pending,,,,,
+2026-10-31,,itf-f,Oceane Dodin,Clara Burel,castiga meciul,Clara Burel,Oceane Dodin,0.842,0.795,1.17,over,8.5,,3364761.0,lost,2:0,2026-11-01,6-7 6-7,12,won
+2026-11-01,,wta-125,Polona Hercog,Maria Jose Rico Sanchez,castiga meciul,Polona Hercog,Maria Jose Rico Sanchez,0.961,0.79,1.0,over,8.5,,3365515.0,pending,,,,,
+2026-11-01,,wta-125,Polona Hercog,Maria Jose Rico Sanchez,adversarul sub 6.5 game-uri,Polona Hercog,Maria Jose Rico Sanchez,0.891,0.765,1.0,opp_under,6.5,,3365515.0,pending,,,,,
+2026-11-01,,challenger,Max Houkes,Dominik Macej,castiga meciul,Max Houkes,Dominik Macej,0.857,0.79,1.003,over,8.5,,3365319.0,pending,,,,,

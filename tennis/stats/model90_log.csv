@@ -140,9 +140,9 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-26,,utr-m,Sandesh Dattatray Kurale,Yash Chaurasia,adversarul sub 6.5 game-uri,Yash Chaurasia,Sandesh Dattatray Kurale,0.8,0.79,1.07,opp_under,6.5,,3359853.0,won,2:0,2026-10-27,7-6 6-4,13,lost
 2026-10-27,,itf-f,Emna Gharbi,Baotong Xu,castiga meciul,Baotong Xu,Emna Gharbi,0.953,0.805,1.005,over,8.5,,3361631.0,won,2:0,2026-10-29,6-0 6-1,12,won
 2026-10-27,,wta-125,Tatjana Maria,Carlota Garibay Romero,castiga meciul,Tatjana Maria,Carlota Garibay Romero,0.903,0.805,1.01,over,8.5,,3360715.0,won,2:0,2026-10-28,6-0 6-0,12,won
-2026-10-27,,utr-m,Tomas Lanik,Radovan Michalik,castiga meciul,Tomas Lanik,Radovan Michalik,0.898,0.805,1.04,over,8.5,,3361739.0,pending,,,,,
+2026-10-27,,utr-m,Tomas Lanik,Radovan Michalik,castiga meciul,Tomas Lanik,Radovan Michalik,0.898,0.805,1.04,over,8.5,,3361739.0,void,,2026-11-02,,,void
 2026-10-27,,itf-f,Abigeyle Bhopal,Sofia Camila Rojas,castiga meciul,Sofia Camila Rojas,Abigeyle Bhopal,0.883,0.805,1.005,over,8.5,,3361633.0,won,2:0,2026-10-29,6-1 6-3,12,won
-2026-10-27,,itf-f,Nuria Sarganella Verdu,Ariadna Garcia-Patron Canals,castiga meciul,Nuria Sarganella Verdu,Ariadna Garcia-Patron Canals,0.882,0.805,1.36,over,8.5,,3361643.0,pending,,,,,
+2026-10-27,,itf-f,Nuria Sarganella Verdu,Ariadna Garcia-Patron Canals,castiga meciul,Nuria Sarganella Verdu,Ariadna Garcia-Patron Canals,0.882,0.805,1.36,over,8.5,,3361643.0,void,,2026-11-02,,,void
 2026-10-27,,itf-m,Erwin Troebinger,Jacopo Bilardo,castiga meciul,Jacopo Bilardo,Erwin Troebinger,0.877,0.805,1.005,over,8.5,,3360067.0,won,2:0,2026-10-28,7-6 6-1,13,won
 2026-10-27,,itf-m,Luca Castagnola,Patric Prinoth,castiga meciul,Luca Castagnola,Patric Prinoth,0.872,0.805,1.08,over,8.5,,3360073.0,won,2:0,2026-10-28,6-3 6-4,12,won
 2026-10-27,,itf-f,Sofia Struvay,Chenting Zhu,castiga meciul,Chenting Zhu,Sofia Struvay,0.87,0.805,1.003,over,8.5,,3361645.0,won,2:0,2026-10-28,6-0 6-2,12,won
@@ -236,6 +236,21 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-10-30,,itf-f,Reese Brantmeier,Valentina Ryser,castiga meciul,Reese Brantmeier,Valentina Ryser,0.795,0.79,1.12,over,8.5,,3364319.0,won,2:1,2026-10-31,5-7 6-3 6-2,17,won
 2026-10-30,,utr-m,Vojtech Vales,Tarek Erlewein,castiga meciul,Vojtech Vales,Tarek Erlewein,0.791,0.79,1.26,over,8.5,,3362871.0,lost,2:0,2026-10-31,6-7 0-6,6,lost
 2026-10-31,,itf-f,Oceane Dodin,Clara Burel,castiga meciul,Clara Burel,Oceane Dodin,0.842,0.795,1.17,over,8.5,,3364761.0,lost,2:0,2026-11-01,6-7 6-7,12,won
-2026-11-01,,wta-125,Polona Hercog,Maria Jose Rico Sanchez,castiga meciul,Polona Hercog,Maria Jose Rico Sanchez,0.961,0.79,1.0,over,8.5,,3365515.0,pending,,,,,
-2026-11-01,,wta-125,Polona Hercog,Maria Jose Rico Sanchez,adversarul sub 6.5 game-uri,Polona Hercog,Maria Jose Rico Sanchez,0.891,0.765,1.0,opp_under,6.5,,3365515.0,pending,,,,,
-2026-11-01,,challenger,Max Houkes,Dominik Macej,castiga meciul,Max Houkes,Dominik Macej,0.857,0.79,1.003,over,8.5,,3365319.0,pending,,,,,
+2026-11-01,,wta-125,Polona Hercog,Maria Jose Rico Sanchez,castiga meciul,Polona Hercog,Maria Jose Rico Sanchez,0.961,0.79,1.0,over,8.5,,3365515.0,won,2:0,2026-11-02,6-0 6-0,12,won
+2026-11-01,,wta-125,Polona Hercog,Maria Jose Rico Sanchez,adversarul sub 6.5 game-uri,Polona Hercog,Maria Jose Rico Sanchez,0.891,0.765,1.0,opp_under,6.5,,3365515.0,won,2:0,2026-11-02,6-0 6-0,12,won
+2026-11-01,,challenger,Max Houkes,Dominik Macej,castiga meciul,Max Houkes,Dominik Macej,0.857,0.79,1.003,over,8.5,,3365319.0,won,2:1,2026-11-02,6-3 4-6 6-1,16,won
+2026-11-02,,itf-f,Styliani Roussopoulou,Matilde Paoletti,castiga meciul,Matilde Paoletti,Styliani Roussopoulou,0.947,0.795,1.0,over,8.5,,3367197.0,pending,,,,,
+2026-11-02,,wta-125,Warona Mdlulwa,Kristina Novak,castiga meciul,Kristina Novak,Warona Mdlulwa,0.917,0.795,1.02,over,8.5,,3365577.0,pending,,,,,
+2026-11-02,,utr-f,Petra Sedlackova,Adela Polakovicova,castiga meciul,Petra Sedlackova,Adela Polakovicova,0.909,0.795,1.0,over,8.5,,3365261.0,pending,,,,,
+2026-11-02,,itf-f,Antonia Stoyanov,Cristina Diaz Adrover,castiga meciul,Antonia Stoyanov,Cristina Diaz Adrover,0.872,0.795,1.03,over,8.5,,3367031.0,pending,,,,,
+2026-11-02,,utr-m,Sebastian Prechtel,Lautaro A.Corthey,castiga meciul,Sebastian Prechtel,Lautaro A.Corthey,0.866,0.795,1.1,over,8.5,,3365273.0,pending,,,,,
+2026-11-02,,wta-125,Ana Sofia Sanchez,Abigayel Vosloo,castiga meciul,Ana Sofia Sanchez,Abigayel Vosloo,0.862,0.795,1.0,over,8.5,,3366831.0,pending,,,,,
+2026-11-02,,itf-f,Sofia Alekseeva,Lisa Gruber,castiga meciul,Sofia Alekseeva,Lisa Gruber,0.847,0.795,1.09,over,8.5,,3367079.0,pending,,,,,
+2026-11-02,,utr-f,Brooke Lynn Schafer,Addy Rogin,castiga meciul,Brooke Lynn Schafer,Addy Rogin,0.841,0.795,1.08,over,8.5,,3365481.0,pending,,,,,
+2026-11-02,,itf-f,Styliani Roussopoulou,Matilde Paoletti,adversarul sub 6.5 game-uri,Matilde Paoletti,Styliani Roussopoulou,0.825,0.775,1.0,opp_under,6.5,,3367197.0,pending,,,,,
+2026-11-02,,itf-f,Lola Giza,Jade Groen,castiga meciul,Lola Giza,Jade Groen,0.82,0.795,1.41,over,8.5,,3367039.0,pending,,,,,
+2026-11-02,,wta,Venus Williams,Mary Stoiana,castiga meciul,Mary Stoiana,Venus Williams,0.817,0.795,1.13,over,8.5,,3365065.0,pending,,,,,
+2026-11-02,,itf-f,Gloria Pop,Timea Gross,castiga meciul,Gloria Pop,Timea Gross,0.817,0.795,1.23,over,8.5,,3367075.0,pending,,,,,
+2026-11-02,,challenger,Max Houkes,Michael Vrbensky,castiga meciul,Max Houkes,Michael Vrbensky,0.816,0.795,1.44,over,8.5,,3366835.0,pending,,,,,
+2026-11-02,,itf-f,Nahia Berecoechea,Anastasiya Kuparev,castiga meciul,Nahia Berecoechea,Anastasiya Kuparev,0.816,0.795,1.01,over,8.5,,3367069.0,pending,,,,,
+2026-11-02,,challenger,Bruno Fernandez,Nicolas Kicker,castiga meciul,Nicolas Kicker,Bruno Fernandez,0.803,0.795,1.2,over,8.5,,3365613.0,pending,,,,,

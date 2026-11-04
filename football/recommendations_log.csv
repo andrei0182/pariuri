@@ -198,9 +198,10 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-11-01,AUSTRALIA: A-LEAGUE,Perth Glory,Adelaide United,1.66,10:00,over,4,2026-11-02,
 2026-11-01,CAMEROON: ELITE ONE,Aigle Royal,Stade Renard,1.92,16:30,over,4,2026-11-02,
 2026-11-02,ENGLAND: PREMIER LEAGUE CUP,Exeter U21,Reading U21,1.37,21:00,over,7,2026-11-03,odds<1.4
-2026-11-03,SAUDI ARABIA: DIVISION 2,Mudhar Club,Baish,1.68,13:55,pending,,,
-2026-11-03,ENGLAND: PREMIER LEAGUE CUP,Gillingham FC U21,Huddersfield U21,1.24,21:00,pending,,,odds<1.4
-2026-11-03,EUROPE: CHAMPIONS LEAGUE,Barcelona,Aston Villa,1.2,22:00,pending,,,odds<1.4
-2026-11-03,EUROPE: CHAMPIONS LEAGUE,Villarreal,PSG,1.35,22:00,pending,,,odds<1.4
-2026-11-03,EGYPT: LEAGUE CUP,Enppi,Asyut Petroleum,2.27,20:00,pending,,,odds>2.0
-2026-11-03,EGYPT: LEAGUE CUP,Smouha,Pyramids,2.37,20:00,pending,,,odds>2.0
+2026-11-03,SAUDI ARABIA: DIVISION 2,Mudhar Club,Baish,1.68,13:55,over,4,2026-11-04,
+2026-11-03,ENGLAND: PREMIER LEAGUE CUP,Gillingham FC U21,Huddersfield U21,1.24,21:00,under,2,2026-11-04,odds<1.4
+2026-11-03,EUROPE: CHAMPIONS LEAGUE,Barcelona,Aston Villa,1.2,22:00,over,3,2026-11-04,odds<1.4
+2026-11-03,EUROPE: CHAMPIONS LEAGUE,Villarreal,PSG,1.35,22:00,over,6,2026-11-04,odds<1.4
+2026-11-03,EGYPT: LEAGUE CUP,Enppi,Asyut Petroleum,2.27,20:00,under,0,2026-11-04,odds>2.0
+2026-11-03,EGYPT: LEAGUE CUP,Smouha,Pyramids,2.37,20:00,under,1,2026-11-04,odds>2.0
+2026-11-04,EGYPT: LEAGUE CUP,ZED,El Gaish,2.57,17:00,pending,,,odds>2.0

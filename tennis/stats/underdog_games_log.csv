@@ -1324,8 +1324,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-03,,Oriol Roca Batalla,Juan Ignacio Gallego,Juan Ignacio Gallego,Oriol Roca Batalla,8.8,Challenger/125,3.5,1.23,0.685,0.813,-0.158,15,0.8,False,3365611.0,lost,2:0,2026-11-04,1-6 0-6,1,lost
 2026-11-03,,Oriol Roca Batalla,Juan Ignacio Gallego,Juan Ignacio Gallego,Oriol Roca Batalla,8.8,Challenger/125,4.5,1.45,0.554,0.69,-0.197,15,0.8,False,3365611.0,lost,2:0,2026-11-04,1-6 0-6,1,lost
 2026-11-03,,Oriol Roca Batalla,Juan Ignacio Gallego,Juan Ignacio Gallego,Oriol Roca Batalla,8.8,Challenger/125,5.5,1.76,0.434,0.568,-0.236,15,0.8,False,3365611.0,lost,2:0,2026-11-04,1-6 0-6,1,lost
-2026-11-03,,Juan Bautista Torres,Nicolas Bruna,Nicolas Bruna,Juan Bautista Torres,6.1,Challenger/125,4.5,1.28,0.748,0.781,-0.043,24,0.833,False,3368409.0,pending,,,,,
-2026-11-03,,Juan Bautista Torres,Nicolas Bruna,Nicolas Bruna,Juan Bautista Torres,6.1,Challenger/125,5.5,1.42,0.649,0.704,-0.079,24,0.833,False,3368409.0,pending,,,,,
+2026-11-03,,Juan Bautista Torres,Nicolas Bruna,Nicolas Bruna,Juan Bautista Torres,6.1,Challenger/125,4.5,1.28,0.748,0.781,-0.043,24,0.833,False,3368409.0,lost,2:0,2026-11-05,4-6 1-6,5,won
+2026-11-03,,Juan Bautista Torres,Nicolas Bruna,Nicolas Bruna,Juan Bautista Torres,6.1,Challenger/125,5.5,1.42,0.649,0.704,-0.079,24,0.833,False,3368409.0,lost,2:0,2026-11-05,4-6 1-6,5,lost
 2026-11-03,,Juan Manuel La Serna,Mateo Del Pino,Mateo Del Pino,Juan Manuel La Serna,9.6,Challenger/125,3.5,1.28,0.685,0.781,-0.124,18,0.722,False,3368401.0,lost,2:1,2026-11-04,6-4 0-6 5-7,11,won
 2026-11-03,,Juan Manuel La Serna,Mateo Del Pino,Mateo Del Pino,Juan Manuel La Serna,9.6,Challenger/125,4.5,1.51,0.554,0.662,-0.164,18,0.722,False,3368401.0,lost,2:1,2026-11-04,6-4 0-6 5-7,11,won
 2026-11-03,,Juan Manuel La Serna,Mateo Del Pino,Mateo Del Pino,Juan Manuel La Serna,9.6,Challenger/125,5.5,1.9,0.434,0.526,-0.175,18,0.722,False,3368401.0,lost,2:1,2026-11-04,6-4 0-6 5-7,11,won
@@ -1334,7 +1334,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-03,,Julia Grabher,Laura Pigossi,Laura Pigossi,Julia Grabher,4.0,Challenger/125,5.5,1.39,0.694,0.719,-0.035,17,0.765,False,3367163.0,lost,2:1,2026-11-04,6-3 3-6 2-6,11,won
 2026-11-03,,Justina Mikulskyte,Maayan Laron,Maayan Laron,Justina Mikulskyte,4.65,Challenger/125,5.5,1.47,0.694,0.68,0.021,13,0.846,False,3365579.0,lost,2:0,2026-11-04,5-7 5-7,10,won
 2026-11-03,,Oscar Jose Gutierrez,Manuel Mouilleron Salvo,Manuel Mouilleron Salvo,Oscar Jose Gutierrez,4.9,ITF,5.5,1.51,0.622,0.662,-0.061,23,0.826,False,3368101.0,lost,2:0,2026-11-04,0-6 0-6,0,lost
-2026-11-03,,Samuele Pieri,Sergio Planella Hernandez,Sergio Planella Hernandez,Samuele Pieri,6.3,ITF,5.5,1.53,0.537,0.654,-0.178,17,0.824,False,3368153.0,pending,,,,,
+2026-11-03,,Samuele Pieri,Sergio Planella Hernandez,Sergio Planella Hernandez,Samuele Pieri,6.3,ITF,5.5,1.53,0.537,0.654,-0.178,17,0.824,False,3368153.0,lost,2:1,2026-11-05,7-5 4-6 1-6,12,won
 2026-11-03,,Ritesh Patil,Bor Artnak,Ritesh Patil,Bor Artnak,7.5,ITF,4.5,1.45,0.46,0.69,-0.333,13,1.0,False,3368443.0,lost,2:0,2026-11-04,0-6 3-6,3,lost
 2026-11-03,,Ritesh Patil,Bor Artnak,Ritesh Patil,Bor Artnak,7.5,ITF,5.5,1.76,0.347,0.568,-0.39,13,1.0,False,3368443.0,lost,2:0,2026-11-04,0-6 3-6,3,lost
 2026-11-03,,Eneko Rios Perez,Toufik Sahtali,Eneko Rios Perez,Toufik Sahtali,19.0,ITF,2.5,1.28,0.737,0.781,-0.056,3,0.667,False,3367839.0,lost,2:0,2026-11-04,6-7 1-6,7,won
@@ -1345,7 +1345,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-03,,Yuquan Jin,Seong Chan Hong,Yuquan Jin,Seong Chan Hong,11.0,ITF,4.5,1.57,0.46,0.637,-0.278,13,0.846,False,3367805.0,lost,2:1,2026-11-04,7-6 6-7 0-6,13,won
 2026-11-03,,Yuquan Jin,Seong Chan Hong,Yuquan Jin,Seong Chan Hong,11.0,ITF,5.5,1.88,0.347,0.532,-0.348,13,0.846,False,3367805.0,lost,2:1,2026-11-04,7-6 6-7 0-6,13,won
 2026-11-03,,Theodore Dean,Xavier Massotte,Xavier Massotte,Theodore Dean,5.3,ITF,5.5,1.51,0.537,0.662,-0.189,2,0.5,False,3367547.0,lost,2:1,2026-11-04,6-1 1-6 2-6,9,won
-2026-11-03,,Han Shi,Sakura Hosogi,Sakura Hosogi,Han Shi,6.4,ITF,5.5,1.62,0.537,0.617,-0.13,19,0.789,False,3367613.0,pending,,,,,
+2026-11-03,,Han Shi,Sakura Hosogi,Sakura Hosogi,Han Shi,6.4,ITF,5.5,1.62,0.537,0.617,-0.13,19,0.789,False,3367613.0,lost,2:1,2026-11-05,2-6 6-0 1-6,9,won
 2026-11-03,,Mora Carrocera,Alisa Danilova,Mora Carrocera,Alisa Danilova,5.1,ITF,5.5,1.54,0.537,0.649,-0.173,3,1.0,False,3368615.0,lost,2:0,2026-11-04,1-6 5-7,6,won
 2026-11-03,,Sofia Meabe,Caira Delfina Vega Gudino,Caira Delfina Vega Gudino,Sofia Meabe,8.6,ITF,4.5,1.59,0.46,0.629,-0.269,7,0.714,False,3368591.0,lost,2:0,2026-11-04,1-6 1-6,2,lost
 2026-11-03,,Sofia Meabe,Caira Delfina Vega Gudino,Caira Delfina Vega Gudino,Sofia Meabe,8.6,ITF,5.5,1.97,0.347,0.508,-0.317,7,0.714,False,3368591.0,lost,2:0,2026-11-04,1-6 1-6,2,lost
@@ -1367,42 +1367,70 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-03,,Kristyna Dulikova,Elena Milovanovic,Kristyna Dulikova,Elena Milovanovic,11.0,ITF,3.5,1.4,0.596,0.714,-0.165,0,,False,3368223.0,lost,2:1,2026-11-04,6-4 6-7 6-7,18,won
 2026-11-03,,Kristyna Dulikova,Elena Milovanovic,Kristyna Dulikova,Elena Milovanovic,11.0,ITF,4.5,1.74,0.46,0.575,-0.2,0,,False,3368223.0,lost,2:1,2026-11-04,6-4 6-7 6-7,18,won
 2026-11-03,,Kristyna Dulikova,Elena Milovanovic,Kristyna Dulikova,Elena Milovanovic,11.0,ITF,5.5,2.17,0.347,0.461,-0.247,0,,False,3368223.0,lost,2:1,2026-11-04,6-4 6-7 6-7,18,won
-2026-11-03,,Tomoki Fujiwara,Eita Suzuki,Eita Suzuki,Tomoki Fujiwara,5.3,ITF,5.5,1.51,0.537,0.662,-0.189,5,0.6,False,3367577.0,pending,,,,,
+2026-11-03,,Tomoki Fujiwara,Eita Suzuki,Eita Suzuki,Tomoki Fujiwara,5.3,ITF,5.5,1.51,0.537,0.662,-0.189,5,0.6,False,3367577.0,lost,2:1,2026-11-05,5-7 6-4 3-6,14,won
 2026-11-03,,Yakumo Motokura,Julian Messina,Julian Messina,Yakumo Motokura,5.4,ITF,5.5,1.54,0.537,0.649,-0.173,0,,False,,no_data,,2026-11-04,,,
-2026-11-03,,Ke Hau Hung,Taiyo Uenoyama,Ke Hau Hung,Taiyo Uenoyama,5.0,ITF,5.5,1.45,0.537,0.69,-0.221,9,0.889,False,3367579.0,lost,2:0,2026-11-04,,,
-2026-11-03,,Lucia Hradecka,Silvia Njiric,Lucia Hradecka,Silvia Njiric,7.9,ITF,4.5,1.54,0.46,0.649,-0.292,8,1.0,False,3368339.0,pending,,,,,
-2026-11-03,,Lucia Hradecka,Silvia Njiric,Lucia Hradecka,Silvia Njiric,7.9,ITF,5.5,1.88,0.347,0.532,-0.348,8,1.0,False,3368339.0,pending,,,,,
-2026-11-04,,Matej Dodig,Michal Krajci,Michal Krajci,Matej Dodig,5.9,Challenger/125,5.5,1.27,0.72,0.787,-0.086,14,0.929,True,3368331.0,pending,,,,,
-2026-11-04,,Oriol Roca Batalla,Ryo Tabata,Ryo Tabata,Oriol Roca Batalla,5.0,Challenger/125,5.5,1.39,0.649,0.719,-0.098,10,0.8,False,3369729.0,pending,,,,,
-2026-11-04,,Jazmin Ortenzi,Bianca Andreescu,Jazmin Ortenzi,Bianca Andreescu,6.0,Challenger/125,4.5,1.36,0.814,0.735,0.107,14,0.929,True,3369761.0,pending,,,,,
-2026-11-04,,Jazmin Ortenzi,Bianca Andreescu,Jazmin Ortenzi,Bianca Andreescu,6.0,Challenger/125,5.5,1.63,0.72,0.613,0.174,14,0.929,True,3369761.0,pending,,,,,
-2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,2.5,1.21,0.807,0.826,-0.023,15,0.933,False,3365583.0,pending,,,,,
-2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,3.5,1.43,0.685,0.699,-0.021,15,0.933,False,3365583.0,pending,,,,,
-2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,4.5,1.83,0.554,0.546,0.014,15,0.933,False,3365583.0,pending,,,,,
-2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,5.5,2.3,0.434,0.435,-0.001,15,0.933,False,3365583.0,pending,,,,,
-2026-11-04,,Suzan Lamens,Kristina Kroitor,Kristina Kroitor,Suzan Lamens,5.9,Challenger/125,4.5,1.35,0.814,0.741,0.099,11,0.909,True,3365567.0,pending,,,,,
-2026-11-04,,Suzan Lamens,Kristina Kroitor,Kristina Kroitor,Suzan Lamens,5.9,Challenger/125,5.5,1.59,0.72,0.629,0.145,11,0.909,True,3365567.0,pending,,,,,
-2026-11-04,,Sofya Lansere,Kristina Novak,Kristina Novak,Sofya Lansere,5.7,Challenger/125,4.5,1.34,0.814,0.746,0.091,18,0.889,True,3369293.0,pending,,,,,
-2026-11-04,,Sofya Lansere,Kristina Novak,Kristina Novak,Sofya Lansere,5.7,Challenger/125,5.5,1.58,0.72,0.633,0.138,18,0.889,True,3369293.0,pending,,,,,
-2026-11-04,,Franziska Sziedat,Martyna Kubka,Franziska Sziedat,Martyna Kubka,9.5,Challenger/125,3.5,1.3,0.685,0.769,-0.11,14,0.857,False,3369363.0,pending,,,,,
-2026-11-04,,Franziska Sziedat,Martyna Kubka,Franziska Sziedat,Martyna Kubka,9.5,Challenger/125,4.5,1.58,0.554,0.633,-0.125,14,0.857,False,3369363.0,pending,,,,,
-2026-11-04,,Franziska Sziedat,Martyna Kubka,Franziska Sziedat,Martyna Kubka,9.5,Challenger/125,5.5,1.95,0.434,0.513,-0.153,14,0.857,False,3369363.0,pending,,,,,
-2026-11-04,,Victor Braga,Benjamin Torrealba,Victor Braga,Benjamin Torrealba,5.65,ITF,5.5,1.56,0.537,0.641,-0.162,20,0.75,False,3369583.0,pending,,,,,
-2026-11-04,,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,8.1,ITF,4.5,1.48,0.459,0.676,-0.32,18,0.944,False,3369631.0,pending,,,,,
-2026-11-04,,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,8.1,ITF,5.5,1.8,0.345,0.556,-0.378,18,0.944,False,3369631.0,pending,,,,,
-2026-11-04,,Prathinav Chunduru,Kevin Edengren,Prathinav Chunduru,Kevin Edengren,5.75,ITF,5.5,1.58,0.537,0.633,-0.151,8,0.875,False,3368441.0,pending,,,,,
-2026-11-04,,Henri Haupt,Alexandre Aubriot,Henri Haupt,Alexandre Aubriot,8.6,ITF,4.5,1.52,0.459,0.658,-0.302,19,0.684,False,3369555.0,pending,,,,,
-2026-11-04,,Henri Haupt,Alexandre Aubriot,Henri Haupt,Alexandre Aubriot,8.6,ITF,5.5,1.77,0.345,0.565,-0.389,19,0.684,False,3369555.0,pending,,,,,
-2026-11-04,,Xiaoyin Yang,Filip Peliwo,Xiaoyin Yang,Filip Peliwo,6.1,ITF,5.5,1.53,0.537,0.654,-0.178,18,1.0,False,3367811.0,pending,,,,,
-2026-11-04,,Maxim Zhukov,Stefan Storch,Stefan Storch,Maxim Zhukov,6.5,ITF,5.5,1.49,0.537,0.671,-0.199,23,0.87,False,3367809.0,pending,,,,,
-2026-11-04,,Arkhip Kozlov,Qian Sun,Arkhip Kozlov,Qian Sun,7.6,ITF,5.5,1.63,0.345,0.613,-0.437,6,1.0,False,3369245.0,pending,,,,,
-2026-11-04,,Millen Hurrion,Alexey Aleshchev,Alexey Aleshchev,Millen Hurrion,9.9,ITF,4.5,1.57,0.459,0.637,-0.279,18,0.833,False,3369239.0,pending,,,,,
-2026-11-04,,Millen Hurrion,Alexey Aleshchev,Alexey Aleshchev,Millen Hurrion,9.9,ITF,5.5,1.88,0.345,0.532,-0.351,18,0.833,False,3369239.0,pending,,,,,
-2026-11-04,,Ipek Oz,Maria Fernanda Navarro,Maria Fernanda Navarro,Ipek Oz,20.0,ITF,2.5,1.38,0.737,0.725,0.017,11,0.636,False,3369073.0,pending,,,,,
-2026-11-04,,Ipek Oz,Maria Fernanda Navarro,Maria Fernanda Navarro,Ipek Oz,20.0,ITF,3.5,1.78,0.595,0.562,0.059,11,0.636,False,3369073.0,pending,,,,,
-2026-11-04,,Ipek Oz,Maria Fernanda Navarro,Maria Fernanda Navarro,Ipek Oz,20.0,ITF,4.5,2.4,0.459,0.417,0.102,11,0.636,False,3369073.0,pending,,,,,
-2026-11-04,,Jo-Yee Chan,Marian Gomez Pezuela Cano,Marian Gomez Pezuela Cano,Jo-Yee Chan,18.0,ITF,2.5,1.3,0.737,0.769,-0.042,12,0.75,False,3369079.0,pending,,,,,
-2026-11-04,,Jo-Yee Chan,Marian Gomez Pezuela Cano,Marian Gomez Pezuela Cano,Jo-Yee Chan,18.0,ITF,3.5,1.62,0.595,0.617,-0.036,12,0.75,False,3369079.0,pending,,,,,
-2026-11-04,,Jo-Yee Chan,Marian Gomez Pezuela Cano,Marian Gomez Pezuela Cano,Jo-Yee Chan,18.0,ITF,4.5,2.12,0.459,0.472,-0.026,12,0.75,False,3369079.0,pending,,,,,
-2026-11-04,,Marie Weckerle,Anna Siskova,Marie Weckerle,Anna Siskova,4.8,ITF,5.5,1.5,0.622,0.667,-0.067,21,0.952,False,3368367.0,pending,,,,,
-2026-11-04,,Lautaro A.Corthey,Jasza Szajrych,Lautaro A.Corthey,Jasza Szajrych,5.8,ITF,5.5,1.57,0.537,0.637,-0.156,15,0.467,False,3369493.0,pending,,,,,
+2026-11-03,,Ke Hau Hung,Taiyo Uenoyama,Ke Hau Hung,Taiyo Uenoyama,5.0,ITF,5.5,1.45,0.537,0.69,-0.221,9,0.889,False,3367579.0,lost,2:0,2026-11-04,5-7 2-6,7,won
+2026-11-03,,Lucia Hradecka,Silvia Njiric,Lucia Hradecka,Silvia Njiric,7.9,ITF,4.5,1.54,0.46,0.649,-0.292,8,1.0,False,3368339.0,lost,2:1,2026-11-05,6-4 5-7 3-6,14,won
+2026-11-03,,Lucia Hradecka,Silvia Njiric,Lucia Hradecka,Silvia Njiric,7.9,ITF,5.5,1.88,0.347,0.532,-0.348,8,1.0,False,3368339.0,lost,2:1,2026-11-05,6-4 5-7 3-6,14,won
+2026-11-04,,Matej Dodig,Michal Krajci,Michal Krajci,Matej Dodig,5.9,Challenger/125,5.5,1.27,0.72,0.787,-0.086,14,0.929,True,3368331.0,lost,2:0,2026-11-05,3-6 6-7,9,won
+2026-11-04,,Oriol Roca Batalla,Ryo Tabata,Ryo Tabata,Oriol Roca Batalla,5.0,Challenger/125,5.5,1.39,0.649,0.719,-0.098,10,0.8,False,3369729.0,lost,2:0,2026-11-05,1-6 3-6,4,lost
+2026-11-04,,Jazmin Ortenzi,Bianca Andreescu,Jazmin Ortenzi,Bianca Andreescu,6.0,Challenger/125,4.5,1.36,0.814,0.735,0.107,14,0.929,True,3369761.0,lost,2:0,2026-11-05,2-6 3-6,5,won
+2026-11-04,,Jazmin Ortenzi,Bianca Andreescu,Jazmin Ortenzi,Bianca Andreescu,6.0,Challenger/125,5.5,1.63,0.72,0.613,0.174,14,0.929,True,3369761.0,lost,2:0,2026-11-05,2-6 3-6,5,lost
+2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,2.5,1.21,0.807,0.826,-0.023,15,0.933,False,3365583.0,lost,2:0,2026-11-05,2-6 0-6,2,lost
+2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,3.5,1.43,0.685,0.699,-0.021,15,0.933,False,3365583.0,lost,2:0,2026-11-05,2-6 0-6,2,lost
+2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,4.5,1.83,0.554,0.546,0.014,15,0.933,False,3365583.0,lost,2:0,2026-11-05,2-6 0-6,2,lost
+2026-11-04,,Wozuko Mdlulwa,Noma Akugue Noha,Wozuko Mdlulwa,Noma Akugue Noha,15.0,Challenger/125,5.5,2.3,0.434,0.435,-0.001,15,0.933,False,3365583.0,lost,2:0,2026-11-05,2-6 0-6,2,lost
+2026-11-04,,Suzan Lamens,Kristina Kroitor,Kristina Kroitor,Suzan Lamens,5.9,Challenger/125,4.5,1.35,0.814,0.741,0.099,11,0.909,True,3365567.0,won,2:0,2026-11-05,6-2 6-4,12,won
+2026-11-04,,Suzan Lamens,Kristina Kroitor,Kristina Kroitor,Suzan Lamens,5.9,Challenger/125,5.5,1.59,0.72,0.629,0.145,11,0.909,True,3365567.0,won,2:0,2026-11-05,6-2 6-4,12,won
+2026-11-04,,Sofya Lansere,Kristina Novak,Kristina Novak,Sofya Lansere,5.7,Challenger/125,4.5,1.34,0.814,0.746,0.091,18,0.889,True,3369293.0,lost,2:0,2026-11-05,0-6 1-6,1,lost
+2026-11-04,,Sofya Lansere,Kristina Novak,Kristina Novak,Sofya Lansere,5.7,Challenger/125,5.5,1.58,0.72,0.633,0.138,18,0.889,True,3369293.0,lost,2:0,2026-11-05,0-6 1-6,1,lost
+2026-11-04,,Franziska Sziedat,Martyna Kubka,Franziska Sziedat,Martyna Kubka,9.5,Challenger/125,3.5,1.3,0.685,0.769,-0.11,14,0.857,False,3369363.0,lost,2:0,2026-11-05,3-6 3-6,6,won
+2026-11-04,,Franziska Sziedat,Martyna Kubka,Franziska Sziedat,Martyna Kubka,9.5,Challenger/125,4.5,1.58,0.554,0.633,-0.125,14,0.857,False,3369363.0,lost,2:0,2026-11-05,3-6 3-6,6,won
+2026-11-04,,Franziska Sziedat,Martyna Kubka,Franziska Sziedat,Martyna Kubka,9.5,Challenger/125,5.5,1.95,0.434,0.513,-0.153,14,0.857,False,3369363.0,lost,2:0,2026-11-05,3-6 3-6,6,won
+2026-11-04,,Victor Braga,Benjamin Torrealba,Victor Braga,Benjamin Torrealba,5.65,ITF,5.5,1.56,0.537,0.641,-0.162,20,0.75,False,3369583.0,lost,2:1,2026-11-05,3-6 6-4 5-7,14,won
+2026-11-04,,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,8.1,ITF,4.5,1.48,0.459,0.676,-0.32,18,0.944,False,3369631.0,lost,2:0,2026-11-05,3-6 2-6,5,won
+2026-11-04,,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,Esteban Talavera Cortes,Alejandro Manzanera Pertusa,8.1,ITF,5.5,1.8,0.345,0.556,-0.378,18,0.944,False,3369631.0,lost,2:0,2026-11-05,3-6 2-6,5,lost
+2026-11-04,,Prathinav Chunduru,Kevin Edengren,Prathinav Chunduru,Kevin Edengren,5.75,ITF,5.5,1.58,0.537,0.633,-0.151,8,0.875,False,3368441.0,lost,2:0,2026-11-05,2-6 2-6,4,lost
+2026-11-04,,Henri Haupt,Alexandre Aubriot,Henri Haupt,Alexandre Aubriot,8.6,ITF,4.5,1.52,0.459,0.658,-0.302,19,0.684,False,3369555.0,lost,1:0,2026-11-05,7-5 5-7 0-0,12,void
+2026-11-04,,Henri Haupt,Alexandre Aubriot,Henri Haupt,Alexandre Aubriot,8.6,ITF,5.5,1.77,0.345,0.565,-0.389,19,0.684,False,3369555.0,lost,1:0,2026-11-05,7-5 5-7 0-0,12,void
+2026-11-04,,Xiaoyin Yang,Filip Peliwo,Xiaoyin Yang,Filip Peliwo,6.1,ITF,5.5,1.53,0.537,0.654,-0.178,18,1.0,False,3367811.0,lost,2:1,2026-11-05,6-3 6-7 4-6,16,won
+2026-11-04,,Maxim Zhukov,Stefan Storch,Stefan Storch,Maxim Zhukov,6.5,ITF,5.5,1.49,0.537,0.671,-0.199,23,0.87,False,3367809.0,lost,2:0,2026-11-05,6-7 3-6,9,won
+2026-11-04,,Arkhip Kozlov,Qian Sun,Arkhip Kozlov,Qian Sun,7.6,ITF,5.5,1.63,0.345,0.613,-0.437,6,1.0,False,3369245.0,lost,2:0,2026-11-05,1-6 3-6,4,lost
+2026-11-04,,Millen Hurrion,Alexey Aleshchev,Alexey Aleshchev,Millen Hurrion,9.9,ITF,4.5,1.57,0.459,0.637,-0.279,18,0.833,False,3369239.0,lost,2:0,2026-11-05,3-6 4-6,7,won
+2026-11-04,,Millen Hurrion,Alexey Aleshchev,Alexey Aleshchev,Millen Hurrion,9.9,ITF,5.5,1.88,0.345,0.532,-0.351,18,0.833,False,3369239.0,lost,2:0,2026-11-05,3-6 4-6,7,won
+2026-11-04,,Ipek Oz,Maria Fernanda Navarro,Maria Fernanda Navarro,Ipek Oz,20.0,ITF,2.5,1.38,0.737,0.725,0.017,11,0.636,False,3369073.0,lost,2:0,2026-11-05,5-7 0-6,5,won
+2026-11-04,,Ipek Oz,Maria Fernanda Navarro,Maria Fernanda Navarro,Ipek Oz,20.0,ITF,3.5,1.78,0.595,0.562,0.059,11,0.636,False,3369073.0,lost,2:0,2026-11-05,5-7 0-6,5,won
+2026-11-04,,Ipek Oz,Maria Fernanda Navarro,Maria Fernanda Navarro,Ipek Oz,20.0,ITF,4.5,2.4,0.459,0.417,0.102,11,0.636,False,3369073.0,lost,2:0,2026-11-05,5-7 0-6,5,won
+2026-11-04,,Jo-Yee Chan,Marian Gomez Pezuela Cano,Marian Gomez Pezuela Cano,Jo-Yee Chan,18.0,ITF,2.5,1.3,0.737,0.769,-0.042,12,0.75,False,3369079.0,lost,2:0,2026-11-05,2-6 3-6,5,won
+2026-11-04,,Jo-Yee Chan,Marian Gomez Pezuela Cano,Marian Gomez Pezuela Cano,Jo-Yee Chan,18.0,ITF,3.5,1.62,0.595,0.617,-0.036,12,0.75,False,3369079.0,lost,2:0,2026-11-05,2-6 3-6,5,won
+2026-11-04,,Jo-Yee Chan,Marian Gomez Pezuela Cano,Marian Gomez Pezuela Cano,Jo-Yee Chan,18.0,ITF,4.5,2.12,0.459,0.472,-0.026,12,0.75,False,3369079.0,lost,2:0,2026-11-05,2-6 3-6,5,won
+2026-11-04,,Marie Weckerle,Anna Siskova,Marie Weckerle,Anna Siskova,4.8,ITF,5.5,1.5,0.622,0.667,-0.067,21,0.952,False,3368367.0,lost,2:0,2026-11-05,3-6 2-6,5,lost
+2026-11-04,,Lautaro A.Corthey,Jasza Szajrych,Lautaro A.Corthey,Jasza Szajrych,5.8,ITF,5.5,1.57,0.537,0.637,-0.156,15,0.467,False,3369493.0,lost,2:0,2026-11-05,0-6 0-6,0,lost
+2026-11-05,,Anastasia Zakharova,Vaishnavi Adkar,Vaishnavi Adkar,Anastasia Zakharova,6.9,ATP/WTA,4.5,1.39,0.815,0.719,0.133,19,0.895,True,3369387.0,pending,,,,,
+2026-11-05,,Anastasia Zakharova,Vaishnavi Adkar,Vaishnavi Adkar,Anastasia Zakharova,6.9,ATP/WTA,5.5,1.66,0.722,0.602,0.198,19,0.895,True,3369387.0,pending,,,,,
+2026-11-05,,Mai Hontama,Zhibek Kulambayeva,Zhibek Kulambayeva,Mai Hontama,4.2,ATP/WTA,5.5,1.4,0.722,0.714,0.011,19,1.0,True,3369731.0,pending,,,,,
+2026-11-05,,Chak Lam Coleman Wong,Chun-Chien Hou,Chun-Chien Hou,Chak Lam Coleman Wong,13.0,Challenger/125,4.5,1.3,0.555,0.769,-0.278,6,1.0,False,3369369.0,pending,,,,,
+2026-11-05,,Chak Lam Coleman Wong,Chun-Chien Hou,Chun-Chien Hou,Chak Lam Coleman Wong,13.0,Challenger/125,5.5,1.57,0.436,0.637,-0.316,6,1.0,False,3369369.0,pending,,,,,
+2026-11-05,,Thiago Seyboth Wild,Franco Roncadelli,Franco Roncadelli,Thiago Seyboth Wild,6.7,Challenger/125,4.5,1.29,0.815,0.775,0.051,18,1.0,True,3369845.0,pending,,,,,
+2026-11-05,,Thiago Seyboth Wild,Franco Roncadelli,Franco Roncadelli,Thiago Seyboth Wild,6.7,Challenger/125,5.5,1.51,0.722,0.662,0.09,18,1.0,True,3369845.0,pending,,,,,
+2026-11-05,,Ignacio Monzon,Genaro Alberto Olivieri,Ignacio Monzon,Genaro Alberto Olivieri,4.5,Challenger/125,5.5,1.37,0.722,0.73,-0.011,22,1.0,True,3370493.0,pending,,,,,
+2026-11-05,,Anna Blinkova,Zongyu Li,Zongyu Li,Anna Blinkova,6.5,Challenger/125,4.5,1.39,0.747,0.719,0.038,16,0.688,False,3369747.0,pending,,,,,
+2026-11-05,,Anna Blinkova,Zongyu Li,Zongyu Li,Anna Blinkova,6.5,Challenger/125,5.5,1.66,0.648,0.602,0.076,16,0.688,False,3369747.0,pending,,,,,
+2026-11-05,,William Kjellberg,Andrey Chepelev,William Kjellberg,Andrey Chepelev,6.7,ITF,4.5,1.41,0.655,0.709,-0.076,1,1.0,False,3370067.0,pending,,,,,
+2026-11-05,,William Kjellberg,Andrey Chepelev,William Kjellberg,Andrey Chepelev,6.7,ITF,5.5,1.68,0.539,0.595,-0.095,1,1.0,False,3370067.0,pending,,,,,
+2026-11-05,,Stefan Adrian Andreescu,Nicolo Toffanin,Nicolo Toffanin,Stefan Adrian Andreescu,7.5,ITF,4.5,1.47,0.46,0.68,-0.323,22,0.773,False,3370137.0,pending,,,,,
+2026-11-05,,Stefan Adrian Andreescu,Nicolo Toffanin,Nicolo Toffanin,Stefan Adrian Andreescu,7.5,ITF,5.5,1.82,0.347,0.549,-0.369,22,0.773,False,3370137.0,pending,,,,,
+2026-11-05,,Filip Cristian Jianu,Alexander Wagner,Alexander Wagner,Filip Cristian Jianu,5.2,ITF,5.5,1.48,0.539,0.676,-0.203,16,0.875,False,3370223.0,pending,,,,,
+2026-11-05,,John Sperle,Antonio Caruso,Antonio Caruso,John Sperle,4.65,ITF,5.5,1.47,0.621,0.68,-0.087,5,0.8,False,3370347.0,pending,,,,,
+2026-11-05,,Matias Reyniak,Cezar Cretu,Matias Reyniak,Cezar Cretu,7.1,ITF,4.5,1.44,0.46,0.694,-0.337,11,0.909,False,3370239.0,pending,,,,,
+2026-11-05,,Matias Reyniak,Cezar Cretu,Matias Reyniak,Cezar Cretu,7.1,ITF,5.5,1.76,0.347,0.568,-0.39,11,0.909,False,3370239.0,pending,,,,,
+2026-11-05,,Robert Guna,Robin Bertrand,Robert Guna,Robin Bertrand,4.85,ITF,5.5,1.48,0.621,0.676,-0.08,12,0.917,False,3370397.0,pending,,,,,
+2026-11-05,,Andrea Bacaloni,John Echeverria,Andrea Bacaloni,John Echeverria,5.5,ITF,5.5,1.46,0.539,0.685,-0.213,15,0.933,False,3370293.0,pending,,,,,
+2026-11-05,,Tuncay Duran,Mohamed Nazim Makhlouf,Mohamed Nazim Makhlouf,Tuncay Duran,6.6,ITF,5.5,1.5,0.539,0.667,-0.192,26,0.692,False,3370367.0,pending,,,,,
+2026-11-05,,Omar Kandil,Saba Purtseladze,Omar Kandil,Saba Purtseladze,6.4,ITF,5.5,1.58,0.539,0.633,-0.149,6,0.833,False,3370437.0,pending,,,,,
+2026-11-05,,Katie Swan,Rina Saigo,Rina Saigo,Katie Swan,7.9,ITF,4.5,1.55,0.46,0.645,-0.286,23,0.957,False,3370093.0,pending,,,,,
+2026-11-05,,Katie Swan,Rina Saigo,Rina Saigo,Katie Swan,7.9,ITF,5.5,1.88,0.347,0.532,-0.348,23,0.957,False,3370093.0,pending,,,,,
+2026-11-05,,Zuzanna Pawlikowska,Misa Malkin,Misa Malkin,Zuzanna Pawlikowska,8.3,ITF,4.5,1.57,0.46,0.637,-0.277,9,0.778,False,3369755.0,pending,,,,,
+2026-11-05,,Zuzanna Pawlikowska,Misa Malkin,Misa Malkin,Zuzanna Pawlikowska,8.3,ITF,5.5,1.95,0.347,0.513,-0.324,9,0.778,False,3369755.0,pending,,,,,
+2026-11-05,,Alena Kovackova,Lenka Munzarova,Lenka Munzarova,Alena Kovackova,7.3,ITF,4.5,1.49,0.46,0.671,-0.314,6,1.0,False,3370209.0,pending,,,,,
+2026-11-05,,Alena Kovackova,Lenka Munzarova,Lenka Munzarova,Alena Kovackova,7.3,ITF,5.5,1.83,0.347,0.546,-0.365,6,1.0,False,3370209.0,pending,,,,,

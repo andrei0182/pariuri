@@ -1411,8 +1411,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-05,,Mai Hontama,Zhibek Kulambayeva,Zhibek Kulambayeva,Mai Hontama,4.2,ATP/WTA,5.5,1.4,0.722,0.714,0.011,19,1.0,True,3369731.0,lost,2:1,2026-11-06,6-4 4-6 5-7,15,won
 2026-11-05,,Chak Lam Coleman Wong,Chun-Chien Hou,Chun-Chien Hou,Chak Lam Coleman Wong,13.0,Challenger/125,4.5,1.3,0.555,0.769,-0.278,6,1.0,False,3369369.0,lost,2:0,2026-11-06,2-6 5-7,7,won
 2026-11-05,,Chak Lam Coleman Wong,Chun-Chien Hou,Chun-Chien Hou,Chak Lam Coleman Wong,13.0,Challenger/125,5.5,1.57,0.436,0.637,-0.316,6,1.0,False,3369369.0,lost,2:0,2026-11-06,2-6 5-7,7,won
-2026-11-05,,Thiago Seyboth Wild,Franco Roncadelli,Franco Roncadelli,Thiago Seyboth Wild,6.7,Challenger/125,4.5,1.29,0.815,0.775,0.051,18,1.0,True,3369845.0,pending,,,,,
-2026-11-05,,Thiago Seyboth Wild,Franco Roncadelli,Franco Roncadelli,Thiago Seyboth Wild,6.7,Challenger/125,5.5,1.51,0.722,0.662,0.09,18,1.0,True,3369845.0,pending,,,,,
+2026-11-05,,Thiago Seyboth Wild,Franco Roncadelli,Franco Roncadelli,Thiago Seyboth Wild,6.7,Challenger/125,4.5,1.29,0.815,0.775,0.051,18,1.0,True,3369845.0,lost,2:0,2026-11-06,1-6 6-7,7,won
+2026-11-05,,Thiago Seyboth Wild,Franco Roncadelli,Franco Roncadelli,Thiago Seyboth Wild,6.7,Challenger/125,5.5,1.51,0.722,0.662,0.09,18,1.0,True,3369845.0,lost,2:0,2026-11-06,1-6 6-7,7,won
 2026-11-05,,Ignacio Monzon,Genaro Alberto Olivieri,Ignacio Monzon,Genaro Alberto Olivieri,4.5,Challenger/125,5.5,1.37,0.722,0.73,-0.011,22,1.0,True,3370493.0,lost,2:0,2026-11-06,3-6 1-6,4,lost
 2026-11-05,,Anna Blinkova,Zongyu Li,Zongyu Li,Anna Blinkova,6.5,Challenger/125,4.5,1.39,0.747,0.719,0.038,16,0.688,False,3369747.0,lost,2:1,2026-11-06,3-6 6-4 2-6,11,won
 2026-11-05,,Anna Blinkova,Zongyu Li,Zongyu Li,Anna Blinkova,6.5,Challenger/125,5.5,1.66,0.648,0.602,0.076,16,0.688,False,3369747.0,lost,2:1,2026-11-06,3-6 6-4 2-6,11,won
@@ -1452,3 +1452,5 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-06,,Izabela Heinzova,Petra Sedlackova,Izabela Heinzova,Petra Sedlackova,20.0,ITF,2.5,1.35,0.738,0.741,-0.003,20,0.9,False,3371015.0,pending,,,,,
 2026-11-06,,Izabela Heinzova,Petra Sedlackova,Izabela Heinzova,Petra Sedlackova,20.0,ITF,3.5,1.75,0.596,0.571,0.043,20,0.9,False,3371015.0,pending,,,,,
 2026-11-06,,Izabela Heinzova,Petra Sedlackova,Izabela Heinzova,Petra Sedlackova,20.0,ITF,4.5,2.3,0.46,0.435,0.058,20,0.9,False,3371015.0,pending,,,,,
+2026-11-06,,Juliana Singeorzan,Aya EL Aouni,Juliana Singeorzan,Aya EL Aouni,5.45,ITF,5.5,1.51,0.539,0.662,-0.186,14,0.786,False,3371123.0,pending,,,,,
+2026-11-06,,Simona Wirglerova,Vanda Vargova,Simona Wirglerova,Vanda Vargova,4.85,ITF,5.5,1.56,0.622,0.641,-0.03,6,1.0,False,3371019.0,pending,,,,,

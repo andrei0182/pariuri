@@ -85,6 +85,16 @@ class Model90Tests(unittest.TestCase):
             picks = m.predict(pd.DataFrame([row]), state, models, day)
             self.assertNotIn("Tare", list(picks.recommended_player) if not picks.empty else [])
 
+    def test_features_without_h2h_do_not_create_empty_pairs(self):
+        state, day, sets = m.State(), dt.date(2026, 6, 1), [(6, 3), (6, 3)]
+        for w, l in [("a", "c"), ("a", "d"), ("b", "c"), ("b", "d"), ("e", "c"), ("e", "d")]:
+            state.update(w, l, "Hard", sets, day)
+        state.features("a", "e", "Hard", day, "ITF")   # fara meci intre ei
+        state.features("b", "e", "Hard", day, "ITF")
+        f = state.features("a", "b", "Hard", day, "ITF")   # inainte: ZeroDivisionError
+        self.assertEqual(f["con"], 2)
+        self.assertEqual(f["h2hn"], 0)
+
     def test_resolve_opponent_under(self):
         detail = MatchDetailData(player1=PlayerProfile(name="Tare Ana"), player2=PlayerProfile(name="Slab Bob"),
                                  set_scores=[(6, 3), (6, 2)], retired=False)

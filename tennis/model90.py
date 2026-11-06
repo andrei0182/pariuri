@@ -87,11 +87,14 @@ class State:
 
     def features(self, x: str, y: str, surface: str, day: dt.date, level: str) -> dict:
         p = self.book.predict(x, y, surface)
-        common = (set(self.vs[x]) & set(self.vs[y])) - {x, y}
+        common = {c for c in (set(self.vs[x]) & set(self.vs[y])) - {x, y}
+                  if sum(self.vs[x][c]) and sum(self.vs[y][c])}
         co = np.nan
         if len(common) >= 2:
             co = (np.mean([self.vs[x][c][0] / sum(self.vs[x][c]) for c in common])
                   - np.mean([self.vs[y][c][0] / sum(self.vs[y][c]) for c in common]))
+
+        h2h = self.vs[x].get(y, (0, 0))   # .get: nu crea perechi [0, 0] fara meci (ar da impartire la 0)
 
         def gs(z):
             g = self.sg[(z, surface)]
@@ -116,7 +119,7 @@ class State:
             "gs_x": gs(x), "gs_y": gs(y), "awr_x": _rate(self.awl[x], 5), "awr_y": _rate(self.awl[y], 5),
             "f5_x": form(x, 5), "f5_y": form(y, 5), "f10_x": form(x, 10), "f10_y": form(y, 10),
             "load_x": load(x), "load_y": load(y), "res4_x": res4(x), "res4_y": res4(y),
-            "h2h": self.vs[x][y][0] - self.vs[x][y][1], "h2hn": sum(self.vs[x][y]), "co": co, "con": len(common),
+            "h2h": h2h[0] - h2h[1], "h2hn": sum(h2h), "co": co, "con": len(common),
             "lvl_c": LEVEL_CODE.get(level, 0), "sf_c": SURFACE_CODE.get(surface, -1),
         }
         for a in ("swr", "gs", "awr", "f5", "f10", "load", "res4"):

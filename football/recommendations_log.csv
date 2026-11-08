@@ -209,4 +209,6 @@ date,league,home_team,away_team,odds_over,kickoff_local,result,total_goals,check
 2026-11-05,EUROPE: EUROPA LEAGUE,Celtic,Besiktas,1.55,22:00,over,5,2026-11-07,
 2026-11-05,EUROPE: EUROPA LEAGUE,Torreense,Ararat-Armenia,2.0,22:00,over,5,2026-11-07,
 2026-11-05,EUROPE: CONFERENCE LEAGUE,Lugano,Kauno Zalgiris,1.36,22:00,over,3,2026-11-07,odds<1.4
-2026-11-07,SWEDEN: DIVISION 2 - PROMOTION GROUP,Dalstorps,IFK Trelleborg,1.5,14:00,pending,,,
+2026-11-07,SWEDEN: DIVISION 2 - PROMOTION GROUP,Dalstorps,IFK Trelleborg,1.5,14:00,over,5,2026-11-08,
+2026-11-08,AUSTRALIA: AUSTRALIAN CHAMPIONSHIP,Avondale FC,Adelaide City,1.41,06:00,pending,,,
+2026-11-08,PHILIPPINES: PFL,Davao Aguilas,Philippine Army,,11:45,pending,,,

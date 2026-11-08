@@ -340,27 +340,34 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-11-05,,atp,Matteo Berrettini,Carlos Alcaraz,castiga meciul,Carlos Alcaraz,Matteo Berrettini,0.811,0.805,1.12,over,8.5,,3370727.0,won,1:0,2026-11-06,,,
 2026-11-05,,itf-f,Berta Bonardi,Sol Ailin Larraya Guidi,castiga meciul,Sol Ailin Larraya Guidi,Berta Bonardi,0.808,0.805,1.57,over,8.5,,3370517.0,lost,2:1,2026-11-06,5-7 6-3 1-6,12,won
 2026-11-05,,utr-f,Lea Belanska,Vanda Vargova,castiga meciul,Vanda Vargova,Lea Belanska,0.807,0.805,1.002,over,8.5,,3370477.0,won,2:0,2026-11-06,6-1 6-0,12,won
-2026-11-06,,utr-f,Sona Depesova,Silvia Husarova,castiga meciul,Sona Depesova,Silvia Husarova,0.954,0.795,1.0,over,8.5,,3371013.0,pending,,,,,
+2026-11-06,,utr-f,Sona Depesova,Silvia Husarova,castiga meciul,Sona Depesova,Silvia Husarova,0.954,0.795,1.0,over,8.5,,3371013.0,won,2:1,2026-11-08,6-1 3-6 6-0,15,won
 2026-11-06,,utr-m,Alessandro-Damiano Ventre,Karl Kazuma Lee,castiga meciul,Karl Kazuma Lee,Alessandro-Damiano Ventre,0.93,0.795,1.008,over,8.5,,3370665.0,pending,,,,,
-2026-11-06,,utr-f,Kristina Nordikyan,Yuliya Hatouka,castiga meciul,Yuliya Hatouka,Kristina Nordikyan,0.929,0.795,1.0,over,8.5,,3370699.0,pending,,,,,
+2026-11-06,,utr-f,Kristina Nordikyan,Yuliya Hatouka,castiga meciul,Yuliya Hatouka,Kristina Nordikyan,0.929,0.795,1.0,over,8.5,,3370699.0,won,2:0,2026-11-08,6-4 6-4,12,won
 2026-11-06,,utr-m,Leonard Tramolay,Mathis Bondaz,castiga meciul,Mathis Bondaz,Leonard Tramolay,0.893,0.795,1.02,over,8.5,,3368717.0,won,2:0,2026-11-07,7-5 6-2,13,won
-2026-11-06,,utr-f,Gresi Bajri,Veronica Miroshnichenko,castiga meciul,Veronica Miroshnichenko,Gresi Bajri,0.893,0.795,1.0,over,8.5,,3368813.0,pending,,,,,
-2026-11-06,,utr-f,Sona Depesova,Silvia Husarova,adversarul sub 6.5 game-uri,Sona Depesova,Silvia Husarova,0.89,0.785,1.0,opp_under,6.5,,3371013.0,pending,,,,,
-2026-11-06,,utr-m,Niels Lootsma,Lautaro A.Corthey,castiga meciul,Niels Lootsma,Lautaro A.Corthey,0.882,0.795,1.002,over,8.5,,3371007.0,pending,,,,,
+2026-11-06,,utr-f,Gresi Bajri,Veronica Miroshnichenko,castiga meciul,Veronica Miroshnichenko,Gresi Bajri,0.893,0.795,1.0,over,8.5,,3368813.0,won,2:0,2026-11-08,6-1 6-1,12,won
+2026-11-06,,utr-f,Sona Depesova,Silvia Husarova,adversarul sub 6.5 game-uri,Sona Depesova,Silvia Husarova,0.89,0.785,1.0,opp_under,6.5,,3371013.0,won,2:1,2026-11-08,6-1 3-6 6-0,15,lost
+2026-11-06,,utr-m,Niels Lootsma,Lautaro A.Corthey,castiga meciul,Niels Lootsma,Lautaro A.Corthey,0.882,0.795,1.002,over,8.5,,3371007.0,won,2:0,2026-11-08,6-2 6-3,12,won
 2026-11-06,,utr-f,Chloe Zigliara,Jana Stojanova,castiga meciul,Jana Stojanova,Chloe Zigliara,0.874,0.795,1.13,over,8.5,,3368771.0,won,2:0,2026-11-07,6-1 6-3,12,won
 2026-11-06,,itf-m,Connor Henry Van Schalkwyk,Samir Banerjee,castiga meciul,Samir Banerjee,Connor Henry Van Schalkwyk,0.857,0.795,1.18,over,8.5,,3371215.0,lost,2:0,2026-11-07,3-6 4-6,7,lost
 2026-11-06,,utr-f,Silvia Njiric,Adela Polakovicova,castiga meciul,Silvia Njiric,Adela Polakovicova,0.852,0.795,1.09,over,8.5,,3371017.0,won,2:1,2026-11-07,7-5 4-6 6-3,17,won
 2026-11-06,,itf-m,Mohamed Nazim Makhlouf,Aziz Dougaz,castiga meciul,Aziz Dougaz,Mohamed Nazim Makhlouf,0.846,0.795,1.01,over,8.5,,3370985.0,won,2:1,2026-11-07,6-2 4-6 6-1,16,won
 2026-11-06,,itf-f,Angela Fita Boluda,Alisa Oktiabreva,castiga meciul,Alisa Oktiabreva,Angela Fita Boluda,0.843,0.795,1.11,over,8.5,,3371075.0,won,2:1,2026-11-07,6-1 4-6 7-5,17,won
 2026-11-06,,utr-m,Sebastian Prechtel,Jan Psota,castiga meciul,Sebastian Prechtel,Jan Psota,0.841,0.795,1.18,over,8.5,,3371165.0,won,2:0,2026-11-07,6-2 6-4,12,won
-2026-11-06,,utr-f,Izabela Heinzova,Petra Sedlackova,castiga meciul,Petra Sedlackova,Izabela Heinzova,0.828,0.795,1.0,over,8.5,,3371015.0,pending,,,,,
+2026-11-06,,utr-f,Izabela Heinzova,Petra Sedlackova,castiga meciul,Petra Sedlackova,Izabela Heinzova,0.828,0.795,1.0,over,8.5,,3371015.0,won,2:0,2026-11-08,6-2 6-3,12,won
 2026-11-06,,itf-f,Yasmin Ezzat,Alisa Terentyeva,castiga meciul,Yasmin Ezzat,Alisa Terentyeva,0.821,0.795,1.27,over,8.5,,3370899.0,won,2:0,2026-11-07,6-3 6-1,12,won
 2026-11-06,,wta-125,Justina Mikulskyte,Noma Akugue Noha,castiga meciul,Noma Akugue Noha,Justina Mikulskyte,0.812,0.795,1.15,over,8.5,,3371045.0,won,2:0,2026-11-07,6-2 6-3,12,won
 2026-11-06,,utr-f,Denise Hrdinkova,Vanesa Sulcova,castiga meciul,Denise Hrdinkova,Vanesa Sulcova,0.809,0.795,1.06,over,8.5,,3371021.0,won,2:0,2026-11-07,6-4 6-3,12,won
 2026-11-06,,itf-f,Victoria Bosio,Camila Romero,castiga meciul,Victoria Bosio,Camila Romero,0.808,0.795,1.01,over,8.5,,3371063.0,won,2:0,2026-11-07,6-3 6-1,12,won
-2026-11-06,,utr-f,Gresi Bajri,Veronica Miroshnichenko,adversarul sub 6.5 game-uri,Veronica Miroshnichenko,Gresi Bajri,0.805,0.785,1.0,opp_under,6.5,,3368813.0,pending,,,,,
+2026-11-06,,utr-f,Gresi Bajri,Veronica Miroshnichenko,adversarul sub 6.5 game-uri,Veronica Miroshnichenko,Gresi Bajri,0.805,0.785,1.0,opp_under,6.5,,3368813.0,won,2:0,2026-11-08,6-1 6-1,12,won
 2026-11-06,,utr-m,Francisco Perez,Bautista Leguizamon,castiga meciul,Bautista Leguizamon,Francisco Perez,0.801,0.795,1.27,over,8.5,,3370679.0,won,2:0,2026-11-07,7-5 6-4,13,won
 2026-11-06,,itf-f,Lei Mailuodi,Mariia Lazarenko,castiga meciul,Mariia Lazarenko,Lei Mailuodi,0.801,0.795,1.23,over,8.5,,3370981.0,won,2:0,2026-11-07,6-0 6-2,12,won
 2026-11-06,,itf-m,Leonid Sheyngezikht,Sergi Perez Contri,castiga meciul,Sergi Perez Contri,Leonid Sheyngezikht,0.797,0.795,1.1,over,8.5,,3370441.0,won,2:0,2026-11-07,6-1 6-1,12,won
-2026-11-07,,utr-f,Izabela Heinzova,Nikol Sevald,castiga meciul,Izabela Heinzova,Nikol Sevald,0.901,0.805,1.12,over,8.5,,3371513.0,pending,,,,,
+2026-11-07,,utr-f,Izabela Heinzova,Nikol Sevald,castiga meciul,Izabela Heinzova,Nikol Sevald,0.901,0.805,1.12,over,8.5,,3371513.0,won,2:1,2026-11-08,6-2 5-7 6-4,17,won
 2026-11-07,,utr-f,Klara Kajabova,Camilia Samel Druz,castiga meciul,Klara Kajabova,Camilia Samel Druz,0.873,0.805,1.005,over,8.5,,3370697.0,pending,,,,,
+2026-11-08,,challenger,Vladyslav Orlov,Umberto Giuseppe Capitanio,castiga meciul,Vladyslav Orlov,Umberto Giuseppe Capitanio,0.952,0.795,1.003,over,8.5,,3372139.0,pending,,,,,
+2026-11-08,,challenger,Vladyslav Orlov,Umberto Giuseppe Capitanio,adversarul sub 6.5 game-uri,Vladyslav Orlov,Umberto Giuseppe Capitanio,0.876,0.815,1.003,opp_under,6.5,,3372139.0,pending,,,,,
+2026-11-08,,itf-f,Caitlin Baker,Belle Thompson,castiga meciul,Belle Thompson,Caitlin Baker,0.875,0.795,1.006,over,8.5,,3372089.0,pending,,,,,
+2026-11-08,,challenger,Nikita Mashtakov,Stephanos Schinas,castiga meciul,Nikita Mashtakov,Stephanos Schinas,0.868,0.795,1.0,over,8.5,,3372131.0,pending,,,,,
+2026-11-08,,challenger,Henri Haupt,Oskari Paldanius,castiga meciul,Oskari Paldanius,Henri Haupt,0.866,0.795,1.002,over,8.5,,3372129.0,pending,,,,,
+2026-11-08,,challenger,F.Livet Novkirichka,Alexander Ritschard,castiga meciul,Alexander Ritschard,F.Livet Novkirichka,0.851,0.795,1.007,over,8.5,,3372161.0,pending,,,,,
+2026-11-08,,challenger,Thiago Seyboth Wild,Camilo Ugo Carabelli,castiga meciul,Thiago Seyboth Wild,Camilo Ugo Carabelli,0.813,0.795,1.74,over,8.5,,3372897.0,pending,,,,,

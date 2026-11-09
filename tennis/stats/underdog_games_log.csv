@@ -1305,7 +1305,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-02,,Petra Sedlackova,Adela Polakovicova,Adela Polakovicova,Petra Sedlackova,20.0,ITF,2.5,1.42,0.739,0.704,0.049,21,0.81,False,3365261.0,lost,2:0,2026-11-03,2-6 1-6,3,won
 2026-11-02,,Petra Sedlackova,Adela Polakovicova,Adela Polakovicova,Petra Sedlackova,20.0,ITF,3.5,1.88,0.597,0.532,0.123,21,0.81,False,3365261.0,lost,2:0,2026-11-03,2-6 1-6,3,lost
 2026-11-02,,Petra Sedlackova,Adela Polakovicova,Adela Polakovicova,Petra Sedlackova,20.0,ITF,4.5,2.55,0.461,0.392,0.175,21,0.81,False,3365261.0,lost,2:0,2026-11-03,2-6 1-6,3,lost
-2026-11-03,,Alycia Parks,Alexandra Eala,Alycia Parks,Alexandra Eala,4.35,ATP/WTA,5.5,1.33,0.722,0.752,-0.04,25,1.0,True,3365079.0,pending,,,,,
+2026-11-03,,Alycia Parks,Alexandra Eala,Alycia Parks,Alexandra Eala,4.35,ATP/WTA,5.5,1.33,0.722,0.752,-0.04,25,1.0,True,3365079.0,void,,2026-11-09,,,void
 2026-11-03,,Talia Gibson,Oleksandra Oliynykova,Oleksandra Oliynykova,Talia Gibson,4.55,ATP/WTA,5.5,1.44,0.705,0.694,0.014,17,0.765,False,3365071.0,lost,2:0,2026-11-04,6-7 1-6,7,won
 2026-11-03,,Sahaja Yamalapalli,Simona Waltert,Sahaja Yamalapalli,Simona Waltert,6.2,ATP/WTA,4.5,1.35,0.815,0.741,0.1,21,0.857,True,3365167.0,lost,2:1,2026-11-04,4-6 6-3 3-6,13,won
 2026-11-03,,Sahaja Yamalapalli,Simona Waltert,Sahaja Yamalapalli,Simona Waltert,6.2,ATP/WTA,5.5,1.59,0.722,0.629,0.147,21,0.857,True,3365167.0,lost,2:1,2026-11-04,4-6 6-3 3-6,13,won
@@ -1316,8 +1316,8 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-03,,Viktoria Morvayova,Polina Kudermetova,Viktoria Morvayova,Polina Kudermetova,4.5,ATP/WTA,5.5,1.42,0.722,0.704,0.025,24,0.875,True,3366859.0,lost,2:1,2026-11-04,3-6 6-4 1-6,10,won
 2026-11-03,,Chak Lam Coleman Wong,Tsung-Hao Huang,Tsung-Hao Huang,Chak Lam Coleman Wong,8.8,Challenger/125,4.5,1.4,0.554,0.714,-0.224,18,0.833,False,3365259.0,lost,2:0,2026-11-04,1-6 0-6,1,lost
 2026-11-03,,Chak Lam Coleman Wong,Tsung-Hao Huang,Tsung-Hao Huang,Chak Lam Coleman Wong,8.8,Challenger/125,5.5,1.6,0.434,0.625,-0.305,18,0.833,False,3365259.0,lost,2:0,2026-11-04,1-6 0-6,1,lost
-2026-11-03,,Thiago Moura Monteiro,Leonardo Storck Franca,Leonardo Storck Franca,Thiago Moura Monteiro,5.6,Challenger/125,4.5,1.27,0.748,0.787,-0.05,0,,False,,no_data,,2026-11-04,,,
-2026-11-03,,Thiago Moura Monteiro,Leonardo Storck Franca,Leonardo Storck Franca,Thiago Moura Monteiro,5.6,Challenger/125,5.5,1.48,0.649,0.676,-0.04,0,,False,,no_data,,2026-11-04,,,
+2026-11-03,,Thiago Moura Monteiro,Leonardo Storck Franca,Leonardo Storck Franca,Thiago Moura Monteiro,5.6,Challenger/125,4.5,1.27,0.748,0.787,-0.05,0,,False,,void,,2026-11-09,,,void
+2026-11-03,,Thiago Moura Monteiro,Leonardo Storck Franca,Leonardo Storck Franca,Thiago Moura Monteiro,5.6,Challenger/125,5.5,1.48,0.649,0.676,-0.04,0,,False,,void,,2026-11-09,,,void
 2026-11-03,,Valentino Grippo,Genaro Alberto Olivieri,Valentino Grippo,Genaro Alberto Olivieri,8.7,Challenger/125,3.5,1.24,0.685,0.806,-0.151,18,0.778,False,3365623.0,lost,2:0,2026-11-04,2-6 2-6,4,won
 2026-11-03,,Valentino Grippo,Genaro Alberto Olivieri,Valentino Grippo,Genaro Alberto Olivieri,8.7,Challenger/125,4.5,1.46,0.554,0.685,-0.191,18,0.778,False,3365623.0,lost,2:0,2026-11-04,2-6 2-6,4,lost
 2026-11-03,,Valentino Grippo,Genaro Alberto Olivieri,Valentino Grippo,Genaro Alberto Olivieri,8.7,Challenger/125,5.5,1.78,0.434,0.562,-0.227,18,0.778,False,3365623.0,lost,2:0,2026-11-04,2-6 2-6,4,lost
@@ -1368,7 +1368,7 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-03,,Kristyna Dulikova,Elena Milovanovic,Kristyna Dulikova,Elena Milovanovic,11.0,ITF,4.5,1.74,0.46,0.575,-0.2,0,,False,3368223.0,lost,2:1,2026-11-04,6-4 6-7 6-7,18,won
 2026-11-03,,Kristyna Dulikova,Elena Milovanovic,Kristyna Dulikova,Elena Milovanovic,11.0,ITF,5.5,2.17,0.347,0.461,-0.247,0,,False,3368223.0,lost,2:1,2026-11-04,6-4 6-7 6-7,18,won
 2026-11-03,,Tomoki Fujiwara,Eita Suzuki,Eita Suzuki,Tomoki Fujiwara,5.3,ITF,5.5,1.51,0.537,0.662,-0.189,5,0.6,False,3367577.0,lost,2:1,2026-11-05,5-7 6-4 3-6,14,won
-2026-11-03,,Yakumo Motokura,Julian Messina,Julian Messina,Yakumo Motokura,5.4,ITF,5.5,1.54,0.537,0.649,-0.173,0,,False,,no_data,,2026-11-04,,,
+2026-11-03,,Yakumo Motokura,Julian Messina,Julian Messina,Yakumo Motokura,5.4,ITF,5.5,1.54,0.537,0.649,-0.173,0,,False,,void,,2026-11-09,,,void
 2026-11-03,,Ke Hau Hung,Taiyo Uenoyama,Ke Hau Hung,Taiyo Uenoyama,5.0,ITF,5.5,1.45,0.537,0.69,-0.221,9,0.889,False,3367579.0,lost,2:0,2026-11-04,5-7 2-6,7,won
 2026-11-03,,Lucia Hradecka,Silvia Njiric,Lucia Hradecka,Silvia Njiric,7.9,ITF,4.5,1.54,0.46,0.649,-0.292,8,1.0,False,3368339.0,lost,2:1,2026-11-05,6-4 5-7 3-6,14,won
 2026-11-03,,Lucia Hradecka,Silvia Njiric,Lucia Hradecka,Silvia Njiric,7.9,ITF,5.5,1.88,0.347,0.532,-0.348,8,1.0,False,3368339.0,lost,2:1,2026-11-05,6-4 5-7 3-6,14,won
@@ -1456,18 +1456,27 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-06,,Simona Wirglerova,Vanda Vargova,Simona Wirglerova,Vanda Vargova,4.85,ITF,5.5,1.56,0.622,0.641,-0.03,6,1.0,False,3371019.0,lost,2:1,2026-11-07,6-2 0-6 3-6,9,won
 2026-11-07,,Malaika Rapolu,Victoria Rodriguez,Victoria Rodriguez,Malaika Rapolu,7.0,ITF,4.5,1.48,0.46,0.676,-0.318,16,0.938,False,3371555.0,lost,2:1,2026-11-08,6-4 1-6 6-7,13,won
 2026-11-07,,Malaika Rapolu,Victoria Rodriguez,Victoria Rodriguez,Malaika Rapolu,7.0,ITF,5.5,1.77,0.346,0.565,-0.387,16,0.938,False,3371555.0,lost,2:1,2026-11-08,6-4 1-6 6-7,13,won
-2026-11-07,,Klara Kajabova,Camilia Samel Druz,Camilia Samel Druz,Klara Kajabova,9.9,ITF,3.5,1.37,0.597,0.73,-0.182,6,0.833,False,3370697.0,pending,,,,,
-2026-11-07,,Klara Kajabova,Camilia Samel Druz,Camilia Samel Druz,Klara Kajabova,9.9,ITF,4.5,1.66,0.46,0.602,-0.236,6,0.833,False,3370697.0,pending,,,,,
-2026-11-07,,Klara Kajabova,Camilia Samel Druz,Camilia Samel Druz,Klara Kajabova,9.9,ITF,5.5,2.07,0.346,0.483,-0.283,6,0.833,False,3370697.0,pending,,,,,
-2026-11-07,,Amy Leather,Yelyzaveta Chainykova,Amy Leather,Yelyzaveta Chainykova,9.5,ITF,4.5,1.64,0.46,0.61,-0.245,3,1.0,False,3368805.0,pending,,,,,
-2026-11-07,,Amy Leather,Yelyzaveta Chainykova,Amy Leather,Yelyzaveta Chainykova,9.5,ITF,5.5,2.05,0.346,0.488,-0.29,3,1.0,False,3368805.0,pending,,,,,
-2026-11-07,,Shihomi Li Xuan Leong,Helene Schnack,Helene Schnack,Shihomi Li Xuan Leong,11.0,ITF,3.5,1.42,0.597,0.704,-0.152,1,1.0,False,3368787.0,pending,,,,,
-2026-11-07,,Shihomi Li Xuan Leong,Helene Schnack,Helene Schnack,Shihomi Li Xuan Leong,11.0,ITF,4.5,1.75,0.46,0.571,-0.194,1,1.0,False,3368787.0,pending,,,,,
-2026-11-07,,Shihomi Li Xuan Leong,Helene Schnack,Helene Schnack,Shihomi Li Xuan Leong,11.0,ITF,5.5,2.22,0.346,0.45,-0.231,1,1.0,False,3368787.0,pending,,,,,
+2026-11-07,,Klara Kajabova,Camilia Samel Druz,Camilia Samel Druz,Klara Kajabova,9.9,ITF,3.5,1.37,0.597,0.73,-0.182,6,0.833,False,3370697.0,lost,2:0,2026-11-09,5-7 1-6,6,won
+2026-11-07,,Klara Kajabova,Camilia Samel Druz,Camilia Samel Druz,Klara Kajabova,9.9,ITF,4.5,1.66,0.46,0.602,-0.236,6,0.833,False,3370697.0,lost,2:0,2026-11-09,5-7 1-6,6,won
+2026-11-07,,Klara Kajabova,Camilia Samel Druz,Camilia Samel Druz,Klara Kajabova,9.9,ITF,5.5,2.07,0.346,0.483,-0.283,6,0.833,False,3370697.0,lost,2:0,2026-11-09,5-7 1-6,6,won
+2026-11-07,,Amy Leather,Yelyzaveta Chainykova,Amy Leather,Yelyzaveta Chainykova,9.5,ITF,4.5,1.64,0.46,0.61,-0.245,3,1.0,False,3368805.0,lost,2:1,2026-11-09,6-3 3-6 2-6,11,won
+2026-11-07,,Amy Leather,Yelyzaveta Chainykova,Amy Leather,Yelyzaveta Chainykova,9.5,ITF,5.5,2.05,0.346,0.488,-0.29,3,1.0,False,3368805.0,lost,2:1,2026-11-09,6-3 3-6 2-6,11,won
+2026-11-07,,Shihomi Li Xuan Leong,Helene Schnack,Helene Schnack,Shihomi Li Xuan Leong,11.0,ITF,3.5,1.42,0.597,0.704,-0.152,1,1.0,False,3368787.0,lost,2:0,2026-11-09,3-6 3-6,6,won
+2026-11-07,,Shihomi Li Xuan Leong,Helene Schnack,Helene Schnack,Shihomi Li Xuan Leong,11.0,ITF,4.5,1.75,0.46,0.571,-0.194,1,1.0,False,3368787.0,lost,2:0,2026-11-09,3-6 3-6,6,won
+2026-11-07,,Shihomi Li Xuan Leong,Helene Schnack,Helene Schnack,Shihomi Li Xuan Leong,11.0,ITF,5.5,2.22,0.346,0.45,-0.231,1,1.0,False,3368787.0,lost,2:0,2026-11-09,3-6 3-6,6,won
 2026-11-07,,Brandy Walker,Andi Anderson,Andi Anderson,Brandy Walker,6.1,ITF,5.5,1.67,0.539,0.599,-0.101,1,1.0,False,3368797.0,lost,2:1,2026-11-08,2-6 6-4 5-7,13,won
-2026-11-08,,Henri Haupt,Oskari Paldanius,Henri Haupt,Oskari Paldanius,13.0,Challenger/125,3.5,1.36,0.687,0.735,-0.065,19,0.684,False,3372129.0,pending,,,,,
-2026-11-08,,Henri Haupt,Oskari Paldanius,Henri Haupt,Oskari Paldanius,13.0,Challenger/125,4.5,1.67,0.556,0.599,-0.071,19,0.684,False,3372129.0,pending,,,,,
-2026-11-08,,Henri Haupt,Oskari Paldanius,Henri Haupt,Oskari Paldanius,13.0,Challenger/125,5.5,2.12,0.435,0.472,-0.077,19,0.684,False,3372129.0,pending,,,,,
-2026-11-08,,Nikita Mashtakov,Stephanos Schinas,Stephanos Schinas,Nikita Mashtakov,15.0,Challenger/125,3.5,1.44,0.687,0.694,-0.011,17,0.706,False,3372131.0,pending,,,,,
-2026-11-08,,Nikita Mashtakov,Stephanos Schinas,Stephanos Schinas,Nikita Mashtakov,15.0,Challenger/125,4.5,1.87,0.556,0.535,0.04,17,0.706,False,3372131.0,pending,,,,,
-2026-11-08,,Nikita Mashtakov,Stephanos Schinas,Stephanos Schinas,Nikita Mashtakov,15.0,Challenger/125,5.5,2.35,0.435,0.426,0.023,17,0.706,False,3372131.0,pending,,,,,
+2026-11-08,,Henri Haupt,Oskari Paldanius,Henri Haupt,Oskari Paldanius,13.0,Challenger/125,3.5,1.36,0.687,0.735,-0.065,19,0.684,False,3372129.0,lost,2:0,2026-11-09,0-6 2-6,2,lost
+2026-11-08,,Henri Haupt,Oskari Paldanius,Henri Haupt,Oskari Paldanius,13.0,Challenger/125,4.5,1.67,0.556,0.599,-0.071,19,0.684,False,3372129.0,lost,2:0,2026-11-09,0-6 2-6,2,lost
+2026-11-08,,Henri Haupt,Oskari Paldanius,Henri Haupt,Oskari Paldanius,13.0,Challenger/125,5.5,2.12,0.435,0.472,-0.077,19,0.684,False,3372129.0,lost,2:0,2026-11-09,0-6 2-6,2,lost
+2026-11-08,,Nikita Mashtakov,Stephanos Schinas,Stephanos Schinas,Nikita Mashtakov,15.0,Challenger/125,3.5,1.44,0.687,0.694,-0.011,17,0.706,False,3372131.0,lost,2:0,2026-11-09,6-7 4-6,10,won
+2026-11-08,,Nikita Mashtakov,Stephanos Schinas,Stephanos Schinas,Nikita Mashtakov,15.0,Challenger/125,4.5,1.87,0.556,0.535,0.04,17,0.706,False,3372131.0,lost,2:0,2026-11-09,6-7 4-6,10,won
+2026-11-08,,Nikita Mashtakov,Stephanos Schinas,Stephanos Schinas,Nikita Mashtakov,15.0,Challenger/125,5.5,2.35,0.435,0.426,0.023,17,0.706,False,3372131.0,lost,2:0,2026-11-09,6-7 4-6,10,won
+2026-11-09,,Leo Borg,Toby Samuel,Leo Borg,Toby Samuel,7.0,ATP/WTA,5.5,1.45,0.478,0.69,-0.307,12,0.917,False,3373425.0,pending,,,,,
+2026-11-09,,Benjamin Bonzi,Andrea Pellegrino,Andrea Pellegrino,Benjamin Bonzi,6.7,Challenger/125,5.5,1.35,0.724,0.741,-0.022,18,0.944,True,3372259.0,pending,,,,,
+2026-11-09,,Moise Kouame,Robert Strombachs,Robert Strombachs,Moise Kouame,5.1,Challenger/125,5.5,1.34,0.724,0.746,-0.03,23,1.0,True,3372199.0,pending,,,,,
+2026-11-09,,Jay Dylan Hara Friend,Yusuke Kusuhara,Yusuke Kusuhara,Jay Dylan Hara Friend,7.3,Challenger/125,4.5,1.33,0.556,0.752,-0.26,11,0.818,False,3371829.0,pending,,,,,
+2026-11-09,,Jay Dylan Hara Friend,Yusuke Kusuhara,Yusuke Kusuhara,Jay Dylan Hara Friend,7.3,Challenger/125,5.5,1.57,0.435,0.637,-0.316,11,0.818,False,3371829.0,pending,,,,,
+2026-11-09,,Tadeas Paroulek,Radovan Michalik,Radovan Michalik,Tadeas Paroulek,14.0,ITF,3.5,1.49,0.597,0.671,-0.11,32,0.844,False,3372327.0,pending,,,,,
+2026-11-09,,Tadeas Paroulek,Radovan Michalik,Radovan Michalik,Tadeas Paroulek,14.0,ITF,4.5,1.82,0.461,0.549,-0.161,32,0.844,False,3372327.0,pending,,,,,
+2026-11-09,,Tadeas Paroulek,Radovan Michalik,Radovan Michalik,Tadeas Paroulek,14.0,ITF,5.5,2.45,0.347,0.408,-0.151,32,0.844,False,3372327.0,pending,,,,,
+2026-11-09,,Oscar Andrews,Noah Brownrigg,Oscar Andrews,Noah Brownrigg,6.4,ITF,5.5,1.67,0.539,0.599,-0.1,8,1.0,False,3371677.0,pending,,,,,

@@ -1570,10 +1570,10 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-12,,James Connel,Seong Chan Hong,James Connel,Seong Chan Hong,5.3,ITF,3.5,1.53,0.762,0.654,0.166,11,0.727,False,3376783.0,won,2:0,2026-11-13,7-6 6-4,13,won
 2026-11-12,,James Connel,Seong Chan Hong,James Connel,Seong Chan Hong,5.3,ITF,4.5,1.87,0.656,0.535,0.227,11,0.727,False,3376783.0,won,2:0,2026-11-13,7-6 6-4,13,won
 2026-11-12,,James Connel,Seong Chan Hong,James Connel,Seong Chan Hong,5.3,ITF,5.5,2.55,0.54,0.392,0.376,11,0.727,False,3376783.0,won,2:0,2026-11-13,7-6 6-4,13,won
-2026-11-12,,Alberto Barroso Campos,David Aguiar Johansson,David Aguiar Johansson,Alberto Barroso Campos,6.9,ITF,4.5,1.43,0.656,0.699,-0.062,2,1.0,False,3376295.0,pending,,,,,
-2026-11-12,,Alberto Barroso Campos,David Aguiar Johansson,David Aguiar Johansson,Alberto Barroso Campos,6.9,ITF,5.5,1.69,0.54,0.592,-0.088,2,1.0,False,3376295.0,pending,,,,,
-2026-11-12,,Ignacio Parisca,Maximilian Figl,Maximilian Figl,Ignacio Parisca,5.85,ITF,5.5,1.52,0.54,0.658,-0.18,25,0.88,False,3376933.0,pending,,,,,
-2026-11-12,,Mario Arce Fernandez,Manuel Mazza,Mario Arce Fernandez,Manuel Mazza,5.4,ITF,5.5,1.48,0.54,0.676,-0.202,18,0.944,False,3376931.0,pending,,,,,
+2026-11-12,,Alberto Barroso Campos,David Aguiar Johansson,David Aguiar Johansson,Alberto Barroso Campos,6.9,ITF,4.5,1.43,0.656,0.699,-0.062,2,1.0,False,3376295.0,lost,2:0,2026-11-14,3-6 1-6,4,lost
+2026-11-12,,Alberto Barroso Campos,David Aguiar Johansson,David Aguiar Johansson,Alberto Barroso Campos,6.9,ITF,5.5,1.69,0.54,0.592,-0.088,2,1.0,False,3376295.0,lost,2:0,2026-11-14,3-6 1-6,4,lost
+2026-11-12,,Ignacio Parisca,Maximilian Figl,Maximilian Figl,Ignacio Parisca,5.85,ITF,5.5,1.52,0.54,0.658,-0.18,25,0.88,False,3376933.0,lost,2:0,2026-11-14,4-6 6-7,10,won
+2026-11-12,,Mario Arce Fernandez,Manuel Mazza,Mario Arce Fernandez,Manuel Mazza,5.4,ITF,5.5,1.48,0.54,0.676,-0.202,18,0.944,False,3376931.0,lost,2:1,2026-11-14,7-3 2-6 1-6,10,won
 2026-11-12,,Neus Torner Sensano,Claudia Ferrer Perez,Claudia Ferrer Perez,Neus Torner Sensano,5.85,ITF,5.5,1.64,0.54,0.61,-0.115,9,0.889,False,3376863.0,lost,2:0,2026-11-13,2-6 1-6,3,lost
 2026-11-12,,Delia Gaillard,Didi Bredberg Canizares,Delia Gaillard,Didi Bredberg Canizares,7.4,ITF,4.5,1.5,0.462,0.667,-0.306,18,0.611,False,3376981.0,lost,2:0,2026-11-13,5-7 6-7,11,won
 2026-11-12,,Delia Gaillard,Didi Bredberg Canizares,Delia Gaillard,Didi Bredberg Canizares,7.4,ITF,5.5,1.8,0.348,0.556,-0.374,18,0.611,False,3376981.0,lost,2:0,2026-11-13,5-7 6-7,11,won
@@ -1587,10 +1587,20 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-12,,Ziyu Zhou,Alina Tikhonova,Ziyu Zhou,Alina Tikhonova,14.0,ITF,3.5,1.48,0.598,0.676,-0.115,7,0.714,False,3376763.0,lost,2:0,2026-11-13,4-6 1-6,5,won
 2026-11-12,,Ziyu Zhou,Alina Tikhonova,Ziyu Zhou,Alina Tikhonova,14.0,ITF,4.5,1.9,0.462,0.526,-0.121,7,0.714,False,3376763.0,lost,2:0,2026-11-13,4-6 1-6,5,won
 2026-11-12,,Ziyu Zhou,Alina Tikhonova,Ziyu Zhou,Alina Tikhonova,14.0,ITF,5.5,2.42,0.348,0.413,-0.159,7,0.714,False,3376763.0,lost,2:0,2026-11-13,4-6 1-6,5,lost
-2026-11-13,,Diogo Marques,Tyler Zink,Diogo Marques,Tyler Zink,7.0,ITF,5.5,1.61,0.348,0.621,-0.439,11,1.0,False,3377693.0,pending,,,,,
-2026-11-13,,Ignacio Parisca,Maximilian Figl,Maximilian Figl,Ignacio Parisca,5.65,ITF,5.5,1.52,0.538,0.658,-0.182,25,0.88,False,3376933.0,pending,,,,,
-2026-11-13,,Mario Arce Fernandez,Manuel Mazza,Mario Arce Fernandez,Manuel Mazza,5.35,ITF,5.5,1.47,0.538,0.68,-0.209,18,0.944,False,3376931.0,pending,,,,,
-2026-11-13,,Anastasija Cvetkovic,Alisa Oktiabreva,Anastasija Cvetkovic,Alisa Oktiabreva,5.9,ITF,5.5,1.64,0.538,0.61,-0.118,5,1.0,False,3377645.0,pending,,,,,
-2026-11-13,,Ane Mintegi Del Olmo,Tina Nadine Smith,Tina Nadine Smith,Ane Mintegi Del Olmo,6.3,ITF,5.5,1.66,0.538,0.602,-0.107,1,1.0,False,3377719.0,pending,,,,,
-2026-11-13,,Cian McDonnell,Tadeas Paroulek,Cian McDonnell,Tadeas Paroulek,5.45,ITF,5.5,1.5,0.538,0.667,-0.193,31,0.871,False,3377849.0,pending,,,,,
-2026-11-13,,Julia Terziyska,Diana Marcinkevica,Diana Marcinkevica,Julia Terziyska,5.6,ITF,5.5,1.6,0.538,0.625,-0.139,35,0.886,False,3377699.0,pending,,,,,
+2026-11-13,,Diogo Marques,Tyler Zink,Diogo Marques,Tyler Zink,7.0,ITF,5.5,1.61,0.348,0.621,-0.439,11,1.0,False,3377693.0,lost,2:0,2026-11-14,5-7 3-6,8,won
+2026-11-13,,Ignacio Parisca,Maximilian Figl,Maximilian Figl,Ignacio Parisca,5.65,ITF,5.5,1.52,0.538,0.658,-0.182,25,0.88,False,3376933.0,lost,2:0,2026-11-14,4-6 6-7,10,won
+2026-11-13,,Mario Arce Fernandez,Manuel Mazza,Mario Arce Fernandez,Manuel Mazza,5.35,ITF,5.5,1.47,0.538,0.68,-0.209,18,0.944,False,3376931.0,lost,2:1,2026-11-14,7-3 2-6 1-6,10,won
+2026-11-13,,Anastasija Cvetkovic,Alisa Oktiabreva,Anastasija Cvetkovic,Alisa Oktiabreva,5.9,ITF,5.5,1.64,0.538,0.61,-0.118,5,1.0,False,3377645.0,lost,2:0,2026-11-14,1-6 3-6,4,lost
+2026-11-13,,Ane Mintegi Del Olmo,Tina Nadine Smith,Tina Nadine Smith,Ane Mintegi Del Olmo,6.3,ITF,5.5,1.66,0.538,0.602,-0.107,1,1.0,False,3377719.0,lost,2:0,2026-11-14,4-6 1-6,5,lost
+2026-11-13,,Cian McDonnell,Tadeas Paroulek,Cian McDonnell,Tadeas Paroulek,5.45,ITF,5.5,1.5,0.538,0.667,-0.193,31,0.871,False,3377849.0,lost,2:0,2026-11-14,,,
+2026-11-13,,Julia Terziyska,Diana Marcinkevica,Diana Marcinkevica,Julia Terziyska,5.6,ITF,5.5,1.6,0.538,0.625,-0.139,35,0.886,False,3377699.0,lost,2:0,2026-11-14,3-6 2-6,5,lost
+2026-11-14,,Bianca Andreescu,Elizabeth Mandlik,Elizabeth Mandlik,Bianca Andreescu,4.4,Challenger/125,5.5,1.43,0.721,0.699,0.031,20,1.0,True,3378379.0,pending,,,,,
+2026-11-14,,Maximilian Marterer,Theodore Dean,Theodore Dean,Maximilian Marterer,6.3,ITF,5.5,1.61,0.538,0.621,-0.134,11,0.909,False,3378391.0,pending,,,,,
+2026-11-14,,Rigele Te,Noritaka Koizumi,Noritaka Koizumi,Rigele Te,6.8,ITF,5.5,1.61,0.538,0.621,-0.134,14,0.857,False,3378199.0,pending,,,,,
+2026-11-14,,Ane Mintegi Del Olmo,Lucia Cortez Llorca,Lucia Cortez Llorca,Ane Mintegi Del Olmo,5.2,ITF,5.5,1.55,0.538,0.645,-0.166,16,0.938,False,3378245.0,pending,,,,,
+2026-11-14,,Alisa Oktiabreva,Sapfo Sakellaridi,Sapfo Sakellaridi,Alisa Oktiabreva,13.0,ITF,3.5,1.46,0.599,0.685,-0.125,36,0.889,False,3378233.0,pending,,,,,
+2026-11-14,,Alisa Oktiabreva,Sapfo Sakellaridi,Sapfo Sakellaridi,Alisa Oktiabreva,13.0,ITF,4.5,1.82,0.463,0.549,-0.157,36,0.889,False,3378233.0,pending,,,,,
+2026-11-14,,Alisa Oktiabreva,Sapfo Sakellaridi,Sapfo Sakellaridi,Alisa Oktiabreva,13.0,ITF,5.5,2.32,0.349,0.431,-0.19,36,0.889,False,3378233.0,pending,,,,,
+2026-11-14,,Daria Kuczer,Lavinia Luciano,Lavinia Luciano,Daria Kuczer,4.8,ITF,5.5,1.5,0.625,0.667,-0.062,19,0.895,False,3378261.0,pending,,,,,
+2026-11-14,,Dominik Kellovsky,Max Frohlich,Max Frohlich,Dominik Kellovsky,7.3,ITF,4.5,1.44,0.463,0.694,-0.333,0,,False,,pending,,,,,
+2026-11-14,,Dominik Kellovsky,Max Frohlich,Max Frohlich,Dominik Kellovsky,7.3,ITF,5.5,1.78,0.349,0.562,-0.378,0,,False,,pending,,,,,

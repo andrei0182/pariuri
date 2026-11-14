@@ -433,7 +433,7 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-11-11,,itf-m,Alex Jones,Miles Jones,castiga meciul,Miles Jones,Alex Jones,0.824,0.81,1.05,over,8.5,,3376149.0,lost,2:1,2026-11-12,6-3 6-0,12,won
 2026-11-11,,challenger,Matteo Martineau,Hugo Gaston,castiga meciul,Matteo Martineau,Hugo Gaston,0.815,0.81,2.37,over,8.5,,3372251.0,won,2:1,2026-11-12,3-6 7-6 6-2,16,won
 2026-11-11,,itf-f,Martyna Zaremba,Lavinia Luciano,castiga meciul,Lavinia Luciano,Martyna Zaremba,0.815,0.81,1.006,over,8.5,,3375051.0,won,2:0,2026-11-12,6-2 6-1,12,won
-2026-11-12,,itf-m,Roberto Perez Socas,Niklas Guttau,castiga meciul,Niklas Guttau,Roberto Perez Socas,0.912,0.805,1.16,over,8.5,,3376935.0,pending,,,,,
+2026-11-12,,itf-m,Roberto Perez Socas,Niklas Guttau,castiga meciul,Niklas Guttau,Roberto Perez Socas,0.912,0.805,1.16,over,8.5,,3376935.0,lost,2:0,2026-11-14,1-6 4-6,5,lost
 2026-11-12,,itf-f,Yekaterina Dmitrichenko,Alexandra Chapurina,castiga meciul,Yekaterina Dmitrichenko,Alexandra Chapurina,0.875,0.805,1.008,over,8.5,,3377109.0,won,2:0,2026-11-13,6-2 6-2,12,won
 2026-11-12,,itf-m,Dragos Nicolae Cazacu,Jerrid Gaines Jr,castiga meciul,Dragos Nicolae Cazacu,Jerrid Gaines Jr,0.869,0.805,1.26,over,8.5,,3377201.0,won,2:1,2026-11-13,6-4 4-6 6-4,16,won
 2026-11-12,,itf-m,Jayson Blando,Dev Javia,castiga meciul,Dev Javia,Jayson Blando,0.864,0.805,1.05,over,8.5,,3376751.0,won,2:0,2026-11-13,6-2 6-3,12,won
@@ -449,17 +449,20 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-11-12,,utr-m,Stefan Skobelev,Obrad Markovski,castiga meciul,Obrad Markovski,Stefan Skobelev,0.827,0.805,1.16,over,8.5,,3377291.0,won,2:0,2026-11-13,7-6 6-4,13,won
 2026-11-12,,wta-125,Alice Tubello,Polona Hercog,castiga meciul,Alice Tubello,Polona Hercog,0.825,0.805,1.36,over,8.5,,3377081.0,lost,2:0,2026-11-13,2-6 3-6,5,lost
 2026-11-12,,itf-f,Ane Mintegi Del Olmo,Eliska Tichackova,castiga meciul,Ane Mintegi Del Olmo,Eliska Tichackova,0.823,0.805,1.17,over,8.5,,3376801.0,won,2:0,2026-11-13,6-2 6-1,12,won
-2026-11-12,,utr-f,Victoria Borodulina,Patricia Ordonez Anduiza,castiga meciul,Victoria Borodulina,Patricia Ordonez Anduiza,0.819,0.805,1.003,over,8.5,,3375635.0,pending,,,,,
-2026-11-12,,utr-m,Miko Wassermann,Oleg Prihodko,castiga meciul,Oleg Prihodko,Miko Wassermann,0.818,0.805,1.005,over,8.5,,3377163.0,pending,,,,,
-2026-11-13,,itf-m,Roberto Perez Socas,Niklas Guttau,castiga meciul,Niklas Guttau,Roberto Perez Socas,0.91,0.81,1.14,over,8.5,,3376935.0,pending,,,,,
+2026-11-12,,utr-f,Victoria Borodulina,Patricia Ordonez Anduiza,castiga meciul,Victoria Borodulina,Patricia Ordonez Anduiza,0.819,0.805,1.003,over,8.5,,3375635.0,won,2:0,2026-11-14,6-2 6-4,12,won
+2026-11-12,,utr-m,Miko Wassermann,Oleg Prihodko,castiga meciul,Oleg Prihodko,Miko Wassermann,0.818,0.805,1.005,over,8.5,,3377163.0,won,2:0,2026-11-14,6-2 6-1,12,won
+2026-11-13,,itf-m,Roberto Perez Socas,Niklas Guttau,castiga meciul,Niklas Guttau,Roberto Perez Socas,0.91,0.81,1.14,over,8.5,,3376935.0,lost,2:0,2026-11-14,1-6 4-6,5,lost
 2026-11-13,,utr-m,Karol Filar,Radovan Michalik,castiga meciul,Karol Filar,Radovan Michalik,0.903,0.81,1.002,over,8.5,,3377857.0,pending,,,,,
 2026-11-13,,utr-m,Vilmos Krisztian Kovacs,Oleg Prihodko,castiga meciul,Oleg Prihodko,Vilmos Krisztian Kovacs,0.892,0.81,1.002,over,8.5,,3377853.0,pending,,,,,
-2026-11-13,,utr-f,Nela Linhartova,Alice Soulie,castiga meciul,Alice Soulie,Nela Linhartova,0.887,0.81,1.05,over,8.5,,3377243.0,pending,,,,,
+2026-11-13,,utr-f,Nela Linhartova,Alice Soulie,castiga meciul,Alice Soulie,Nela Linhartova,0.887,0.81,1.05,over,8.5,,3377243.0,won,2:0,2026-11-14,6-0 6-2,12,won
 2026-11-13,,utr-f,Emily Welker,Mia Chudejova,castiga meciul,Emily Welker,Mia Chudejova,0.872,0.81,1.006,over,8.5,,3377707.0,pending,,,,,
 2026-11-13,,utr-f,Katerina Melicharova,Silvia Njiric,castiga meciul,Silvia Njiric,Katerina Melicharova,0.865,0.81,1.0,over,8.5,,3377709.0,pending,,,,,
-2026-11-13,,utr-f,Charlotte Pikkaart,Zejda Veljacic,castiga meciul,Charlotte Pikkaart,Zejda Veljacic,0.848,0.81,1.13,over,8.5,,3377925.0,pending,,,,,
-2026-11-13,,itf-m,Patrick Schoen,Francisco Rocha,castiga meciul,Patrick Schoen,Francisco Rocha,0.84,0.81,1.09,over,8.5,,3377833.0,pending,,,,,
-2026-11-13,,utr-f,Victoria Chramcova,Denise Hrdinkova,castiga meciul,Denise Hrdinkova,Victoria Chramcova,0.826,0.81,1.05,over,8.5,,3377705.0,pending,,,,,
-2026-11-13,,itf-m,Rigele Te,James Connel,castiga meciul,Rigele Te,James Connel,0.82,0.81,1.25,over,8.5,,3377613.0,pending,,,,,
-2026-11-13,,utr-m,Cade Fernando,Vlado Jankanj,castiga meciul,Vlado Jankanj,Cade Fernando,0.818,0.81,1.14,over,8.5,,3377297.0,pending,,,,,
-2026-11-13,,itf-f,Rachel Gailis,Ilinca Dalina Amariei,castiga meciul,Ilinca Dalina Amariei,Rachel Gailis,0.812,0.81,1.42,over,8.5,,3378037.0,pending,,,,,
+2026-11-13,,utr-f,Charlotte Pikkaart,Zejda Veljacic,castiga meciul,Charlotte Pikkaart,Zejda Veljacic,0.848,0.81,1.13,over,8.5,,3377925.0,won,2:0,2026-11-14,,,
+2026-11-13,,itf-m,Patrick Schoen,Francisco Rocha,castiga meciul,Patrick Schoen,Francisco Rocha,0.84,0.81,1.09,over,8.5,,3377833.0,won,2:0,2026-11-14,6-3 6-1,12,won
+2026-11-13,,utr-f,Victoria Chramcova,Denise Hrdinkova,castiga meciul,Denise Hrdinkova,Victoria Chramcova,0.826,0.81,1.05,over,8.5,,3377705.0,won,2:0,2026-11-14,6-1 6-4,12,won
+2026-11-13,,itf-m,Rigele Te,James Connel,castiga meciul,Rigele Te,James Connel,0.82,0.81,1.25,over,8.5,,3377613.0,won,2:0,2026-11-14,6-1 6-3,12,won
+2026-11-13,,utr-m,Cade Fernando,Vlado Jankanj,castiga meciul,Vlado Jankanj,Cade Fernando,0.818,0.81,1.14,over,8.5,,3377297.0,won,2:0,2026-11-14,6-4 6-1,12,won
+2026-11-13,,itf-f,Rachel Gailis,Ilinca Dalina Amariei,castiga meciul,Ilinca Dalina Amariei,Rachel Gailis,0.812,0.81,1.42,over,8.5,,3378037.0,lost,2:0,2026-11-14,2-6 3-6,5,lost
+2026-11-14,,itf-f,Alisa Oktiabreva,Sapfo Sakellaridi,castiga meciul,Alisa Oktiabreva,Sapfo Sakellaridi,0.855,0.8,1.002,over,8.5,,3378233.0,pending,,,,,
+2026-11-14,,utr-f,Charlotte Pikkaart,Zejda Veljacic,castiga meciul,Charlotte Pikkaart,Zejda Veljacic,0.835,0.8,1.12,over,8.5,,3377925.0,pending,,,,,
+2026-11-14,,utr-m,Miko Wassermann,Cian McDonnell,castiga meciul,Cian McDonnell,Miko Wassermann,0.819,0.8,1.48,over,8.5,,3378327.0,pending,,,,,

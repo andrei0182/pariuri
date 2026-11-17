@@ -478,22 +478,54 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-11-15,,itf-f,Ida Wobker,Mia Wainwright,castiga meciul,Ida Wobker,Mia Wainwright,0.844,0.815,1.03,over,8.5,,3379699.0,won,2:0,2026-11-16,6-4 6-4,12,won
 2026-11-15,,itf-f,Janika Kusy Alzugaray,Alexa Karatancheva,castiga meciul,Alexa Karatancheva,Janika Kusy Alzugaray,0.827,0.815,1.02,over,8.5,,3379421.0,won,2:1,2026-11-16,6-1 4-6 6-1,16,won
 2026-11-15,,itf-f,Ella Haavisto,Zainab Williams,castiga meciul,Ella Haavisto,Zainab Williams,0.822,0.815,1.002,over,8.5,,3379723.0,won,2:0,2026-11-16,6-1 6-1,12,won
-2026-11-16,,itf-f,Luisa Meyer Auf Der Heide,Alicia Reichel,castiga meciul,Luisa Meyer Auf Der Heide,Alicia Reichel,0.907,0.805,1.04,over,8.5,,3380803.0,pending,,,,,
-2026-11-16,,utr-f,Helena Muzinic,Arina Gamretkaia,castiga meciul,Arina Gamretkaia,Helena Muzinic,0.907,0.805,1.05,over,8.5,,3380857.0,pending,,,,,
-2026-11-16,,utr-f,Sofiia Nagornaia,Anna Perelman,castiga meciul,Anna Perelman,Sofiia Nagornaia,0.868,0.805,1.08,over,8.5,,3380541.0,pending,,,,,
-2026-11-16,,itf-m,Josh Manuel,Jacopo Denitto,castiga meciul,Josh Manuel,Jacopo Denitto,0.858,0.805,1.28,over,8.5,,3380481.0,pending,,,,,
-2026-11-16,,itf-f,Anna Petkovic,Alexa Karatancheva,castiga meciul,Anna Petkovic,Alexa Karatancheva,0.852,0.805,1.09,over,8.5,,3380509.0,pending,,,,,
-2026-11-16,,itf-f,Eleni Tsetsou,Jule Niemeier,castiga meciul,Jule Niemeier,Eleni Tsetsou,0.844,0.805,1.0,over,8.5,,3380575.0,pending,,,,,
-2026-11-16,,itf-f,Maria Fernanda Navarro,Mell E.R.Gonzalez,castiga meciul,Mell E.R.Gonzalez,Maria Fernanda Navarro,0.841,0.805,1.07,over,8.5,,3380621.0,pending,,,,,
+2026-11-16,,itf-f,Luisa Meyer Auf Der Heide,Alicia Reichel,castiga meciul,Luisa Meyer Auf Der Heide,Alicia Reichel,0.907,0.805,1.04,over,8.5,,3380803.0,won,2:0,2026-11-17,6-1 6-0,12,won
+2026-11-16,,utr-f,Helena Muzinic,Arina Gamretkaia,castiga meciul,Arina Gamretkaia,Helena Muzinic,0.907,0.805,1.05,over,8.5,,3380857.0,won,2:0,2026-11-17,6-3 6-2,12,won
+2026-11-16,,utr-f,Sofiia Nagornaia,Anna Perelman,castiga meciul,Anna Perelman,Sofiia Nagornaia,0.868,0.805,1.08,over,8.5,,3380541.0,won,2:0,2026-11-17,6-3 6-2,12,won
+2026-11-16,,itf-m,Josh Manuel,Jacopo Denitto,castiga meciul,Josh Manuel,Jacopo Denitto,0.858,0.805,1.28,over,8.5,,3380481.0,lost,2:0,2026-11-17,6-7 2-6,8,lost
+2026-11-16,,itf-f,Anna Petkovic,Alexa Karatancheva,castiga meciul,Anna Petkovic,Alexa Karatancheva,0.852,0.805,1.09,over,8.5,,3380509.0,won,2:0,2026-11-17,6-4 6-3,12,won
+2026-11-16,,itf-f,Eleni Tsetsou,Jule Niemeier,castiga meciul,Jule Niemeier,Eleni Tsetsou,0.844,0.805,1.0,over,8.5,,3380575.0,won,2:0,2026-11-17,6-0 6-4,12,won
+2026-11-16,,itf-f,Maria Fernanda Navarro,Mell E.R.Gonzalez,castiga meciul,Mell E.R.Gonzalez,Maria Fernanda Navarro,0.841,0.805,1.07,over,8.5,,3380621.0,won,2:0,2026-11-17,6-4 6-2,12,won
 2026-11-16,,itf-f,Dune Vaissaud,Polina Isakova,castiga meciul,Dune Vaissaud,Polina Isakova,0.833,0.805,1.16,over,8.5,,3380759.0,pending,,,,,
-2026-11-16,,utr-f,Oana Georgeta Simion,Lucia Cassidy,castiga meciul,Oana Georgeta Simion,Lucia Cassidy,0.832,0.805,1.0,over,8.5,,3380859.0,pending,,,,,
-2026-11-16,,utr-f,Sofia Cohen Perovani,Brandy Walker,castiga meciul,Brandy Walker,Sofia Cohen Perovani,0.83,0.805,1.08,over,8.5,,3380879.0,pending,,,,,
-2026-11-16,,utr-m,Harrison McElnea,Piotr Galus,castiga meciul,Piotr Galus,Harrison McElnea,0.828,0.805,1.8,over,8.5,,3380873.0,pending,,,,,
-2026-11-16,,utr-f,Mariana Manyoma,Natalie Oliver,castiga meciul,Mariana Manyoma,Natalie Oliver,0.824,0.805,1.25,over,8.5,,3380173.0,pending,,,,,
+2026-11-16,,utr-f,Oana Georgeta Simion,Lucia Cassidy,castiga meciul,Oana Georgeta Simion,Lucia Cassidy,0.832,0.805,1.0,over,8.5,,3380859.0,won,2:0,2026-11-17,7-5 6-4,13,won
+2026-11-16,,utr-f,Sofia Cohen Perovani,Brandy Walker,castiga meciul,Brandy Walker,Sofia Cohen Perovani,0.83,0.805,1.08,over,8.5,,3380879.0,won,2:0,2026-11-17,6-0 6-2,12,won
+2026-11-16,,utr-m,Harrison McElnea,Piotr Galus,castiga meciul,Piotr Galus,Harrison McElnea,0.828,0.805,1.8,over,8.5,,3380873.0,lost,2:1,2026-11-17,7-6 4-6 6-7,17,won
+2026-11-16,,utr-f,Mariana Manyoma,Natalie Oliver,castiga meciul,Mariana Manyoma,Natalie Oliver,0.824,0.805,1.25,over,8.5,,3380173.0,won,2:0,2026-11-17,7-5 6-2,13,won
 2026-11-16,,itf-f,Nina Andronicou,Marianna Argyrokastriti,castiga meciul,Marianna Argyrokastriti,Nina Andronicou,0.822,0.805,1.04,over,8.5,,3380577.0,pending,,,,,
-2026-11-16,,atp,Carlos Alcaraz,Frances Tiafoe,castiga meciul,Carlos Alcaraz,Frances Tiafoe,0.817,0.805,1.09,over,8.5,,3377745.0,pending,,,,,
-2026-11-16,,itf-f,Laura Svatikova,Viktoria Veleva,castiga meciul,Laura Svatikova,Viktoria Veleva,0.815,0.805,1.13,over,8.5,,3380305.0,pending,,,,,
-2026-11-16,,utr-m,Richard Mallory,Jakub Kroslak,castiga meciul,Jakub Kroslak,Richard Mallory,0.814,0.805,1.24,over,8.5,,3380557.0,pending,,,,,
-2026-11-16,,itf-m,Vasco Leote Prata,Martim Bernardo,castiga meciul,Vasco Leote Prata,Martim Bernardo,0.812,0.805,1.04,over,8.5,,3380743.0,pending,,,,,
-2026-11-16,,utr-f,Katie Spencer,Lucia Donnelly,castiga meciul,Katie Spencer,Lucia Donnelly,0.808,0.805,1.36,over,8.5,,3380165.0,pending,,,,,
-2026-11-16,,itf-f,Michaela Bayerlova,Beatris Spasova,castiga meciul,Michaela Bayerlova,Beatris Spasova,0.807,0.805,1.12,over,8.5,,3380303.0,pending,,,,,
+2026-11-16,,atp,Carlos Alcaraz,Frances Tiafoe,castiga meciul,Carlos Alcaraz,Frances Tiafoe,0.817,0.805,1.09,over,8.5,,3377745.0,won,2:0,2026-11-17,6-2 6-2,12,won
+2026-11-16,,itf-f,Laura Svatikova,Viktoria Veleva,castiga meciul,Laura Svatikova,Viktoria Veleva,0.815,0.805,1.13,over,8.5,,3380305.0,won,2:1,2026-11-17,6-2 3-6 6-3,15,won
+2026-11-16,,utr-m,Richard Mallory,Jakub Kroslak,castiga meciul,Jakub Kroslak,Richard Mallory,0.814,0.805,1.24,over,8.5,,3380557.0,won,2:0,2026-11-17,6-1 6-4,12,won
+2026-11-16,,itf-m,Vasco Leote Prata,Martim Bernardo,castiga meciul,Vasco Leote Prata,Martim Bernardo,0.812,0.805,1.04,over,8.5,,3380743.0,won,2:0,2026-11-17,6-1 6-0,12,won
+2026-11-16,,utr-f,Katie Spencer,Lucia Donnelly,castiga meciul,Katie Spencer,Lucia Donnelly,0.808,0.805,1.36,over,8.5,,3380165.0,won,2:0,2026-11-17,6-1 6-3,12,won
+2026-11-16,,itf-f,Michaela Bayerlova,Beatris Spasova,castiga meciul,Michaela Bayerlova,Beatris Spasova,0.807,0.805,1.12,over,8.5,,3380303.0,lost,2:0,2026-11-17,2-6 5-7,7,lost
+2026-11-17,,utr-f,Maja Radenkovic,Helena Muzinic,castiga meciul,Maja Radenkovic,Helena Muzinic,0.954,0.81,1.007,over,8.5,,3382193.0,pending,,,,,
+2026-11-17,,itf-f,Sara Husar,Yoana Moneva,castiga meciul,Sara Husar,Yoana Moneva,0.93,0.81,1.005,over,8.5,,3381457.0,pending,,,,,
+2026-11-17,,utr-f,Katie Spencer,Sofiia Nagornaia,castiga meciul,Katie Spencer,Sofiia Nagornaia,0.917,0.81,1.08,over,8.5,,3382227.0,pending,,,,,
+2026-11-17,,itf-m,Cem Kucukhuseyin,Samuil Chestovaliev,castiga meciul,Cem Kucukhuseyin,Samuil Chestovaliev,0.887,0.81,1.1,over,8.5,,3381385.0,pending,,,,,
+2026-11-17,,itf-f,Carmen Gallardo Guevara,Rocio Patier,castiga meciul,Carmen Gallardo Guevara,Rocio Patier,0.883,0.81,1.003,over,8.5,,3381743.0,pending,,,,,
+2026-11-17,,itf-m,Manel Lazaro Juncadella,Lucas Nunez,castiga meciul,Manel Lazaro Juncadella,Lucas Nunez,0.882,0.81,1.12,over,8.5,,3381973.0,pending,,,,,
+2026-11-17,,itf-m,Andrey Chepelev,Erkut Aydin,castiga meciul,Andrey Chepelev,Erkut Aydin,0.879,0.81,1.005,over,8.5,,3381499.0,pending,,,,,
+2026-11-17,,itf-f,Jennifer Rosa Dourado,Victoria Bosio,castiga meciul,Victoria Bosio,Jennifer Rosa Dourado,0.878,0.81,1.005,over,8.5,,3380631.0,pending,,,,,
+2026-11-17,,itf-m,Aradhya Kshitij,Vansh Bisht,castiga meciul,Aradhya Kshitij,Vansh Bisht,0.876,0.81,1.09,over,8.5,,3381543.0,pending,,,,,
+2026-11-17,,utr-m,Jakub Kroslak,Samuel Alejandro Linde Palacios,castiga meciul,Jakub Kroslak,Samuel Alejandro Linde Palacios,0.87,0.81,1.23,over,8.5,,3382211.0,pending,,,,,
+2026-11-17,,itf-m,Mathieu Scaglia,Ahmed Darmoul,castiga meciul,Mathieu Scaglia,Ahmed Darmoul,0.865,0.81,1.004,over,8.5,,3381677.0,pending,,,,,
+2026-11-17,,itf-m,Juan Ignacio Delvalle,Lorenzo Gagliardo,castiga meciul,Lorenzo Gagliardo,Juan Ignacio Delvalle,0.853,0.81,1.004,over,8.5,,3382061.0,pending,,,,,
+2026-11-17,,itf-m,Patrick Schoen,Pierre Antoine Tailleu,castiga meciul,Patrick Schoen,Pierre Antoine Tailleu,0.853,0.81,1.02,over,8.5,,3382107.0,pending,,,,,
+2026-11-17,,itf-m,Giulio Perego,Raghav Harsh,castiga meciul,Giulio Perego,Raghav Harsh,0.853,0.81,1.005,over,8.5,,3381689.0,pending,,,,,
+2026-11-17,,itf-m,Michel Hopp,Dorian Kos,castiga meciul,Michel Hopp,Dorian Kos,0.85,0.81,1.05,over,8.5,,3381391.0,pending,,,,,
+2026-11-17,,itf-m,Raghav Jaisinghani,Digvijay Pratap Singh,castiga meciul,Digvijay Pratap Singh,Raghav Jaisinghani,0.849,0.81,1.003,over,8.5,,3381561.0,pending,,,,,
+2026-11-17,,itf-f,Berta Bonardi,Lucciana Perez Alarcon,castiga meciul,Lucciana Perez Alarcon,Berta Bonardi,0.849,0.81,1.003,over,8.5,,3380627.0,pending,,,,,
+2026-11-17,,itf-m,Aryan Lakshmanan,Atharva Sharma,castiga meciul,Aryan Lakshmanan,Atharva Sharma,0.845,0.81,1.09,over,8.5,,3381555.0,pending,,,,,
+2026-11-17,,utr-f,Lucia Cassidy,Victoria Borodulina,castiga meciul,Victoria Borodulina,Lucia Cassidy,0.843,0.81,1.06,over,8.5,,3382189.0,pending,,,,,
+2026-11-17,,itf-f,Anastasia Mozgaleva,Magdalena Hedrzak,castiga meciul,Magdalena Hedrzak,Anastasia Mozgaleva,0.84,0.81,1.16,over,8.5,,3382007.0,pending,,,,,
+2026-11-17,,itf-m,Ryo Tabata,Joao Cunha Cunha,castiga meciul,Ryo Tabata,Joao Cunha Cunha,0.84,0.81,1.005,over,8.5,,3381623.0,pending,,,,,
+2026-11-17,,itf-m,Gian Luca Tanner,Zura Tkemaladze,castiga meciul,Zura Tkemaladze,Gian Luca Tanner,0.838,0.81,1.97,over,8.5,,3381473.0,pending,,,,,
+2026-11-17,,itf-m,Pavel Lagutin,Karol Malirz,castiga meciul,Pavel Lagutin,Karol Malirz,0.836,0.81,1.006,over,8.5,,3382115.0,pending,,,,,
+2026-11-17,,itf-m,Julio Cesar Porras,Pavlos Christoforakis,castiga meciul,Julio Cesar Porras,Pavlos Christoforakis,0.825,0.81,1.02,over,8.5,,3381393.0,pending,,,,,
+2026-11-17,,itf-m,Danial Spasov,Yanaki Milev,castiga meciul,Yanaki Milev,Danial Spasov,0.825,0.81,1.004,over,8.5,,3381583.0,pending,,,,,
+2026-11-17,,itf-f,Lejla Hana Golubovic,Alessia Antici,castiga meciul,Alessia Antici,Lejla Hana Golubovic,0.823,0.81,1.33,over,8.5,,3381453.0,pending,,,,,
+2026-11-17,,itf-m,Karan Singh,Arjun Rathi,castiga meciul,Karan Singh,Arjun Rathi,0.823,0.81,1.08,over,8.5,,3381533.0,pending,,,,,
+2026-11-17,,itf-m,Joao Domingues,Alejandro Lopez Escribano,castiga meciul,Joao Domingues,Alejandro Lopez Escribano,0.822,0.81,1.04,over,8.5,,3382123.0,pending,,,,,
+2026-11-17,,itf-m,Mickael Kaouk,James Pikkaart,castiga meciul,Mickael Kaouk,James Pikkaart,0.819,0.81,1.04,over,8.5,,3381223.0,pending,,,,,
+2026-11-17,,itf-f,Lorena Solar Donoso,Sae Noguchi,castiga meciul,Sae Noguchi,Lorena Solar Donoso,0.818,0.81,1.41,over,8.5,,3381789.0,pending,,,,,
+2026-11-17,,itf-f,Denisa Zoldakova,Jasmijn Gimbrere,castiga meciul,Denisa Zoldakova,Jasmijn Gimbrere,0.817,0.81,1.02,over,8.5,,3382233.0,pending,,,,,
+2026-11-17,,itf-m,Dominique Graf,L.Gavrielides,castiga meciul,L.Gavrielides,Dominique Graf,0.815,0.81,1.004,over,8.5,,3381673.0,pending,,,,,

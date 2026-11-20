@@ -41,12 +41,14 @@ def fetch_fixture_overview(event_id: int, timeout: float = 15.0) -> dict | None:
 
 
 def extract_table_id(fixture_overview: dict) -> str | None:
-    return fixture_overview.get("table_id", {}).get("value")
+    # Key can be present with an explicit null (e.g. cups / women's leagues
+    # without a standings table) -- `or {}` covers that, a default doesn't.
+    return (fixture_overview.get("table_id") or {}).get("value")
 
 
 def extract_team_ids(fixture_overview: dict) -> tuple[str | None, str | None]:
-    team1_id = fixture_overview.get("team1", {}).get("id")
-    team2_id = fixture_overview.get("team2", {}).get("id")
+    team1_id = (fixture_overview.get("team1") or {}).get("id")
+    team2_id = (fixture_overview.get("team2") or {}).get("id")
     return team1_id, team2_id
 
 

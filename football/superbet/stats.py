@@ -41,12 +41,13 @@ def fetch_fixture_overview(event_id: int, timeout: float = 15.0) -> dict | None:
 
 
 def extract_table_id(fixture_overview: dict) -> str | None:
-    return fixture_overview.get("table_id", {}).get("value")
+    # Superbet trimite uneori "table_id": null (ligi fara clasament) -> `or {}`
+    return (fixture_overview.get("table_id") or {}).get("value")
 
 
 def extract_team_ids(fixture_overview: dict) -> tuple[str | None, str | None]:
-    team1_id = fixture_overview.get("team1", {}).get("id")
-    team2_id = fixture_overview.get("team2", {}).get("id")
+    team1_id = (fixture_overview.get("team1") or {}).get("id")
+    team2_id = (fixture_overview.get("team2") or {}).get("id")
     return team1_id, team2_id
 
 

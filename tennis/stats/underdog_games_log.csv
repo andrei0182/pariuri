@@ -1630,9 +1630,9 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-17,,Mathieu Scaglia,Ahmed Darmoul,Ahmed Darmoul,Mathieu Scaglia,10.0,ITF,4.5,1.61,0.463,0.621,-0.254,7,0.857,False,3381677.0,lost,2:0,2026-11-18,3-6 3-6,6,won
 2026-11-17,,Mathieu Scaglia,Ahmed Darmoul,Ahmed Darmoul,Mathieu Scaglia,10.0,ITF,5.5,2.02,0.35,0.495,-0.294,7,0.857,False,3381677.0,lost,2:0,2026-11-18,3-6 3-6,6,won
 2026-11-17,,Odysseas Geladaris,Ioannis Xilas,Odysseas Geladaris,Ioannis Xilas,9.2,ITF,5.5,1.6,0.35,0.625,-0.441,9,0.889,False,3381589.0,lost,2:1,2026-11-18,7-3 2-6 3-6,12,won
-2026-11-17,,Milana Ivantsiv,Arantxa Rus,Milana Ivantsiv,Arantxa Rus,17.0,ITF,3.5,1.6,0.599,0.625,-0.041,0,,False,,no_data,,2026-11-18,,,
-2026-11-17,,Milana Ivantsiv,Arantxa Rus,Milana Ivantsiv,Arantxa Rus,17.0,ITF,4.5,2.02,0.463,0.495,-0.064,0,,False,,no_data,,2026-11-18,,,
-2026-11-17,,Milana Ivantsiv,Arantxa Rus,Milana Ivantsiv,Arantxa Rus,17.0,ITF,5.5,2.7,0.35,0.37,-0.056,0,,False,,no_data,,2026-11-18,,,
+2026-11-17,,Milana Ivantsiv,Arantxa Rus,Milana Ivantsiv,Arantxa Rus,17.0,ITF,3.5,1.6,0.599,0.625,-0.041,0,,False,,void,,2026-11-23,,,void
+2026-11-17,,Milana Ivantsiv,Arantxa Rus,Milana Ivantsiv,Arantxa Rus,17.0,ITF,4.5,2.02,0.463,0.495,-0.064,0,,False,,void,,2026-11-23,,,void
+2026-11-17,,Milana Ivantsiv,Arantxa Rus,Milana Ivantsiv,Arantxa Rus,17.0,ITF,5.5,2.7,0.35,0.37,-0.056,0,,False,,void,,2026-11-23,,,void
 2026-11-17,,Carmen Gallardo Guevara,Rocio Patier,Rocio Patier,Carmen Gallardo Guevara,12.0,ITF,3.5,1.58,0.599,0.633,-0.053,10,0.8,False,3381743.0,lost,2:0,2026-11-18,3-6 0-6,3,lost
 2026-11-17,,Carmen Gallardo Guevara,Rocio Patier,Rocio Patier,Carmen Gallardo Guevara,12.0,ITF,4.5,2.05,0.463,0.488,-0.05,10,0.8,False,3381743.0,lost,2:0,2026-11-18,3-6 0-6,3,lost
 2026-11-17,,Carmen Gallardo Guevara,Rocio Patier,Rocio Patier,Carmen Gallardo Guevara,12.0,ITF,5.5,2.67,0.35,0.375,-0.067,10,0.8,False,3381743.0,lost,2:0,2026-11-18,3-6 0-6,3,lost
@@ -1749,3 +1749,15 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-21,,Juan Estevez,Mateo Del Pino,Mateo Del Pino,Juan Estevez,6.0,ITF,5.5,1.61,0.539,0.621,-0.133,20,0.75,False,3384881.0,lost,2:0,2026-11-22,1-6 2-6,3,lost
 2026-11-21,,Ekua Youri,Helene Schnack,Helene Schnack,Ekua Youri,6.7,ITF,4.5,1.45,0.656,0.69,-0.049,4,1.0,False,3384719.0,lost,2:0,2026-11-22,2-6 4-6,6,won
 2026-11-21,,Ekua Youri,Helene Schnack,Helene Schnack,Ekua Youri,6.7,ITF,5.5,1.75,0.539,0.571,-0.058,4,1.0,False,3384719.0,lost,2:0,2026-11-22,2-6 4-6,6,won
+2026-11-23,,Enzo Camargo Lima,Santiago De La Fuente,Enzo Camargo Lima,Santiago De La Fuente,7.0,Challenger/125,4.5,1.42,0.551,0.704,-0.217,19,0.842,False,3386314.0,pending,,,,,
+2026-11-23,,Enzo Camargo Lima,Santiago De La Fuente,Enzo Camargo Lima,Santiago De La Fuente,7.0,Challenger/125,5.5,1.71,0.433,0.585,-0.26,19,0.842,False,3386314.0,pending,,,,,
+2026-11-23,,Enzo Costanzo Prediger,Jose Pereira,Enzo Costanzo Prediger,Jose Pereira,15.0,Challenger/125,3.5,1.45,0.685,0.69,-0.007,0,,False,3386318.0,pending,,,,,
+2026-11-23,,Enzo Costanzo Prediger,Jose Pereira,Enzo Costanzo Prediger,Jose Pereira,15.0,Challenger/125,4.5,1.9,0.551,0.526,0.048,0,,False,3386318.0,pending,,,,,
+2026-11-23,,Enzo Costanzo Prediger,Jose Pereira,Enzo Costanzo Prediger,Jose Pereira,15.0,Challenger/125,5.5,2.4,0.433,0.417,0.038,0,,False,3386318.0,pending,,,,,
+2026-11-23,,Thiago Cigarran,Boris Arias,Boris Arias,Thiago Cigarran,5.65,Challenger/125,5.5,1.47,0.643,0.68,-0.054,9,0.667,False,3386316.0,pending,,,,,
+2026-11-23,,Oscar Jose Gutierrez,Carlos Eduardo Lino,Carlos Eduardo Lino,Oscar Jose Gutierrez,5.1,Challenger/125,5.5,1.48,0.643,0.676,-0.048,3,1.0,False,3386308.0,pending,,,,,
+2026-11-23,,Javier Barranco Cosano,Joao Cunha Cunha,Joao Cunha Cunha,Javier Barranco Cosano,20.0,Challenger/125,2.5,1.36,0.806,0.735,0.096,6,0.667,False,3386324.0,pending,,,,,
+2026-11-23,,Javier Barranco Cosano,Joao Cunha Cunha,Joao Cunha Cunha,Javier Barranco Cosano,20.0,Challenger/125,3.5,1.74,0.685,0.575,0.191,6,0.667,False,3386324.0,pending,,,,,
+2026-11-23,,Javier Barranco Cosano,Joao Cunha Cunha,Joao Cunha Cunha,Javier Barranco Cosano,20.0,Challenger/125,4.5,2.4,0.551,0.417,0.323,6,0.667,False,3386324.0,pending,,,,,
+2026-11-23,,Pedro Albuquerque Dietrich,Ryo Tabata,Pedro Albuquerque Dietrich,Ryo Tabata,6.5,Challenger/125,5.5,1.61,0.643,0.621,0.036,9,0.778,False,3386312.0,pending,,,,,
+2026-11-23,,Aliaksandra Skapets,Lucia Hradecka,Aliaksandra Skapets,Lucia Hradecka,5.0,ITF,5.5,1.52,0.537,0.658,-0.184,14,0.857,False,3386404.0,pending,,,,,

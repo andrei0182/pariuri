@@ -216,7 +216,7 @@ date,tournament,tour,player1,player2,recommended_player,opponent,rec_odds,market
 2026-11-17,,itf-f,Estella Jaeger,Daniella Dimitrova,Estella Jaeger,Daniella Dimitrova,2.1,1.84,14.1,3381465.0,won,2:0,2026-11-18,,,
 2026-11-17,,itf-m,Adrian Oltean Achacollo,Panagiotis-Gerasimos Grammatikakis,Adrian Oltean Achacollo,Panagiotis-Gerasimos Grammatikakis,1.48,1.3,13.8,3381955.0,won,2:1,2026-11-18,,,
 2026-11-17,,itf-f,Rira Kosaka,Louanne Djafari,Louanne Djafari,Rira Kosaka,2.8,2.5,12.0,3381459.0,won,2:0,2026-11-18,,,
-2026-11-17,,itf-f,Aurora Zantedeschi,Felitsata Dorofeeva-Rybas,Felitsata Dorofeeva-Rybas,Aurora Zantedeschi,2.1,1.9,10.5,3381931.0,pending,,,,,
+2026-11-17,,itf-f,Aurora Zantedeschi,Felitsata Dorofeeva-Rybas,Felitsata Dorofeeva-Rybas,Aurora Zantedeschi,2.1,1.9,10.5,3381931.0,void,,2026-11-23,,,void
 2026-11-17,,itf-f,Viola Bedini,Kristyna Paul,Viola Bedini,Kristyna Paul,2.52,2.33,8.2,3381461.0,won,2:0,2026-11-18,,,
 2026-11-17,,utr-f,Eeva Ristola,Leandra Nizetic,Leandra Nizetic,Eeva Ristola,2.65,2.5,6.0,3382191.0,lost,2:0,2026-11-20,,,
 2026-11-17,,itf-m,Drazen Petrovic,Mateja Stanisavljevic,Drazen Petrovic,Mateja Stanisavljevic,1.64,1.55,5.8,3381381.0,won,2:0,2026-11-18,,,
@@ -242,4 +242,4 @@ date,tournament,tour,player1,player2,recommended_player,opponent,rec_odds,market
 2026-11-20,,utr-m,Liam Spiers,Oskar Grzegorzewski,Oskar Grzegorzewski,Liam Spiers,2.57,2.44,5.3,3384045.0,lost,2:1,2026-11-21,,,
 2026-11-20,,utr-f,Ruby Ward,Helene Schnack,Helene Schnack,Ruby Ward,2.5,2.38,5.0,3384089.0,lost,2:0,2026-11-21,,,
 2026-11-21,,utr-m,Samuel Pohl,Adam Jones,Samuel Pohl,Adam Jones,2.7,2.55,5.9,3382383.0,lost,2:0,2026-11-22,,,
-2026-11-22,,itf-f,Sveva Sveva Fumagalli,Victoria Pohle,Sveva Sveva Fumagalli,Victoria Pohle,3.35,3.05,9.8,3386054.0,pending,,,,,
+2026-11-22,,itf-f,Sveva Sveva Fumagalli,Victoria Pohle,Sveva Sveva Fumagalli,Victoria Pohle,3.35,3.05,9.8,3386054.0,lost,2:0,2026-11-23,,,

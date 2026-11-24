@@ -13,10 +13,12 @@ tournament_slug,surface
 /amstelveen-itf/2026/wta-women/,Clay
 /amstetten-itf/2026/wta-women/,Clay
 /andong-itf/2026/wta-women/,Hard
+/ankara-challenger/2026/atp-men/,Indoors
 /ankara/2026/wta-women/,Hard
 /anning-itf/2026/wta-women/,Clay
 /antalya-32-itf/2026/wta-women/,Clay
 /antalya-33-itf/2026/wta-women/,Clay
+/antalya-35-itf/2026/wta-women/,Clay
 /antalya-5-wta/2026/wta-women/,Clay
 /antalya-50-itf/2026/wta-women/,Clay
 /antofagasta-challenger/2026/atp-men/,Clay
@@ -109,6 +111,7 @@ tournament_slug,surface
 /bucharest-6-itf/2026/wta-women/,Clay
 /bucharest/2026/atp-men/,Clay
 /buenos-aires-challenger/2026/atp-men/,Clay
+/buenos-aires-wta/2026/wta-women/,Clay
 /bujumbura-2-itf/2026/wta-women/,Clay
 /bujumbura-itf/2026/wta-women/,Clay
 /bundesliga-men/2026/atp-men/,Clay
@@ -258,10 +261,12 @@ tournament_slug,surface
 /helsinki-challenger/2026/atp-men/,Indoors
 /heraklion-10-itf/2026/wta-women/,Clay
 /heraklion-11-itf/2026/wta-women/,Clay
+/heraklion-12-itf/2026/wta-women/,Clay
 /heraklion-20-itf/2026/wta-women/,Clay
 /heraklion-8-itf/2026/wta-women/,Clay
 /heraklion-9-itf/2026/wta-women/,Clay
 /hersonissos-5-challenger/2026/atp-men/,Hard
+/hersonissos-6-challenger/2026/atp-men/,Hard
 /hertogenbosch/2026/atp-men/,Grass
 /hertogenbosch/2026/wta-women/,Grass
 /hillcrest-2-itf/2026/wta-women/,Hard
@@ -329,6 +334,7 @@ tournament_slug,surface
 /knoxville-challenger/2026/atp-men/,Indoors
 /kobe-challenger/2026/atp-men/,Indoors
 /koksijde-itf/2026/wta-women/,Clay
+/kolkata-itf/2026/wta-women/,Hard
 /kosice-challenger/2026/atp-men/,Clay
 /kosice-itf/2026/wta-women/,Clay
 /krakow-itf/2026/wta-women/,Clay
@@ -384,6 +390,7 @@ tournament_slug,surface
 /lopota-itf/2026/wta-women/,Hard
 /los-cabos/2026/atp-men/,Hard
 /loule-itf/2026/wta-women/,Hard
+/lousada-itf/2026/wta-women/,Indoors
 /luan-10-itf/2026/wta-women/,Hard
 /luan-11-itf/2026/wta-women/,Hard
 /luan-12-itf/2026/wta-women/,Hard
@@ -438,6 +445,7 @@ tournament_slug,surface
 /modena/2026/wta-women/,Clay
 /mogyorod-itf/2026/wta-women/,Clay
 /mohammedia-itf/2026/wta-women/,Clay
+/monastir-2-challenger/2026/atp-men/,Hard
 /monastir-28-itf/2026/wta-women/,Hard
 /monastir-29-itf/2026/wta-women/,Hard
 /monastir-30-itf/2026/wta-women/,Hard
@@ -468,6 +476,7 @@ tournament_slug,surface
 /monastir-57-itf/2026/wta-women/,Hard
 /monastir-58-itf/2026/wta-women/,Hard
 /monastir-59-itf/2026/wta-women/,Hard
+/monastir-60-itf/2026/wta-women/,Hard
 /monastir-challenger/2026/atp-men/,Hard
 /monte-carlo/2026/atp-men/,Clay
 /montemor-o-novo-itf/2026/wta-women/,Hard
@@ -523,6 +532,7 @@ tournament_slug,surface
 /orlando-5-itf/2026/wta-women/,Clay
 /orlando-7-itf/2026/wta-women/,Clay
 /orleans-challenger/2026/atp-men/,Indoors
+/ortisei-itf/2026/wta-women/,Indoors
 /osaka-itf/2026/wta-women/,Hard
 /osaka-wta/2026/wta-women/,Hard
 /osijek-itf/2026/wta-women/,Clay
@@ -550,6 +560,7 @@ tournament_slug,surface
 /pilar-itf/2026/wta-women/,Clay
 /piracicaba-challenger/2026/atp-men/,Clay
 /platja-d-aro-itf/2026/wta-women/,Clay
+/playford-2-challenger/2026/atp-men/,Hard
 /plovdiv-2-challenger/2026/atp-men/,Clay
 /plovdiv-3-challenger/2026/atp-men/,Clay
 /plovdiv-4-challenger/2026/atp-men/,Clay
@@ -615,6 +626,7 @@ tournament_slug,surface
 /san-luis-potosi-chall/2026/atp-men/,Clay
 /san-marino-challenger/2026/atp-men/,Clay
 /san-miguel-de-tucuman-challenger/2026/atp-men/,Clay
+/san-salvador-challenger/2026/atp-men/,Hard
 /santa-cruz-challenger/2026/atp-men/,Clay
 /santa-cruz-de-la-sierra-challenger/2026/atp-men/,Clay
 /santa-fe-2-itf/2026/wta-women/,Hard
@@ -663,6 +675,7 @@ tournament_slug,surface
 /sharm-el-sheikh-20-itf/2026/wta-women/,Hard
 /sharm-el-sheikh-21-itf/2026/wta-women/,Hard
 /sharm-el-sheikh-22-itf/2026/wta-women/,Hard
+/sharm-el-sheikh-23-itf/2026/wta-women/,Hard
 /sharm-el-sheikh-9-itf/2026/wta-women/,Hard
 /shenyang-itf/2026/wta-women/,Indoors
 /shenzhen-itf/2026/wta-women/,Hard
@@ -799,6 +812,7 @@ tournament_slug,surface
 /yeongwol-2-itf/2026/wta-women/,Hard
 /yeongwol-itf/2026/wta-women/,Hard
 /yokkaichi-challenger/2026/atp-men/,Hard
+/yokohama-challenger/2026/atp-men/,Hard
 /yokohama-itf/2026/wta-women/,Hard
 /ystad-itf/2026/wta-women/,Clay
 /zagreb-2-itf/2026/wta-women/,Clay

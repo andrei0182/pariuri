@@ -227,13 +227,13 @@ date,tournament,tour,player1,player2,recommended_player,opponent,rec_odds,market
 2026-11-18,,itf-m,Xavi Matas Ortega,Jorge Plans,Xavi Matas Ortega,Jorge Plans,1.95,1.82,7.1,3382911.0,lost,2:0,2026-11-20,,,
 2026-11-19,,utr-m,Jules Alias,Dino Molokova Ferreira,Dino Molokova Ferreira,Jules Alias,1.68,1.45,15.9,3383121.0,won,2:0,2026-11-21,,,
 2026-11-19,,itf-m,Giovanni Branchetti,Mateo Del Pino,Mateo Del Pino,Giovanni Branchetti,2.4,2.09,14.8,3383729.0,won,2:0,2026-11-20,,,
-2026-11-19,,itf-f,Dasha Plekhanova,Kylie Collins,Dasha Plekhanova,Kylie Collins,2.55,2.24,13.8,3383885.0,pending,,,,,
+2026-11-19,,itf-f,Dasha Plekhanova,Kylie Collins,Dasha Plekhanova,Kylie Collins,2.55,2.24,13.8,3383885.0,void,,2026-11-25,,,void
 2026-11-19,,itf-m,Vito Antonio Darderi,Ivan Dreycopp,Ivan Dreycopp,Vito Antonio Darderi,1.35,1.2,12.5,3383965.0,won,2:0,2026-11-20,,,
 2026-11-19,,itf-f,Tereza Krejcova,Mia Horvit,Mia Horvit,Tereza Krejcova,1.95,1.77,10.2,3383819.0,won,2:0,2026-11-20,,,
-2026-11-19,,itf-f,Dasha Plekhanova,Kylie Collins,Kylie Collins,Dasha Plekhanova,1.41,1.31,7.6,3383885.0,pending,,,,,
+2026-11-19,,itf-f,Dasha Plekhanova,Kylie Collins,Kylie Collins,Dasha Plekhanova,1.41,1.31,7.6,3383885.0,void,,2026-11-25,,,void
 2026-11-19,,itf-f,Giulia Safina Popa,Anna Petkovic,Giulia Safina Popa,Anna Petkovic,1.37,1.28,7.0,3383817.0,won,2:0,2026-11-20,,,
 2026-11-19,,itf-f,Angelina Voloshchuk,Celia Cervino Ruiz,Celia Cervino Ruiz,Angelina Voloshchuk,2.95,2.77,6.5,3383263.0,won,2:1,2026-11-20,,,
-2026-11-19,,itf-f,Felitsata Dorofeeva-Rybas,Carlota Martinez Cirez,Carlota Martinez Cirez,Felitsata Dorofeeva-Rybas,3.15,3.0,5.0,3383607.0,pending,,,,,
+2026-11-19,,itf-f,Felitsata Dorofeeva-Rybas,Carlota Martinez Cirez,Carlota Martinez Cirez,Felitsata Dorofeeva-Rybas,3.15,3.0,5.0,3383607.0,void,,2026-11-25,,,void
 2026-11-20,,wta-125,Guiomar Maristany de Reales,Andrea Lazaro Garcia,Guiomar Maristany de Reales,Andrea Lazaro Garcia,1.65,1.43,15.4,3384517.0,won,2:1,2026-11-21,,,
 2026-11-20,,utr-m,Sander Juuhl Sivertsen,Yazid Lahjomri,Yazid Lahjomri,Sander Juuhl Sivertsen,2.02,1.83,10.4,3384041.0,lost,2:1,2026-11-21,,,
 2026-11-20,,wta-125,Guiomar Maristany de Reales,Andrea Lazaro Garcia,Andrea Lazaro Garcia,Guiomar Maristany de Reales,2.12,1.93,9.8,3384517.0,lost,2:1,2026-11-21,,,
@@ -243,6 +243,7 @@ date,tournament,tour,player1,player2,recommended_player,opponent,rec_odds,market
 2026-11-20,,utr-f,Ruby Ward,Helene Schnack,Helene Schnack,Ruby Ward,2.5,2.38,5.0,3384089.0,lost,2:0,2026-11-21,,,
 2026-11-21,,utr-m,Samuel Pohl,Adam Jones,Samuel Pohl,Adam Jones,2.7,2.55,5.9,3382383.0,lost,2:0,2026-11-22,,,
 2026-11-22,,itf-f,Sveva Sveva Fumagalli,Victoria Pohle,Sveva Sveva Fumagalli,Victoria Pohle,3.35,3.05,9.8,3386054.0,lost,2:0,2026-11-23,,,
-2026-11-24,,itf-m,Luis Garcia Paez,Felix Einig,Felix Einig,Luis Garcia Paez,2.15,2.0,7.5,3387814.0,pending,,,,,
-2026-11-24,,itf-m,Kael Shalin Shah,Jules Fabre,Kael Shalin Shah,Jules Fabre,1.71,1.6,6.9,3387406.0,pending,,,,,
-2026-11-24,,utr-f,Diana Marcinkevica,Laura Svatikova,Diana Marcinkevica,Laura Svatikova,3.15,3.0,5.0,3387978.0,pending,,,,,
+2026-11-24,,itf-m,Luis Garcia Paez,Felix Einig,Felix Einig,Luis Garcia Paez,2.15,2.0,7.5,3387814.0,lost,2:0,2026-11-25,,,
+2026-11-24,,itf-m,Kael Shalin Shah,Jules Fabre,Kael Shalin Shah,Jules Fabre,1.71,1.6,6.9,3387406.0,won,2:1,2026-11-25,,,
+2026-11-24,,utr-f,Diana Marcinkevica,Laura Svatikova,Diana Marcinkevica,Laura Svatikova,3.15,3.0,5.0,3387978.0,won,2:0,2026-11-25,,,
+2026-11-25,,itf-f,Sarah Iliev,Anna Shkutova,Sarah Iliev,Anna Shkutova,1.36,1.2,13.3,3388481.0,pending,,,,,

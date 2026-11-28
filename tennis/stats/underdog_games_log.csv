@@ -1816,15 +1816,17 @@ date,tournament,player1,player2,recommended_player,opponent,dog_odds,level,games
 2026-11-26,,Martha Matoula,Bianca Elena Barbulescu,Bianca Elena Barbulescu,Martha Matoula,7.0,ITF,4.5,1.47,0.466,0.68,-0.314,20,0.75,False,3388931.0,lost,2:0,2026-11-27,1-6 0-6,1,lost
 2026-11-26,,Martha Matoula,Bianca Elena Barbulescu,Bianca Elena Barbulescu,Martha Matoula,7.0,ITF,5.5,1.76,0.353,0.568,-0.379,20,0.75,False,3388931.0,lost,2:0,2026-11-27,1-6 0-6,1,lost
 2026-11-26,,Clara Vlasselaer,Mika Stojsavljevic,Clara Vlasselaer,Mika Stojsavljevic,5.65,ITF,5.5,1.45,0.537,0.69,-0.222,16,1.0,False,3389043.0,won,2:0,2026-11-27,6-3 6-2,12,won
-2026-11-27,,Sebastian Gima,Tim Vaisman,Tim Vaisman,Sebastian Gima,6.6,ITF,4.5,1.41,0.654,0.709,-0.078,10,1.0,False,3389427.0,pending,,,,,
-2026-11-27,,Sebastian Gima,Tim Vaisman,Tim Vaisman,Sebastian Gima,6.6,ITF,5.5,1.68,0.536,0.595,-0.099,10,1.0,False,3389427.0,pending,,,,,
-2026-11-27,,Karan Singh,Grigoriy Lomakin,Grigoriy Lomakin,Karan Singh,7.2,ITF,5.5,1.48,0.352,0.676,-0.479,27,0.741,False,3389371.0,pending,,,,,
-2026-11-27,,Mickael Kaouk,Leonardo Borrelli,Leonardo Borrelli,Mickael Kaouk,8.1,ITF,4.5,1.53,0.466,0.654,-0.287,23,0.826,False,3389431.0,pending,,,,,
-2026-11-27,,Mickael Kaouk,Leonardo Borrelli,Leonardo Borrelli,Mickael Kaouk,8.1,ITF,5.5,1.85,0.352,0.541,-0.349,23,0.826,False,3389431.0,pending,,,,,
-2026-11-27,,Eva Marie Vorace,Mariia Makarova,Eva Marie Vorace,Mariia Makarova,5.15,ITF,5.5,1.54,0.536,0.649,-0.174,0,,False,,pending,,,,,
-2026-11-27,,Nellie Taraba Wallberg,Madelief Hageman,Madelief Hageman,Nellie Taraba Wallberg,7.2,ITF,4.5,1.49,0.466,0.671,-0.305,23,0.87,False,3389415.0,pending,,,,,
-2026-11-27,,Nellie Taraba Wallberg,Madelief Hageman,Madelief Hageman,Nellie Taraba Wallberg,7.2,ITF,5.5,1.8,0.352,0.556,-0.366,23,0.87,False,3389415.0,pending,,,,,
+2026-11-27,,Sebastian Gima,Tim Vaisman,Tim Vaisman,Sebastian Gima,6.6,ITF,4.5,1.41,0.654,0.709,-0.078,10,1.0,False,3389427.0,lost,2:0,2026-11-28,1-6 4-6,5,won
+2026-11-27,,Sebastian Gima,Tim Vaisman,Tim Vaisman,Sebastian Gima,6.6,ITF,5.5,1.68,0.536,0.595,-0.099,10,1.0,False,3389427.0,lost,2:0,2026-11-28,1-6 4-6,5,lost
+2026-11-27,,Karan Singh,Grigoriy Lomakin,Grigoriy Lomakin,Karan Singh,7.2,ITF,5.5,1.48,0.352,0.676,-0.479,27,0.741,False,3389371.0,lost,2:0,2026-11-28,4-6 4-6,8,won
+2026-11-27,,Mickael Kaouk,Leonardo Borrelli,Leonardo Borrelli,Mickael Kaouk,8.1,ITF,4.5,1.53,0.466,0.654,-0.287,23,0.826,False,3389431.0,lost,2:0,2026-11-28,6-7 1-6,7,won
+2026-11-27,,Mickael Kaouk,Leonardo Borrelli,Leonardo Borrelli,Mickael Kaouk,8.1,ITF,5.5,1.85,0.352,0.541,-0.349,23,0.826,False,3389431.0,lost,2:0,2026-11-28,6-7 1-6,7,won
+2026-11-27,,Eva Marie Vorace,Mariia Makarova,Eva Marie Vorace,Mariia Makarova,5.15,ITF,5.5,1.54,0.536,0.649,-0.174,0,,False,,no_data,,2026-11-28,,,
+2026-11-27,,Nellie Taraba Wallberg,Madelief Hageman,Madelief Hageman,Nellie Taraba Wallberg,7.2,ITF,4.5,1.49,0.466,0.671,-0.305,23,0.87,False,3389415.0,lost,2:1,2026-11-28,6-4 3-6 5-7,14,won
+2026-11-27,,Nellie Taraba Wallberg,Madelief Hageman,Madelief Hageman,Nellie Taraba Wallberg,7.2,ITF,5.5,1.8,0.352,0.556,-0.366,23,0.87,False,3389415.0,lost,2:1,2026-11-28,6-4 3-6 5-7,14,won
 2026-11-27,,Denise Hrdinkova,Aliaksandra Skapets,Aliaksandra Skapets,Denise Hrdinkova,20.0,ITF,2.5,1.51,0.742,0.662,0.121,16,0.875,False,3389571.0,pending,,,,,
 2026-11-27,,Denise Hrdinkova,Aliaksandra Skapets,Aliaksandra Skapets,Denise Hrdinkova,20.0,ITF,3.5,2.02,0.602,0.495,0.216,16,0.875,False,3389571.0,pending,,,,,
 2026-11-27,,Denise Hrdinkova,Aliaksandra Skapets,Aliaksandra Skapets,Denise Hrdinkova,20.0,ITF,4.5,2.85,0.466,0.351,0.329,16,0.875,False,3389571.0,pending,,,,,
 2026-11-27,,Emma Tran,Ameerah Khan,Ameerah Khan,Emma Tran,5.9,ITF,5.5,1.63,0.536,0.613,-0.126,3,0.667,False,3389557.0,pending,,,,,
+2026-11-28,,Nellie Taraba Wallberg,Lavinia Luciano,Lavinia Luciano,Nellie Taraba Wallberg,8.4,ITF,4.5,1.57,0.466,0.637,-0.269,21,0.857,False,3389831.0,pending,,,,,
+2026-11-28,,Nellie Taraba Wallberg,Lavinia Luciano,Lavinia Luciano,Nellie Taraba Wallberg,8.4,ITF,5.5,1.92,0.351,0.521,-0.326,21,0.857,False,3389831.0,pending,,,,,

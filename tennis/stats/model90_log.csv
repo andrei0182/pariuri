@@ -647,7 +647,7 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-11-25,,itf-m,Peter Makk,Rhys Lawlor,castiga meciul,Peter Makk,Rhys Lawlor,0.822,0.815,1.14,over,8.5,,3388293.0,won,2:1,2026-11-26,6-2 2-6 7-5,15,won
 2026-11-25,,itf-f,Cristiana Nicoleta Todoni,Stefanie Auer,castiga meciul,Cristiana Nicoleta Todoni,Stefanie Auer,0.819,0.815,1.01,over,8.5,,3388363.0,won,2:1,2026-11-26,5-7 6-3 6-2,17,won
 2026-11-25,,itf-f,Elsa Bonelli,Sofia Camila Rojas,castiga meciul,Sofia Camila Rojas,Elsa Bonelli,0.816,0.815,1.36,over,8.5,,3388397.0,lost,2:1,2026-11-26,3-6 6-2 5-7,14,won
-2026-11-26,,utr-f,Kitti Molnar,Aliaksandra Skapets,castiga meciul,Kitti Molnar,Aliaksandra Skapets,0.904,0.815,1.002,over,8.5,,3388801.0,pending,,,,,
+2026-11-26,,utr-f,Kitti Molnar,Aliaksandra Skapets,castiga meciul,Kitti Molnar,Aliaksandra Skapets,0.904,0.815,1.002,over,8.5,,3388801.0,won,2:0,2026-11-28,6-2 6-1,12,won
 2026-11-26,,itf-f,Martha Matoula,Bianca Elena Barbulescu,castiga meciul,Martha Matoula,Bianca Elena Barbulescu,0.895,0.815,1.02,over,8.5,,3388931.0,won,2:0,2026-11-27,6-1 6-0,12,won
 2026-11-26,,itf-m,Pablo de La Cierva Sanchez,Tomas Curras Abasolo,castiga meciul,Tomas Curras Abasolo,Pablo de La Cierva Sanchez,0.877,0.815,1.002,over,8.5,,3388919.0,won,2:0,2026-11-27,6-4 6-1,12,won
 2026-11-26,,itf-m,Anton Arzhankin,Artem Alekseychuk,castiga meciul,Anton Arzhankin,Artem Alekseychuk,0.871,0.815,1.002,over,8.5,,3389079.0,won,1:0,2026-11-27,5-0,5,void
@@ -659,13 +659,15 @@ date,tournament,tour,player1,player2,market,recommended_player,opponent,probabil
 2026-11-26,,itf-m,Alan Wazny,Andrea Paolini,castiga meciul,Alan Wazny,Andrea Paolini,0.839,0.815,1.16,over,8.5,,3389001.0,lost,2:1,2026-11-27,7-3 1-6 3-6,11,won
 2026-11-26,,itf-f,Cristiana Nicoleta Todoni,Sandugash Kenzhibayeva,castiga meciul,Cristiana Nicoleta Todoni,Sandugash Kenzhibayeva,0.827,0.815,1.04,over,8.5,,3389035.0,won,2:0,2026-11-27,7-5 6-0,13,won
 2026-11-26,,itf-f,Clervie Ngounoue,Barbora Palicova,castiga meciul,Barbora Palicova,Clervie Ngounoue,0.824,0.815,1.52,over,8.5,,3389167.0,lost,2:0,2026-11-27,2-6 1-6,3,lost
-2026-11-27,,itf-f,Iva Marinkovic,Eleejah Inisan,castiga meciul,Iva Marinkovic,Eleejah Inisan,0.88,0.815,1.46,over,8.5,,3389395.0,pending,,,,,
-2026-11-27,,itf-m,Karan Singh,Grigoriy Lomakin,castiga meciul,Karan Singh,Grigoriy Lomakin,0.867,0.815,1.02,over,8.5,,3389371.0,pending,,,,,
+2026-11-27,,itf-f,Iva Marinkovic,Eleejah Inisan,castiga meciul,Iva Marinkovic,Eleejah Inisan,0.88,0.815,1.46,over,8.5,,3389395.0,won,2:0,2026-11-28,7-5 6-0,13,won
+2026-11-27,,itf-m,Karan Singh,Grigoriy Lomakin,castiga meciul,Karan Singh,Grigoriy Lomakin,0.867,0.815,1.02,over,8.5,,3389371.0,won,2:0,2026-11-28,6-4 6-4,12,won
 2026-11-27,,utr-f,Francesca Franchi,Vanda Vargova,castiga meciul,Vanda Vargova,Francesca Franchi,0.866,0.815,1.0,over,8.5,,3389573.0,pending,,,,,
 2026-11-27,,utr-f,Denise Hrdinkova,Aliaksandra Skapets,castiga meciul,Denise Hrdinkova,Aliaksandra Skapets,0.863,0.815,1.0,over,8.5,,3389571.0,pending,,,,,
-2026-11-27,,itf-m,W.Rejchtman Vinciguerra,Hitesh Chauhan,castiga meciul,W.Rejchtman Vinciguerra,Hitesh Chauhan,0.853,0.815,1.2,over,8.5,,3389337.0,pending,,,,,
-2026-11-27,,itf-f,Kristina Dmitruk,Connie Ma,castiga meciul,Connie Ma,Kristina Dmitruk,0.84,0.815,1.3,over,8.5,,3389347.0,pending,,,,,
-2026-11-27,,itf-f,Martha Matoula,Victoria Allen,castiga meciul,Martha Matoula,Victoria Allen,0.84,0.815,1.11,over,8.5,,3389369.0,pending,,,,,
-2026-11-27,,itf-f,Victoria Gomez Ohayon,Anna Petkovic,castiga meciul,Anna Petkovic,Victoria Gomez Ohayon,0.838,0.815,1.05,over,8.5,,3389413.0,pending,,,,,
+2026-11-27,,itf-m,W.Rejchtman Vinciguerra,Hitesh Chauhan,castiga meciul,W.Rejchtman Vinciguerra,Hitesh Chauhan,0.853,0.815,1.2,over,8.5,,3389337.0,won,2:0,2026-11-28,6-4 6-4,12,won
+2026-11-27,,itf-f,Kristina Dmitruk,Connie Ma,castiga meciul,Connie Ma,Kristina Dmitruk,0.84,0.815,1.3,over,8.5,,3389347.0,won,2:1,2026-11-28,3-6 7-6 6-4,16,won
+2026-11-27,,itf-f,Martha Matoula,Victoria Allen,castiga meciul,Martha Matoula,Victoria Allen,0.84,0.815,1.11,over,8.5,,3389369.0,won,2:0,2026-11-28,6-3 6-3,12,won
+2026-11-27,,itf-f,Victoria Gomez Ohayon,Anna Petkovic,castiga meciul,Anna Petkovic,Victoria Gomez Ohayon,0.838,0.815,1.05,over,8.5,,3389413.0,won,2:0,2026-11-28,6-4 6-3,12,won
 2026-11-27,,utr-f,Katy Dunne,Kaylah Mcphee,castiga meciul,Kaylah Mcphee,Katy Dunne,0.831,0.815,1.32,over,8.5,,3389301.0,pending,,,,,
-2026-11-27,,itf-m,Rafael Giotis,Vuk Radjenovic,castiga meciul,Vuk Radjenovic,Rafael Giotis,0.83,0.815,1.25,over,8.5,,3389349.0,pending,,,,,
+2026-11-27,,itf-m,Rafael Giotis,Vuk Radjenovic,castiga meciul,Vuk Radjenovic,Rafael Giotis,0.83,0.815,1.25,over,8.5,,3389349.0,won,2:1,2026-11-28,6-3 5-7 7-5,18,won
+2026-11-28,,utr-f,Denise Hrdinkova,Francesca Franchi,castiga meciul,Denise Hrdinkova,Francesca Franchi,0.844,0.81,1.0,over,8.5,,3389865.0,pending,,,,,
+2026-11-28,,utr-f,Marley Lambert,Brandy Walker,castiga meciul,Brandy Walker,Marley Lambert,0.83,0.81,1.02,over,8.5,,3389669.0,pending,,,,,
